@@ -1946,7 +1946,6 @@ class CfgVehicles
 					initFov = 0.9;
 					minFov = 0.25;
 					maxFov = 0.9;
-					visionMode[] = {"Normal"};
 				};
 				class TurnIn
                 {
@@ -2753,7 +2752,6 @@ class CfgVehicles
 							initFov = 0.9;
 							minFov = 0.25;
 							maxFov = 0.9;
-							visionMode[] = {"Normal"};
 						};
 						class OpticsIn{};
 						class HitPoints
