@@ -1,14 +1,14 @@
-ambient[] = { 1, 1, 1, 1 };
-diffuse[] = { 1, 1, 1, 1 };
-forcedDiffuse[] = { 0, 0, 0, 1 };
-emmisive[] = { 0, 0, 0, 1 };
-specular[] = { 0.0001, 0.0001, 0.0001, 1 };
-specularPower = 64;
+ambient[] = {0.25,0.25,0.25,1.0};
+diffuse[] = {0.25,0.25,0.25,1.0};
+forcedDiffuse[] = {0.0,0.0,0.0,1.0};
+emmisive[] = {0.0,0.0,0.0,0.0};
+specular[] = {0.1,0.1,0.105,1.0};
+specularPower = 150;
 PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1
 {
-	texture = "ADF_Optics\Swaro\Textures\optic_swarovski_Glass_NOHQ.paa";
+	texture = "ADF_Optics\Swaro\Textures\f88sa2_sight_NOHQ.paa";
 	uvSource = "tex";
 	class uvTransform
 	{
@@ -44,7 +44,7 @@ class Stage3
 };
 class Stage4
 {
-	texture = "ADF_Optics\Swaro\Textures\optic_swarovski_Glass_AS.paa";
+	texture = "ADF_Optics\Swaro\Textures\f88sa2_sight_AS.paa";
 	uvSource = "tex";
 	class uvTransform
 	{
@@ -56,7 +56,7 @@ class Stage4
 };
 class Stage5
 {
-	texture = "#(argb,8,8,3)color(1,1,1,1,SMDI)";
+	texture = "ADF_Optics\Swaro\Textures\f88sa2_sight_SMDI.paa";
 	uvSource = "tex";
 	class uvTransform
 	{
@@ -68,7 +68,7 @@ class Stage5
 };
 class Stage6
 {
-	texture = "#(ai,64,64,1)fresnel(1.1,0.4)";
+	texture = "#(ai,64,64,1)fresnel(2.18,0.3)";
 	uvSource = "tex";
 	class uvTransform
 	{
@@ -80,7 +80,7 @@ class Stage6
 };
 class Stage7
 {
-	texture = "ADF_Optics\Swaro\Textures\optic_swarovski_Glass_CA.paa";
+	texture = "ADF_Optics\Swaro\Textures\f88sa2_sight_CO.paa";
 	useWorldEnvMap = "true";
 	uvSource = "tex";
 	class uvTransform

@@ -112,6 +112,68 @@ class cfgWeapons
 			};
 		};
 	};
+	
+	class ADFRC_swarovski_optic_SA2: ItemCore
+	{
+		scope=2;
+		displayName="Swarovski CQB Optic (SA2)";
+		author="Quiggs & Brucey";
+		picture="\ADF_Optics\Swaro\ui\SMAV_SA2_CA.paa";
+		model="\ADF_Optics\Swaro\ADFRC_SWAV_SA2.p3d";
+		descriptionShort="1.5x Swarovski Rifle Optic &lt;br/&gt; Rail Mounted AUG A1 Optics";
+		weaponInfoType="RscWeaponZeroing";
+		class ItemInfo: InventoryOpticsItem_Base_F
+		{
+			mass=11;
+			weaponInfoType="RscWeaponRangeZeroingFOV";
+			modelOptics = "\A3\Weapons_F\empty";
+			optics=1;
+			class OpticsModes
+			{
+				class Snip
+				{
+					opticsID=1;
+					opticsDisplayName="OPTIC";
+					useModelOptics=0;
+					opticsPPEffects[]=
+					{
+						""
+					};
+					opticsZoomMin = "1.5 call (uiNamespace getVariable 'cba_optics_fnc_setOpticMagnificationHelper')";
+					opticsZoomMax = "1.5 call (uiNamespace getVariable 'cba_optics_fnc_setOpticMagnificationHelper')";
+					opticsZoomInit = "1.5 call (uiNamespace getVariable 'cba_optics_fnc_setOpticMagnificationHelper')";
+					discreteDistance[]={25,50,100,200,300,400,500};
+					discreteDistanceInitIndex=3;
+					distanceZoomMin=300;
+					distanceZoomMax=300;
+					discreteInitIndex=0;
+					memoryPointCamera="opticView";
+					visionMode[]=
+					{
+						"Normal"
+					};
+					opticsFlare=1;
+					opticsDisablePeripherialVision=1;
+				};
+				class Iron: Snip
+				{
+					opticsID=2;
+					opticsDisplayName="";
+					useModelOptics=0;
+					opticsFlare=0;
+					opticsDisablePeripherialVision=0;
+					opticsZoomMin=0.375;
+					opticsZoomMax=1.1;
+					opticsZoomInit=0.75;
+					memoryPointCamera="eye";
+					visionMode[]={};
+					discretefov[]={};
+					discreteDistance[]={100};
+					discreteDistanceInitIndex=0;
+				};
+			};
+		};
+	};
 	class ADFRC_elcan_c79: ItemCore
 	{
 		scope=2;
