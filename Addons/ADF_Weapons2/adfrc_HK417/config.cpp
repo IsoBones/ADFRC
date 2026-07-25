@@ -1,3 +1,14 @@
+#define Grip_Macro(numb,name) \
+    handAnim[] = {"OFP2_ManSkeleton",\ADF_Weapons\core\data\anims\##name##.rtm};\
+    class LinkedItems\
+    {\
+        class LinkedItemsUnder\
+        {\
+            item = rhsusf_acc_grip##numb##;\
+            slot = "UnderBarrelSlot";\
+        };\
+    };
+	
 class CfgPatches
 {
 	class ADF_HK417
@@ -32,6 +43,7 @@ class Mode_FullAuto;
 class asdg_SlotInfo;
 class recoil_default;
 class Mode_SemiAuto;
+class adfrc_PIC_grip_slot;
 class compatibleItems;
 class cfgweapons{
 #include "HK417.hpp"

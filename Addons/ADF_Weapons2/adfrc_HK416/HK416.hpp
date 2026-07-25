@@ -10,7 +10,7 @@
 		selectionFireAnim = "zasleh";
 		inertia = 0.3;
         swayDecaySpeed = 1.25;
-		handAnim[] = {"OFP2_ManSkeleton","A3\Weapons_F_Exp\Rifles\SPAR_01\Data\Anim\SPAR_01.rtm"};
+		handAnim[] = {"OFP2_ManSkeleton","\ADF_Weapons\core\data\anims\hk416_cgrip_static.rtm"};
 		drySound[] = {"A3\Sounds_F_Exp\arsenal\weapons\Rifles\SPAR01\SPAR01_dry",0.562341,1,10};
 		ace_overheating_mrbs = 3000; //Mean Rounds Between Stoppages (this will be scaled based on the barrel temp)
         ace_overheating_slowdownFactor = 1; //Slowdown Factor, reduces the velocity of the projectile (this will be scaled based on the barrel temp)
@@ -107,7 +107,9 @@
 			ADFRC_PEQ15_M4_Top_FDE_IRT = 1;
 			};
 			};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
+		
 		
        class Single : Mode_SemiAuto
 {			autofire = 0;
@@ -185,4 +187,93 @@ class ADFRC_HK416_556_115: ADFRC_HK416_556_Base
 		{
 			libTextDesc = "HK416";
 		};
+		
+		
+		
+		rhs_grip1_change = "ADFRC_HK416_556_115_GripPod";
+		rhs_grip2_change = "ADFRC_HK416_556_115_AFG";
+		rhs_grip3_change = "ADFRC_HK416_556_115_VFG";
+	};
+
+	class ADFRC_HK416_556_115_GripPod: ADFRC_HK416_556_115
+	{
+		author = "Brucey";
+	displayName = "HK416 11.5 5.56 Carbine Grip-Pod";
+    Grip_Macro(1,hk416_vg_static)
+	};
+	
+	class ADFRC_HK416_556_115_AFG: ADFRC_HK416_556_115
+	{
+		author = "Brucey";
+	displayName = "HK416 11.5 5.56 Carbine AFG";
+    Grip_Macro(2,hk416_afg_static)
+	};
+	
+	class ADFRC_HK416_556_115_VFG: ADFRC_HK416_556_115
+	{
+		author = "Brucey";
+	displayName = "HK416 11.5 5.56 Carbine VFG";
+    Grip_Macro(3,hk416_vg_static)
+	};
+	
+	
+
+class ADFRC_HK416_556_145: ADFRC_HK416_556_Base
+	{
+		author = "Brucey";
+		ACE_barrelTwist = 177.8;
+		ACE_barrelLength = 368.3;
+		recoil = "recoil_spar";
+		recoilProne = "recoil_spar";
+		deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfoldedsoundBipodUp[] = { "A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_AAF_up", db - 3, 1, 20 }; /// sound of folding the bipod
+		cursor = "srifle";
+		cursorAim = "EmptyCursor";
+		model = "adf_weapons2\adfrc_hk416\adfrc_Hk416_145";
+		descriptionShort = "HK416 <br/>14.5in<br/>Caliber: 5.56";
+		inertia = 0.225;
+		scope=2;
+		scopeWeapon=2;
+		scopeArsenal = 2;
+		picture = "ADF_Weapons2\adfrc_HK416\UI\adfrc_416_CA.paa";
+		UiPicture = "ADF_Weapons2\adfrc_HK416\UI\adfrc_416_CA.paa";
+		displayName = "HK416 14.5 5.56 Rifle";
+		discretedistance[] = { 100, 200, 300, 400 };
+		discretedistanceinitindex = 2;
+		opticszoominit = 0.75;
+		opticszoommax = 1.1;
+		opticszoommin = 0.375;
+		aiDispersionCoefY = 10;
+		aiDispersionCoefX = 8;
+		 
+		class Library
+		{
+			libTextDesc = "HK416";
+		};
+		
+		
+		
+		rhs_grip1_change = "ADFRC_HK416_556_145_GripPod";
+		rhs_grip2_change = "ADFRC_HK416_556_145_AFG";
+		rhs_grip3_change = "ADFRC_HK416_556_145_VFG";
+	};
+
+	class ADFRC_HK416_556_145_GripPod: ADFRC_HK416_556_145
+	{
+		author = "Brucey";
+	displayName = "HK416 14.5 5.56 Rifle Grip-Pod";
+    Grip_Macro(1,hk416_vg_static)
+	};
+	
+	class ADFRC_HK416_556_145_AFG: ADFRC_HK416_556_145
+	{
+		author = "Brucey";
+	displayName = "HK416 14.5 5.56 Rifle AFG";
+    Grip_Macro(2,hk416_afg_static)
+	};
+	
+	class ADFRC_HK416_556_145_VFG: ADFRC_HK416_556_145
+	{
+		author = "Brucey";
+	displayName = "HK416 14.5 5.56 Rifle VFG";
+    Grip_Macro(3,hk416_vg_static)
 	};
