@@ -24,12 +24,12 @@ class CfgPatches
 			"A3_Weapons_F_Acc",
 			"ADFRC_magazines",
 			"adfrc_accessories",
-			"adfrc_optics"
+			"adf_optics",
+			"adfrc_f88",
+			"adfrc_f88SA2"
 		};
 	};
 };
-#include "\ADF_Weapons\adfrc_ef88\cfgSoundShaders.hpp"
-#include "\ADF_Weapons\adfrc_ef88\cfgSoundSets.hpp"
 class Mode_SemiAuto;
 class Mode_FullAuto;
 class SlotInfo;
@@ -45,6 +45,7 @@ class asdg_MuzzleSlot;
 class asdg_MuzzleSlot_762: asdg_MuzzleSlot {};
 class asdg_MuzzleSlot_556: asdg_MuzzleSlot {};
 class asdg_UnderSlot;
+class ADFRC_f88sa2_base;
 class CfgWeapons
 {
 	class Rifle;
@@ -56,256 +57,51 @@ class CfgWeapons
 	class InventoryOpticsItem_Base_F;
 	class InventoryFlashLightItem_Base_F;
 	class InventoryMuzzleItem_Base_F;
-	class Rifle_Base_F: Rifle
-	{};
-	class ADFRC_F88SA1_base: Rifle_Base_F
+	class ADFRC_F88SA1: ADFRC_f88sa2_base
 	{
-		scope=0;
-		model="\adf_weapons\adfrc_f88sa1\ADFRC_F88SA1.p3d";
+		author="Quiggs & Brucey";
+		model = "adf_weapons\adfrc_f88SA1\ADFRC_F88SA1";
+		ACE_barrelTwist = 228.6;
+		ACE_barrelLength = 508;
+		recoil = "recoil_spar";
+		recoilProne = "recoil_spar";
 		displayName="F88S-A1 Austeyr";
-		picture="\adf_weapons\adfrc_f88sa1\UI\gear_ADFRC_F88SA1_x_ca.paa";
-		UiPicture="\A3\weapons_f\data\UI\icon_regular_CA.paa";
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\adf_weapons\adfrc_f88sa1\anim\f88sa1_steyr_handanim.rtm"
-		};
-		magazines[]=
-		{
-			"ADFRC_30Rnd_aug",
-			"ADFRC_30Rnd_aug_TR",
-			"ADFRC_30Rnd_aug_TY",
-			"ADFRC_30Rnd_aug_TG",
-			"ADFRC_30Rnd_aug_IR",
-			"ADFRC_30Rnd_aug_mixed"
-		};
-		descriptionShort="5.56mm F88 Austeyr Assault Rifle";
-		reloadMagazineSound[]=
-		{
-			"\adf_weapons\adfrc_f88sa1\sound\F88_Reload",
-			0.85000002,
-			1,
-			30
-		};
-		changeFiremodeSound[]=
-		{
-			"\adf_weapons\adfrc_f88sa1\sound\mode_click6",
-			0.56234133,
-			1,
-			30
-		};
-		class Library
-		{
-			libTextDesc="5.56mm F88 Austeyr Assault Rifle";
-		};
-		reloadAction="GestureReloadMk20";
-		maxRecoilSway=0.0125;
-		swayDecaySpeed=1.25;
-		opticsZoomMin=0.375;
-		opticsZoomMax=1.1;
-		opticsZoomInit=0.75;
-		distanceZoomMin=300;
-		distanceZoomMax=300;
-		discreteDistance[]={50,100,200,300,400};
-		discreteDistanceInitIndex=2;
-		dexterity=1.8;
-		modes[]=
-		{
-			"Single",
-			"FullAuto",
-			"single_medium_optics1",
-			"single_far_optics2",
-			"fullauto_medium"
-		};
-		class Single: Mode_SemiAuto
-		{
-			sounds[]=
-			{
-				"StandardSound",
-				"SilencedSound"
-			};
-			class BaseSoundModeType;
-			class StandardSound: BaseSoundModeType
-			{
-				soundSetShot[] =
-				{
-					AUG_Shot_SoundSet,
-					AUG_Tail_SoundSet,
-					AUG_InteriorTail_SoundSet
-				};
-			};
-			class SilencedSound: BaseSoundModeType
-			{
-				soundSetShot[] =
-				{
-					AUG_silencerShot_SoundSet,
-					AUG_silencerTail_SoundSet,
-					AUG_silencerInteriorTail_SoundSet
-				};
-			};
-			aidispersioncoefx=1.4;
-			aidispersioncoefy=1.7;
-			airateoffire=2;
-			airateoffiredistance=500;
-			artillerycharge=1;
-			artillerydispersion=1;
-			autofire=0;
-			burst=1;
-			canshootinwater=0;
-			dispersion=0.00092999998;
-			displayname="Single";
-			ffcount=1;
-			fffrequency=11;
-			ffmagnitude=0.5;
-			flash="gunfire";
-			flashsize=0.1;
-			maxrange=500;
-			maxrangeprobab=0.2;
-			midrange=250;
-			midrangeprobab=0.69999999;
-			minrange=2;
-			minrangeprobab=0.30000001;
-			multiplier=1;
-			recoil="recoil_single_sdar";
-			recoilprone="recoil_single_prone_sdar";
-			reloadtime=0.064999998;
-			requiredoptictype=-1;
-			showtoplayer=1;
-			soundburst=0;
-			soundcontinuous=0;
-			soundend[]={};
-			soundloop[]={};
-			texturetype="semi";
-			useaction=0;
-			useactiontitle="";
-		};
-		class single_medium_optics1: Single
-		{
-			requiredOpticType=1;
-			showToPlayer=0;
-			minRange=2;
-			minRangeProbab=0.2;
-			midRange=550;
-			midRangeProbab=0.69999999;
-			maxRange=700;
-			maxRangeProbab=0.1;
-			aiRateOfFire=6;
-			aiRateOfFireDistance=600;
-		};
-		class single_far_optics2: single_medium_optics1
-		{
-			requiredOpticType=2;
-		};
-		class FullAuto: Mode_FullAuto
-		{
-			sounds[]=
-			{
-				"StandardSound",
-				"SilencedSound"
-			};
-			class BaseSoundModeType;
-			class StandardSound: BaseSoundModeType
-			{
-				soundSetShot[] =
-				{
-					AUG_Shot_SoundSet,
-					AUG_Tail_SoundSet,
-					AUG_InteriorTail_SoundSet
-				};
-			};
-			class SilencedSound: BaseSoundModeType
-			{
-				soundSetShot[] =
-				{
-					AUG_silencerShot_SoundSet,
-					AUG_silencerTail_SoundSet,
-					AUG_silencerInteriorTail_SoundSet
-				};
-			};
-			displayname="Full Auto";
-			reloadTime=0.096000001;
-			recoil="recoil_auto_sdar";
-			recoilProne="recoil_auto_prone_sdar";
-			dispersion=0.00092999998;
-			minRange=0;
-			minRangeProbab=0.89999998;
-			midRange=15;
-			midRangeProbab=0.69999999;
-			maxRange=30;
-			maxRangeProbab=0.1;
-			aiRateOfFire=1e-006;
-		};
-		class fullauto_medium: FullAuto
-		{
-			showToPlayer=0;
-			burst=3;
-			minRange=2;
-			minRangeProbab=0.5;
-			midRange=75;
-			midRangeProbab=0.69999999;
-			maxRange=150;
-			maxRangeProbab=0.050000001;
-			aiRateOfFire=2;
-		};
-		aiDispersionCoefY=10;
-		aiDispersionCoefX=8;
-		drySound[]=
-		{
-			"A3\sounds_f\weapons\Other\dry_1",
-			0.0099999998,
-			1
-		};
-		class WeaponSlotsInfo
-		{
-			mass=60;
-			allowedSlots[]={901};
-			class MuzzleSlot: asdg_MuzzleSlot_556
-			{
-				linkProxy="\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[]=
-				{
-					"muzzle_snds_M",
-					"ADFRC_f88_muzzle_snds",
-					"ADFRC_f88_muzzle_snds_tan"
-				};
-			};
-			class PointerSlot: asdg_FrontSideRail
-			{
-				linkProxy="\A3\data_f\proxies\weapon_slots\SIDE";
-				compatibleItems[]=
-				{
-					"ADFRC_F88SA1_laser",
-					"ADFRC_F88SA1_light"
-				};
-			};
-			class CowsSlot: asdg_OpticRail1913
-			{
-			};
-		};
-		class GunParticles
-		{
-			class FirstEffect
-			{
-				directionname="Konec hlavne";
-				effectname="RifleAssaultCloud";
-				positionname="Usti hlavne";
-			};
-			class SecondEffect
-			{
-				positionName="Nabojnicestart";
-				directionName="Nabojniceend";
-				effectName="CaselessAmmoCloud";
-			};
-		};
-	};
-	class ADFRC_F88SA1: ADFRC_F88SA1_base
-	{
-		baseWeapon= "F88SA1 Austeyr";
+		deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfoldedsoundBipodUp[] = { "A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_AAF_up", db - 3, 1, 20 }; /// sound of folding the bipod
+		cursor = "srifle";
+		cursorAim = "EmptyCursor";
+		descriptionShort = "Thales-Lithgow<br/>F88<br/>Caliber: 5.56";
+		inertia = 0.42;
 		scope=2;
-		author="$STR_ADFRC_AUTHOR";
-		adfrc_switch=0;
-		adfrc_alternate="ADFRC_F88SA1_fg";
-		adfrc_magazine="";
+		scopeWeapon=2;
+		scopeArsenal = 2;
+		picture = "\ADF_Weapons\adfrc_f88sa1\UI\gear_adfrc_F88SA1_x_ca.paa";
+		UiPicture = "\ADF_Weapons\adfrc_f88sa1\UI\gear_adfrc_F88SA1_x_ca.paa";
+		discretedistance[] = { 100, 200, 300, 400 };
+		discretedistanceinitindex = 2;
+		opticszoominit = 0.75;
+		opticszoommax = 1.1;
+		opticszoommin = 0.375;
+		aiDispersionCoefY = 10;
+		aiDispersionCoefX = 8;
+		
+		class WeaponSlotsInfo {
+			mass = 74;
+			allowedSlots[] = {901};
+            class MuzzleSlot : asdg_MuzzleSlot_556
+            {
+			iconPinpoint="center";
+			iconPosition[] = {0.076,0.328};
+			iconScale  = 0.17;
+			iconPicture = "\A3\Weapons_F\Data\UI\attachment_muzzle.paa";
+			};
+            class CowsSlot : asdg_OpticRail1913 //Top / optic slot
+            {
+			iconPinpoint="center";
+			iconPosition[] = {0.527,0.184};
+			iconScale  = 0.15;
+			iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
+			};
+        };
 	};
 	class ADFRC_F88SA1_gl: ADFRC_F88SA1
 	{
@@ -323,10 +119,11 @@ class CfgWeapons
 		adfrc_alternate="";
 		adfrc_magazine="";
 		weaponInfoType="RscWeaponZeroing";
-		handAnim[]=
+		handAnim[] =
 		{
 			"OFP2_ManSkeleton",
-			"\adf_weapons\adfrc_f88sa1\anim\f88sa1_steyr_m203_handanim.rtm"
+			"\ADF_Weapons\adfrc_ef88\Data\Anim\AUG_GL.rtm"
+			//"\A3\Weapons_F_beta\rifles\mk20\data\Anim\mk20.rtm"
 		};
 		class M203: UGL_F
 		{
@@ -371,13 +168,14 @@ class CfgWeapons
 				};
 			};
 			cameraDir="OP_look";
-			discreteDistance[]={100,200,300,400};
+			discreteDistance[]={50,100,150,200,250};
 			discreteDistanceCameraPoint[]=
 			{
-				"OP_eye",
-				"OP_eye2",
-				"OP_eye3",
-				"OP_eye4"
+				"OP_eye_50",
+				"OP_eye_100",
+				"OP_eye_150",
+				"OP_eye_200",
+				"OP_eye_250"
 			};
 			discreteDistanceInitIndex=1;
 		};

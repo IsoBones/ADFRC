@@ -13,7 +13,7 @@
 		handAnim[] =
 		{
 			"OFP2_ManSkeleton",
-			"\ADF_Weapons\adfrc_ef88\Data\Anim\AUG.rtm"
+			"\ADF_Weapons\core\data\anims\EF88_Vg_static.rtm"
 			//"\A3\Weapons_F_beta\rifles\mk20\data\Anim\mk20.rtm"
 		};
 		drySound[] = {"\ADF_Weapons\adfrc_ef88\Data\Sounds\AUG_dry",db-2,1,10};
@@ -112,6 +112,7 @@
 			ADFRC_L3Squad_EF88_Top_IRT = 1;
 			};
 			};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
 		
        class Single : Mode_SemiAuto
@@ -227,6 +228,31 @@ class ADFRC_EF88_Black: ADFRC_EF88_Base
 		{
 			libTextDesc = "EF88";
 		};
+		
+		rhs_grip1_change = "ADFRC_EF88_Black_GripPod";
+		rhs_grip2_change = "ADFRC_EF88_Black_AFG";
+		rhs_grip3_change = "ADFRC_EF88_Black_VFG";
+	};
+
+	class ADFRC_EF88_Black_GripPod: ADFRC_EF88_Black
+	{
+		author = "Brucey";
+	displayName = "EF88 5.56 (Black) Grip-Pod";
+    Grip_Macro(1,EF88_Vg_static)
+	};
+	
+	class ADFRC_EF88_Black_AFG: ADFRC_EF88_Black
+	{
+		author = "Brucey";
+	displayName = "EF88 5.56 (Black) AFG";
+    Grip_Macro(2,EF88_afg_static)
+	};
+	
+	class ADFRC_EF88_Black_VFG: ADFRC_EF88_Black
+	{
+		author = "Brucey";
+	displayName = "EF88 5.56 (Black) VFG";
+    Grip_Macro(3,EF88_Vg_static)
 	};
 	
 class ADFRC_EF88_Camo: ADFRC_EF88_Black
@@ -241,6 +267,31 @@ class ADFRC_EF88_Camo: ADFRC_EF88_Black
 		hiddenSelectionsMaterials[] = { 
 		"ADF_Weapons\ADFRC_EF88\Textures\adfrc_EF88_Metal_C.rvmat", "ADF_Weapons\ADFRC_EF88\Textures\adfrc_EF88_Poly_C.rvmat"
 		};
+		
+		rhs_grip1_change = "ADFRC_EF88_Camo_GripPod";
+		rhs_grip2_change = "ADFRC_EF88_Camo_AFG";
+		rhs_grip3_change = "ADFRC_EF88_Camo_VFG";
+	};
+
+	class ADFRC_EF88_Camo_GripPod: ADFRC_EF88_Camo
+	{
+		author = "Brucey";
+	displayName = "EF88 5.56 (Camo) Grip-Pod";
+    Grip_Macro(1,EF88_Vg_static)
+	};
+	
+	class ADFRC_EF88_Camo_AFG: ADFRC_EF88_Camo
+	{
+		author = "Brucey";
+	displayName = "EF88 5.56 (Camo) AFG";
+    Grip_Macro(2,EF88_afg_static)
+	};
+	
+	class ADFRC_EF88_Camo_VFG: ADFRC_EF88_Camo
+	{
+		author = "Brucey";
+	displayName = "EF88 5.56 (Camo) VFG";
+    Grip_Macro(3,EF88_Vg_static)
 	};
 	
 class ADFRC_EF88C_Black: ADFRC_EF88_Base
@@ -305,12 +356,38 @@ class ADFRC_EF88C_Black: ADFRC_EF88_Base
 			ADFRC_L3Squad_EF88_Top_IRT = 1;
 			};
 			};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
 		 
 		class Library
 		{
 			libTextDesc = "EF88C";
 		};
+		
+		rhs_grip1_change = "ADFRC_EF88C_Black_GripPod";
+		rhs_grip2_change = "ADFRC_EF88C_Black_AFG";
+		rhs_grip3_change = "ADFRC_EF88C_Black_VFG";
+	};
+
+	class ADFRC_EF88C_Black_GripPod: ADFRC_EF88C_Black
+	{
+		author = "Brucey";
+	displayName = "EF88C 5.56 (Black) Grip-Pod";
+    Grip_Macro(1,EF88_Vg_static)
+	};
+	
+	class ADFRC_EF88C_Black_AFG: ADFRC_EF88C_Black
+	{
+		author = "Brucey";
+	displayName = "EF88C 5.56 (Black) AFG";
+    Grip_Macro(2,EF88_afg_static)
+	};
+	
+	class ADFRC_EF88C_Black_VFG: ADFRC_EF88C_Black
+	{
+		author = "Brucey";
+	displayName = "EF88C 5.56 (Black) VFG";
+    Grip_Macro(3,EF88_Vg_static)
 	};
 	
 class ADFRC_EF88C_Camo: ADFRC_EF88C_Black
@@ -325,6 +402,31 @@ class ADFRC_EF88C_Camo: ADFRC_EF88C_Black
 		hiddenSelectionsMaterials[] = { 
 		"ADF_Weapons\ADFRC_EF88\Textures\adfrc_EF88_Metal_C.rvmat", "ADF_Weapons\ADFRC_EF88\Textures\adfrc_EF88_Poly_C.rvmat"
 		};
+		
+		rhs_grip1_change = "ADFRC_EF88C_Camo_GripPod";
+		rhs_grip2_change = "ADFRC_EF88C_Camo_AFG";
+		rhs_grip3_change = "ADFRC_EF88C_Camo_VFG";
+	};
+
+	class ADFRC_EF88C_Camo_GripPod: ADFRC_EF88C_Camo
+	{
+		author = "Brucey";
+	displayName = "EF88C 5.56 (Camo) Grip-Pod";
+    Grip_Macro(1,EF88_Vg_static)
+	};
+	
+	class ADFRC_EF88C_Camo_AFG: ADFRC_EF88C_Camo
+	{
+		author = "Brucey";
+	displayName = "EF88C 5.56 (Camo) AFG";
+    Grip_Macro(2,EF88_afg_static)
+	};
+	
+	class ADFRC_EF88C_Camo_VFG: ADFRC_EF88C_Camo
+	{
+		author = "Brucey";
+	displayName = "EF88C 5.56 (Camo) VFG";
+    Grip_Macro(3,EF88_Vg_static)
 	};
 	
 class UGL_F;	
@@ -362,7 +464,7 @@ class ADFRC_EF88GL_Base: Rifle_Base_F
 //mentioned earlier 
 		class EGLM: UGL_F
 		{
-			displayName = "$STR_A3_A_CfgWeapons_arifle_AUG_GL_base_F_EGLM0";
+			displayName = $STR_A3_A_CfgWeapons_arifle_AUG_GL_base_F_EGLM0;
 			useModelOptics = false;
 			useExternalOptic = false;
 			cameraDir = OP_look;

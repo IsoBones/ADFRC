@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {"ADFRC_HPII","ADFRC_HP_MK3"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"ADF_Core","ADF_G19","ADFRC_Weapons_Tags"};
+		requiredAddons[] = {"ADF_Core","ADFRC_G19","ADF_Weapons"};
 		fileName = "ADF_HPII.pbo";
 	};
 };

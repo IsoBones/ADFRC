@@ -1,3 +1,14 @@
+#define Grip_Macro(numb,name) \
+    handAnim[] = {"OFP2_ManSkeleton",\ADF_Weapons\core\data\anims\##name##.rtm};\
+    class LinkedItems\
+    {\
+        class LinkedItemsUnder\
+        {\
+            item = rhsusf_acc_grip##numb##;\
+            slot = "UnderBarrelSlot";\
+        };\
+    };
+
 class CfgPatches
 {
 	class ADF_M4A5
@@ -16,6 +27,8 @@ class InventoryMuzzleItem_Base_F;
 class InventoryItem_Base_F;
 class InventoryOpticsItem_Base_F;
 class InventoryFlashLightItem_Base_F;
+class adfrc_MLOK_grip_slot;
+class adfrc_PIC_grip_slot;
 class ACE_ItemCore;
 class CBA_MiscItem_ItemInfo;
 //////////////////////////////////class asdg_SlotInfo;

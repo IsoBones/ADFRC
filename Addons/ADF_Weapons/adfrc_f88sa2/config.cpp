@@ -34,7 +34,8 @@ class CfgPatches
 		{
 			"A3_Weapons_F",
 			"A3_Weapons_F_Acc",
-			"ADF_Core"
+			"ADF_Core",
+			"adfrc_f88"
 		};
 	};
 };
@@ -62,51 +63,32 @@ class CfgWeapons
 	class InventoryOpticsItem_Base_F;
 	class InventoryFlashLightItem_Base_F;
 	class InventoryMuzzleItem_Base_F;
-	class ADFRC_F88SA1_base;
-	class ADFRC_f88sa2_base: ADFRC_F88SA1_base
+	class ADFRC_F88_base;
+	class ADFRC_f88sa2_base: ADFRC_F88_base
 	{
 		scope=1;
 		model="ADF_Weapons\adfrc_f88sa2\ADFRC_F88SA2.p3d";
 		dexterity=1.6799999;
 		picture="\ADF_Weapons\adfrc_f88sa2\UI\gear_ADFRC_f88sa2_x_ca.paa";
 		UiPicture="\A3\weapons_f\data\UI\icon_regular_CA.paa";
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"ADF_Weapons\ADFRC_f88sa2\anim\f88sa2_steyr_handanim.rtm"
-		};
-		class Library
-		{
-			libTextDesc="5.56mm Bull-pup Assault Rifle";
-		};
-		descriptionShort="5.56mm Bull-pup Assault Rifle";
-		class WeaponSlotsInfo
-		{
-			class MuzzleSlot: asdg_MuzzleSlot_556
-			{
-				linkProxy="\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[]=
-				{
-					"ADFRC_f88_muzzle_snds",
-					"ADFRC_f88_muzzle_snds_tan"
-				};
+		class WeaponSlotsInfo {
+			mass = 74;
+			allowedSlots[] = {901};
+            class MuzzleSlot : asdg_MuzzleSlot_556
+            {
+			iconPinpoint="center";
+			iconPosition[] = {0.076,0.328};
+			iconScale  = 0.17;
+			iconPicture = "\A3\Weapons_F\Data\UI\attachment_muzzle.paa";
 			};
-			class PointerSlot: asdg_FrontSideRail
-			{
-				scope=2;
-				linkProxy="\A3\data_f\proxies\weapon_slots\SIDE";
-				compatibleItems[]=
-				{
-					"ADFRC_f88sa2_light",
-					"ADFRC_f88sa2_light_tan",
-					"ADFRC_f88sa2_laser",
-					"ADFRC_f88sa2_laser_tan"
-				};
+            class CowsSlot : asdg_OpticRail1913 //Top / optic slot
+            {
+			iconPinpoint="center";
+			iconPosition[] = {0.527,0.184};
+			iconScale  = 0.15;
+			iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
 			};
-			class CowsSlot: asdg_OpticRail1913
-			{
-			};
-		};
+        };
 		class GunParticles
 		{
 			class FirstEffect
@@ -122,38 +104,34 @@ class CfgWeapons
 				effectName="CaselessAmmoCloud";
 			};
 		};
+		
+		
+		ACE_barrelTwist = 228.6;
+		ACE_barrelLength = 508;
+		recoil = "recoil_spar";
+		recoilProne = "recoil_spar";
+		deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfoldedsoundBipodUp[] = { "A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_AAF_up", db - 3, 1, 20 }; /// sound of folding the bipod
+		cursor = "srifle";
+		cursorAim = "EmptyCursor";
+		inertia = 0.42;
+		discretedistance[] = { 100, 200, 300, 400 };
+		discretedistanceinitindex = 2;
+		opticszoominit = 0.75;
+		opticszoommax = 1.1;
+		opticszoommin = 0.375;
+		aiDispersionCoefY = 10;
+		aiDispersionCoefX = 8;
 	};
 	class ADFRC_f88sa2: ADFRC_f88sa2_base
 	{
-		baseWeapon= "F88SA2 Austeyr";
 		scope=2;
 		displayName="F88S-A2 Austeyr";
-		author="$STR_ADF_AUTHOR";
-		ADFRC_weapon_switch=0;
-		ADFRC_weapon_alternate="ADFRC_f88sa2_fg";
-		ADFRC_weapon_magazine="";
+		author="Brucey & Quiggs";
 	};
 	class ADFRC_f88sa2_camo: ADFRC_f88sa2
 	{
-		baseWeapon= "F88SA2 Austeyr (Camo)";
-		scope=2;
+		scope=1;
 		displayName="F88S-A2 Austeyr (Camo)";
-		author="$STR_ADF_AUTHOR";
-		hiddenSelections[]=
-		{
-			"Camo1",
-			"Camo2",
-			"Camo4"
-		};
-		hiddenSelectionsTextures[]=
-		{
-			"ADF_Weapons\adfrc_f88sa2\data\ADFRC_f88sa2_1_amp_co.paa",
-			"ADF_Weapons\adfrc_f88sa2\data\ADFRC_f88sa2_2_amp_co.paa",
-			"ADF_Weapons\adfrc_f88sa2\data\ADFRC_f88_m203_amp_co.paa"
-		};
-		ADFRC_weapon_switch=0;
-		ADFRC_weapon_alternate="ADFRC_f88sa2_camo_fg";
-		ADFRC_weapon_magazine="";
 	};
 	class ADFRC_f88sa2_gl: ADFRC_f88sa2
 	{
@@ -161,7 +139,7 @@ class CfgWeapons
 		model="ADF_Weapons\adfrc_f88sa2\ADFRC_F88SA2_M203.p3d";
 		dexterity=1.6799999;
 		displayName="F88S-A2 Austeyr M203";
-		author="$STR_ADF_AUTHOR";
+		author="Brucey & Quiggs";
 		muzzles[]=
 		{
 			"this",
@@ -171,10 +149,11 @@ class CfgWeapons
 		ADFRC_weapon_alternate="";
 		ADFRC_weapon_magazine="";
 		weaponInfoType="RscWeaponZeroing";
-		handAnim[]=
+		handAnim[] =
 		{
 			"OFP2_ManSkeleton",
-			"ADF_Weapons\adfrc_f88sa1\anim\f88sa1_steyr_m203_handanim.rtm"
+			"\ADF_Weapons\adfrc_ef88\Data\Anim\AUG_GL.rtm"
+			//"\A3\Weapons_F_beta\rifles\mk20\data\Anim\mk20.rtm"
 		};
 		class M203: UGL_F
 		{
@@ -219,34 +198,21 @@ class CfgWeapons
 				};
 			};
 			cameraDir="OP_look";
-			discreteDistance[]={100,200,300,400};
+			discreteDistance[]={50,100,150,200,250};
 			discreteDistanceCameraPoint[]=
 			{
-				"OP_eye",
-				"OP_eye2",
-				"OP_eye3",
-				"OP_eye4"
+				"OP_eye_50",
+				"OP_eye_100",
+				"OP_eye_150",
+				"OP_eye_200",
+				"OP_eye_250"
 			};
 			discreteDistanceInitIndex=1;
 		};
 	};
 	class ADFRC_f88sa2_gl_camo: ADFRC_f88sa2_gl
 	{
-		scope=2;
-		displayName="F88S-A2 Austeyr M203 (Camo)";
-		author="$STR_ADF_AUTHOR";
-		hiddenSelections[]=
-		{
-			"Camo1",
-			"Camo2",
-			"Camo4"
-		};
-		hiddenSelectionsTextures[]=
-		{
-			"ADF_Weapons\adfrc_f88sa2\data\ADFRC_f88sa2_1_amp_co.paa",
-			"ADF_Weapons\adfrc_f88sa2\data\ADFRC_f88sa2_2_amp_co.paa",
-			"ADF_Weapons\adfrc_f88sa2\data\ADFRC_f88_m203_amp_co.paa"
-		};
+		scope=1;
 	};
 	class ADFRC_f88sa2_elcan: ADFRC_f88sa2
 	{
@@ -274,7 +240,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_camo_elcan: ADFRC_f88sa2_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -286,7 +252,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_gl_camo_elcan: ADFRC_f88sa2_gl_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -322,7 +288,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_camo_ta648: ADFRC_f88sa2_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -334,7 +300,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_gl_camo_ta648: ADFRC_f88sa2_gl_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -370,7 +336,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_camo_mrco: ADFRC_f88sa2_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -382,7 +348,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_gl_camo_mrco: ADFRC_f88sa2_gl_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -418,7 +384,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_camo_hamr: ADFRC_f88sa2_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic
@@ -430,7 +396,7 @@ class CfgWeapons
 	};
 	class ADFRC_f88sa2_gl_camo_hamr: ADFRC_f88sa2_gl_camo
 	{
-		scope=2;
+		scope=1;
 		class LinkedItems
 		{
 			class LinkedItemsOptic

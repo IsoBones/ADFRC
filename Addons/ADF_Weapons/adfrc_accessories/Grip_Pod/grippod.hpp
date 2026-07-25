@@ -12,4 +12,6 @@
 			soundBipodUp[] 		= {"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_BLU_up",db-3, 1, 20};		/// what sound should be played during folding			
         };
 		inertia = 0.2;						/// how much does the bipod add to inertia of the weapon
+		
+		rhs_grip_type = "rhs_grip1_change";
 	};

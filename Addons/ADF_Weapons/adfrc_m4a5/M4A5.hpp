@@ -10,7 +10,7 @@
 		selectionFireAnim = "zasleh";
 		inertia = 0.3;
         swayDecaySpeed = 1.25;
-		handAnim[] = {"OFP2_ManSkeleton","A3\Weapons_F_Exp\Rifles\SPAR_01\Data\Anim\SPAR_01.rtm"};
+		handAnim[] = {"OFP2_ManSkeleton","\ADF_Weapons\core\data\anims\ar15_8in_cgrip_static.rtm"};
 		drySound[] = {"A3\Sounds_F_Exp\arsenal\weapons\Rifles\SPAR01\SPAR01_dry",0.562341,1,10};
 		ace_overheating_mrbs = 3000; //Mean Rounds Between Stoppages (this will be scaled based on the barrel temp)
         ace_overheating_slowdownFactor = 1; //Slowdown Factor, reduces the velocity of the projectile (this will be scaled based on the barrel temp)
@@ -88,6 +88,7 @@
 			ADFRC_PEQ15_M4_Top_FDE_IRT = 1;
 			};
 			};
+			class GripodSlot: adfrc_MLOK_grip_slot {};
         };
 		
        class Single : Mode_SemiAuto
@@ -138,7 +139,7 @@ soundSetShot[] = {"SPAR01_Shot_SoundSet","SPAR01_Tail_SoundSet","SPAR01_Interior
 class ADFRC_M4A5_Troy_556_14: ADFRC_M4A5_556_Base
 	{
 		author = "Brucey";
-		ACE_barrelTwist = 292.1;
+		ACE_barrelTwist = 177.8;
 		ACE_barrelLength = 368.3;
 		recoil = "recoil_spar";
 		recoilProne = "recoil_spar";
@@ -153,6 +154,7 @@ class ADFRC_M4A5_Troy_556_14: ADFRC_M4A5_556_Base
 		scopeArsenal = 2;
 		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_FDE_UI_ca.paa";
 		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_FDE_UI_ca.paa";
+		handAnim[] = {"OFP2_ManSkeleton","\ADF_Weapons\core\data\anims\ar15_10in_cgrip_static.rtm"};
 		displayName = "M4A1-AU Carbine 5.56MM Troy Rail(FDE)";
 		discretedistance[] = { 100, 200, 300, 400 };
 		discretedistanceinitindex = 2;
@@ -161,9 +163,12 @@ class ADFRC_M4A5_Troy_556_14: ADFRC_M4A5_556_Base
 		opticszoommin = 0.375;
 		aiDispersionCoefY = 10;
 		aiDispersionCoefX = 8;
-		
+		hiddenSelections[] = { "CamoTroy","stock_ctr" };
+		hiddenSelectionsTextures[] = { 
+		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_fde_Co.paa"
+		};
 		class WeaponSlotsInfo {
-			mass = 73;
+			mass = 71;
 			allowedSlots[] = {901};
             class MuzzleSlot : asdg_MuzzleSlot_556
             {	
@@ -199,36 +204,179 @@ class ADFRC_M4A5_Troy_556_14: ADFRC_M4A5_556_Base
 			ADFRC_PEQ15_M4_Top_FDE_IRT = 1;
 			};
 			};
+			class GripodSlot: adfrc_MLOK_grip_slot {};
         };
 		 
 		class Library
 		{
 			libTextDesc = "M4A5-T 14.5";
 		};
+		rhs_grip1_change = "ADFRC_M4A5_Troy_556_14_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Troy_556_14_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Troy_556_14_VFG";
 	};
+	
+	
+	
+	class ADFRC_M4A5_Troy_556_14_GRIPPOD: ADFRC_M4A5_Troy_556_14
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM Troy Rail(FDE)(Grippod)";
+    Grip_Macro(1,ar15_10in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_AFG: ADFRC_M4A5_Troy_556_14
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail(FDE)(AFG)";
+    Grip_Macro(2,ar15_10in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_VFG: ADFRC_M4A5_Troy_556_14
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail(FDE)(AFG)";
+    Grip_Macro(3,ar15_10in_vg_tb_static)
+    };
 	
 class ADFRC_M4A5_Troy_556_14_BLK: ADFRC_M4A5_Troy_556_14
 	{
 		displayName = "M4A1-AU Carbine 5.56MM Troy Rail (Black)";
 		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_BLK_UI_ca.paa";
 		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_BLK_UI_ca.paa";
-		hiddenSelections[] = { "CamoTroy" };
+		hiddenSelections[] = { "CamoTroy","stock_ctr" };
 		hiddenSelectionsTextures[] = { 
-		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_blk_Co.paa"
+		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_blk_Co.paa",""
 		};
+		rhs_grip1_change = "ADFRC_M4A5_Troy_556_14_BLK_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Troy_556_14_BLK_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Troy_556_14_BLK_VFG";
 	};
+	
+	class ADFRC_M4A5_Troy_556_14_BLK_GRIPPOD: ADFRC_M4A5_Troy_556_14_BLK
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM Troy Rail(BLK)(Grippod)";
+    Grip_Macro(1,ar15_10in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_BLK_AFG: ADFRC_M4A5_Troy_556_14_BLK
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail(BLK)(AFG)";
+    Grip_Macro(2,ar15_10in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_BLK_VFG: ADFRC_M4A5_Troy_556_14_BLK
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail(BLK)(AFG)";
+    Grip_Macro(3,ar15_10in_vg_tb_static)
+    };
+	
+	class ADFRC_M4A5_Troy_556_14_BLK_CTR: ADFRC_M4A5_Troy_556_14
+	{
+		displayName = "M4A1-AU Carbine 5.56MM Troy Rail (BLK)(CTR)";
+		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_BLK_UI_ca.paa";
+		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_BLK_UI_ca.paa";
+		hiddenSelections[] = { "CamoTroy","stock_m4ss" };
+		hiddenSelectionsTextures[] = { 
+		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_blk_Co.paa",""
+		};
+		rhs_grip1_change = "ADFRC_M4A5_Troy_556_14_BLK_CTR_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Troy_556_14_BLK_CTR_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Troy_556_14_BLK_CTR_VFG";
+	};
+	
+	class ADFRC_M4A5_Troy_556_14_BLK_CTR_GRIPPOD: ADFRC_M4A5_Troy_556_14_BLK_CTR
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM Troy Rail (BLK)(CTR)(Grippod)";
+    Grip_Macro(1,ar15_10in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_BLK_CTR_AFG: ADFRC_M4A5_Troy_556_14_BLK_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail (BLK)(CTR)(AFG)";
+    Grip_Macro(2,ar15_10in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_BLK_CTR_VFG: ADFRC_M4A5_Troy_556_14_BLK_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail (BLK)(CTR)(AFG)";
+    Grip_Macro(3,ar15_10in_vg_tb_static)
+    };
+	
+	class ADFRC_M4A5_Troy_556_14_FDE_CTR: ADFRC_M4A5_Troy_556_14
+	{
+		displayName = "M4A1-AU Carbine 5.56MM Troy Rail (Black)";
+		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_BLK_UI_ca.paa";
+		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_Troy_BLK_UI_ca.paa";
+		hiddenSelections[] = { "CamoTroy","stock_ctr","stock_m4ss" };
+		hiddenSelectionsTextures[] = { 
+		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_fde_Co.paa","ADF_Weapons\core\Textures\MSS_CTR_FDE_CO.paa",""
+		};
+		rhs_grip1_change = "ADFRC_M4A5_Troy_556_14_FDE_CTR_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Troy_556_14_FDE_CTR_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Troy_556_14_FDE_CTR_VFG";
+	};
+	
+	class ADFRC_M4A5_Troy_556_14_FDE_CTR_GRIPPOD: ADFRC_M4A5_Troy_556_14_FDE_CTR
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM Troy Rail (FDE)(CTR)(Grippod)";
+    Grip_Macro(1,ar15_10in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_FDE_CTR_AFG: ADFRC_M4A5_Troy_556_14_FDE_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail (FDE)(CTR)(AFG)";
+    Grip_Macro(2,ar15_10in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Troy_556_14_FDE_CTR_VFG: ADFRC_M4A5_Troy_556_14_FDE_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM Troy Rail (FDE)(CTR)(AFG)";
+    Grip_Macro(3,ar15_10in_vg_tb_static)
+    };
 
 class ADFRC_M4A5_Combo_556_14_BLK: ADFRC_M4A5_Troy_556_14
 	{
-		displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (Black)";
+		displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (BLK)";
 		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_C145_BLK_UI_ca.paa";
 		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_C145_BLK_UI_ca.paa";
 		model = "adf_weapons\adfrc_m4a5\adfrc_m4A5_c_145";
-		hiddenSelections[] = { "CamoTroy" };
-		hiddenSelectionsTextures[] = { 
-		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_blk_Co.paa"
-		};
+		hiddenSelections[] = {};
+		hiddenSelectionsTextures[] = {};
+		rhs_grip1_change = "ADFRC_M4A5_Combo_556_14_BLK_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Combo_556_14_BLK_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Combo_556_14_BLK_VFG";
 	};
+	
+	class ADFRC_M4A5_Combo_556_14_BLK_GRIPPOD: ADFRC_M4A5_Combo_556_14_BLK
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (BLK)(Grippod)";
+    Grip_Macro(1,ar15_10in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_14_BLK_AFG: ADFRC_M4A5_Combo_556_14_BLK
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (BLK)(AFG)";
+    Grip_Macro(2,ar15_10in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_14_BLK_VFG: ADFRC_M4A5_Combo_556_14_BLK
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (BLK)(AFG)";
+    Grip_Macro(3,ar15_10in_vg_tb_static)
+    };
 
 class ADFRC_M4A5_Combo_556_14_FDE: ADFRC_M4A5_Combo_556_14_BLK
 	{
@@ -236,28 +384,51 @@ class ADFRC_M4A5_Combo_556_14_FDE: ADFRC_M4A5_Combo_556_14_BLK
 		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_C145_FDE_UI_ca.paa";
 		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_C145_FDE_UI_ca.paa";
 		model = "adf_weapons\adfrc_m4a5\adfrc_m4A5_c_145";
+		hiddenSelections[] = { "CamoHandguard","camosquid","stock_CTR" };
+		hiddenSelectionsTextures[] = { 
+		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\MCC_Troy_13_FDE_CO.paa","ADF_Weapons\ADFRC_M4A5\Textures\Handguard\MCC_Troy_Squid_FDE_CO.paa","ADF_Weapons\core\Textures\MSS_CTR_FDE_CO.paa"
 	};
+		rhs_grip1_change = "ADFRC_M4A5_Combo_556_14_FDE_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Combo_556_14_FDE_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Combo_556_14_FDE_VFG";
+	};
+	
+	class ADFRC_M4A5_Combo_556_14_FDE_GRIPPOD: ADFRC_M4A5_Combo_556_14_FDE
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (FDE)(Grippod)";
+    Grip_Macro(1,ar15_10in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_14_FDE_AFG: ADFRC_M4A5_Combo_556_14_FDE
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (FDE)(AFG)";
+    Grip_Macro(2,ar15_10in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_14_FDE_VFG: ADFRC_M4A5_Combo_556_14_FDE
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM 14.5 'Combo' (FDE)(AFG)";
+    Grip_Macro(3,ar15_10in_vg_tb_static)
+    };
 	
 class ADFRC_M4A5_Combo_556_10_BLK: ADFRC_M4A5_556_Base
 	{
-		displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (Black)";
+		displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (BLK)";
 		model = "adf_weapons\adfrc_m4a5\adfrc_m4A5_c_105";
-		hiddenSelections[] = { "CamoTroy" };
-		hiddenSelectionsTextures[] = { 
-		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_blk_Co.paa"
-		};
-		
 		author = "Brucey";
-		ACE_barrelTwist = 292.1;
+		ACE_barrelTwist = 177.8;
 		ACE_barrelLength = 292.1;
 		recoil = "recoil_spar";
-		handAnim[] = {"OFP2_ManSkeleton","\A3\Weapons_F_beta\Smgs\SMG_02\data\Anim\SMG_02.rtm"};
+		handAnim[] = {"OFP2_ManSkeleton","\ADF_Weapons\core\data\anims\ar15_8in_cgrip_static.rtm"};
 		recoilProne = "assaultRifleBase";
 		deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfoldedsoundBipodUp[] = { "A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_AAF_up", db - 3, 1, 20 }; /// sound of folding the bipod
 		cursor = "srifle";
 		cursorAim = "EmptyCursor";
-		descriptionShort = "M4A5 Troy Rail<br/>10.5in<br/>Caliber: 5.56";
-		inertia = 0.325;
+		descriptionShort = "M4A5 Troy Rail<br/>11.5in<br/>Caliber: 5.56";
+		inertia = 0.25;
 		scope=2;
 		scopeWeapon=2;
 		scopeArsenal = 2;
@@ -272,7 +443,7 @@ class ADFRC_M4A5_Combo_556_10_BLK: ADFRC_M4A5_556_Base
 		aiDispersionCoefX = 8;
 		
 		class WeaponSlotsInfo {
-			mass = 67;
+			mass = 64;
 			allowedSlots[] = {901};
             class MuzzleSlot : asdg_MuzzleSlot_556
             {	
@@ -308,6 +479,7 @@ class ADFRC_M4A5_Combo_556_10_BLK: ADFRC_M4A5_556_Base
 			ADFRC_PEQ15_M4_Top_FDE_IRT = 1;
 			};
 			};
+			class GripodSlot: adfrc_MLOK_grip_slot {};
         };
 		
 		 
@@ -315,7 +487,32 @@ class ADFRC_M4A5_Combo_556_10_BLK: ADFRC_M4A5_556_Base
 		{
 			libTextDesc = "M4A5-C 10.5";
 		};
+		
+		rhs_grip1_change = "ADFRC_M4A5_Combo_556_10_BLK_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Combo_556_10_BLK_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Combo_556_10_BLK_VFG";
 	};
+	
+	class ADFRC_M4A5_Combo_556_10_BLK_GRIPPOD: ADFRC_M4A5_Combo_556_10_BLK
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (BLK)(Grippod)";
+    Grip_Macro(1,ar15_8in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_10_BLK_AFG: ADFRC_M4A5_Combo_556_10_BLK
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (BLK)(AFG)";
+    Grip_Macro(2,ar15_8in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_10_BLK_VFG: ADFRC_M4A5_Combo_556_10_BLK
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (BLK)(AFG)";
+    Grip_Macro(3,ar15_8in_vg_tb_static)
+    };
 	
 class ADFRC_M4A5_Combo_556_10_FDE: ADFRC_M4A5_Combo_556_10_BLK
 	{
@@ -323,16 +520,41 @@ class ADFRC_M4A5_Combo_556_10_FDE: ADFRC_M4A5_Combo_556_10_BLK
 		picture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_C115_FDE_UI_ca.paa";
 		UiPicture = "\ADF_Weapons\adfrc_m4a5\UI\adfrc_M4A1-AU_C115_FDE_UI_ca.paa";
 		model = "adf_weapons\adfrc_m4a5\adfrc_m4A5_c_105";
-		hiddenSelections[] = { "camotroy" };
+		hiddenSelections[] = { "CamoHandguard","camosquid","stock_CTR" };
 		hiddenSelectionsTextures[] = { 
-		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\adfrc_troy_fde_Co.paa"
+		"ADF_Weapons\ADFRC_M4A5\Textures\Handguard\MCC_Troy_9_FDE_CO.paa","ADF_Weapons\ADFRC_M4A5\Textures\Handguard\MCC_Troy_Squid_FDE_CO.paa","ADF_Weapons\core\Textures\MSS_CTR_FDE_CO.paa"
 		};
-		};
+		
+		rhs_grip1_change = "ADFRC_M4A5_Combo_556_10_FDE_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_Combo_556_10_FDE_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_Combo_556_10_FDE_VFG";
+	};
+	
+	class ADFRC_M4A5_Combo_556_10_FDE_GRIPPOD: ADFRC_M4A5_Combo_556_10_FDE
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (FDE)(Grippod)";
+    Grip_Macro(1,ar15_8in_vg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_10_FDE_AFG: ADFRC_M4A5_Combo_556_10_FDE
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (FDE)(AFG)";
+    Grip_Macro(2,ar15_8in_afg_static)
+    };
+    
+    class ADFRC_M4A5_Combo_556_10_FDE_VFG: ADFRC_M4A5_Combo_556_10_FDE
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Combo 5.56MM  11.5 'Combo' (FDE)(AFG)";
+    Grip_Macro(3,ar15_8in_vg_tb_static)
+    };
 	
 class ADFRC_M4A5_KAC_556: ADFRC_M4A5_556_Base
 	{
 		author = "Brucey";
-		ACE_barrelTwist = 292.1;
+		ACE_barrelTwist = 177.8;
 		ACE_barrelLength = 368.3;
 		recoil = "recoil_spar";
 		recoilProne = "assaultRifleBase";
@@ -358,6 +580,10 @@ class ADFRC_M4A5_KAC_556: ADFRC_M4A5_556_Base
 		magazines[] = {
 			"ADFRC_30Rnd_STANAG"
 		};
+		hiddenSelections[] = { "stock_CTR" };
+		hiddenSelectionsTextures[] = { 
+		""
+		};
 		
 		
 		
@@ -378,13 +604,6 @@ class ADFRC_M4A5_KAC_556: ADFRC_M4A5_556_Base
 			iconScale  = 0.25;
 			iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
 			};
-			class UnderBarrelSlot : asdg_UnderSlot //bottom / bipod
-            {
-			iconPinpoint="center";
-			iconPosition[] = {0.377,0.633};
-			iconScale  = 0.15;
-			iconPicture = "\A3\weapons_f_mark\data\UI\attachment_under.paa";
-			};
             class PointerSlot : asdg_FrontSideRail //side slot
             {
 			iconPinpoint="center";
@@ -393,18 +612,110 @@ class ADFRC_M4A5_KAC_556: ADFRC_M4A5_556_Base
 			iconPicture = "\A3\Weapons_F\Data\UI\attachment_side.paa";
 			class compatibleItems: compatibleItems {};
 			};
+			class GripodSlot: adfrc_PIC_grip_slot {};
+			
         };
 		
 		class Library
 		{
 			libTextDesc = "M4A5 5.56MM 14.5";
 		};
+		
+		rhs_grip1_change = "ADFRC_M4A5_KAC_556_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_KAC_556_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_KAC_556_VFG";
 	};
+	
+	class ADFRC_M4A5_KAC_556_GRIPPOD: ADFRC_M4A5_KAC_556
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM(Grippod)";
+    Grip_Macro(1,ar15_8in_vg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_556_AFG: ADFRC_M4A5_KAC_556
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM(AFG)";
+    Grip_Macro(2,ar15_8in_afg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_556_VFG: ADFRC_M4A5_KAC_556
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM(AFG)";
+    Grip_Macro(3,ar15_8in_vg_static)
+    };
+	
+class ADFRC_M4A5_Classic_556: ADFRC_M4A5_KAC_556
+	{
+		
+		model = "adf_weapons\adfrc_m4a5\adfrc_m4A5_classic";
+		displayName = "M4A1-AU Carbine (Classic) 5.56MM";
+		hiddenSelections[] = { "stock_CTR" };
+		hiddenSelectionsTextures[] = { 
+		""
+		};
+		class WeaponSlotsInfo {
+			mass = 72;
+			allowedSlots[] = {901};
+            class MuzzleSlot : asdg_MuzzleSlot_556
+            {	
+			iconPinpoint="center";
+			iconPosition[] = {-0.008,0.406};
+			iconScale  = 0.18;
+			iconPicture = "\A3\Weapons_F\Data\UI\attachment_muzzle.paa";
+			};
+            class CowsSlot : asdg_OpticRail1913_long //Top / optic slot
+            {
+			iconPinpoint="center";
+			iconPosition[] = {0.523,0.223};
+			iconScale  = 0.25;
+			iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
+			};	
+        };
+		};
+	
+	
+class ADFRC_M4A5_KAC_556_CTR: ADFRC_M4A5_KAC_556
+	{
+		author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM (CTR)";
+		hiddenSelections[] = { "stock_M4SS" };
+		hiddenSelectionsTextures[] = { 
+		""
+		};
+		
+		rhs_grip1_change = "ADFRC_M4A5_KAC_556_CTR_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_KAC_556_CTR_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_KAC_556_CTR_VFG";
+	};
+	
+	class ADFRC_M4A5_KAC_556_CTR_GRIPPOD: ADFRC_M4A5_KAC_556_CTR
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM(CTR)(Grippod)";
+    Grip_Macro(1,ar15_8in_vg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_556_CTR_AFG: ADFRC_M4A5_KAC_556_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM(CTR)(AFG)";
+    Grip_Macro(2,ar15_8in_afg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_556_CTR_VFG: ADFRC_M4A5_KAC_556_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM(CTR)(AFG)";
+    Grip_Macro(3,ar15_8in_vg_static)
+    };
 	
 class ADFRC_M4A5_KAC_NOFS_556: ADFRC_M4A5_556_Base
 	{
 		author = "Brucey";
-		ACE_barrelTwist = 292.1;
+		ACE_barrelTwist = 177.8;
 		ACE_barrelLength = 368.3;
 		recoil = "recoil_spar";
 		recoilProne = "assaultRifleBase";
@@ -430,6 +741,10 @@ class ADFRC_M4A5_KAC_NOFS_556: ADFRC_M4A5_556_Base
 		magazines[] = {
 			"ADFRC_30Rnd_STANAG"
 		};
+		hiddenSelections[] = { "stock_CTR" };
+		hiddenSelectionsTextures[] = { 
+		""
+		};
 		
 		class WeaponSlotsInfo {
 			mass = 74;
@@ -448,13 +763,6 @@ class ADFRC_M4A5_KAC_NOFS_556: ADFRC_M4A5_556_Base
 			iconScale  = 0.25;
 			iconPicture = "\A3\Weapons_F\Data\UI\attachment_top.paa";
 			};
-			class UnderBarrelSlot : asdg_UnderSlot //bottom / bipod
-            {
-			iconPinpoint="center";
-			iconPosition[] = {0.377,0.633};
-			iconScale  = 0.15;
-			iconPicture = "\A3\weapons_f_mark\data\UI\attachment_under.paa";
-			};
             class PointerSlot : asdg_FrontSideRail //side slot
             {
 			iconPinpoint="center";
@@ -463,13 +771,74 @@ class ADFRC_M4A5_KAC_NOFS_556: ADFRC_M4A5_556_Base
 			iconPicture = "\A3\Weapons_F\Data\UI\attachment_side.paa";
 			class compatibleItems: compatibleItems {};
 			};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
 		 
 		class Library
 		{
 			libTextDesc = "M4A5 5.56MM 14.5 (NOFS)";
 		};
+		
+		rhs_grip1_change = "ADFRC_M4A5_KAC_NOFS_556_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_KAC_NOFS_556_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_KAC_NOFS_556_VFG";
 	};
+	
+	class ADFRC_M4A5_KAC_NOFS_556_GRIPPOD: ADFRC_M4A5_KAC_NOFS_556
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM (No Front Sight)(Grippod)";
+    Grip_Macro(1,ar15_8in_vg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_NOFS_556_AFG: ADFRC_M4A5_KAC_NOFS_556
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM (No Front Sight)(AFG)";
+    Grip_Macro(2,ar15_8in_afg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_NOFS_556_VFG: ADFRC_M4A5_KAC_NOFS_556
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM (No Front Sight)(AFG)";
+    Grip_Macro(3,ar15_8in_vg_static)
+    };
+	
+class ADFRC_M4A5_KAC_NOFS_556_CTR: ADFRC_M4A5_KAC_NOFS_556
+	{
+		author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM (No Front Sight - CTR)";
+		hiddenSelections[] = { "stock_M4SS" };
+		hiddenSelectionsTextures[] = { 
+		""
+		};
+		
+		rhs_grip1_change = "ADFRC_M4A5_KAC_NOFS_556_CTR_GRIPPOD";
+		rhs_grip2_change = "ADFRC_M4A5_KAC_NOFS_556_CTR_AFG";
+		rhs_grip3_change = "ADFRC_M4A5_KAC_NOFS_556_CTR_VFG";
+	};
+	
+	class ADFRC_M4A5_KAC_NOFS_556_CTR_GRIPPOD: ADFRC_M4A5_KAC_NOFS_556_CTR
+    {
+    author = "Brucey";
+		displayName = "M4A1-AU Carbine 5.56MM (No Front Sight - CTR)(Grippod)";
+    Grip_Macro(1,ar15_8in_vg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_NOFS_556_CTR_AFG: ADFRC_M4A5_KAC_NOFS_556_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM (No Front Sight - CTR)(AFG)";
+    Grip_Macro(2,ar15_8in_afg_static)
+    };
+    
+    class ADFRC_M4A5_KAC_NOFS_556_CTR_VFG: ADFRC_M4A5_KAC_NOFS_556_CTR
+    {
+    author = "Brucey";
+    displayName = "M4A1-AU Carbine 5.56MM (No Front Sight - CTR)(AFG)";
+    Grip_Macro(3,ar15_8in_vg_static)
+    };
 	
 	
 class UGL_F;
@@ -511,7 +880,7 @@ class ADFRC_M4A5_556_GLBase: Rifle_Base_F
 		
 		class EGLM: UGL_F
 		{
-			displayName = "$STR_A3_A_CfgWeapons_arifle_AUG_GL_base_F_EGLM0";
+			displayName = $STR_A3_A_CfgWeapons_arifle_AUG_GL_base_F_EGLM0;
 			useModelOptics = false;
 			useExternalOptic = false;
 			cameraDir = OP_look;
@@ -652,7 +1021,7 @@ soundSetShot[] = {"SPAR01_Shot_SoundSet","SPAR01_Tail_SoundSet","SPAR01_Interior
 class ADFRC_M4A5_KAC_M203_556: ADFRC_M4A5_556_GLBase
 	{
 		author = "Brucey";
-		ACE_barrelTwist = 292.1;
+		ACE_barrelTwist = 177.8;
 		ACE_barrelLength = 368.3;
 		recoil = "recoil_spar";
 		recoilProne = "assaultRifleBase";
@@ -678,9 +1047,25 @@ class ADFRC_M4A5_KAC_M203_556: ADFRC_M4A5_556_GLBase
 		magazines[] = {
 			"ADFRC_30Rnd_STANAG"
 		};
+		hiddenSelections[] = { "stock_CTR" };
+		hiddenSelectionsTextures[] = { 
+		""
+		};
 		
 		class Library
 		{
 			libTextDesc = "M4A5 5.56MM M203 14.5";
+		};
+	};
+	
+	
+	
+class ADFRC_M4A5_KAC_M203_556_CTR: ADFRC_M4A5_KAC_M203_556
+	{
+		author = "Brucey";
+		displayName = "M4A1-AU Carbine M203 5.56MM 14.5 (CTR)";
+		hiddenSelections[] = { "stock_M4SS" };
+		hiddenSelectionsTextures[] = { 
+		""
 		};
 	};
