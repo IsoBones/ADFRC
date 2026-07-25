@@ -57,6 +57,7 @@ class CfgAmmo
 class CfgMagazines
 {
 	class 20Rnd_762x51_Mag;
+	class 30Rnd_556x45_Stanag;
 	class ADFRC_20RD_HK417_F4: 20Rnd_762x51_Mag
 	{
 		scope=2;
@@ -76,6 +77,52 @@ class CfgMagazines
 		ammo="ADFRC_762x51_Match";
 		descriptionShort="Calibre: 7.62x51mm NATO<br/>Rounds: 20<br/>Cartridge: Mk316 Match";
 	};
+	
+	class ADFRC_20RD_SR25_F4 : 30Rnd_556x45_Stanag{
+			ammo = "ADFRC_762x51_F4";
+			modelSpecial = "\ADF_Weapons2\adfrc_magazines\SR25\MSS_AR10_GI.p3d";
+			modelSpecialIsProxy = 1;
+			count = 20;
+			descriptionshort = "Caliber: 7.62x51 <br />Rounds: 20<br />Used in: AR10s";
+			displayname = "7.62mm 20Rnd SR25 F4 Ball Magazine";
+			initspeed = 790;
+			lastroundstracer = 0;
+			picture = "\ADF_Weapons2\adfrc_magazines\UI\Gear_MSS_AR10_Mag_GI_CA.paa";
+			scope = 2;
+			tracersevery = 0;
+			mass = 16.6;
+			displaynameshort = "F4 Ball";
+			author = "Brucey";
+		};
+		
+		class ADFRC_20RD_SR25_M : ADFRC_20RD_SR25_F4{
+			ammo = "ADFRC_762x51_Match";
+			displayname = "7.62mm 20Rnd SR25 F4 Match Magazine";
+			displaynameshort = "F4 Match";
+		};
+		
+		class ADFRC_20RD_PMAG_F4 : 30Rnd_556x45_Stanag{
+			ammo = "ADFRC_762x51_F4";
+			modelSpecial = "\ADF_Weapons2\adfrc_magazines\SR25\MSS_AR10_PMAG.p3d";
+			modelSpecialIsProxy = 1;
+			count = 20;
+			descriptionshort = "Caliber: 7.62x51 <br />Rounds: 20<br />Used in: AR10s";
+			displayname = "7.62mm 20Rnd PMAG F4 Ball Magazine";
+			initspeed = 790;
+			lastroundstracer = 0;
+			picture = "\ADF_Weapons2\adfrc_magazines\UI\Gear_MSS_AR10_Mag_PMAG_CA.paa";
+			scope = 2;
+			tracersevery = 0;
+			mass = 15.6;
+			displaynameshort = "F4 Ball";
+			author = "Brucey";
+		};
+		
+		class ADFRC_20RD_PMAG_M : ADFRC_20RD_PMAG_F4{
+			ammo = "ADFRC_762x51_Match";
+			displayname = "7.62mm 20Rnd PMAG F4 Match Magazine";
+			displaynameshort = "F4 Match";
+		};
 };
 
 class CfgMagazineWells
@@ -88,6 +135,19 @@ class CfgMagazineWells
 		{
 			"ADFRC_20RD_HK417_F4",
 			"ADFRC_20RD_HK417_M"
+		};
+	};
+	
+	class CBA_762x51_AR10
+	{
+		// Magazines listed by mod
+		// It is possible to add new arrays to class but for now inheritance (i.e. STANAG_556x45_New: STANAG_556x45 {};) is not supported 
+		ADFRC_Magazines[] =
+		{
+			"ADFRC_20RD_SR25_F4",
+			"ADFRC_20RD_SR25_M",
+			"ADFRC_20RD_PMAG_F4",
+			"ADFRC_20RD_PMAG_M"
 		};
 	};
 	
