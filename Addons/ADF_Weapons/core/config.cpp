@@ -16,7 +16,6 @@ class CfgPatches
 
 
 #include "CfgMovesBasic.hpp"
-#include "cfgFunctions.hpp"
 
 class recoil_default;
 class Mode_SemiAuto;
