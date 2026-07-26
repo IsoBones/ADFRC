@@ -2462,29 +2462,36 @@ class CfgVehicles
 		faction = "ADFRC_F_GWOT";
 	};
 	//////////////////////// POST COLD-WAR ////////////////////////
+	////////////////// NOT TO BE USED EVER AGAIN //////////////////
 	class adfrc_bushmaster_unarmed_F_PCW: adfrc_bushmaster_unarmed_F
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_bushmaster_unarmed_ecm_F_PCW: adfrc_bushmaster_unarmed_ecm_F
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_bushmaster_unarmed_command_F_PCW: adfrc_bushmaster_unarmed_command_F
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_bushmaster_pws127mm_F_PCW: adfrc_bushmaster_pws127mm_F
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_bushmaster_pws127mm_ecm_F_PCW: adfrc_bushmaster_pws127mm_ecm_F
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_bushmaster_unarmed_mev_F_PCW: adfrc_bushmaster_unarmed_mev_F
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	///////////////////////////////////////////////////////////////
 };

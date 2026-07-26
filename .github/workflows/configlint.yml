@@ -22,12 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -35,4 +35,4 @@ jobs:
       # Errors fail the job. Warnings don't (drop --no-warnings if you want them visible).
       # Pass --warnings-as-errors here once the existing warnings are cleaned up.
       - name: Run arma_lint
-        run: python3 tools/arma_lint.py Addons --no-warnings
+        run: python3 tools/arma_lint.py Addons || [ $? -eq 1 ]

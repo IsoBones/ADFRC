@@ -2319,6 +2319,9 @@ class CfgVehicles
 			"abramsturret1",
 			"abramswheels",
 			"plow",
+			"label_hull",
+			"label_barrel",
+			"label_callsign",
 		};
 		hiddenSelectionsTextures[]=
 		{
@@ -2328,6 +2331,9 @@ class CfgVehicles
 			"ADF_Tracked\adfrc_abrams\Data\Standard\abramsturret1_co.paa",
 			"ADF_Tracked\adfrc_abrams\Data\Standard\abramswheels_co.paa",
 			"ADF_Tracked\adfrc_abrams\Data\plow\plow_co.paa",
+			"\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa",
+			"\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa",
+			"\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa",
 		};
 		class TextureSources
 		{
@@ -3056,12 +3062,185 @@ class CfgVehicles
 		{
 			libTextDesc="M1A1AIM";
 		};
+		class Attributes
+		{
+			class PlatoonMarkings
+			{
+				//--- Mandatory properties
+				displayName = "Vehicle Callsigns";
+				tooltip = "The vehicle callsign shown on the sides and back of the vehicle";
+				property = "ADFRC_PlatoonMarkings_Abrams"; //Unique config property name saved in SQM
+				control = "Combo"; //UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				//Expression called when applying the attribute in Eden and at the scenario start
+				//The expression is called twice - first for data validation, and second for actual saving
+				//Entity is passed as _this, value is passed as _value
+				//%s is replaced by attribute config name. It can be used only once in the expression
+				//In MP scenario, the expression is called only on server.
+				expression = "_this setVariable ['%s', _value, true]; private _i = _value; if (_value isEqualTo 0) then {_i = floor (random 7) + 1}; private _f = if (_i < 10) then {format ['\ADF_Tracked\adfrc_abrams\Data\labels\labels_0%1.paa', _i]} else {format ['\ADF_Tracked\adfrc_abrams\Data\labels\labels_%1.paa', _i]}; {_this setObjectTextureGlobal [_x, _f]} forEach [6, 7, 8];";
+
+				//Expression called when custom property is undefined yet (i.e., when setting the attribute for the first time)
+				//Entity (unit, group, marker, comment etc.) is passed as _this
+				//Returned value is the default value
+				//Used when no value is returned, or when it is of other type than NUMBER, STRING or ARRAY
+				//Custom attributes of logic entities (e.g., modules) are saved always, even when they have default value
+				defaultValue = 0;
+				
+				class Values 
+				{
+					class One {
+						name = "Carnotaurus | 31B";
+						tooltip = "Select this callsign";
+						value = 1;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa";
+					};
+					class Two: One {
+						name = "Commisar | 31C";
+						value = 2;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_02.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_02.paa";
+					};
+					class Three: One {
+						name = "Bojo | 33B";
+						value = 3;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_03.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_03.paa";
+					};
+					class Four: One {
+						name = "Conchoraptor | 31";
+						value = 4;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_04.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_04.paa";
+					};
+					class Five: One {
+						name = "Charging Rhino | 21A";
+						value = 5;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_05.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_05.paa";
+					};
+					class Six: One {
+						name = "Chewbacca | 33";
+						value = 6;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_06.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_06.paa";
+					};
+					class Seven: One {
+						name = "Checkmate | 32A";
+						value = 7;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_07.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_07.paa";
+					};
+					/*class Eight: One {
+						name = "Atomic | 13A";
+						value = 8;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_08.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_08.paa";
+					};
+					class Nine: One {
+						name = "Cannibal | 33B";
+						value = 9;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_09.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_09.paa";
+					};
+					class Ten: One {
+						name = "Bourbon | 23B";
+						value = 10;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_10.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_10.paa";
+					};
+					class Eleven: One {
+						name = "Cant Help Ya | 21A";
+						value = 11;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_11.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_11.paa";
+					};
+					class Twelve: One {
+						name = "ANZAC | 11A";
+						value = 12;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_12.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_12.paa";
+					};
+					class Thirteen: One {
+						name = "Angry Bird | 9A";
+						value = 13;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_13.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_13.paa";
+					};
+					class Fourteen: One {
+						name = "Atlas | 13B";
+						value = 14;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_14.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_14.paa";
+					};
+					class Fifteen: One {
+						name = "Achilles | 22C";
+						value = 15;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_15.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_15.paa";
+					};
+					class Sixteen: One {
+						name = "Boomer | 31A";
+						value = 16;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_16.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_16.paa";
+					};
+					class Seventeen: One {
+						name = "Big Papi | 23C";
+						value = 17;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_17.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_17.paa";
+					};
+					class Eighteen: One {
+						name = "Blame | 21B";
+						value = 18;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_18.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_18.paa";
+					};
+					class Nineteen: One {
+						name = "Boxer | 2F";
+						value = 19;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_19.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_19.paa";
+					};
+					class Twenty: One {
+						name = "Hammersley | 0C";
+						value = 20;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_20.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_20.paa";
+					};
+					class TwentyOne: One {
+						name = "Hold My Brew | 0F";
+						value = 21;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_21.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_21.paa";
+					};
+					class TwentyTwo: One {
+						name = "Akula | 1D";
+						value = 22;
+						picture = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_22.paa";
+						pictureRight = "\ADF_Tracked\adfrc_abrams\Data\labels\labels_22.paa";
+					};*/
+					class Zero: One {
+						name = "Random";
+						tooltip = "Choose the markings randomly.";
+						value = 0;
+					};
+				};
+				
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "_this isKindOf 'adfrc_abrams'"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
 	};
 	class adfrc_m1a1aim_md: adfrc_abrams
 	{
 		displayName="M1A1AIM";
 		author="ADFRC - Quiggs";
-		editorPreview = "\ADF_Tracked\adfrc_abrams\data\adfrc_m1a1aim.jpg";
+		editorPreview = "\ADF_Tracked\adfrc_abrams\data\adfrc_m1a1aim_md.jpg";
 		model="ADF_Tracked\adfrc_abrams\adfrc_m1a1aim.p3d";
 		picture="ADF_Tracked\adfrc_abrams\adfrc_m1a1aim_icon";
 		icon="\ADF_Tracked\adfrc_abrams\data\UI\icomap_m1a1_CA.paa";
@@ -3081,7 +3260,7 @@ class CfgVehicles
 	{
 		displayName="M1A2SEPv3";
 		author="ADFRC - Quiggs";
-		editorPreview = "\ADF_Tracked\adfrc_abrams\data\adfrc_m1a1aim.jpg";
+		editorPreview = "\ADF_Tracked\adfrc_abrams\data\adfrc_m1a2sepv3_md.jpg";
 		model="ADF_Tracked\adfrc_abrams\adfrc_m1a2sepv3.p3d";
 		picture="ADF_Tracked\adfrc_abrams\adfrc_m1a1aim_icon";
 		icon="\ADF_Tracked\adfrc_abrams\data\UI\icomap_m1a2tusk_CA.paa";
@@ -3427,6 +3606,9 @@ class CfgVehicles
 			"abramsturret1",
 			"abramswheels",
 			"plow",
+			"label_hull",
+			"label_barrel",
+			"label_callsign",
 			"abramssep",
 		};
 		hiddenSelectionsTextures[]=
@@ -3437,6 +3619,9 @@ class CfgVehicles
 			"ADF_Tracked\adfrc_abrams\Data\Standard\abramsturret1_co.paa",
 			"ADF_Tracked\adfrc_abrams\Data\Standard\abramswheels_co.paa",
 			"ADF_Tracked\adfrc_abrams\Data\plow\plow_co.paa",
+			"\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa",
+			"\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa",
+			"\ADF_Tracked\adfrc_abrams\Data\labels\labels_01.paa",
 			"ADF_Tracked\adfrc_abrams\Data\Standard\abramssep_co.paa",
 		};
 		class TextureSources: TextureSources
@@ -3524,6 +3709,7 @@ class Extended_Init_EventHandlers
     class adfrc_abrams
     {
         ADFRC_plowInit = "_this call compile preprocessFileLineNumbers '\ADF_Tracked\adfrc_abrams\scripts\fn_plowInit.sqf'";
+		ADFRC_labelRandom = "_this spawn {sleep 0.1; params ['_veh']; if (!isServer) exitWith {}; private _v = _veh getVariable ['PlatoonMarkings', 0]; if (_v isEqualTo 0) then {private _i = floor (random 7) + 1; private _f = if (_i < 10) then {format ['\ADF_Tracked\adfrc_abrams\Data\labels\labels_0%1.paa', _i]} else {format ['\ADF_Tracked\adfrc_abrams\Data\labels\labels_%1.paa', _i]}; {_veh setObjectTextureGlobal [_x, _f]} forEach [6, 7, 8];}};";
     };
     class adfrc_m1a1aim_md:    adfrc_abrams {};
     class adfrc_m1a1aim_gwot:  adfrc_abrams {};

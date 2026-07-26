@@ -9,13 +9,15 @@ class CfgPatches
 		};
 		requiredAddons[] =
 		{
-			"ace_common",//keep
-			"ace_explosives",//keep
-			"bma3",//
-			"adfrc_bushmaster",
-			"ADF_Weapons",//keep
-			"ADF_Air",//keep
-			"HAFM_MRH90_Config"//keep
+			"ace_common",
+			"ace_explosives",
+			"ace_interact_menu",
+			"ace_repair",
+			"bma3",
+			"adfrc_aslav",
+			"ADF_Weapons",
+			"ADF_Air",
+		
 		};
 		skipWhenMissingDependencies = 1;
 	};
@@ -304,9 +306,8 @@ class CfgVehicles {
 	class B_MRAP_01_F;
 	class Wheeled_APC_F : Car_F {
 	};
-	class APC_Wheeled_01_base_F : Wheeled_APC_F {
-	};
-	class ADFRC_ASLAV_base_F : APC_Wheeled_01_base_F {
+	class APC_Wheeled_01_base_F;
+	class ADFRC_ASLAV_base : APC_Wheeled_01_base_F {
 		ace_cargo_space = 6;
 		ace_cookoff_probability = 0.5;
 		ace_vehicle_damage_hullDetonationProb = 0.2;
@@ -317,6 +318,18 @@ class CfgVehicles {
 		ace_vehicle_damage_engineFireProb = 0.5;
 		ace_vehicle_damage_detonationDuringFireProb = 0.2;
 		ace_vehicle_damage_canHaveFireRing = 0;
+		/*class ACE_Actions: ACE_Actions
+        {
+            class ADFRC_removeSpareWheel
+            {
+                displayName = "Remove Spare Wheel";
+                distance = 4;
+                position = "[-0.40, -3.92, -1.23]";
+                condition = "_target animationSourcePhase 'sparewheel' > 0.5";
+                statement = "[5, [_player, _target], {(_this select 0) params ['_unit','_veh']; [_veh, ['sparewheel', 0]] remoteExec ['animateSource', 0, _veh]; ['ACE_Wheel', getPosASL _unit, 0] call ace_repair_fnc_spawnObject}, {}, 'Removing spare wheel...'] call ace_common_fnc_progressBar;";
+                icon = "\a3\ui_f\data\igui\cfg\actions\repair_ca.paa";
+            };
+        };*/
 		//ace_vehicle_damage_slatHitpoints[] =
 		//{
 		//	"Slat_armor",
