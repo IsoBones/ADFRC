@@ -50,17 +50,6 @@ class asdg_MuzzleSlot_762: asdg_MuzzleSlot { // for 9mm Pistol universal mount s
 
 class recoil_default;
 class Mode_SemiAuto;
-/*
-class CfgMagazines
-{
-#include "M10\Magazines.hpp"
-};
-
-class CfgMagazineWells
-{
-#include "MagWells.hpp"
-};
-*/
 
 class CfgWeapons
 {

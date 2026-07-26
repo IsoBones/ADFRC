@@ -464,7 +464,7 @@ class ADFRC_EF88GL_Base: Rifle_Base_F
 //mentioned earlier 
 		class EGLM: UGL_F
 		{
-			displayName = $STR_A3_A_CfgWeapons_arifle_AUG_GL_base_F_EGLM0;
+			displayName = "UGL";
 			useModelOptics = false;
 			useExternalOptic = false;
 			cameraDir = OP_look;
@@ -504,7 +504,7 @@ class ADFRC_EF88GL_Base: Rifle_Base_F
 			};
 			discreteDistanceInitIndex = 1;
 			magazines[] = {"1Rnd_HE_Grenade_shell"};
-			reloadAction = GestureReloadKatibaUGL;
+			reloadAction = "GestureReloadKatibaUGL";
 			reloadMagazineSound[] = {"\ADF_Weapons\adfrc_ef88\Data\Sounds\AUG_UGL_reload",db-2,1,10};
 		};
 		muzzles[] =

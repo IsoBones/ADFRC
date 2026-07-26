@@ -880,7 +880,7 @@ class ADFRC_M4A5_556_GLBase: Rifle_Base_F
 		
 		class EGLM: UGL_F
 		{
-			displayName = $STR_A3_A_CfgWeapons_arifle_AUG_GL_base_F_EGLM0;
+			displayName = "M203 UGL";
 			useModelOptics = false;
 			useExternalOptic = false;
 			cameraDir = OP_look;
