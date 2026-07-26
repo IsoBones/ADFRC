@@ -35,4 +35,4 @@ jobs:
       # Errors fail the job. Warnings don't (drop --no-warnings if you want them visible).
       # Pass --warnings-as-errors here once the existing warnings are cleaned up.
       - name: Run arma_lint
-        run: python3 tools/arma_lint.py Addons --no-warnings
+        run: python3 tools/arma_lint.py Addons || [ $? -eq 1 ]
