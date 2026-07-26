@@ -76,7 +76,7 @@ class CfgWeapons
 		handAnim[]=
 		{
 			"OFP2_ManSkeleton",
-			"\ADF_Weapons\adfrc_mag58\anim\mag58.rtm"
+			"\ADF_Weapons\core\data\anims\mag58.rtm"
 		};
 		reloadAction="GestureReloadM200";
 		soundBipodDeploy[]=

@@ -25,11 +25,6 @@ class asdg_UnderSlot: asdg_SlotInfo {
 class compatibleItems {
 ADFRC_Grippod = 1;
 ADFRC_Atlas_BT10 = 1;
-};
-};
-
-class asdg_UnderSlot_AI_Bipod: asdg_SlotInfo {
-class compatibleItems {
-ADFRC_AI_Bipod = 1;
+ADFRC_Harris = 1;
 };
 };

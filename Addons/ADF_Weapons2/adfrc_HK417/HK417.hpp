@@ -10,7 +10,7 @@
 		selectionFireAnim = "zasleh";
 		inertia = 0.3;
         swayDecaySpeed = 1.25;
-		handAnim[] = {"OFP2_ManSkeleton","A3\Weapons_F_Exp\Rifles\SPAR_01\Data\Anim\SPAR_01.rtm"};
+		handAnim[] = {"OFP2_ManSkeleton","ADF_Weapons\core\data\anims\hk417_static.rtm"};
 		drySound[] = {"A3\Sounds_F_Exp\arsenal\weapons\Rifles\SPAR_17\SPAR_17_dry",0.562341,1,10};
 		ace_overheating_mrbs = 3000; //Mean Rounds Between Stoppages (this will be scaled based on the barrel temp)
         ace_overheating_slowdownFactor = 1; //Slowdown Factor, reduces the velocity of the projectile (this will be scaled based on the barrel temp)
@@ -101,6 +101,7 @@
 			class compatibleItems: compatibleItems {
 			};
 			};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
 		
        class Single : Mode_SemiAuto
@@ -117,7 +118,7 @@
 			soundSetShot[] = {"SPAR_17_Shot_SoundSet","SPAR_17_Tail_SoundSet","SPAR_17_interiorTail_SoundSet"};
 			};
 						
-dispersion = 0.000581776;
+dispersion = 0.00068445995;
 maxRange = 250;
 maxRangeProbab = 0.2;
 midRange = 150;
@@ -131,7 +132,7 @@ class FullAuto: Mode_FullAuto {
 aiRateOfFire = 1e-06;
 class BaseSoundModeType {
 };
-dispersion = 0.000581776;
+dispersion = 0.00068445995;
 maxRange = 30;
 maxRangeProbab = 0.05;
 midRange = 15;
@@ -180,4 +181,29 @@ class ADFRC_HK417_Black: ADFRC_HK417_Base
 		{
 			libTextDesc = "HK417 20in";
 		};
+		
+		rhs_grip1_change = "ADFRC_HK417_Black_GripPod";
+		rhs_grip2_change = "ADFRC_HK417_Black_AFG";
+		rhs_grip3_change = "ADFRC_HK417_Black_VFG";
+	};
+
+	class ADFRC_HK417_Black_GripPod: ADFRC_HK417_Black
+	{
+		author = "Brucey";
+	displayName = "HK417 7.62x51 Grip-Pod";
+    Grip_Macro(1,hk417_vg_static)
+	};
+	
+	class ADFRC_HK417_Black_AFG: ADFRC_HK417_Black
+	{
+		author = "Brucey";
+	displayName = "HK417 7.62x51 AFG";
+    Grip_Macro(2,hk417_afg_static)
+	};
+	
+	class ADFRC_HK417_Black_VFG: ADFRC_HK417_Black
+	{
+		author = "Brucey";
+	displayName = "HK417 7.62x51 VFG";
+    Grip_Macro(3,hk417_vg_static)
 	};

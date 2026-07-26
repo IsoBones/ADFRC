@@ -1,0 +1,17 @@
+class ADFRC_BHP_Base : Pistol_Base_F
+    {
+		nullbullet[] = {"z\jsrs2025\addons\data\null.wss",0,1,0};
+		soundbullet[] = {"nullbullet",1};
+		class Single: Mode_SemiAuto
+		{
+			class BaseSoundModeType;
+			class StandardSound: BaseSoundModeType
+			{
+				soundsetshot[] = {"jsrs_2025_p07_shot_soundset","jsrs_2025_tailsystem_9mm_pistol_sonic_soundset"};
+			};
+			class SilencedSound: BaseSoundModeType
+			{
+				soundsetshot[] = {"jsrs_2025_p07_shot_silenced_soundset","jsrs_2025_tailsystem_9mm_pistol_silenced_sonic_soundset"};
+			};
+		};
+};

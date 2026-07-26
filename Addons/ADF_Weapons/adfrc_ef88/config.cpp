@@ -1,3 +1,14 @@
+#define Grip_Macro(numb,name) \
+    handAnim[] = {"OFP2_ManSkeleton",\ADF_Weapons\core\data\anims\##name##.rtm};\
+    class LinkedItems\
+    {\
+        class LinkedItemsUnder\
+        {\
+            item = rhsusf_acc_grip##numb##;\
+            slot = "UnderBarrelSlot";\
+        };\
+    };
+	
 class CfgPatches
 {
 	class ADF_EF88
@@ -34,6 +45,7 @@ class asdg_SlotInfo;
 class recoil_default;
 class Mode_SemiAuto;
 class compatibleItems;
+class adfrc_PIC_grip_slot;
 
 
 #include "cfgMoves.hpp"

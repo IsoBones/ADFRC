@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {"ADFRC_F9","ADFRC_F9_SWS"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"ADF_Core","ADF_G19","ADFRC_Weapons_Tags"};
+		requiredAddons[] = {"ADF_Core","ADFRC_G19","ADF_Weapons"};
 		fileName = "ADF_F9_SWS.pbo";
 	};
 };

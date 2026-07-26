@@ -1,3 +1,14 @@
+#define Grip_Macro(numb,name) \
+    handAnim[] = {"OFP2_ManSkeleton",\ADF_Weapons\core\data\anims\##name##.rtm};\
+    class LinkedItems\
+    {\
+        class LinkedItemsUnder\
+        {\
+            item = rhsusf_acc_grip##numb##;\
+            slot = "UnderBarrelSlot";\
+        };\
+    };
+	
 class CfgPatches
 {
 	class ADFRC_Minimi
@@ -38,6 +49,7 @@ class asdg_OpticRail1913_long;
 class asdg_MuzzleSlot;
 class asdg_MuzzleSlot_762: asdg_MuzzleSlot {};
 class asdg_MuzzleSlot_556: asdg_MuzzleSlot {};
+class adfrc_PIC_grip_slot;
 class asdg_UnderSlot;
 
 class cfgCloudlets
@@ -96,7 +108,7 @@ class CfgWeapons
 		handAnim[]=
 		{
 			"OFP2_ManSkeleton",
-			"\ADF_Weapons\ADFRC_minimi\anim\f89.rtm"
+			"\ADF_Weapons\core\data\anims\Minimi_Standard.rtm"
 		};
 		dexterity=100;
 		model="\ADF_Weapons\ADFRC_minimi\ADFRC_F89_Minimi.p3d";
@@ -537,8 +549,35 @@ class CfgWeapons
             {};
             class PointerSlot : asdg_FrontSideRail //side slot
             {};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
+		rhs_grip1_change = "ADFRC_F89_Minimi_GripPod";
+		rhs_grip2_change = "ADFRC_F89_Minimi_AFG";
+		rhs_grip3_change = "ADFRC_F89_Minimi_VFG";
 	};
+
+	class ADFRC_F89_Minimi_GripPod: ADFRC_F89_Minimi
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Grip-Pod";
+    Grip_Macro(1,Minimi_VG)
+	};
+	
+	class ADFRC_F89_Minimi_AFG: ADFRC_F89_Minimi
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi AFG";
+    Grip_Macro(2,Minimi_AFG)
+	};
+	
+	class ADFRC_F89_Minimi_VFG: ADFRC_F89_Minimi
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi VFG";
+    Grip_Macro(3,Minimi_VG)
+	};
+	
+	
 	class ADFRC_F89_Minimi_Classic: ADFRC_F89_Minimi
 	{
 		scope=2;
@@ -564,7 +603,34 @@ class CfgWeapons
 		displayName="F89 Minimi Modernised";
 		author="Brucey";
 		picture="\ADF_Weapons\adfrc_minimi\UI\adfrc_Minimi_Mod_CA.paa";
+	
+		rhs_grip1_change = "ADFRC_F89_Minimi_Mod_GripPod";
+		rhs_grip2_change = "ADFRC_F89_Minimi_Mod_AFG";
+		rhs_grip3_change = "ADFRC_F89_Minimi_Mod_VFG";
 	};
+
+	class ADFRC_F89_Minimi_Mod_GripPod: ADFRC_F89_Minimi_Mod
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Modernised Grip-Pod";
+    Grip_Macro(1,Minimi_VG)
+	};
+	
+	class ADFRC_F89_Minimi_Mod_AFG: ADFRC_F89_Minimi_Mod
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Modernised AFG";
+    Grip_Macro(2,Minimi_AFG)
+	};
+	
+	class ADFRC_F89_Minimi_Mod_VFG: ADFRC_F89_Minimi_Mod
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Modernised VFG";
+    Grip_Macro(3,Minimi_VG)
+	};
+	
+	
 	class ADFRC_F89_Minimi_Para: ADFRC_F89_Minimi
 	{
 		scope=2;
@@ -572,7 +638,33 @@ class CfgWeapons
 		displayName="F89 Minimi Para";
 		author="Brucey";
 		picture="\ADF_Weapons\adfrc_minimi\UI\adfrc_Minimi_Para_CA.paa";
+		
+		rhs_grip1_change = "ADFRC_F89_Minimi_Para_GripPod";
+		rhs_grip2_change = "ADFRC_F89_Minimi_Para_AFG";
+		rhs_grip3_change = "ADFRC_F89_Minimi_Para_VFG";
 	};
+
+	class ADFRC_F89_Minimi_Para_GripPod: ADFRC_F89_Minimi_Para
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Para Grip-Pod";
+    Grip_Macro(1,Minimi_VG)
+	};
+	
+	class ADFRC_F89_Minimi_Para_AFG: ADFRC_F89_Minimi_Para
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Para AFG";
+    Grip_Macro(2,Minimi_AFG)
+	};
+	
+	class ADFRC_F89_Minimi_Para_VFG: ADFRC_F89_Minimi_Para
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Para VFG";
+    Grip_Macro(3,Minimi_VG)
+	};
+	
 	
 	class ADFRC_F89_Minimi_Mod_S: ADFRC_F89_Minimi
 	{
@@ -592,9 +684,40 @@ class CfgWeapons
             {};
             class PointerSlot : asdg_FrontSideRail //side slot
             {};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
 		
-		};
+		
+		
+		rhs_grip1_change = "ADFRC_F89_Minimi_Mod_S_GripPod";
+		rhs_grip2_change = "ADFRC_F89_Minimi_Mod_S_AFG";
+		rhs_grip3_change = "ADFRC_F89_Minimi_Mod_S_VFG";
+	};
+
+	class ADFRC_F89_Minimi_Mod_S_GripPod: ADFRC_F89_Minimi_Mod_S
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Modernised (Short) Grip-Pod";
+    Grip_Macro(1,Minimi_VG)
+	};
+	
+	class ADFRC_F89_Minimi_Mod_S_AFG: ADFRC_F89_Minimi_Mod_S
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Modernised (Short) AFG";
+    Grip_Macro(2,Minimi_AFG)
+	};
+	
+	class ADFRC_F89_Minimi_Mod_S_VFG: ADFRC_F89_Minimi_Mod_S
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Modernised (Short) VFG";
+    Grip_Macro(3,Minimi_VG)
+	};
+	
+	
+	
+	
 	class ADFRC_F89_Minimi_Para_S: ADFRC_F89_Minimi
 	{
 		scope=2;
@@ -613,8 +736,34 @@ class CfgWeapons
             {};
             class PointerSlot : asdg_FrontSideRail //side slot
             {};
+			class GripodSlot: adfrc_PIC_grip_slot {};
         };
+		
+		rhs_grip1_change = "ADFRC_F89_Minimi_Para_S_GripPod";
+		rhs_grip2_change = "ADFRC_F89_Minimi_Para_S_AFG";
+		rhs_grip3_change = "ADFRC_F89_Minimi_Para_S_VFG";
+	};
+
+	class ADFRC_F89_Minimi_Para_S_GripPod: ADFRC_F89_Minimi_Para_S
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Para (Short) Grip-Pod";
+    Grip_Macro(1,Minimi_VG)
+	};
 	
-		};
+	class ADFRC_F89_Minimi_Para_S_AFG: ADFRC_F89_Minimi_Para_S
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Para (Short) AFG";
+    Grip_Macro(2,Minimi_AFG)
+	};
+	
+	class ADFRC_F89_Minimi_Para_S_VFG: ADFRC_F89_Minimi_Para_S
+	{
+		author = "Brucey";
+	displayName = "F89 Minimi Para (Short) VFG";
+    Grip_Macro(3,Minimi_VG)
+	};
+		
 		#include "Presets.hpp"
 };

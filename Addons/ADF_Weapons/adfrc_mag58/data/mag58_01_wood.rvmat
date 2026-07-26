@@ -1,22 +1,13 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: P:\ADF_Weapons\adfrc_mag58\data\mag58_01_wood.rvmat
-//Produced from mikero's Dos Tools Dll version 9.36
-//https://mikero.bytex.digital/Downloads
-//'now' is Thu May 16 16:19:45 2024 : 'file' last modified on Thu Aug 10 19:23:55 2023
-////////////////////////////////////////////////////////////////////
-
-#define _ARMA_
-
 class StageTI
 {
 	texture = "#(argb,8,8,3)color(0.5,0,0,0,TI)";
 };
-ambient[] = {0.95,0.95,0.95,1};
-diffuse[] = {0.95,0.95,0.95,1};
-forcedDiffuse[] = {0,0,0,0};
-emmisive[] = {0,0,0,1};
-specular[] = {0.999999,1,1,1};
-specularPower = 20;
+ambient[] = { 0.5, 0.5, 0.5, 1 };
+diffuse[] = { 0.5, 0.5, 0.5, 1 };
+forcedDiffuse[] = { 0, 0, 0, 1 };
+emmisive[] = { 0, 0, 0, 1 };
+specular[] = { 0.16, 0.16, 0.16, 1 };
+specularPower = 45;
 PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1
@@ -81,7 +72,7 @@ class Stage5
 };
 class Stage6
 {
-	texture = "#(ai,64,64,1)fresnelGlass()";
+	texture = "#(ai,64,64,1)fresnel(1.5,0.45)";
 	uvSource = "none";
 };
 class Stage7

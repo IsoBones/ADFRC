@@ -7,7 +7,7 @@ class CfgPatches
 		weapons[]={};
 		requiredVersion=0.1;
 		requiredAddons[]={"A3_Weapons_F"};
-		author= "$STR_ADF_AUTHOR";
+		author= "ADFRECUT";
 		version="0.5.0";
 		versionStr="0.5.0";
 		versionAr[]={0,5,0};

@@ -22,7 +22,7 @@ class CfgPatches
 		{
 			"A3_Weapons_F",
 			"A3_Weapons_F_Acc",
-			"ADFRC_optics"
+			"ADF_optics"
 		};
 		author="$STR_ADFRC_AUTHOR";
 		ammo[]=
@@ -81,7 +81,7 @@ class cfgAmmo
 		indirectHitRange=20;
 		cost=200;
 		airFriction=0.075000003;
-		sideAirFriction=0;
+		sideAirFriction=0.075000003;
 		maxSpeed=265;
 		initTime=0;
 		thrustTime=0;

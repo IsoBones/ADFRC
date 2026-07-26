@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {"ADFRC_USP"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"ADF_Core","ADFRC_Weapons_Tags"};
+		requiredAddons[] = {"ADF_Core","ADF_Weapons"};
 		fileName = "ADF_USP.pbo";
 	};
 };
