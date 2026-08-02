@@ -1345,21 +1345,26 @@ class CfgVehicles
 	{
 		faction = "ADFRC_F_GWOT";
 	};
+	/////////////////////NOT TO BE USED EVER AGAIN ////////////////////
 	class adfrc_c130_inf_PCW: adfrc_c130_inf
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_c130_vic_PCW: adfrc_c130_vic
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_c130_inf_auscam_PCW: adfrc_c130_inf_auscam
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 	class adfrc_c130_vic_auscam_PCW: adfrc_c130_vic_auscam
 	{
-		faction = "ADFRC_F_PCW";
+		scope = 0;
+		scopeCurator = 0;
 	};
 };
 class CfgNonAIVehicles

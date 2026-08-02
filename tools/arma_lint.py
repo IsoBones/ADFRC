@@ -21,6 +21,10 @@ Common flags:
     --include-dir DIR          Extra root for resolving #include paths
                                (repeatable; can use $PBOPREFIX$-style roots)
     --max-path-len N           Max in-PBO path length to allow (default 100)
+    --internal-prefix PFX      Top-level folder prefix owned by this project
+                               (repeatable, default ADF_). Absolute #includes
+                               rooted elsewhere (\\x\\cba, \\z\\ace, \\MCC, ...)
+                               warn as W018 instead of erroring as E013.
     --quiet                    Only show errors+warnings, no per-file headers
     --rules                    List all rules and exit
     --disable RULE             Disable a rule by ID (repeatable)
@@ -120,7 +124,13 @@ RULES: dict[str, tuple[str, str]] = {
     "W015": (LEVEL_WARNING, "#include path uses forward slashes (Arma convention is backslash)"),
     "W016": (LEVEL_WARNING, "Numeric literal looks malformed"),
     "W017": (LEVEL_WARNING, "#include path case differs from real filename (breaks on Linux/Mac/CI)"),
+    "W018": (LEVEL_WARNING, "#include target not found, but points outside the project (external/soft dependency)"),
 }
+
+# Top-level folder prefixes that count as "ours". An absolute #include whose
+# first path segment doesn't start with one of these can't be resolved from
+# this repo alone (CBA, ACE, ACEX, MCC, etc.), so a miss is W018 not E013.
+DEFAULT_INTERNAL_PREFIXES = ("ADF_",)
 
 # Cosmetic-only rules: muted by default, opt in via --cosmetic
 COSMETIC_RULES = {"W009", "W010"}
@@ -1131,7 +1141,28 @@ def _find_case_insensitive(target: Path) -> Path | None:
     return None
 
 
-def check_includes(path: Path, raw_text: str, include_dirs: list[Path], disabled: set[str], pbo_root: Path | None) -> list[Diagnostic]:
+def _external_include_root(rel_target: str, internal_prefixes: tuple[str, ...]) -> str | None:
+    """
+    For an absolute-style include (leading \\ or /), return the first path
+    segment if it isn't one of our own top-level folders, else None.
+
+    Relative includes always return None: those must resolve inside the repo,
+    so a miss there is a genuine error.
+    """
+    if not rel_target.startswith("/"):
+        return None
+    segs = [s for s in rel_target.split("/") if s]
+    if len(segs) < 2:
+        return None
+    first = segs[0]
+    for p in internal_prefixes:
+        if first.lower().startswith(p.lower()):
+            return None
+    return first
+
+
+def check_includes(path: Path, raw_text: str, include_dirs: list[Path], disabled: set[str], pbo_root: Path | None,
+                   internal_prefixes: tuple[str, ...] = DEFAULT_INTERNAL_PREFIXES) -> list[Diagnostic]:
     diags: list[Diagnostic] = []
     sp = str(path)
 
@@ -1181,6 +1212,16 @@ def check_includes(path: Path, raw_text: str, include_dirs: list[Path], disabled
                 diags.append(Diagnostic(sp, line_no, 1, LEVEL_WARNING, "W017",
                                         f"#include path {target!r} differs in case from real file {ci_match.name!r}. "
                                         f"Works on Windows, but breaks PboProject on Linux/Mac and CI."))
+            continue
+
+        external_root = _external_include_root(rel_target, internal_prefixes)
+        if external_root is not None:
+            if "W018" not in disabled:
+                own = ", ".join(p + "*" for p in internal_prefixes)
+                diags.append(Diagnostic(sp, line_no, 1, LEVEL_WARNING, "W018",
+                                        f"#include target not found: {target!r}. Root folder {external_root!r} is not "
+                                        f"part of this project ({own}), so it can't be resolved from the repo. "
+                                        f"Assuming external/soft dependency."))
             continue
 
         if "E013" not in disabled:
@@ -1278,7 +1319,9 @@ def find_addon_root(file_path: Path) -> Path | None:
     return None
 
 
-def lint_file(path: Path, repo_root: Path, include_dirs: list[Path], max_path_len: int, disabled: set[str], project_classes: set[str] | None = None) -> tuple[list[Diagnostic], FileParseResult | None]:
+def lint_file(path: Path, repo_root: Path, include_dirs: list[Path], max_path_len: int, disabled: set[str],
+              project_classes: set[str] | None = None,
+              internal_prefixes: tuple[str, ...] = DEFAULT_INTERNAL_PREFIXES) -> tuple[list[Diagnostic], FileParseResult | None]:
     diags: list[Diagnostic] = []
 
     try:
@@ -1356,7 +1399,8 @@ def lint_file(path: Path, repo_root: Path, include_dirs: list[Path], max_path_le
     addon_root = find_addon_root(path)
     diags.extend(check_cfg_patches(parsed, addon_root=addon_root, disabled=disabled))
     diags.extend(scan_cfgpatches_fields(path, text_for_parse, disabled=disabled))
-    diags.extend(check_includes(path, text_for_parse, include_dirs=include_dirs, disabled=disabled, pbo_root=repo_root))
+    diags.extend(check_includes(path, text_for_parse, include_dirs=include_dirs, disabled=disabled, pbo_root=repo_root,
+                                internal_prefixes=internal_prefixes))
 
     return diags, parsed
 
@@ -1388,6 +1432,10 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--json", action="store_true", help="Emit JSON")
     parser.add_argument("--include-dir", action="append", default=[], help="Extra include search root (repeatable)")
     parser.add_argument("--max-path-len", type=int, default=100, help="Max in-PBO path length to allow")
+    parser.add_argument("--internal-prefix", action="append", default=[],
+                        help="Top-level folder prefix that counts as part of this project (repeatable). "
+                             f"Absolute #includes rooted elsewhere downgrade from E013 to W018. "
+                             f"Default: {', '.join(DEFAULT_INTERNAL_PREFIXES)}")
     parser.add_argument("--quiet", action="store_true")
     parser.add_argument("--disable", action="append", default=[], help="Disable a rule by ID (repeatable)")
     parser.add_argument("--enable", action="append", default=[], help="Force-enable a rule by ID (repeatable)")
@@ -1410,6 +1458,7 @@ def main(argv: list[str]) -> int:
             if r not in enabled:
                 disabled.add(r)
     repo_root = Path(args.paths[0]).resolve() if len(args.paths) == 1 and Path(args.paths[0]).is_dir() else Path.cwd()
+    internal_prefixes = tuple(args.internal_prefix) if args.internal_prefix else DEFAULT_INTERNAL_PREFIXES
     include_dirs = [Path(d).resolve() for d in args.include_dir]
     # Always include repo_root as an include search dir
     if repo_root not in include_dirs:
@@ -1442,7 +1491,8 @@ def main(argv: list[str]) -> int:
 
     all_diags: list[Diagnostic] = []
     for f in files:
-        file_diags, _ = lint_file(f, repo_root, include_dirs, args.max_path_len, disabled, project_classes=project_classes)
+        file_diags, _ = lint_file(f, repo_root, include_dirs, args.max_path_len, disabled,
+                                  project_classes=project_classes, internal_prefixes=internal_prefixes)
         all_diags.extend(file_diags)
 
     if args.no_warnings:

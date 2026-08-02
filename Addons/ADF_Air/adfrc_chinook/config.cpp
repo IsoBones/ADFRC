@@ -5794,11 +5794,6 @@ class CfgVehicles
 			"ADF_Air\adfrc_chinook\data\ch47extras_co.paa",
 		};
 	};
-	class ADFRC_chinook_PCW: ADFRC_chinook
-	{
-		faction = "ADFRC_F_PCW";
-		scope=1;
-	};
 	class ADFRC_chinook_VIV: ADFRC_chinook
 	{
 		scope=2;
@@ -5879,11 +5874,16 @@ class CfgVehicles
 			"ADF_Air\adfrc_chinook\data\ch47extras_co.paa",
 		};
 	};
-	class ADFRC_chinook_VIV_PCW: ADFRC_chinook_VIV
+/////////////////////NOT TO BE USED EVER AGAIN ////////////////////
+	class ADFRC_chinook_VIV_PCW: ADFRC_chinook_VIV_GWOT
 	{
-		faction = "ADFRC_F_PCW";
 		scope=1;
 	};
+	class ADFRC_chinook_PCW: ADFRC_chinook_GWOT
+	{
+		scope=1;
+	};
+
 };
 class CfgAmmo
 {

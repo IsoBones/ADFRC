@@ -309,7 +309,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -343,7 +344,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -414,7 +416,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -464,7 +467,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -619,7 +623,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -871,7 +876,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -1139,7 +1145,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -1194,7 +1201,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -1433,7 +1441,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -1476,7 +1485,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 
 		hiddenSelectionsTextures[] = {
@@ -1534,7 +1544,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 		hiddenSelectionsTextures[]=
 		{
@@ -1565,7 +1576,8 @@ class CfgVehicles{
 			"Shirt_2",
 			"Shirt_3",
 			"Shirt_4",
-			"insignia"
+			"insignia",
+			"clan"
 		};
 		hiddenSelectionsTextures[]=
 		{

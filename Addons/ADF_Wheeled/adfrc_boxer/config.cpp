@@ -120,6 +120,8 @@ class CfgVehicles
 	class adfrc_boxer_base: B_APC_Wheeled_01_cannon_F
 	{
 		author = "ADFRC - Quiggs / Index";
+		scope=1;
+		scopeCurator=1;
 		mapSize=10.25;
 		accuracy=0.25;
 		brakeIdleSpeed=1.78;
