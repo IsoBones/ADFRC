@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class ADF_G19
+	class ADFRC_G19
 	{
 		units[] = {};
 		weapons[] = {"ADFRC_G19_Base","ADFRC_G19_G5_MOS_9"};
