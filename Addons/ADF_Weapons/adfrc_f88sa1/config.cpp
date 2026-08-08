@@ -182,8 +182,9 @@ class CfgWeapons
 	};
 	class ADFRC_F88SA1_elcan: ADFRC_F88SA1
 	{
-		scope=2;
+		scope=1;
 		author="$STR_ADFRC_AUTHOR";
+		displayName="THIS IS A BUG!";
 		class LinkedItems
 		{
 			class LinkedItemsOptic
