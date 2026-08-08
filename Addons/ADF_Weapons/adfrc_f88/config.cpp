@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class ADF_F88
+	class adfrc_F88
 	{
 		units[] = {};
 		weapons[] = {""};
