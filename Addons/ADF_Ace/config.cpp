@@ -76,8 +76,8 @@ class CfgMagazines {
 		ace_isbelt = 1;
 	};
 };
-class CfgWeapons {
-	class Pistol_Base_F;
+class CfgWeapons {  // THE BELOW COMMENTED OUT CFGWEAPONS DATA IS MASSIVLEY FUCKING UP WEAPONS IN-GAME AND SHOULD NOT BE RE-ENABLED UNLESS NECESSARY AND QA CHECKED BY BRUCEY
+	/*class Pistol_Base_F;
 	class Rifle_Base_F;
 	class UGL_F;
 	class ADFRC_pistol_base : Pistol_Base_F {};
@@ -243,7 +243,7 @@ class CfgWeapons {
 		ACE_overpressure_range = 18;
 		ACE_overpressure_damage = 0.7;
 		ACE_reloadlaunchers_enabled = 1;
-	};
+	};*/
 };
 class CfgVehicles {
 	//Helicopters
