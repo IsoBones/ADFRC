@@ -150,8 +150,6 @@ class CfgWeapons {
 		ACE_twistDirection = 1;
 		ace_overheating_closedBolt = 1;
 	};
-	class ADFRC_F88SA1_elcan : ADFRC_F88SA1_base {
-	};
 	class ADFRC_F88SA1_gl : ADFRC_F88SA1 {
 		class M203: UGL_F {
 			magazines[]={
