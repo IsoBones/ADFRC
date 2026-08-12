@@ -490,6 +490,10 @@ class cfgWeapons
 		{
 			libTextDesc="84mm Recoilless Rifle";
 		};
+		ACE_overpressure_angle = 60;
+		ACE_overpressure_range = 18;
+		ACE_overpressure_damage = 0.7;
+		ACE_reloadlaunchers_enabled = 1;
 	};
 	
 	class ADFRC_carlgustav_m4: ADFRC_carlgustav_m3
