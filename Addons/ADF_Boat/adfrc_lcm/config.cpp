@@ -3,7 +3,7 @@ class CfgPatches
 	class adfrc_lcm
 	{
 		addonRootClass = "A3_Boat_F";
-		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core"};
+		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core", "ADF_Units"};
 		requiredVersion = 0.1;
 		units[] = {"adfrc_lcm",};
 		weapons[] = {};
@@ -248,13 +248,9 @@ class CfgVehicles
 		driverLeftHandAnimName = "drivewheel";
 		driverRightHandAnimName = "drivewheel";
 		driverAction = "driver_boat01";
-		// Driver sees the exterior model (Resolution 1) in first person instead of
-		// View - Pilot. The interior LOD is drawn over the world, which hid any
-		// vehicle on the deck behind the deck itself. Same approach vanilla tanks
-		// use for turned-out drivers.
-		LODDriverTurnedIn = 1;
-		LODDriverTurnedOut = 1;
-		cargoAction[] = {"passenger_boat_rightrear","passenger_flatground_leanright","passenger_boat_holdright2","passenger_boat_holdleft2","passenger_flatground_leanright","passenger_flatground_leanleft","passenger_boat_holdright","passenger_boat_holdleft"};
+		// Two standing crew in the wheelhouse behind the coxswain (cargo proxies 1-2).
+		// Troops ride inside the carried vehicles.
+		cargoAction[] = {"passenger_boat_holdright","passenger_boat_holdleft"};
 		getInAction = "GetInLow";
 		getOutAction = "GetOutBoat";
 		cargoGetInAction[] = {"GetInLow"};
@@ -264,7 +260,7 @@ class CfgVehicles
 		gunnerHasFlares = 0;
 		enableGPS = 1;
 		enableRadio = 1;
-		transportSoldier = 8;
+		transportSoldier = 2;
 		class TransportItems
 		{
 			class _xx_FirstAidKit
@@ -498,9 +494,10 @@ class CfgVehicles
 		scope = 2;
 		scopeCurator = 2;
 		accuracy = 1.5;
-		crew = "B_soldier_F";
-		faction = "BLU_F";
+		// ADF (Modern Era) > Boats. EdSubcat_Boats (set on the base) is the vanilla "Boats" subcategory.
+		crew = "ADFRC_MD_RAN_Coxswain";
+		faction = "ADFRC_F_MD";
 		side = 1;
-		typicalCargo[] = {"B_Soldier_F","B_Soldier_F"};
+		typicalCargo[] = {"ADFRC_MD_RAN_Coxswain","ADFRC_MD_RAN_Coxswain"};
 	};
 };
