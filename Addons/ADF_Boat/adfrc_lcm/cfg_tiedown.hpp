@@ -21,6 +21,7 @@ class CfgFunctions
             class addVehicleActions {};
             class nearestLCM        {};
             class board             {};
+            class hullDistance      {};
         };
     };
 };

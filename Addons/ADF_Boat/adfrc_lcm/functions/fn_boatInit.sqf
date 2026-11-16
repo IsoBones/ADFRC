@@ -28,8 +28,8 @@ _boat addAction [
     "
         (vehicle _this == _this) &&
         {isNull (objectParent _this)} &&
-        {_this distance _target < (missionNamespace getVariable ['ADFRC_lcm_boardRange', 8])} &&
-        {(getPosASL _this) select 2 < 1}
+        {(getPosASL _this) select 2 < 1} &&
+        {([_this, _target] call adfrc_lcm_fnc_hullDistance) < (missionNamespace getVariable ['ADFRC_lcm_boardRange', 8])}
     ",
-    (missionNamespace getVariable ["ADFRC_lcm_boardRange", 8])
+    30  // engine pre-filter only (measured to model centre); real range check is the condition above
 ];

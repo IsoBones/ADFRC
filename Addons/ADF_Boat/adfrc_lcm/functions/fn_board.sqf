@@ -9,8 +9,9 @@
         1. boat memory point "adfrc_board_pos" (add to p3d when convenient)
         2. fallback: deck-relative model offset adfrc_lcm_boardOffset
 
-    The unit is placed slightly above the deck and allowed to settle, which
-    avoids the swim->stand transition flinging them at boat speed.
+    Only X/Y of the target are used. The deck height is found by casting a
+    ray straight down onto the boat, and the unit is placed just above the
+    hit point so they don't drop onto the deck and take fall damage.
 
     Params:
         0: BOAT <OBJECT>
@@ -30,7 +31,7 @@ if (!isNull objectParent _unit) exitWith {};
 if (vehicle _unit != _unit) exitWith {};
 
 private _range = missionNamespace getVariable ["ADFRC_lcm_boardRange", 8];
-if (_unit distance _boat > _range) exitWith {};
+if (([_unit, _boat] call adfrc_lcm_fnc_hullDistance) > _range) exitWith {};
 
 // resolve deck target
 private _memPos = _boat selectionPosition "adfrc_board_pos";
@@ -41,14 +42,26 @@ private _targetModel = if (_memPos isEqualTo [0,0,0]) then {
     _memPos
 };
 
-private _targetWorld = _boat modelToWorldVisual _targetModel;
-// lift slightly so they settle onto the deck instead of clipping through
-_targetWorld set [2, (_targetWorld select 2) + 0.4];
+// find the deck surface under the target point: ray from above the hull's
+// top down to below its bottom, first hit that belongs to the boat
+(boundingBoxReal _boat) params ["_bbMin", "_bbMax"];
+_targetModel params ["_tx", "_ty"];
+private _from = _boat modelToWorldVisualWorld [_tx, _ty, (_bbMax select 2) + 1];
+private _to   = _boat modelToWorldVisualWorld [_tx, _ty, _bbMin select 2];
+private _hits = lineIntersectsSurfaces [_from, _to, _unit, objNull, true, -1, "GEOM", "VIEW", false];
+private _deck = _hits findIf {(_x select 2) == _boat || {(_x select 3) == _boat}};
+
+private _targetASL = if (_deck >= 0) then {
+    ((_hits select _deck) select 0) vectorAdd [0, 0, 0.05]
+} else {
+    // no deck hit (unexpected): old behaviour, model offset with small lift
+    (AGLToASL (_boat modelToWorldVisual _targetModel)) vectorAdd [0, 0, 0.2]
+};
 
 // brief swim->stand settle to avoid fling at speed
-[_unit, _targetWorld, _boat] spawn {
+[_unit, _targetASL, _boat] spawn {
     params ["_unit", "_pos", "_boat"];
-    _unit setPosWorld _pos;
+    _unit setPosASL _pos;
     _unit setVectorDirAndUp [_boat vectorModelToWorld [0,1,0], _boat vectorModelToWorld [0,0,1]];
     _unit setVelocity [0,0,0];
     // settle frame: re-seat once after the engine processes the move
