@@ -7,7 +7,7 @@ class CfgPatches{
 			"ADF_Core",
 			"ADF_Gear"
 		};
-		units[]={};
+		units[]={"ADFRC_MD_RAN_Coxswain"};
 		weapons[]={};
 		//fileName = "ADF_Units.pbo";
 	};
@@ -21,6 +21,7 @@ class CfgVehicles{
 	#include "Modern\SASR\Infantry.hpp"
 	//#include "Modern\SASR\TAG.hpp"  ## BASE CLASSES DONT EVEN EXIST FOR THESE YET!
 	#include "Modern\Backpacks.hpp"
+	#include "ran\Units.hpp"
 };
 
 class cfgGroups

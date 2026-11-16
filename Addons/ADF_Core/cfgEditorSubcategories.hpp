@@ -17,4 +17,7 @@ class CfgEditorSubcategories{
 	class ADFRC_MD_SpecialForces_TAGW{
 		displayName = "Special Forces (TAG-W)";
 	};
+	class ADFRC_MD_RAN_MMP{
+		displayName = "Navy (RAN - MMP)";
+	};
 };

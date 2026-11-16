@@ -3,7 +3,7 @@ class CfgPatches
 	class adfrc_lcm
 	{
 		addonRootClass = "A3_Boat_F";
-		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core"};
+		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core", "ADF_Units"};
 		requiredVersion = 0.1;
 		units[] = {"adfrc_lcm",};
 		weapons[] = {};
@@ -494,9 +494,10 @@ class CfgVehicles
 		scope = 2;
 		scopeCurator = 2;
 		accuracy = 1.5;
-		crew = "B_soldier_F";
-		faction = "BLU_F";
+		// ADF (Modern Era) > Boats. EdSubcat_Boats (set on the base) is the vanilla "Boats" subcategory.
+		crew = "ADFRC_MD_RAN_Coxswain";
+		faction = "ADFRC_F_MD";
 		side = 1;
-		typicalCargo[] = {"B_Soldier_F","B_Soldier_F"};
+		typicalCargo[] = {"ADFRC_MD_RAN_Coxswain","ADFRC_MD_RAN_Coxswain"};
 	};
 };
