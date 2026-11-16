@@ -1,5 +1,5 @@
-	// Royal Australian Navy crew. Base class lives in ADF_Gear (adfrc_uniforms\CfgVehicles.hpp).
-	class ADFRC_MD_AMCU_Soldier_Base;
+	// Royal Australian Navy crew. ADFRC_MD_AMCU_Soldier_Base is forward-declared in
+	// Modern\RAR\Infantry.hpp (same CfgVehicles scope), so don't declare it again here.
 
 	////////////////////////RAN Boat Crew///////////////////////////////////////////////////////////
 	// Default crew for the LCM-1E (ADF_Boat\adfrc_lcm).
