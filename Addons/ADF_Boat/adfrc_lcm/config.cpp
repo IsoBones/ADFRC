@@ -3,7 +3,7 @@ class CfgPatches
 	class adfrc_lcm
 	{
 		addonRootClass = "A3_Boat_F";
-		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh"};
+		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core"};
 		requiredVersion = 0.1;
 		units[] = {"adfrc_lcm",};
 		weapons[] = {};
@@ -12,15 +12,19 @@ class CfgPatches
 
 #include "cfg_tiedown.hpp"
 
-class Extended_PreInit_EventHandlers
+// XEH must live at config root, keyed by vehicle class. Nested inside the
+// vehicle class it is silently ignored. preInit is handled by CfgFunctions
+// (preInit = 1 in cfg_tiedown.hpp), so no Extended_PreInit_EventHandlers.
+class Extended_Init_EventHandlers
 {
-	class adfrc_lcm_tiedown_preinit
+	class adfrc_lcm
 	{
-		init = "call adfrc_lcm_fnc_preInit";
+		class adfrc_lcm_tiedown
+		{
+			init = "(_this select 0) call adfrc_lcm_fnc_boatInit";
+		};
 	};
 };
-
-class Extended_Init_EventHandlers;
 
 class DefaultEventHandlers;
 class RCWSOptics;
@@ -492,12 +496,5 @@ class CfgVehicles
 		faction = "BLU_F";
 		side = 1;
 		typicalCargo[] = {"B_Soldier_F","B_Soldier_F"};
-		class Extended_Init_EventHandlers
-		{
-			class adfrc_lcm_tiedown
-			{
-				init = "(_this select 0) call adfrc_lcm_fnc_boatInit";
-			};
-		};
 	};
 };

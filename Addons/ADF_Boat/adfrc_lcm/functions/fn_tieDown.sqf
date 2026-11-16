@@ -32,7 +32,7 @@ if (_vehicle getVariable ["adfrc_tiedDown", false]) exitWith {};
 
 // range sanity check
 private _maxDist = missionNamespace getVariable ["ADFRC_lcm_tieRange", 12];
-if (_vehicle distance _boat > _maxDist) exitWith {};
+if (([_vehicle, _boat] call adfrc_lcm_fnc_hullDistance) > _maxDist) exitWith {};
 
 // capture current position + orientation relative to the boat (model space)
 private _relPos = _boat worldToModel (getPosWorld _vehicle);
