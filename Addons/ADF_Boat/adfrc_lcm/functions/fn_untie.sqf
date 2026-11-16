@@ -1,9 +1,8 @@
 /*
     adfrc_lcm_fnc_untie
 
-    Releases a tied-down vehicle: re-enable simulation, detach, settle it onto
-    the surface. Server-authoritative (detach + enableSimulationGlobal must run
-    server-side to replicate).
+    Releases a tied-down vehicle: detach and settle it onto the surface.
+    Server-authoritative (detach must run server-side to replicate).
 
     Params:
         0: VEHICLE <OBJECT>
@@ -18,9 +17,6 @@ if (!isServer) exitWith {
 
 if (isNull _vehicle) exitWith {};
 if (!(_vehicle getVariable ["adfrc_tiedDown", false])) exitWith {};
-
-// re-enable sim before detaching so physics resumes cleanly
-_vehicle enableSimulationGlobal true;
 
 // capture world pos/orientation before detach so it doesn't snap
 private _wPos = getPosWorld _vehicle;

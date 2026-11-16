@@ -1,19 +1,18 @@
 /*
     adfrc_lcm_fnc_tieDown
 
-    Ties a vehicle to the LCM using attachTo + simulation freeze.
+    Ties a vehicle to the LCM using attachTo.
 
-    The vehicle is attached to the boat at its current relative position, then
-    its simulation is disabled globally. attachTo parents the vehicle to the
-    boat's frame so it rides along natively (no per-frame catch-up, no
-    choppiness). enableSimulationGlobal false freezes physics/anim but leaves
-    crew seated - troops stay boarded, they just can't operate the vehicle
-    until released.
+    The vehicle is attached to the boat at its current relative position.
+    attachTo parents the vehicle to the boat's frame so it rides along natively
+    (no per-frame catch-up, no choppiness). Simulation stays on so the crew can
+    still use turrets, weapons, hatches and seats while tied down. The
+    vehicle's mass is carried by the boat, so the LCM's mass and buoyancy LOD
+    must be set up to float with a full load.
 
-    Server-authoritative: attachTo and enableSimulationGlobal must run on the
-    server to replicate to all machines. The attachment and freeze persist
-    across ownership changes (driver leaving, swapping, disconnecting) on their
-    own,so no enforcement loop needed.
+    Server-authoritative: attachTo runs on the server to replicate to all
+    machines, and persists across ownership changes on its own, so no
+    enforcement loop needed.
 
     Params:
         0: BOAT    <OBJECT>
@@ -50,6 +49,3 @@ _vehicle attachTo [_boat, _relPos];
 // PARENT's model space - so feed the captured model-space vectors directly
 // (do NOT transform back to world).
 _vehicle setVectorDirAndUp [_vDir, _vUp];
-
-// freeze physics/animation; crew remain seated
-_vehicle enableSimulationGlobal false;
