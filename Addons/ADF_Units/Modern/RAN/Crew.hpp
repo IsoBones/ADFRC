@@ -1,4 +1,4 @@
-	// Royal Australian Navy units. Base class lives in ADF_Gear (adfrc_uniforms\CfgVehicles.hpp).
+	// Royal Australian Navy crew. Base class lives in ADF_Gear (adfrc_uniforms\CfgVehicles.hpp).
 	class ADFRC_MD_AMCU_Soldier_Base;
 
 	////////////////////////RAN Boat Crew///////////////////////////////////////////////////////////

@@ -21,7 +21,7 @@ class CfgVehicles{
 	#include "Modern\SASR\Infantry.hpp"
 	//#include "Modern\SASR\TAG.hpp"  ## BASE CLASSES DONT EVEN EXIST FOR THESE YET!
 	#include "Modern\Backpacks.hpp"
-	#include "ran\Units.hpp"
+	#include "Modern\RAN\Crew.hpp"
 };
 
 class cfgGroups
