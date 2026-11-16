@@ -248,7 +248,9 @@ class CfgVehicles
 		driverLeftHandAnimName = "drivewheel";
 		driverRightHandAnimName = "drivewheel";
 		driverAction = "driver_boat01";
-		cargoAction[] = {"passenger_boat_rightrear","passenger_flatground_leanright","passenger_boat_holdright2","passenger_boat_holdleft2","passenger_flatground_leanright","passenger_flatground_leanleft","passenger_boat_holdright","passenger_boat_holdleft"};
+		// Two standing crew in the wheelhouse behind the coxswain (cargo proxies 1-2).
+		// Troops ride inside the carried vehicles.
+		cargoAction[] = {"passenger_boat_holdright","passenger_boat_holdleft"};
 		getInAction = "GetInLow";
 		getOutAction = "GetOutBoat";
 		cargoGetInAction[] = {"GetInLow"};
@@ -258,7 +260,7 @@ class CfgVehicles
 		gunnerHasFlares = 0;
 		enableGPS = 1;
 		enableRadio = 1;
-		transportSoldier = 8;
+		transportSoldier = 2;
 		class TransportItems
 		{
 			class _xx_FirstAidKit
