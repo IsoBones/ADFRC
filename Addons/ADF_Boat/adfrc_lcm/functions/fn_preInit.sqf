@@ -7,8 +7,8 @@
     initSettings.sqf (ADFRC_lcm_tieRange, ADFRC_lcm_boardRange), consistent
     with the rest of the mod's settings.
 
-    With the attachTo + enableSimulationGlobal approach the attachment and
-    freeze replicate and persist on their own, so there is no enforcement loop
+    With the attachTo approach the attachment replicates and persists on
+    its own, so there is no enforcement loop
     or ownership watchdog - this just attaches the tie/release scroll actions
     to all land vehicles.
 
