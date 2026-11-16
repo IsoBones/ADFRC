@@ -248,6 +248,12 @@ class CfgVehicles
 		driverLeftHandAnimName = "drivewheel";
 		driverRightHandAnimName = "drivewheel";
 		driverAction = "driver_boat01";
+		// Driver sees the exterior model (Resolution 1) in first person instead of
+		// View - Pilot. The interior LOD is drawn over the world, which hid any
+		// vehicle on the deck behind the deck itself. Same approach vanilla tanks
+		// use for turned-out drivers.
+		LODDriverTurnedIn = 1;
+		LODDriverTurnedOut = 1;
 		cargoAction[] = {"passenger_boat_rightrear","passenger_flatground_leanright","passenger_boat_holdright2","passenger_boat_holdleft2","passenger_flatground_leanright","passenger_flatground_leanleft","passenger_boat_holdright","passenger_boat_holdleft"};
 		getInAction = "GetInLow";
 		getOutAction = "GetOutBoat";
