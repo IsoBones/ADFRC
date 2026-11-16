@@ -3,7 +3,7 @@ class CfgPatches
 	class adfrc_lcm
 	{
 		addonRootClass = "A3_Boat_F";
-		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core", "ADF_Units"};
+		requiredAddons[] = {"A3_Boat_F", "cba_main", "cba_xeh", "ADF_Core", "ADF_Units", "A3_Data_F_Mod_Loadorder"};
 		requiredVersion = 0.1;
 		units[] = {"adfrc_lcm",};
 		weapons[] = {};
@@ -34,6 +34,7 @@ class CfgVehicles
 	class Boat_F: Ship_F
 	{
 		class NewTurret;
+		class CargoTurret;
 		class Turrets;
 		class ViewPilot;
 		class ViewOptics;
@@ -249,8 +250,10 @@ class CfgVehicles
 		driverRightHandAnimName = "drivewheel";
 		driverAction = "driver_boat01";
 		// Two standing crew in the wheelhouse behind the coxswain (cargo proxies 1-2).
-		// Troops ride inside the carried vehicles.
+		// Deck positions on the gunwales are named cargo turrets (cargo proxies 3-8, see Turrets).
+		// Troops otherwise ride inside the carried vehicles.
 		cargoAction[] = {"passenger_boat_holdright","passenger_boat_holdleft"};
+		cargoProxyIndexes[] = {1,2};
 		getInAction = "GetInLow";
 		getOutAction = "GetOutBoat";
 		cargoGetInAction[] = {"GetInLow"};
@@ -347,8 +350,51 @@ class CfgVehicles
 		{
 			initAngleX = -15;
 		};
+		// Gunwale deck positions: Deck Position 1-3 port (bow to stern), 4-6 starboard.
+		// Named cargo turrets so each spot shows by name in the get-in menu.
+		// isPersonTurret = 0: no FFV, they hold the balance pose.
 		class Turrets
-		{};
+		{
+			class DeckPosition_1: CargoTurret
+			{
+				gunnerName = "Deck Position 1";
+				gunnerAction = "passenger_boat_holdleft";
+				gunnerGetInAction = "GetInLow";
+				gunnerGetOutAction = "GetOutBoat";
+				proxyIndex = 3;
+				isPersonTurret = 0;
+			};
+			class DeckPosition_2: DeckPosition_1
+			{
+				gunnerName = "Deck Position 2";
+				gunnerAction = "passenger_boat_holdleft";
+				proxyIndex = 4;
+			};
+			class DeckPosition_3: DeckPosition_1
+			{
+				gunnerName = "Deck Position 3";
+				gunnerAction = "passenger_boat_holdleft";
+				proxyIndex = 5;
+			};
+			class DeckPosition_4: DeckPosition_1
+			{
+				gunnerName = "Deck Position 4";
+				gunnerAction = "passenger_boat_holdright";
+				proxyIndex = 6;
+			};
+			class DeckPosition_5: DeckPosition_1
+			{
+				gunnerName = "Deck Position 5";
+				gunnerAction = "passenger_boat_holdright";
+				proxyIndex = 7;
+			};
+			class DeckPosition_6: DeckPosition_1
+			{
+				gunnerName = "Deck Position 6";
+				gunnerAction = "passenger_boat_holdright";
+				proxyIndex = 8;
+			};
+		};
 		class Library
 		{
 			libTextDesc = "$STR_A3_CfgVehicles_Boat_Armed_01_Base_Library0";
