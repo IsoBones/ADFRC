@@ -11,8 +11,8 @@ class CfgPatches
 class SlotInfo;
 class PointerSlot;
 
-#include "Muzzle_Acc_JR.HPP"
-#include "Rail_Acc_JR.HPP"
+#include "Muzzle_Acc_JR.hpp"
+#include "Rail_Acc_JR.hpp"
 
 class CfgWeapons
 {
@@ -44,24 +44,24 @@ class CfgWeapons
 	
 	////MUZZLE DEVICES
 	class muzzle_snds_M;
-	#include "SUREFIRE_RC\SOCOM_RC.HPP"
-	#include "NT4\NT4.HPP"
-	#include "Ryder9\Ryder9.HPP"
-	#include "Zev\Zev.HPP"
-	#include "F88_Silencer\F88_Silencer.HPP"
+	#include "SUREFIRE_RC\SOCOM_RC.hpp"
+	#include "NT4\NT4.hpp"
+	#include "Ryder9\Ryder9.hpp"
+	#include "Zev\Zev.hpp"
+	#include "F88_SILENCER\F88_Silencer.hpp"
 	
 	////WEAPON LIGHTS
-	#include "F88LightLasers.HPP"
-	#include "X400\X400.HPP"
-	#include "WMLx\WMLx.HPP"
-	#include "PEQ15\PEQ15.HPP"
-	#include "L3Squad\L3Squad.HPP"
-	#include "P320\Foxtrot2.HPP"
+	#include "F88LightLasers.hpp"
+	#include "X400\X400.hpp"
+	#include "WMLx\WMLx.hpp"
+	#include "PEQ15\Peq15.hpp"
+	#include "L3Squad\L3Squad.hpp"
+	#include "P320\Foxtrot2.hpp"
 	
 	////Bipods/Grips
-	#include "Grip_pod\Grippod.HPP"
-	#include "ATLAS\atlas.HPP"
-	#include "Harris\harris.HPP"
+	#include "Grip_Pod\grippod.hpp"
+	#include "ATLAS\atlas.hpp"
+	#include "Harris\Harris.hpp"
 	
 	
 };
