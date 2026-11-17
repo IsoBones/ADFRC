@@ -124,9 +124,11 @@ class cfgMagazines
 		tracersEvery = 4;
 	};
 	class 250Rnd_30mm_HE_shells_Tracer_Red;
+	// The 360RND names never matched the 125-round count (#193). The 125Rnd classes below are
+	// what the Boxer loads now; the 360RND ones stay (hidden) so existing missions still load.
 	class ADFRC_boxer_360RND_30mm_HE: 250Rnd_30mm_HE_shells_Tracer_Red
 	{
-		scope = 2;
+		scope = 1;
 		displayName = "30mm HE";
 		displaynameshort = "MK266 HEI-T";
 		ammo = "ADFRC_boxer_30mm_HE";
@@ -136,12 +138,20 @@ class cfgMagazines
 	class 250Rnd_30mm_APDS_shells_Tracer_Red;
 	class ADFRC_boxer_360RND_30mm_AP: 250Rnd_30mm_APDS_shells_Tracer_Red
 	{
-		scope = 2;
+		scope = 1;
 		displayName = "30mm AP";
 		displayNameShort = "PMC287 APFSDS";
 		ammo = "ADFRC_boxer_30mm_AP";
 		tracersEvery = 1;
 		count = 125;
+	};
+	class ADFRC_boxer_125Rnd_30mm_HE: ADFRC_boxer_360RND_30mm_HE
+	{
+		scope = 2;
+	};
+	class ADFRC_boxer_125Rnd_30mm_AP: ADFRC_boxer_360RND_30mm_AP
+	{
+		scope = 2;
 	};
 	class 2Rnd_GAT_missiles;
 	class ADFRC_2RND_Spike: 2Rnd_GAT_missiles
@@ -315,7 +325,7 @@ class cfgWeapons
 		class HE: autocannon_Base_F
 		{
 			displayName = "MK 30-2/ABM 30mm Autocannon";
-			magazines[] = {"ADFRC_boxer_360RND_30mm_HE"};
+			magazines[] = {"ADFRC_boxer_125Rnd_30mm_HE","ADFRC_boxer_360RND_30mm_HE"};
 			class player: player
 			{
 				dispersion = 0.0015;
@@ -396,7 +406,7 @@ class cfgWeapons
 		class AP: autocannon_Base_F
 		{
 			displayName = "MK 30-2/ABM 30mm Autocannon";
-			magazines[] = {"ADFRC_boxer_360RND_30mm_AP"};
+			magazines[] = {"ADFRC_boxer_125Rnd_30mm_AP","ADFRC_boxer_360RND_30mm_AP"};
 			class player: player
 			{
 				dispersion = 0.0009;
