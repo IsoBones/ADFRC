@@ -361,9 +361,10 @@ class cfgMagazines
 		count = 1;
 		maxLeadSpeed = 25;
 		tracersEvery = 1;
-		// {push, hull rock}. Vanilla 120mm: APFSDS/HEAT {0.5,3}, HE {1,6}. ~1.5x vanilla
-		// for a heavier, punchier feel. Was {10,0.8}: big push, almost no rock.
-		muzzleImpulseFactor[] = {0.75, 5};
+		// {push, hull rock}. The engine scales the kick by the round (it tracks hit x muzzle
+		// speed in testing: APFSDS 840k, HEAT 134k, HE 350k, canister 70k), so each shell
+		// carries its own factor to give all four the same punchy rock. Tested in game.
+		muzzleImpulseFactor[] = {2.5, 16};
 	};
 	class adfrc_abrams_1Rnd_M830A1_shell: adfrc_abrams_1Rnd_M829A2_shell
 	{
@@ -374,7 +375,7 @@ class cfgMagazines
 		ammo = "adfrc_abrams_120mm_M830A1_HEATMP";
 		tracersEvery = 1;
 		initSpeed = 1410;
-		muzzleImpulseFactor[] = {0.75, 4.5};
+		muzzleImpulseFactor[] = {16, 100};
 	};
 	class adfrc_abrams_1Rnd_M908_shell: adfrc_abrams_1Rnd_M829A2_shell
 	{
@@ -385,7 +386,7 @@ class cfgMagazines
 		ammo = "adfrc_abrams_120mm_M908_HE";
 		tracersEvery = 1;
 		initSpeed = 1400;
-		muzzleImpulseFactor[] = {1.5, 9};
+		muzzleImpulseFactor[] = {6, 38};
 	};
 	class adfrc_abrams_1Rnd_M1028_shell: adfrc_abrams_1Rnd_M829A2_shell
 	{
@@ -396,7 +397,7 @@ class cfgMagazines
 		ammo = "adfrc_abrams_120mm_M1028_C";
 		tracersEvery = 0;
 		initSpeed = 1410;
-		muzzleImpulseFactor[] = {1.5, 9};
+		muzzleImpulseFactor[] = {30, 190};
 	};
 	// Multi-round main gun magazines (#235). With 1Rnd magazines every shot is a magazine
 	// reload, so the "reload" animation source never runs and recoil/flash had to use
