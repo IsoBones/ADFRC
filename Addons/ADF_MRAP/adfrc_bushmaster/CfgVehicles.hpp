@@ -581,7 +581,7 @@ class CfgVehicles {
                 gunnerName                 = "Front Cover";
                 memoryPointsGetInGunner    = "pos_gunner";
 
-				commanding                 = 1;
+				commanding                 = -2; // below the driver so FFV passengers never take command (#192), as vanilla Prowler
 				gunnerForceOptics          = 0;
 				gunnerOutForceOptics       = 0;
 				initTurn                   = 0;
@@ -602,7 +602,7 @@ class CfgVehicles {
 				memoryPointsGetInGunner    = "pos_cargo_l";
 				memoryPointsGetInGunnerDir = "pos_cargo_l_dir";
 
-				commanding                 = 2;
+				commanding                 = -2;
                 proxyIndex                 = 2;
 			};
 
@@ -613,7 +613,7 @@ class CfgVehicles {
 				memoryPointsGetInGunnerDir = "pos_cargo_r_dir";
                 gunnerName                 = "Right Rear Cover";
 
-				commanding                 = 3;
+				commanding                 = -2;
 				proxyIndex                 = 3;
 			};
 		};
@@ -737,7 +737,7 @@ class CfgVehicles {
 				memoryPointsGetInGunnerDir = "pos_cargo_l_dir";
                 gunnerAction               = "vehicle_turnout_1";
 
-				commanding                 = 1;
+				commanding                 = -2; // below driver and gunner so FFV passengers never take command (#192)
 				gunnerForceOptics          = 0;
 				gunnerOutForceOptics       = 0;
 				initTurn                   = 0;
@@ -758,7 +758,7 @@ class CfgVehicles {
 				memoryPointsGetInGunnerDir = "pos_cargo_r_dir";
                 gunnerName                 = "Right Rear Cover";
 
-				commanding                 = 2;
+				commanding                 = -2;
 				proxyIndex                 = 3;
 			};
 		};
