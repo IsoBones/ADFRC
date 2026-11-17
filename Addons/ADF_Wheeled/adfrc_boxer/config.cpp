@@ -122,6 +122,9 @@ class CfgVehicles
 		author = "ADFRC - Quiggs / Index";
 		scope=1;
 		scopeCurator=1;
+		// TFAR: vehicle long-range radio (ignored without TFAR)
+		tf_hasLRradio=1;
+		tf_RadioType="TFAR_rt1523g";
 		mapSize=10.25;
 		accuracy=0.25;
 		brakeIdleSpeed=1.78;
