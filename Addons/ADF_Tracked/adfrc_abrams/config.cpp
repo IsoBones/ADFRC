@@ -1870,7 +1870,7 @@ class CfgVehicles
 		{
 			class maingun_recoil
 			{
-				source="reloadMagazine";
+				source="reload";
 				weapon="ADFRC_abrams_M256";
 			};
 			class zasleh_rot
@@ -1880,7 +1880,7 @@ class CfgVehicles
 			};
 			class zasleh_hide
 			{
-				source="reloadMagazine";
+				source="reload";
 				weapon="ADFRC_abrams_M256";
 			};
 			class zasleh_1_rot
