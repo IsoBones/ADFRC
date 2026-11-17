@@ -3270,6 +3270,14 @@ class CfgVehicles
 				// Keeps the smoke dischargers, drops the M2.
 				weapons[]={"SmokeLauncher"};
 				magazines[]={"SmokeLauncherMag","SmokeLauncherMag","SmokeLauncherMag","SmokeLauncherMag"};
+				// The armed pose (gunner_lsv_02) IKs the hands to the hidden M2. Use the vanilla
+				// Gorgon commander setup instead: plain turned-out pose, FFV with the personal
+				// weapon when turned out, smoke only from turned in.
+				gunnerAction="Commander_APC_Wheeled_03_cannon_F_out";
+				isPersonTurret=1;
+				personTurretAction="vehicle_turnout_1";
+				outGunnerMayFire=0;
+				inGunnerMayFire=1;
 			};
 		};
 	};
