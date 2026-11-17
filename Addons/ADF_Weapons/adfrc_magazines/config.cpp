@@ -593,7 +593,7 @@ class CfgMagazines
 	class ADFRC_250Rnd_556_Minimi_TR5: ADFRC_250Rnd_556_Minimi
 	{
 		scope=2;
-		displayName="200 Round 5.56 Tracer 1:5 (Red) Minimi";
+		displayName="250 Round 5.56 Tracer 1:5 (Red) Minimi";
 		author="$STR_ADFRC_AUTHOR";
 		ammo="B_556x45_F1_Ball_TracerR";
 		tracersEvery=5;
