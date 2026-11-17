@@ -36,6 +36,10 @@ class CfgPatches
 			"adfrc_abrams_1Rnd_M830A1_shell",
 			"adfrc_abrams_1Rnd_M908_shell",
 			"adfrc_abrams_1Rnd_M1028_shell",
+			"adfrc_abrams_20Rnd_M829A2_shell",
+			"adfrc_abrams_10Rnd_M830A1_shell",
+			"adfrc_abrams_7Rnd_M908_shell",
+			"adfrc_abrams_5Rnd_M1028_shell"
 		};
 	};
 };
@@ -839,48 +843,10 @@ class CfgVehicles
 				};
 				magazines[]=
 				{
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M829A2_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M830A1_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M908_shell",
-					"adfrc_abrams_1Rnd_M1028_shell",
-					"adfrc_abrams_1Rnd_M1028_shell",
-					"adfrc_abrams_1Rnd_M1028_shell",
-					"adfrc_abrams_1Rnd_M1028_shell",
-					"adfrc_abrams_1Rnd_M1028_shell",
+					"adfrc_abrams_20Rnd_M829A2_shell",
+					"adfrc_abrams_10Rnd_M830A1_shell",
+					"adfrc_abrams_7Rnd_M908_shell",
+					"adfrc_abrams_5Rnd_M1028_shell",
 					"ADFRC_abrams_200Rnd_762x51_Tracer",
 					"ADFRC_abrams_200Rnd_762x51_Tracer",
 					"ADFRC_abrams_200Rnd_762x51_Tracer",
@@ -1870,7 +1836,7 @@ class CfgVehicles
 		{
 			class maingun_recoil
 			{
-				source="reloadMagazine";
+				source="reload";
 				weapon="ADFRC_abrams_M256";
 			};
 			class zasleh_rot
@@ -1880,7 +1846,7 @@ class CfgVehicles
 			};
 			class zasleh_hide
 			{
-				source="reloadMagazine";
+				source="reload";
 				weapon="ADFRC_abrams_M256";
 			};
 			class zasleh_1_rot

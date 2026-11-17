@@ -361,7 +361,10 @@ class cfgMagazines
 		count = 1;
 		maxLeadSpeed = 25;
 		tracersEvery = 1;
-		muzzleImpulseFactor[] = { 10, 0.8 };
+		// {push, hull rock}. The engine scales the kick by the round (it tracks hit x muzzle
+		// speed in testing: APFSDS 840k, HEAT 134k, HE 350k, canister 70k), so each shell
+		// carries its own factor to give all four the same punchy rock. Tested in game.
+		muzzleImpulseFactor[] = {2.5, 16};
 	};
 	class adfrc_abrams_1Rnd_M830A1_shell: adfrc_abrams_1Rnd_M829A2_shell
 	{
@@ -372,6 +375,7 @@ class cfgMagazines
 		ammo = "adfrc_abrams_120mm_M830A1_HEATMP";
 		tracersEvery = 1;
 		initSpeed = 1410;
+		muzzleImpulseFactor[] = {16, 100};
 	};
 	class adfrc_abrams_1Rnd_M908_shell: adfrc_abrams_1Rnd_M829A2_shell
 	{
@@ -382,6 +386,7 @@ class cfgMagazines
 		ammo = "adfrc_abrams_120mm_M908_HE";
 		tracersEvery = 1;
 		initSpeed = 1400;
+		muzzleImpulseFactor[] = {6, 38};
 	};
 	class adfrc_abrams_1Rnd_M1028_shell: adfrc_abrams_1Rnd_M829A2_shell
 	{
@@ -392,6 +397,27 @@ class cfgMagazines
 		ammo = "adfrc_abrams_120mm_M1028_C";
 		tracersEvery = 0;
 		initSpeed = 1410;
+		muzzleImpulseFactor[] = {30, 190};
+	};
+	// Multi-round main gun magazines (#235). With 1Rnd magazines every shot is a magazine
+	// reload, so the "reload" animation source never runs and recoil/flash had to use
+	// reloadMagazine, which also fires on ammo switch. Same rounds and counts as the old
+	// 1Rnd loadout (20/10/7/5); the 1Rnd classes stay for missions that still use them.
+	class adfrc_abrams_20Rnd_M829A2_shell: adfrc_abrams_1Rnd_M829A2_shell
+	{
+		count = 20;
+	};
+	class adfrc_abrams_10Rnd_M830A1_shell: adfrc_abrams_1Rnd_M830A1_shell
+	{
+		count = 10;
+	};
+	class adfrc_abrams_7Rnd_M908_shell: adfrc_abrams_1Rnd_M908_shell
+	{
+		count = 7;
+	};
+	class adfrc_abrams_5Rnd_M1028_shell: adfrc_abrams_1Rnd_M1028_shell
+	{
+		count = 5;
 	};
 };
 class cfgWeapons
@@ -456,10 +482,14 @@ class cfgWeapons
 		reloadTime = 6;
 		magazines[]=
 		{
+			"adfrc_abrams_20Rnd_M829A2_shell",
+			"adfrc_abrams_10Rnd_M830A1_shell",
+			"adfrc_abrams_7Rnd_M908_shell",
+			"adfrc_abrams_5Rnd_M1028_shell",
 			"adfrc_abrams_1Rnd_M829A2_shell",
 			"adfrc_abrams_1Rnd_M830A1_shell",
 			"adfrc_abrams_1Rnd_M908_shell",
-			"adfrc_abrams_1Rnd_M1028_shell",
+			"adfrc_abrams_1Rnd_M1028_shell"
 		};
 		class GunParticles 
 		{

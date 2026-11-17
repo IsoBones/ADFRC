@@ -417,8 +417,15 @@ class cfgWeapons
 				opticsZoomMin=0.375;
 				opticsZoomMax=1;
 				opticsZoomInit=0.75;
-				distanceZoomMin=300;
-				distanceZoomMax=300;
+				// Iron-sight ranging (#154). Each range uses its own eye point in the memory LOD,
+				// sighting through "look" at the front sight. Points calculated from the in-game
+				// drop of the 255 m/s base rounds (HEAT 751, HEDP 502, HE 441D etc); the
+				// rocket-assisted HEAT 551C shoots flatter. Same point names in the M3 and M4 models.
+				discreteDistance[]={100,200,300,400,500};
+				discreteDistanceInitIndex=2;
+				discreteDistanceCameraPoint[]={"eye_100","eye_200","eye_300","eye_400","eye_500"};
+				distanceZoomMin=100;
+				distanceZoomMax=500;
 				memoryPointCamera="eye";
 				opticsFlare=1;
 				opticsDisablePeripherialVision=0;
