@@ -1737,6 +1737,20 @@ class CfgVehicles
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
 		};
+		class ace_interaction_anims
+        {
+            class sparewheel    						// match your AnimationSource name exactly
+            {
+                phase = 0;                              // hide on completion
+                selections[] = {"sparewheel"};          // anchor the action to this selection
+                items[] = {"ACE_Wheel"};                // spawn an ACE wheel on success
+                name = "Remove Spare Wheel";            // menu text
+                text = "Removing spare wheel...";       // progress bar text
+                duration = 5;                           // seconds
+                distance = 4;
+                icon = "\a3\ui_f\data\igui\cfg\actions\repair_ca.paa";
+            };
+        };
 	};
 	class adfrc_aslav_pc_base: adfrc_aslav_base
 	{
@@ -1946,6 +1960,7 @@ class CfgVehicles
 					initFov = 0.9;
 					minFov = 0.25;
 					maxFov = 0.9;
+					visionMode[] = {"Normal"};
 				};
 				class TurnIn
                 {
@@ -2752,6 +2767,7 @@ class CfgVehicles
 							initFov = 0.9;
 							minFov = 0.25;
 							maxFov = 0.9;
+							visionMode[] = {"Normal"};
 						};
 						class OpticsIn{};
 						class HitPoints
