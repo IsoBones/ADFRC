@@ -4,8 +4,6 @@ class CfgMovesBasic
 	class ManActions
 	{
 		Driver_Boat_Civil_02 = Driver_Boat_Civil_02;
-		Heli_Attack_03_gunner = Heli_Attack_03_gunner;
-		Heli_Attack_03_pilot = Heli_Attack_03_pilot;
 		Passenger_Plane_Transport_01 = Passenger_Plane_Transport_01;
 		Pilot_Plane_Fighter_05 = Pilot_Plane_Fighter_05;
 		Pilot_Plane_Fighter_05_Enter = Pilot_Plane_Fighter_05_GetIn;

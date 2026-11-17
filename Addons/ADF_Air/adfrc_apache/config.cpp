@@ -1,35 +1,66 @@
-/* Header */
+/*
+    ADFRC AH-64E Apache Guardian
+    Model and textures: AveryTheKitty (Arma 3 Aegis, APL-SA), adapted by ADF Re-Cut.
+    Every class here is adfrc_ prefixed so it can load alongside Aegis.
+*/
 class CfgPatches
 {
-	class adfrc_apache
-	{
-		requiredAddons[] = 
-		{
-			"A3_Weapons_F",
-			"A3_Data_F",
-			"ADF_Core"
-		};
-		requiredVersion = 0.1;
-		units[] =
-        {
-			"adfrc_apache"
-        };
-		weapons[] = {/* Automated */};
-	};
+    class adfrc_apache
+    {
+        author = "ADF Re-Cut";
+        requiredAddons[] = {"A3_Data_F_Mod_Loadorder", "ADF_Core"};
+        requiredVersion = 0.1;
+        units[] = {"adfrc_apache"};
+        weapons[] = {"ADFRC_Chaingun_30mm"};
+    };
 };
 
-/* Definitions & Inheritance */
 #include "\ADF_Core\basicDefines_A3.hpp"
 #include "\ADF_Core\sensors.hpp"
 
-/* Configuration */
 class CfgVehicles
 {
-    /* Inheritance Tree */
-    #include "cfgHelis.hpp"
+    /* Inheritance */
+    class Air;
+    class Helicopter: Air
+    {
+        class Turrets;
+        class HitPoints;
+    };
+    class Helicopter_Base_F: Helicopter
+    {
+        class HitPoints: HitPoints
+        {
+            class HitHull;
+            class HitFuel;
+            class HitAvionics;
+            class HitMissiles;
+            class HitEngine;
+            class HitEngine1;
+            class HitEngine2;
+            class HitHRotor;
+            class HitVRotor;
+            class HitGlass1;
+            class HitGlass2;
+            class HitGlass3;
+            class HitGlass4;
+            class HitGlass5;
+            class HitGlass6;
+            class HitWinch;
+        };
+        class Turrets: Turrets
+        {
+            class MainTurret;
+        };
+        class AnimationSources;
+        class EventHandlers;
+        class ViewOptics;
+        class ViewPilot;
+        class Components;
+    };
 
     /* Bases */
-	class Heli_Attack_03_base_F: Helicopter_Base_F
+	class adfrc_apache_base: Helicopter_Base_F
     {
         author = "AveryTheKitty | Adapted by ADFRC";
 		mapSize = 15.5;
@@ -45,8 +76,8 @@ class CfgVehicles
 		textPlural = "$STR_A3_nameSound_veh_air_gunship_p";
 		nameSound = veh_air_gunship_s;
 		scope = private;
-		displayName = "AH-64D Apache Guardian";
-		model = "\ADF_Air\adfrc_apache\Heli_Attack_03_F.p3d";
+		displayName = "AH-64E Apache Guardian";
+		model = "\ADF_Air\adfrc_apache\adfrc_apache.p3d";
 		icon = "\ADF_Air\adfrc_apache\data\ui\Map_Heli_Attack_03_CA.paa";
 		picture = "\ADF_Air\adfrc_apache\data\ui\Heli_Attack_03_CA.paa";
 		vehicleClass = Air;
@@ -60,33 +91,27 @@ class CfgVehicles
             0.8     // Air
         };
         availableForSupportTypes[] = {CAS_Heli};
-        class Library
-        {
-            libTextDesc = "$STR_A3_A_CfgVehicles_Heli_Attack_03_base_F_Library0";
-        };
         
         /* RTD */
         class RotorLibHelicopterProperties
-		{
-			RTDconfig = "ADF_Air\adfrc_apache\RTD_Heli_Attack_03.xml";
-			defaultCollective = 0.621;
-			autoHoverCorrection[] =
-			{
-				0,      // X
-				2.88,   // Y
-				0       // Z
-			};
-			retreatBladeStallWarningSpeed = 79.536;
-			maxTorque = 3500;
-			stressDamagePerSec = 0.0033333332;
-			maxHorizontalStabilizerLeftStress = 100000;
-			maxHorizontalStabilizerRightStress = 100000;
-			maxVerticalStabilizerStress = 100000;
-			horizontalWingsAngleCollMin = 0;
-			horizontalWingsAngleCollMax = 0;
-			maxMainRotorStress = 180000;
-			maxTailRotorStress = 35000;
-		};
+        {
+            // XML positions are relative to the RTD_center memory point. Helicopter_Base_F
+            // does not set rtd_center, so it has to be named here.
+            RTDconfig = "ADF_Air\adfrc_apache\adfrc_apache_rtd.xml";
+            rtd_center = "RTD_center";
+            defaultCollective = 0.625;
+            autoHoverCorrection[] = {3, 2.45, 0};
+            retreatBladeStallWarningSpeed = 79.536;
+            maxTorque = 1100;
+            stressDamagePerSec = 0.0033333332;
+            maxHorizontalStabilizerLeftStress = 100000;
+            maxHorizontalStabilizerRightStress = 100000;
+            maxVerticalStabilizerStress = 100000;
+            horizontalWingsAngleCollMin = 0;
+            horizontalWingsAngleCollMax = 0;
+            maxMainRotorStress = 180000;
+            maxTailRotorStress = 35000;
+        };
 
         /* Handling */
 		fuelCapacity = 1420;
@@ -95,9 +120,9 @@ class CfgVehicles
 		altNoForce = 6000;
 		maxSpeed = 293;
 		mainBladeCenter = rotor_center;
-		mainBladeRadius = 7.315;
+		mainBladeRadius = 6.7;
 		tailBladeCenter = rotor_02_center;
-		tailBladeRadius = 1.395;
+		tailBladeRadius = 1.4;
 		liftForceCoef = 1.0;
 		bodyFrictionCoef = 1.1;
 		cyclicAsideForceCoef = 1.2;
@@ -112,8 +137,8 @@ class CfgVehicles
 		crewVulnerable = false;
 		castDriverShadow = true;
 		viewCargoShadow = true;
-		driverAction = Heli_Attack_03_pilot;
-		driverInAction = Heli_Attack_03_pilot;
+		driverAction = adfrc_apache_pilot;
+		driverInAction = adfrc_apache_pilot;
 		driverCanEject = false;
         driverLeftHandAnimName = lever_pilot;
         driverRightHandAnimName = stick_pilot;
@@ -149,117 +174,125 @@ class CfgVehicles
 		damageResistance = 0.002; 
 		destrType = DestructWreck;
 
-		class HitPoints: HitPoints {
-			class HitHull: HitHull {
-				armor = 999;  
-				visual = "zbytek";
-				depends = "Total";
-				radius = 0.01;
-			};
-			class HitFuel: HitFuel {
-				armor = 5;  
-				radius = 0.25;
-				minimalHit = 0.2; 
-			};
-			class HitAvionics: HitAvionics {
-				armor = 8;  
-				radius = 0.3;
-				minimalHit = 0.1;  
-				visual = "elektronika";
-			};
-			class HitMissiles: HitMissiles {
-				armor = 2;  
-				radius = 0.15;
-				minimalHit = 0.1;
-			};
-			class HitEngine1 {
-				armor = 15; 
-				radius = 0.3;
-				name = "engine_1_hit";
-				explosionShielding = 5; 
-				minimalHit = 0.2;
-				visual = "motor";
-				passThrough = 0.5;
-				convexComponent = "engine_1_hit";
-				material = 51;
-			};
-			class HitEngine2: HitEngine1 {
-				name = "engine_2_hit";
-				convexComponent = "engine_2_hit";
-			};
-			class HitHRotor: HitHRotor {
-				armor = 10;  
-				radius = 0.3;
-				minimalHit = 0.2;
-				explosionShielding = 5;
-			};
-			class HitVRotor: HitVRotor {
-				armor = 8;  
-				radius = 0.2;
-				minimalHit = 0.2;
-				explosionShielding = 5;
-			};
-			class HitGlass1: HitGlass1 {
-				name = "glass1";
-				visual = "glass1";
-				armor = 3;  
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-				passThrough = false;
-			};
-			class HitGlass2: HitGlass1 {
-				name = "glass2";
-				visual = "glass2";
-				armor = 3;
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-			};
-			class HitGlass3: HitGlass1 {
-				name = "glass3";
-				visual = "glass3";
-				armor = 3;
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-			};
-			class HitGlass4: HitGlass1 {
-				name = "glass4";
-				visual = "glass4";
-				armor = 3;
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-			};
-			class HitGlass5: HitGlass1 {
-				name = "glass5";
-				visual = "glass5";
-				armor = 3;
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-			};
-			class HitGlass6: HitGlass1 {
-				name = "glass6";
-				visual = "glass6";
-				armor = 3;
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-			};
-			class HitGlass7: HitGlass1 {
-				name = "glass7";
-				visual = "glass7";
-				armor = 3;
-				radius = 0.4;
-				explosionShielding = 1;
-				minimalHit = 0.05;
-			};
-			class HitWinch: HitWinch {
-				class DestructionEffects{};
-			};
-		};
+		class HitPoints: HitPoints
+        {
+            // Names match the model's HitPoints LOD (vanilla names like hull_hit don't exist in it).
+            class HitHull: HitHull
+            {
+                armor = 999;
+                name = "trup";
+                visual = "zbytek";
+                depends = "Total";
+                radius = 0.01;
+            };
+            class HitFuel: HitFuel
+            {
+                armor = 5;
+                name = "fuel_hit";
+                radius = 0.25;
+                minimalHit = 0.2;
+            };
+            class HitAvionics: HitAvionics
+            {
+                armor = 8;
+                name = "elektronika";
+                visual = "elektronika";
+                radius = 0.3;
+                minimalHit = 0.1;
+            };
+            class HitMissiles: HitMissiles
+            {
+                armor = 2;
+                radius = 0.15;
+                minimalHit = 0.1;
+            };
+            class HitEngine: HitEngine
+            {
+                armor = 15;
+                name = "motor";
+                visual = "motor";
+                radius = 0.3;
+                minimalHit = 0.2;
+                explosionShielding = 5;
+                passThrough = 0.5;
+                material = 51;
+            };
+            class HitEngine1: HitEngine1
+            {
+                armor = 15;
+                name = "engine_1_hit";
+                visual = "motor";
+                radius = 0.3;
+                minimalHit = 0.2;
+                explosionShielding = 5;
+                passThrough = 0.5;
+                material = 51;
+            };
+            class HitEngine2: HitEngine1
+            {
+                name = "engine_2_hit";
+            };
+            class HitHRotor: HitHRotor
+            {
+                armor = 10;
+                name = "main rotor";
+                radius = 0.3;
+                minimalHit = 0.2;
+                explosionShielding = 5;
+            };
+            class HitVRotor: HitVRotor
+            {
+                armor = 8;
+                name = "tail rotor";
+                radius = 0.2;
+                minimalHit = 0.2;
+                explosionShielding = 5;
+            };
+            class HitGlass1: HitGlass1
+            {
+                armor = 3;
+                name = "glass1";
+                visual = "glass1";
+                radius = 0.4;
+                explosionShielding = 1;
+                minimalHit = 0.05;
+                passThrough = 0;
+            };
+            class HitGlass2: HitGlass1
+            {
+                name = "glass2";
+                visual = "glass2";
+            };
+            class HitGlass3: HitGlass1
+            {
+                name = "glass3";
+                visual = "glass3";
+            };
+            class HitGlass4: HitGlass1
+            {
+                name = "glass4";
+                visual = "glass4";
+            };
+            class HitGlass5: HitGlass1
+            {
+                name = "glass5";
+                visual = "glass5";
+            };
+            class HitGlass6: HitGlass1
+            {
+                name = "glass6";
+                visual = "glass6";
+            };
+            class HitGlass7: HitGlass1
+            {
+                name = "glass7";
+                visual = "glass7";
+            };
+            class HitWinch: HitWinch
+            {
+                class DestructionEffects {};
+            };
+        };
         class Damage
 		{
 			tex[] = {};
@@ -561,8 +594,8 @@ class CfgVehicles
         #include "mfd_driver.hpp"
 
         /* Weapons & Ammunition */
-		weapons[] = {"CMFlareLauncher", "missiles_SCALPEL", "missiles_DAR"};
-		magazines[] = {"192Rnd_CMFlare_Chaff_Magazine", "PylonMissile_1Rnd_LG_scalpel", "PylonRack_12Rnd_missiles"};
+		weapons[] = {"CMFlareLauncher"};
+		magazines[] = {"192Rnd_CMFlare_Chaff_Magazine"};
 
         /* Turrets */
 		enableManualFire = true;
@@ -765,8 +798,8 @@ class CfgVehicles
 				castGunnerShadow = true;
 				viewGunnerShadow = true;
 				outGunnerMayFire = true;
-				gunnerAction = "Heli_Attack_03_Gunner";
-				gunnerInAction = "Heli_Attack_03_Gunner";
+				gunnerAction = "adfrc_apache_gunner";
+				gunnerInAction = "adfrc_apache_gunner";
 				gunnerLeftHandAnimName = "";
 				gunnerRightHandAnimName = "";
 				gunnerLeftLegAnimName = "";
@@ -813,19 +846,6 @@ class CfgVehicles
         /* Liveries */
 		class TextureSources
 		{
-			/*
-			class Grey
-			{
-				displayName = $STR_A3_TextureSources_Grey0;
-				author = "AveryTheKitty";
-				textures[] =
-				{
-                    "\ADF_Air\adfrc_apache\Data\Heli_Attack_03_body_grey_CO.paa",
-                    "\ADF_Air\adfrc_apache\Data\Heli_Attack_03_details_grey_CO.paa",
-                    "\ADF_Air\adfrc_apache\Data\Heli_Attack_03_adds_grey_CO.paa"
-				};
-				factions[] = {};
-			}; */
 			class Indep
 			{
 				displayName = "$STR_A3_TextureSources_Indep0";
@@ -932,7 +952,7 @@ class CfgVehicles
 					0.1,    // G
 					0.1     // B
 				};
-				name = PositionLight_white_1_pos;
+				name = CollisionLight_white_1_pos; // tail light; the model has no separate white position light point
 			};
 			class CollisionLight_white_1: PositionLight_red_1
 			{
@@ -1036,42 +1056,11 @@ class CfgVehicles
         /* Animation Sources */
 		class AnimationSources: AnimationSources
         {
-			class HitGlass1
-			{
-				source = Hit;
-				hitpoint = HitGlass1;
-				raw = true;
-				passThrough = false;
-			};
-			class HitGlass2: HitGlass1
-			{
-				hitpoint = HitGlass2;
-			};
-			class HitGlass3: HitGlass1
-			{
-				hitpoint = HitGlass3;
-			};
-			class HitGlass4: HitGlass1
-			{
-				hitpoint = HitGlass4;
-			};
-			class HitGlass5: HitGlass1
-			{
-				hitpoint = HitGlass5;
-			};
-			class HitGlass6: HitGlass1
-			{
-				hitpoint = HitGlass6;
-			};
-			class HitGlass7: HitGlass1
-			{
-				hitpoint = HitGlass7;
-			};
-			class Muzzle_flash
-			{
-				source = ammorandom;
-				weapon = gatling_30mm;
-			};
+            class Muzzle_flash
+            {
+                source = "ammorandom";
+                weapon = "ADFRC_Chaingun_30mm";
+            };
         };
 
         /* Particles */
@@ -1126,7 +1115,7 @@ class CfgVehicles
 
     /* Factions */
     /* ADF */
-	class adfrc_apache: Heli_Attack_03_base_F
+	class adfrc_apache: adfrc_apache_base
 	{
 		author = "ADF Re-Cut";
 		displayName = "AH-64E Apache Guardian";
@@ -1168,26 +1157,192 @@ class CfgVehicles
 		};
 	};
 };
-#include "cfgWeapons.hpp"
+class Mode_FullAuto;
+class CfgWeapons
+{
+    class gatling_30mm_base;
+    class ADFRC_gatling_30mm_base: gatling_30mm_base
+    {
+        displayName = "30mm M230 Chain Gun";
+        magazines[] =
+        {
+            "ADFRC_1200Rnd_Chaingun_30mm"
+        };
+        modes[] = {"FullAuto"};
+        cursorAim = "EmptyCursor";
+        canLock = 2;
+        ballisticsComputer = 16;
+        FCSMaxLeadSpeed = 27.778;
+        FCSZeroingDelay = 1;
+        reloadMagazineSound[] = {"", 1, 1};
+        
+        weaponLockSystem = 2;
+        lockAcquire = 1;
+
+        class GunParticles
+        {
+            // Memory points that exist on the model (gun_smoke_* and gun_eject* don't).
+            class EffectSmoke
+            {
+                effectName = "MachineGun2";
+                positionName = "usti hlavne";
+                directionName = "konec hlavne";
+            };
+            class EffectCartridge
+            {
+                effectName = "MachineGunCartridge1";
+                positionName = "shell_eject_pos";
+                directionName = "shell_eject_dir";
+            };
+        };
+
+        class FullAuto: Mode_FullAuto
+        {
+            displayName = "Full Auto";
+            reloadTime = 0.096;
+            sounds[] = {"StandardSound"};
+            class BaseSoundModeType {};
+            class StandardSound: BaseSoundModeType
+            {
+                soundSetShot[] =
+                {
+                    Autocannon30mmTurret_Shot_SoundSet,
+                    Autocannon30mmTurret_Tail_SoundSet
+                };
+            };
+            autoFire = 1;
+            burst = 1;
+            minRange = 1000;
+            minRangeProbab = 0.03;
+            midRange = 2000;
+            midRangeProbab = 0.02;
+            maxRange = 3000;
+            maxRangeProbab = 0.01;
+            showToPlayer = 1;
+        };
+    };
+
+    class ADFRC_Chaingun_30mm: ADFRC_gatling_30mm_base
+    {
+        author = "ADF Re-Cut";
+        scope = 2;
+        displayName = "30mm M230 Chain Gun";
+        muzzles[] = {"HEDP"};
+        class HEDP: ADFRC_gatling_30mm_base
+        {
+            magazines[] = {"ADFRC_1200Rnd_Chaingun_30mm"};
+        };
+    };
+};
+
+class CfgAmmo
+{
+    class B_30mm_HE_Tracer_Red;
+    class ADFRC_30mm_HEDP_T: B_30mm_HE_Tracer_Red
+    {
+        hit = 105;
+        indirectHit = 10;
+        indirectHitRange = 2;
+        explosive = 0.3;
+        airFriction = -0.00078;
+        tracerScale = 2;
+        caliber = 4.2;
+        tracerEndTime = 30;
+        timeToLive = 30;
+        typicalSpeed = 805;
+        muzzleEffect = "";
+        class CamShakeExplode
+        {
+            power = "(25*0.2)";
+            duration = "((round (25^0.5))*0.2 max 0.2)";
+            frequency = 20;
+            distance = "((2 + 25^0.5)*8)";
+        };
+        class CamShakeHit
+        {
+            power = 50;
+            duration = "((round (50^0.25))*0.2 max 0.2)";
+            frequency = 20;
+            distance = 1;
+        };
+    };
+};
+
+class CfgMagazines
+{
+    class VehicleMagazine;
+    class ADFRC_1200Rnd_Chaingun_30mm: VehicleMagazine
+    {
+        author = "ADF Re-Cut";
+        scope = 2;
+        displayName = "30mm 1200Rnd M789 HEDP-T";
+        displayNameShort = "HEDP Tracer";
+        ammo = "ADFRC_30mm_HEDP_T";
+        count = 1200;
+        initSpeed = 805;
+        maxLeadSpeed = 500;
+        tracersEvery = 1;
+        nameSound = "cannon";
+    };
+    class ADFRC_1200Rnd_Chaingun_30mm_Tracer: ADFRC_1200Rnd_Chaingun_30mm
+    {
+        author = "ADF Re-Cut";
+        scope = 1;
+        displayName = "DEPRECATED";
+        ammo = "Gatling_30mm_HE_Plane_CAS_01_Yellow_F";
+    };
+};
+
 class CfgNonAIVehicles
 {
-	class ProxyRetex
-	{
-		autocenter = 0;
-		scope = 0;
-		animated = 0;
-		model = "";
-		simulation = "Proxyretex";
-		hiddenSelections[] = {};
-	};
-	class proxyHeli_Attack_03_wreck_F: ProxyRetex
-	{
-		model = "\ADF_Air\adfrc_apache\Heli_Attack_03_wreck_F.p3d";
-		hiddenSelections[] =
-		{
-			camo1,
-			camo2,
-			camo3
-		};
-	};
+    class ProxyRetex;
+    class Proxyadfrc_apache_wreck: ProxyRetex
+    {
+        model = "\ADF_Air\adfrc_apache\adfrc_apache_wreck.p3d";
+        hiddenSelections[] = {"camo1", "camo2", "camo3"};
+    };
+};
+
+/* Crew animations. States renamed from Heli_Attack_03_* (Aegis uses those); the RTMs stay in ADF_Core. */
+class CfgMovesBasic
+{
+    class DefaultDie;
+    class ManActions
+    {
+        adfrc_apache_pilot = "adfrc_apache_pilot";
+        adfrc_apache_gunner = "adfrc_apache_gunner";
+    };
+};
+class CfgMovesMaleSdr: CfgMovesBasic
+{
+    class States
+    {
+        class Crew;
+        class KIA_adfrc_apache_pilot: DefaultDie
+        {
+            actions = "DeadActions";
+            file = "\ADF_Core\Anim\Heli_Attack_03_pilot_KIA.rtm";
+            speed = 0.5;
+            looped = 0;
+            terminal = 1;
+            soundEnabled = 0;
+            connectTo[] = {"Unconscious", 0.1};
+        };
+        class adfrc_apache_pilot: Crew
+        {
+            file = "\ADF_Core\Anim\Heli_Attack_03_pilot.rtm";
+            interpolateTo[] = {"KIA_adfrc_apache_pilot", 1};
+            leftHandIKCurve[] = {1};
+            rightHandIKCurve[] = {1};
+        };
+        class KIA_adfrc_apache_gunner: KIA_adfrc_apache_pilot
+        {
+            file = "\ADF_Core\Anim\Heli_Attack_03_gunner_KIA.rtm";
+        };
+        class adfrc_apache_gunner: adfrc_apache_pilot
+        {
+            file = "\ADF_Core\Anim\Heli_Attack_03_gunner.rtm";
+            interpolateTo[] = {"KIA_adfrc_apache_gunner", 1};
+        };
+    };
 };
