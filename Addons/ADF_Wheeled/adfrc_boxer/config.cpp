@@ -1568,8 +1568,8 @@ class CfgVehicles
 				};
 				magazines[] = 
 				{
-					"ADFRC_boxer_360RND_30mm_HE",
-					"ADFRC_boxer_360RND_30mm_AP",
+					"ADFRC_boxer_125Rnd_30mm_HE",
+					"ADFRC_boxer_125Rnd_30mm_AP",
 					"ADFRC_boxer_600Rnd_762x51_Tracer",
 					"ADFRC_boxer_600Rnd_762x51_Tracer"
 				};
@@ -2259,8 +2259,8 @@ class CfgVehicles
 				};
 				magazines[] = 
 				{
-					"ADFRC_boxer_360RND_30mm_HE",
-					"ADFRC_boxer_360RND_30mm_AP",
+					"ADFRC_boxer_125Rnd_30mm_HE",
+					"ADFRC_boxer_125Rnd_30mm_AP",
 					"2Rnd_GAT_missiles",
 					"2Rnd_GAT_missiles",
 					"2Rnd_GAT_missiles",
