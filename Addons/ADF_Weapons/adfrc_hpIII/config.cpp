@@ -16,7 +16,6 @@ class InventoryMuzzleItem_Base_F;
 class InventoryItem_Base_F;
 class InventoryOpticsItem_Base_F;
 class InventoryFlashLightItem_Base_F;
-class ACE_ItemCore;
 class CBA_MiscItem_ItemInfo;
 //////////////////////////////////class asdg_SlotInfo;
 class asdg_OpticRail;

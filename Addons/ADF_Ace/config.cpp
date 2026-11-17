@@ -1,142 +1,149 @@
+// ADF Re-Cut ACE compatibility.
+//
+// Rules for this patch:
+// - Only ADFRC classes are patched. Vanilla (and other mods') classes are only
+//   forward-declared as parents, never redefined or given properties.
+// - Every ADFRC patch whose classes are touched here is listed in
+//   requiredAddons by its exact CfgPatches name, so this always loads after them.
+// - Plain ace_* properties that are harmless without ACE can live in the
+//   asset's own config. This patch is for anything that needs ACE loaded
+//   (ACE item classes) or that we only want applied when ACE is present.
+// - skipWhenMissingDependencies = 1: if ANY entry below is misspelled or
+//   missing, the whole patch is silently skipped. Check the RPT after edits.
+
 class CfgPatches
 {
-	class ADFRC_ACE_Compat {
-		units[] =
-		{
-		};
-		weapons[] =
-		{
-		};
+	class ADFRC_ACE_Compat
+	{
+		units[] = {};
+		weapons[] = {};
+		requiredVersion = 0.1;
 		requiredAddons[] =
 		{
 			"ace_common",
-			"ace_explosives",
-			"ace_interact_menu",
-			"ace_repair",
-			"bma3",
+			"ADFRC_F1_Grenade",
+			"adfrc_magazines",
+			"adfrc_apache",
+			"ADFRC_blackhawk",
+			"adfrc_chinook",
+			"adfrc_c130",
 			"adfrc_aslav",
-			"ADF_Weapons",
-			"ADF_Air",
-		
+			"adfrc_bushmaster"
 		};
 		skipWhenMissingDependencies = 1;
 	};
 };
-class cfgAmmo {
-	//Grenades
+
+class CfgAmmo
+{
 	class GrenadeHand;
-	class SmokeShell;
-	class ADFRC_F1_Ammo : GrenadeHand {
-		ace_frag_enabled = 1;
+
+	// F1 frag grenade. ACE's GrenadeHand defaults are the M67; these are the F1's.
+	// ace_frag_enabled is not a config property (ACE never reads it), so it isn't set.
+	class ADFRC_F1_Ammo: GrenadeHand
+	{
+		ace_frag_skip = 0;
+		ace_frag_force = 1;
 		ace_frag_metal = 210;
 		ace_frag_charge = 185;
 		ace_frag_gurney_c = 2930;
-		ace_frag_gurney_k = "3/5";
-		ace_frag_classes[] =
-		{
-			"ACE_frag_medium_HD"
-		};
-		ace_frag_skip = 0;
-		ace_frag_force = 1;
+		ace_frag_gurney_k = "3/5"; // getNumber evaluates the string, as the old patch did
+		ace_frag_classes[] = {"ace_frag_medium_HD"};
 	};
-
-	//Launcher Ammo
-	class RocketBase;
-	class ADFRC_RR_Ammo_Base : RocketBase {
-	};
-	class ADFRC_Shell_84mm_adm_401 : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_asm_509 : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_he_441d : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_heat_551c : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_heat_751 : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_hedp_502 : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_illum_545c : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_mt_756 : ADFRC_RR_Ammo_Base {
-	};
-	class ADFRC_Shell_84mm_smk_469c : ADFRC_RR_Ammo_Base {
-	};
-
 };
-class CfgMagazines {
+
+class CfgMagazines
+{
 	class CA_Magazine;
-	class ADFRC_100Rnd_556_Belt : CA_Magazine {
-		ace_isbelt = 1;
+
+	// Belts that can be linked together (ACE reload / CSW).
+	class ADFRC_100Rnd_556_Belt: CA_Magazine
+	{
+		ACE_isBelt = 1;
 	};
-	class ADFRC_200Rnd_556_Belt : CA_Magazine {
-		ace_isbelt = 1;
+	class ADFRC_200Rnd_556_Belt: CA_Magazine
+	{
+		ACE_isBelt = 1;
 	};
-	class ADFRC_50Rnd_762_Belt : CA_Magazine {
-		ace_isbelt = 1;
+	class ADFRC_50Rnd_762_Belt: CA_Magazine
+	{
+		ACE_isBelt = 1;
 	};
 };
-class CfgVehicles {
-	//Helicopters
-	class Helicopter;
-	class B_Heli_Light_01_F;
-	class Helicopter_Base_F : Helicopter {
-	};
-	class Helicopter_Base_H : Helicopter_Base_F {
-	};
-	class adfrc_apache_base : Helicopter_Base_F {};
-	class adfrc_apache : adfrc_apache_base {
+
+class CfgVehicles
+{
+	// Vanilla parents, forward-declared only.
+	class Helicopter_Base_H;
+	class Plane_Transport_01_infantry_base_F;
+	class Plane_Transport_01_vehicle_base_F;
+	class APC_Wheeled_03_base_F;
+	class Car_F;
+
+	// ADFRC parents that aren't patched themselves.
+	class adfrc_apache_base;
+	class ADFRC_blackhawk;
+
+	// AH-64E
+	class adfrc_apache: adfrc_apache_base
+	{
 		ace_cargo_hasCargo = 0;
 		ace_hellfire_addLaserDesignator = 1;
 	};
-	class ADFRC_blackhawk_BASE : Helicopter_Base_H {
+
+	// UH-60 (fastroping is set in the Blackhawk's own config)
+	class ADFRC_blackhawk_BASE: Helicopter_Base_H
+	{
 		ace_cargo_space = 4;
 		ace_cargo_hasCargo = 1;
-		ace_fastroping_enabled = 1;
-		ace_fastroping_ropeOrigins[] =
-		{
-			"ropeOriginLeft",
-			"ropeOriginRight"
-		};
 	};
-	class ADFRC_blackhawk : ADFRC_blackhawk_BASE {};
-	class ADFRC_blackhawk_cargo : ADFRC_blackhawk {
+	class ADFRC_blackhawk_cargo: ADFRC_blackhawk
+	{
 		ace_cargo_space = 8;
 	};
-	class ADFRC_chinook_base : Helicopter_Base_H {
+
+	// CH-47 (fastroping is set in the Chinook's own config)
+	class ADFRC_chinook_base: Helicopter_Base_H
+	{
 		ace_cargo_space = 14;
 		ace_cargo_hasCargo = 1;
-	};
-	class MRH90 : Helicopter_Base_H {
-		ace_cargo_space = 8;
-		ace_cargo_hasCargo = 1;
-		ace_fastroping_enabled = 1;
-		ace_fastroping_ropeOrigins[] =
+		class TransportItems
 		{
-			1.47,1.8099999,-0.0099999998
+			class _xx_ace_rope36
+			{
+				name = "ACE_rope36";
+				count = 4;
+			};
 		};
 	};
-	//fixed wing
-	class Plane_Base_F;
-	class Plane_Transport_01_base_F : Plane_Base_F{};
-	class Plane_Transport_01_infantry_base_F : Plane_Transport_01_base_F{
+
+	// C-130. Set on our classes, not the vanilla Blackfish bases they inherit from.
+	class adfrc_c130_inf: Plane_Transport_01_infantry_base_F
+	{
 		ace_cargo_space = 16;
 		ace_cargo_hasCargo = 1;
 	};
-	class Plane_Transport_01_vehicle_base_F : Plane_Transport_01_base_F{
+	class adfrc_c130_inf_auscam: Plane_Transport_01_infantry_base_F
+	{
+		ace_cargo_space = 16;
+		ace_cargo_hasCargo = 1;
+	};
+	class adfrc_c130_vic: Plane_Transport_01_vehicle_base_F
+	{
+		ace_cargo_space = 20;
+		ace_cargo_hasCargo = 1;
+	};
+	class adfrc_c130_vic_auscam: Plane_Transport_01_vehicle_base_F
+	{
 		ace_cargo_space = 20;
 		ace_cargo_hasCargo = 1;
 	};
 
-	//land vics
-	class Car_F;
-	class B_MRAP_01_F;
-	class Wheeled_APC_F : Car_F {
-	};
-	class APC_Wheeled_01_base_F;
-	class ADFRC_ASLAV_base : APC_Wheeled_01_base_F {
+	// ASLAV (real parent is APC_Wheeled_03_base_F; this used to say _01_ and
+	// re-parented every ASLAV onto the Marshall whenever ACE was loaded)
+	class adfrc_aslav_base: APC_Wheeled_03_base_F
+	{
 		ace_cargo_space = 6;
-		ace_cookoff_probability = 0.5;
 		ace_vehicle_damage_hullDetonationProb = 0.2;
 		ace_vehicle_damage_turretDetonationProb = 0.1;
 		ace_vehicle_damage_engineDetonationProb = 0.2;
@@ -145,25 +152,11 @@ class CfgVehicles {
 		ace_vehicle_damage_engineFireProb = 0.5;
 		ace_vehicle_damage_detonationDuringFireProb = 0.2;
 		ace_vehicle_damage_canHaveFireRing = 0;
-		/*class ACE_Actions: ACE_Actions
-        {
-            class ADFRC_removeSpareWheel
-            {
-                displayName = "Remove Spare Wheel";
-                distance = 4;
-                position = "[-0.40, -3.92, -1.23]";
-                condition = "_target animationSourcePhase 'sparewheel' > 0.5";
-                statement = "[5, [_player, _target], {(_this select 0) params ['_unit','_veh']; [_veh, ['sparewheel', 0]] remoteExec ['animateSource', 0, _veh]; ['ACE_Wheel', getPosASL _unit, 0] call ace_repair_fnc_spawnObject}, {}, 'Removing spare wheel...'] call ace_common_fnc_progressBar;";
-                icon = "\a3\ui_f\data\igui\cfg\actions\repair_ca.paa";
-            };
-        };*/
-		//ace_vehicle_damage_slatHitpoints[] =
-		//{
-		//	"Slat_armor",
-		//	"Slat_armor2"
-		//};
 	};
-	class adfrc_bushmaster_base_F : Car_F {
+
+	// Bushmaster (bma3)
+	class adfrc_bushmaster_base_F: Car_F
+	{
 		ace_cargo_space = 8;
 	};
 };

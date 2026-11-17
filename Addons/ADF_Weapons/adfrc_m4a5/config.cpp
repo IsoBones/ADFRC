@@ -29,7 +29,6 @@ class InventoryOpticsItem_Base_F;
 class InventoryFlashLightItem_Base_F;
 class adfrc_MLOK_grip_slot;
 class adfrc_PIC_grip_slot;
-class ACE_ItemCore;
 class CBA_MiscItem_ItemInfo;
 //////////////////////////////////class asdg_SlotInfo;
 class asdg_FrontSideRail;
