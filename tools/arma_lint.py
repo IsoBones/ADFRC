@@ -619,21 +619,24 @@ class Parser:
         return node
 
     def _register_class(self, node: ClassNode, forward: bool) -> None:
+        # Arma class names are case-insensitive, so scopes are keyed in lower case.
+        key = node.name.lower()
         scope = self.scope_stack[-1]
-        if node.name in scope:
-            existing = scope[node.name]
+        if key in scope:
+            existing = scope[key]
             # Re-declaring as forward after a full def is fine in some syntaxes
             # but not in Arma — flag both sides as duplicate when both are full.
             if not forward and not existing.is_forward:
                 self._diag(LEVEL_ERROR, "E012",
                            f"Duplicate class definition '{node.name}' in same scope (first at line {existing.line})",
                            node.line, node.col)
-        scope[node.name] = node
+        scope[key] = node
         if forward:
-            self.declared_stack[-1].add(node.name)
+            self.declared_stack[-1].add(key)
 
     def _parent_visible(self, parent: str) -> bool:
         # Visible if forward-declared *or* fully defined in any enclosing scope.
+        parent = parent.lower()
         for scope in self.scope_stack:
             if parent in scope:
                 return True
@@ -1107,13 +1110,13 @@ def scan_cfgpatches_fields(path: Path, raw_text: str, disabled: set[str]) -> lis
         # Compute approximate line for diagnostics
         line = stripped[:body_start + sub.start()].count("\n") + 1
 
-        if "W006" not in disabled and not re.search(r"\brequiredAddons\s*\[\s*\]\s*=", sub_body):
+        if "W006" not in disabled and not re.search(r"\brequiredAddons\s*\[\s*\]\s*=", sub_body, re.I):
             diags.append(Diagnostic(sp, line, 1, LEVEL_WARNING, "W006",
                                     f"CfgPatches class '{name}' is missing 'requiredAddons[] = {{...}};'"))
-        if "W007" not in disabled and not re.search(r"\bunits\s*\[\s*\]\s*=", sub_body):
+        if "W007" not in disabled and not re.search(r"\bunits\s*\[\s*\]\s*=", sub_body, re.I):
             diags.append(Diagnostic(sp, line, 1, LEVEL_WARNING, "W007",
                                     f"CfgPatches class '{name}' is missing 'units[] = {{...}};'"))
-        if "W008" not in disabled and not re.search(r"\bweapons\s*\[\s*\]\s*=", sub_body):
+        if "W008" not in disabled and not re.search(r"\bweapons\s*\[\s*\]\s*=", sub_body, re.I):
             diags.append(Diagnostic(sp, line, 1, LEVEL_WARNING, "W008",
                                     f"CfgPatches class '{name}' is missing 'weapons[] = {{...}};'"))
 
@@ -1209,8 +1212,13 @@ def check_includes(path: Path, raw_text: str, include_dirs: list[Path], disabled
 
         if ci_match is not None:
             if "W017" not in disabled:
+                try:
+                    real = str(ci_match.relative_to(path.parent)).replace("/", "\\")
+                except ValueError:
+                    real = ci_match.name
                 diags.append(Diagnostic(sp, line_no, 1, LEVEL_WARNING, "W017",
-                                        f"#include path {target!r} differs in case from real file {ci_match.name!r}. "
+                                        f"#include path {target!r} differs in case from real path {real!r} "
+                                        f"(folders included). "
                                         f"Works on Windows, but breaks PboProject on Linux/Mac and CI."))
             continue
 
@@ -1391,7 +1399,7 @@ def lint_file(path: Path, repo_root: Path, include_dirs: list[Path], max_path_le
         if d.rule == "E016" and project_classes is not None:
             # Extract the parent class name from the message: "...inherits from 'X', which..."
             m = re.search(r"inherits from '([^']+)'", d.message)
-            if m and m.group(1) in project_classes:
+            if m and m.group(1).lower() in project_classes:
                 continue
         if d.rule not in disabled:
             diags.append(d)
@@ -1411,7 +1419,7 @@ def collect_project_classes(parsed_files: list[FileParseResult]) -> set[str]:
     names: set[str] = set()
 
     def walk(node: ClassNode) -> None:
-        names.add(node.name)
+        names.add(node.name.lower())  # case-insensitive, like Arma
         for c in node.children:
             walk(c)
 
