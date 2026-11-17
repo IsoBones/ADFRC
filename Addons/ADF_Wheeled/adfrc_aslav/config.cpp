@@ -1583,7 +1583,7 @@ class CfgVehicles
 				//Entity is passed as _this, value is passed as _value
 				//%s is replaced by attribute config name. It can be used only once in the expression
 				//In MP scenario, the expression is called only on server.
-				expression = "_this setVariable ['%s', _value, true]; private _i = _value; if (_value isEqualTo 0) then {_i = floor (random 22) + 1}; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_this setObjectTextureGlobal [_x, _f]} forEach [7, 8, 9];";
+				expression = "_this setVariable ['%s', _value, true]; _this setVariable ['ADFRC_labelApplied', true, true]; private _i = _value; if (_value isEqualTo 0) then {_i = floor (random 22) + 1}; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_this setObjectTextureGlobal [_x, _f]} forEach [7, 8, 9];";
 
 				//Expression called when custom property is undefined yet (i.e., when setting the attribute for the first time)
 				//Entity (unit, group, marker, comment etc.) is passed as _this
@@ -1737,7 +1737,7 @@ class CfgVehicles
 				//--- Optional properties
 				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
 				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-				condition = "_this isKindOf 'adfrc_aslav_base'"; // Condition for attribute to appear (see the table below)
+				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
 		};
@@ -2442,7 +2442,7 @@ class CfgVehicles
 				//Entity is passed as _this, value is passed as _value
 				//%s is replaced by attribute config name. It can be used only once in the expression
 				//In MP scenario, the expression is called only on server.
-				expression = "_this setVariable ['%s', _value, true]; private _i = _value; if (_value isEqualTo 0) then {_i = floor (random 22) + 1}; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_this setObjectTextureGlobal [_x, _f]} forEach [8, 9];";
+				expression = "_this setVariable ['%s', _value, true]; _this setVariable ['ADFRC_labelApplied', true, true]; private _i = _value; if (_value isEqualTo 0) then {_i = floor (random 22) + 1}; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_this setObjectTextureGlobal [_x, _f]} forEach [8, 9];";
 
 				//Expression called when custom property is undefined yet (i.e., when setting the attribute for the first time)
 				//Entity (unit, group, marker, comment etc.) is passed as _this
@@ -2596,7 +2596,7 @@ class CfgVehicles
 				//--- Optional properties
 				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
 				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-				condition = "_this isKindOf 'adfrc_aslav_base'"; // Condition for attribute to appear (see the table below)
+				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
 		};
@@ -4266,14 +4266,17 @@ class CfgVehicles
 		};
 	};*/
 };
+// Random callsign for ASLAVs that no Eden callsign attribute has labelled (script/Zeus spawns).
+// The attribute sets ADFRC_labelApplied; this waits until the mission is running so it never
+// races the attribute, and skips the Eden editor.
 class Extended_Init_EventHandlers
 {
     class adfrc_aslav_base
     {
-        ADFRC_labelRandom = "_this spawn {sleep 0.1; params ['_veh']; if (!isServer) exitWith {}; private _v = _veh getVariable ['PlatoonMarkings', 0]; if (_v isEqualTo 0) then {private _i = floor (random 22) + 1; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_veh setObjectTextureGlobal [_x, _f]} forEach [7, 8, 9];}};";
+        ADFRC_labelRandom = "_this spawn {params ['_veh']; if (!isServer || {is3DEN}) exitWith {}; waitUntil {time > 1}; if (_veh getVariable ['ADFRC_labelApplied', false]) exitWith {}; _veh setVariable ['ADFRC_labelApplied', true, true]; if (true) then {private _i = floor (random 22) + 1; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_veh setObjectTextureGlobal [_x, _f]} forEach [7, 8, 9];}};";
     };
 	class adfrc_aslav_pc_base
     {
-        ADFRC_labelRandom = "_this spawn {sleep 0.1; params ['_veh']; if (!isServer) exitWith {}; private _v = _veh getVariable ['PlatoonMarkings', 0]; if (_v isEqualTo 0) then {private _i = floor (random 22) + 1; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_veh setObjectTextureGlobal [_x, _f]} forEach [8, 9];}};";
+        ADFRC_labelRandom = "_this spawn {params ['_veh']; if (!isServer || {is3DEN}) exitWith {}; waitUntil {time > 1}; if (_veh getVariable ['ADFRC_labelApplied', false]) exitWith {}; _veh setVariable ['ADFRC_labelApplied', true, true]; if (true) then {private _i = floor (random 22) + 1; private _f = if (_i < 10) then {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_0%1.paa', _i]} else {format ['\adf_wheeled\adfrc_aslav\data\labels\labels_%1.paa', _i]}; {_veh setObjectTextureGlobal [_x, _f]} forEach [8, 9];}};";
     };
 };
