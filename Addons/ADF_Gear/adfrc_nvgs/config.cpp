@@ -50,7 +50,9 @@ class adfrc_l3h_psq36: NVGoggles
 		};
 		scopeCurator = 2;
 		weaponPoolAvailable = 1;
-		visionMode[] = {"Normal","NVG","TI"};
+		// NV only (#8). The real PSQ-36 is a fusion goggle, but Arma can't overlay thermal on
+		// NV, and a separate full-thermal mode isn't representative.
+		visionMode[] = {"Normal","NVG"};
 	};
 	class adfrc_l3h_psq36_recce: adfrc_l3h_psq36
 	{
@@ -76,6 +78,6 @@ class adfrc_l3h_psq36: NVGoggles
 		};
 		scopeCurator = 2;
 		weaponPoolAvailable = 1;
-		visionMode[] = {"Normal","NVG","TI"};
+		visionMode[] = {"Normal","NVG"};
 	};
 };
