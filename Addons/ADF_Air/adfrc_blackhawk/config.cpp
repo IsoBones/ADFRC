@@ -2,28 +2,21 @@ class CfgPatches
 {
 	class ADFRC_blackhawk
 	{
-		units[]=
+		author = "ADF Re-Cut";
+		requiredVersion = 0.1;
+		requiredAddons[] = {"A3_Data_F_Mod_Loadorder", "ADF_Core"};
+		units[] =
 		{
-			"ADFRC_blackhawk"//,
-			//"ADFRC_blackhawk_mag58",
-			//"ADFRC_blackhawk_mev",
-			//"ADFRC_blackhawk_cargo"
+			"ADFRC_blackhawk",
+			"ADFRC_blackhawk_mag58",
+			"ADFRC_blackhawk_cargo",
+			"ADFRC_blackhawk_GWOT",
+			"ADFRC_blackhawk_cargo_GWOT",
+			"ADFRC_blackhawk_mag58_GWOT",
+			"ADFRC_blackhawk_esss_GWOT"
 		};
-		weapons[]=
-		{
-			"ADFRC_blackhawk_MAG58",
-			"ADFRC_blackhawk_MAG582"
-		};
-		requiredVersion=0.1;
-		requiredAddons[]=
-		{
-			"A3_Air_F",
-			"ADFRC_chinook"
-		};
-		magazines[]=
-		{
-			"ADFRC_blackhawk_350Rnd_762x51_Tracer"
-		};
+		weapons[] = {"ADFRC_blackhawk_MAG58_left", "ADFRC_blackhawk_MAG58_Right"};
+		magazines[] = {"ADFRC_blackhawk_350Rnd_762x51_Tracer"};
 	};
 };
 class SensorTemplatePassiveRadar;
@@ -98,6 +91,7 @@ class CfgVehicles
 	class Helicopter_Base_F: Helicopter
 	{
 		class Turrets;
+		class HitPoints;
 	};
 	class Helicopter_Base_H: Helicopter_Base_F
 	{
@@ -107,7 +101,21 @@ class CfgVehicles
 			class mainTurret;
 			class CopilotTurret;
 		};
-		class HitPoints;
+		class HitPoints: HitPoints
+		{
+			class HitHull;
+			class HitFuel;
+			class HitEngine;
+			class HitEngine1;
+			class HitEngine2;
+			class HitAvionics;
+			class HitVRotor;
+			class HitHRotor;
+			class HitGlass1;
+			class HitGlass2;
+			class HitGlass3;
+			class HitGlass4;
+		};
 		class AnimationSources;
 		class Eventhandlers;
 		class Viewoptics;
@@ -124,9 +132,10 @@ class CfgVehicles
 		model="ADF_Air\adfrc_blackhawk\S70A";
 		editorPreview = "ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk.jpg";
 		author="$STR_ADFRC_AUTHOR";
-		_generalMacro="ADFRC_blackhawk_BASE";
 		side=1;
 		faction="ADFRC_F_MD";
+		// TFAR vehicle long-range radio (ignored without TFAR)
+		tf_hasLRradio = 1;
 		tf_RadioType = "TFAR_anarc210";
 		vehicleClass="AIR";
 		mapSize=16.82;
@@ -141,31 +150,6 @@ class CfgVehicles
 		accuracy=0.5;
 		ace_fastroping_enabled = 1;
 		ace_fastroping_ropeOrigins[] = {"ropeoriginleft","ropeoriginright"};
-		RAV_Enable=1;
-		RAV_center[]={0,-0.89999998,0.5};
-		RAV_datCam[]=
-		{
-			{1.05,5.0999999,-0.63},
-			{0,-1,-2},
-			{0,2,-6}
-		};
-		RAV_datFastRopes[]=
-		{
-			
-			{
-				{1.05,1.6,-11.9},
-				270,
-				1,
-				1
-			},
-			
-			{
-				{-1,1.6,-11.9},
-				90,
-				1,
-				1
-			}
-		};
 		usePreciseGetInAction=1;
 		memoryPointsGetInDriver="pos Driver";
 		memoryPointsGetInDriverDir="pos Driver dir";
@@ -211,7 +195,10 @@ class CfgVehicles
 		maxFordingDepth=0.55000001;
 		mainRotorSpeed=1;
 		backRotorSpeed=1;
-		mainBladeRadius=7.5;
+		mainBladeCenter = "main rotor";
+		mainBladeRadius = 7.9;
+		tailBladeCenter = "mala osa";
+		tailBladeRadius = 1.63;
 		bodyFrictionCoef=0.89999998;
 		fuelCapacity=2500;
 		fuelConsumptionRate=0.138;
@@ -533,8 +520,8 @@ class CfgVehicles
 		};
 		slingCargoDetachAir[]=
 		{
-			"slingCargoDetach0",
-			"slingCargoDetach1"
+			"slingCargoDetachAir0",
+			"slingCargoDetachAir1"
 		};
 		slingCargoRopeBreak0[]=
 		{
@@ -552,8 +539,8 @@ class CfgVehicles
 		};
 		slingCargoRopeBreak[]=
 		{
-			"slingCargoDetach0",
-			"slingCargoDetach1"
+			"slingCargoRopeBreak0",
+			"slingCargoRopeBreak1"
 		};
 		class Sounds
 		{
@@ -5101,7 +5088,7 @@ class CfgVehicles
 		};
 		class Reflectors
 		{
-			class Right
+			class Left
 			{
 				color[]={7000,7500,10000};
 				ambient[]={70,75,100};
@@ -5128,7 +5115,7 @@ class CfgVehicles
 				hitpoint="Light_L_hitpoint";
 				selection="Light_L";
 			};
-			class Left: Right
+			class Right: Left
 			{
 				position="Light_R_pos";
 				direction="Light_R_dir";
@@ -5208,99 +5195,91 @@ class CfgVehicles
 		destrType="DestructWreck";
 		class HitPoints: HitPoints
 		{
-			class HitHull
+			// Names match the model's HitPoints LOD. Inherit so radius, depends etc. come from vanilla.
+			class HitHull: HitHull
 			{
-				armor=1;
-				material=51;
-				name="hull";
-				passThrough=1;
+				armor = 1;
+				material = 51;
+				name = "hull";
+				passThrough = 1;
 			};
-			class HitEngine
+			class HitFuel: HitFuel
 			{
-				armor=0.25;
-				material=51;
-				name="motor";
-				visual="motor";
-				passThrough=1;
+				armor = 0.25;
+				material = 51;
+				name = "fuel";
+				passThrough = 1;
 			};
-			class HitFuel
+			class HitEngine: HitEngine
 			{
-				armor=0.25;
-				material=51;
-				name="fuel";
-				passThrough=1;
+				armor = 0.25;
+				material = 51;
+				name = "motor";
+				visual = "motor";
+				passThrough = 1;
 			};
-			class HitAvionics
+			class HitEngine1: HitEngine1
 			{
-				armor=0.15000001;
-				material=51;
-				name="instruments";
-				visual="elektronika";
-				passThrough=1;
+				armor = 0.25;
+				material = 51;
+				name = "engine_1_hit";
+				visual = "motor";
+				passThrough = 1;
 			};
-			class HitVRotor
+			class HitEngine2: HitEngine2
 			{
-				armor=0.30000001;
-				material=51;
-				name="tail rotor";
-				visual="tail rotor static";
-				passThrough=0.30000001;
+				armor = 0.25;
+				material = 51;
+				name = "engine_2_hit";
+				visual = "motor";
+				passThrough = 1;
 			};
-			class HitHRotor
+			class HitAvionics: HitAvionics
 			{
-				armor=0.2;
-				material=51;
-				name="main rotor";
-				visual="main rotor static";
-				passThrough=0.1;
+				armor = 0.15;
+				material = 51;
+				name = "instruments";
+				visual = "elektronika";
+				passThrough = 1;
 			};
-			class HitRGlass
+			class HitVRotor: HitVRotor
 			{
-				armor=0.1;
-				material=51;
-				name="sklo predni P";
-				visual="sklo predni P";
-				passThrough=0;
+				armor = 0.3;
+				material = 51;
+				name = "tail rotor";
+				visual = "tail rotor static";
+				passThrough = 0.3;
 			};
-			class HitLGlass
+			class HitHRotor: HitHRotor
 			{
-				armor=0.1;
-				material=51;
-				name="sklo predni L";
-				visual="sklo predni L";
-				passThrough=0;
+				armor = 0.2;
+				material = 51;
+				name = "main rotor";
+				visual = "main rotor static";
+				passThrough = 0.1;
 			};
-			class HitGlass1
+			class HitGlass1: HitGlass1
 			{
-				armor=2;
-				material=-1;
-				name="glass1";
-				visual="glass1";
-				passThrough=0;
+				armor = 2;
+				material = -1;
+				name = "glass1";
+				visual = "glass1";
+				passThrough = 0;
 			};
-			class HitGlass2
+			class HitGlass2: HitGlass1
 			{
-				armor=2;
-				material=-1;
-				name="glass2";
-				visual="glass2";
-				passThrough=0;
+				name = "glass2";
+				visual = "glass2";
 			};
-			class HitGlass3
+			class HitGlass3: HitGlass1
 			{
-				armor=2;
-				material=-1;
-				name="glass3";
-				visual="glass3";
-				passThrough=0;
+				name = "glass3";
+				visual = "glass3";
 			};
-			class HitGlass4
+			class HitGlass4: HitGlass1
 			{
-				armor=2;
-				material=-1;
-				name="glass4";
-				visual="glass4";
-				passThrough=0;
+				name = "glass4";
+				visual = "glass4";
 			};
 		};
 		class UserActions
@@ -5528,33 +5507,40 @@ class CfgVehicles
 		enableManualFire=0;
 		class Damage
 		{
-			tex[]={};
-			mat[]=
+			tex[] = {};
+			// normal, damaged, destroyed
+			mat[] =
 			{
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_ext01.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_ext01_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_ext01_destruct.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_ext02.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_ext02_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_ext02_destruct.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_glass.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_glass_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_glass_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_adds.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_adds_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_adds_destruct.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_base.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_base_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_base_destruct.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_board.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_board_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_int_board_destruct.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_minigun.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_minigun_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_minigun_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_minigun_add.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_minigun_add_damage.rvmat",
-				"A3\Air_F_Beta\Heli_Transport_01\Data\Heli_Transport_01_minigun_add_damage.rvmat"
+				"ADF_Air\adfrc_blackhawk\data\fuselage\uh60m_fuselage.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\fuselage\uh60m_fuselage_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\fuselage\uh60m_fuselage_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\engine\uh60m_engine.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\engine\uh60m_engine_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\engine\uh60m_engine_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\interior\uh60m_interior.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\interior\uh60m_interior_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\interior\uh60m_interior_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\winch\uh60m_winch.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\winch\uh60m_winch_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\winch\uh60m_winch_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\glass\uh60m_alpha.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\uh60m_alpha_damage.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\uh60m_alpha_damage.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\addons\s70_addons.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\addons\s70_sm.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\addons\esss.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\mount\mount.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat",
+				"ADF_Air\adfrc_blackhawk\data\default_destruct.rvmat"
 			};
 		};
 		hiddenSelections[]=
@@ -5617,6 +5603,7 @@ class CfgVehicles
 		};
 		textureList[] = {modern,1};
 		cost=1500000;
+		adfrc_randomTailNumber = 0; // 1 = random tail number on spawn (scripts\init_base.sqf)
 		class EventHandlers: Eventhandlers
 		{
 			init="(_this select 0) execVM ""\ADF_Air\adfrc_blackhawk\scripts\init_base.sqf"" ";
@@ -5632,6 +5619,7 @@ class CfgVehicles
 		};
 		class RotorLibHelicopterProperties
 		{
+			// XML positions are relative to the model origin (the S70A has no RTD_center point)
 			RTDconfig="ADF_Air\adfrc_blackhawk\RTD_Air_Blackawk.xml";
 			autoHoverCorrection[]={3,2.45,0};
 			defaultCollective=0.625;
@@ -5653,7 +5641,6 @@ class CfgVehicles
 		model="ADF_Air\adfrc_blackhawk\S70A_MAG58";
 		editorPreview = "\adf_air\adfrc_blackhawk\preview\ADFRC_blackhawk_mag58.jpg";
 		author="$STR_ADFRC_AUTHOR";
-		_generalMacro="ADFRC_blackhawk_BASE_MAG58";
 		cargoProxyIndexes[]={2,3,6,7,9,10,11,12};
 		cargoCompartments[]=
 		{
@@ -5963,7 +5950,6 @@ class CfgVehicles
 		displayName="UH-60M Blackhawk";
 		editorPreview = "ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk.jpg";
 		author="$STR_ADFRC_AUTHOR";
-		_generalMacro="ADFRC_blackhawk_BASE_F";
 		mapSize=16.82;
 		crew="ADFRC_MD_AMCU_Soldier_HeliPilot";
 		weapons[]=
@@ -5974,21 +5960,17 @@ class CfgVehicles
 		{
 			"300Rnd_CMFlare_Chaff_Magazine"
 		};
+		// S70A.p3d only has flare_launcher1 and 2
 		memoryPointCM[]=
 		{
 			"flare_launcher1",
-			"flare_launcher2",
-			"flare_launcher3",
-			"flare_launcher4"
+			"flare_launcher2"
 		};
 		memoryPointCMDir[]=
 		{
 			"flare_launcher1_dir",
-			"flare_launcher2_dir",
-			"flare_launcher3_dir",
-			"flare_launcher4_dir"
+			"flare_launcher2_dir"
 		};
-		class EventHandlers{};
 		hiddenSelections[]=
 		{
 			"camo1",
@@ -6144,28 +6126,6 @@ class CfgVehicles
 		class CargoTurret;
 		class Turrets: Turrets
 		{
-			class CopilotTurret: CopilotTurret
-			{
-				CanEject=0;
-				gunnerAction="ADFRC_S70A_Pilot";
-				gunnerInAction="ADFRC_S70A_Pilot";
-				memoryPointsGetInGunner="pos Codriver";
-				memoryPointsGetInGunnerDir="pos Codriver dir";
-				gunnerGetInAction="GetInHeli_Transport_01Cargo";
-				gunnerGetOutAction="GetOutLow";
-				preciseGetInOut=0;
-				GunnerDoor="door_CoPilot_Open";
-				gunnerLeftHandAnimName="stick_collective";
-				gunnerRightHandAnimName="stick_copilot";
-				gunnerLeftLegAnimName="pedal_left";
-				gunnerRightLegAnimName="pedal_right";
-				proxyIndex=1;
-				LODTurnedIn=1100;
-				LODTurnedOut=1100;
-				gunnerCompartments="Compartment1";
-				commanding=-3;
-				isCopilot=1;
-			};
 			class CargoTurret_01: CargoTurret
 			{
 				gunnerAction="passenger_inside_1";
@@ -6252,7 +6212,6 @@ class CfgVehicles
 		model="ADF_Air\adfrc_blackhawk\S70A_MAG58";
 		displayName="UH-60M Blackhawk MAG-58";
 		author="$STR_ADFRC_AUTHOR";
-		_generalMacro="ADFRC_blackhawk_MAG58_F";
 		mapSize=16.82;
 		crew="ADFRC_MD_AMCU_Soldier_HeliPilot";
 		textureList[] = {modern,1};
@@ -6279,7 +6238,7 @@ class CfgVehicles
 			"flare_launcher3_dir",
 			"flare_launcher4_dir"
 		};
-		class EventHandlers{};
+		
 		hiddenSelections[]=
 		{
 			"camo1",
@@ -6307,18 +6266,7 @@ class CfgVehicles
 			"Drop",
 			"Transport"
 		};
-		cargoProxyIndexes[]={1,2,6,7,9,10,11,12};
-		cargoCompartments[]=
-		{
-			"Compartment2",
-			"Compartment2",
-			"Compartment2",
-			"Compartment2",
-			"Compartment2",
-			"Compartment2",
-			"Compartment2",
-			"Compartment2"
-		};
+		// cargoProxyIndexes / cargoCompartments come from the base (proxy 1 is CargoTurret_01)
 	};
 	/*class ADFRC_blackhawk_mev: ADFRC_blackhawk_BASE_MAG58
 	{
@@ -6327,7 +6275,6 @@ class CfgVehicles
 		displayName="S70 Blackhawk Medivac";
 		editorPreview = "ADF_Air\adfrc_blackhawk\data\ADFRC_blackhawk_mev.jpg";
 		author="$STR_ADFRC_AUTHOR";
-		_generalMacro="ADFRC_blackhawk_MEV_F";
 		mapSize=16.82;
 		attendant=1;
 		crew="ADFRC_MD_AMCU_Soldier_HeliPilot";
@@ -6421,7 +6368,6 @@ class CfgVehicles
 		displayName="UH-60M Blackhawk (Cargo)";
 		editorPreview = "ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_cargo.jpg";
 		author="$STR_ADFRC_AUTHOR";
-		_generalMacro="ADFRC_blackhawk_BASE_F";
 		mapSize=16.82;
 		crew="ADFRC_MD_AMCU_Soldier_HeliPilot";
 		textureList[] = {modern,1};
@@ -6433,21 +6379,18 @@ class CfgVehicles
 		{
 			"300Rnd_CMFlare_Chaff_Magazine"
 		};
+		// S70A.p3d only has flare_launcher1 and 2
 		memoryPointCM[]=
 		{
 			"flare_launcher1",
-			"flare_launcher2",
-			"flare_launcher3",
-			"flare_launcher4"
+			"flare_launcher2"
 		};
 		memoryPointCMDir[]=
 		{
 			"flare_launcher1_dir",
-			"flare_launcher2_dir",
-			"flare_launcher3_dir",
-			"flare_launcher4_dir"
+			"flare_launcher2_dir"
 		};
-		class EventHandlers: Eventhandlers{};
+		
 		hiddenSelections[]=
 		{
 			"camo1",
@@ -6475,37 +6418,11 @@ class CfgVehicles
 			"Drop",
 			"Transport"
 		};
-		cargoProxyIndexes[]={1,2,3,4};
-		cargoCompartments[]=
-		{
-			"Compartment2",
-			"Compartment2"
-		};
+		cargoProxyIndexes[]={};
+		cargoCompartments[]={"Compartment2"};
 		class CargoTurret;
 		class Turrets: Turrets
 		{
-			class CopilotTurret: CopilotTurret
-			{
-				CanEject=0;
-				gunnerAction="ADFRC_S70A_Pilot";
-				gunnerInAction="ADFRC_S70A_Pilot";
-				memoryPointsGetInGunner="pos Codriver";
-				memoryPointsGetInGunnerDir="pos Codriver dir";
-				gunnerGetInAction="GetInHeli_Transport_01Cargo";
-				gunnerGetOutAction="GetOutLow";
-				preciseGetInOut=0;
-				GunnerDoor="door_CoPilot_Open";
-				gunnerLeftHandAnimName="stick_collective";
-				gunnerRightHandAnimName="stick_copilot";
-				gunnerLeftLegAnimName="pedal_left";
-				gunnerRightLegAnimName="pedal_right";
-				proxyIndex=1;
-				LODTurnedIn=1100;
-				LODTurnedOut=1100;
-				gunnerCompartments="Compartment1";
-				commanding=-3;
-				isCopilot=1;
-			};
 			class CargoTurret_01: CargoTurret
 			{
 				gunnerAction="passenger_inside_1";
@@ -6559,6 +6476,7 @@ class CfgVehicles
 //////////////////////// GWOT VERSIONS ////////////////////////////
 	class ADFRC_blackhawk_GWOT: ADFRC_blackhawk
 	{
+		adfrc_randomTailNumber = 1;
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk";
 		textureList[] = {classic,1};
@@ -6656,13 +6574,10 @@ class CfgVehicles
 				forceAnimatePhase=0;
 			};
 		};
-		class EventHandlers: Eventhandlers
-		{
-			init="(_this select 0) execVM ""\ADF_Air\adfrc_blackhawk\scripts\init_base.sqf"" ";
-		};
 	};
 	class ADFRC_blackhawk_cargo_GWOT: ADFRC_blackhawk_cargo
 	{
+		adfrc_randomTailNumber = 1;
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk (Cargo)";
 		textureList[] = {classic,1};
@@ -6760,13 +6675,10 @@ class CfgVehicles
 				forceAnimatePhase=1;
 			};
 		};
-		class EventHandlers: Eventhandlers
-		{
-			init="(_this select 0) execVM ""\ADF_Air\adfrc_blackhawk\scripts\init_base.sqf"" ";
-		};
 	};
 	class ADFRC_blackhawk_mag58_GWOT: ADFRC_blackhawk_MAG58
 	{
+		adfrc_randomTailNumber = 1;
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk Mag58";
 		textureList[] = {classic,1};
@@ -6874,10 +6786,6 @@ class CfgVehicles
 				author="Quiggs";
 				forceAnimatePhase=1;
 			};
-		};
-		class EventHandlers: Eventhandlers
-		{
-			init="(_this select 0) execVM ""\ADF_Air\adfrc_blackhawk\scripts\init_base.sqf"" ";
 		};
 	};
 //////////////////////// PCW  VERSIONS ////////////////////////////

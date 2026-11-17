@@ -50,40 +50,44 @@
 */
 if (local _this) then
 {
-	private _arrayMarkings =
-	[
-		"\adf_air\adfrc_blackhawk\data\labels\labels_101_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_102_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_103_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_104_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_105_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_106_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_107_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_108_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_109_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_110_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_111_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_112_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_113_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_201_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_202_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_203_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_204_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_205_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_206_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_207_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_208_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_209_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_210_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_211_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_212_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_214_ca.paa",
-		"\adf_air\adfrc_blackhawk\data\labels\labels_215_ca.paa"
-	];
+	// Random tail numbers only where the class sets adfrc_randomTailNumber = 1 (GWOT/PCW)
+	if (getNumber (configOf _this >> "adfrc_randomTailNumber") == 1) then
+	{
+		private _arrayMarkings =
+		[
+			"\adf_air\adfrc_blackhawk\data\labels\labels_101_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_102_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_103_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_104_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_105_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_106_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_107_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_108_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_109_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_110_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_111_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_112_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_113_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_201_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_202_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_203_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_204_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_205_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_206_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_207_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_208_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_209_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_210_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_211_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_212_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_214_ca.paa",
+			"\adf_air\adfrc_blackhawk\data\labels\labels_215_ca.paa"
+		];
 
-	private _heliCamo = selectRandom _arrayMarkings;
-	// Global so every client (and JIP) sees the same tail number, not just the owner.
-	_this setObjectTextureGlobal [4, _heliCamo];
+		private _heliCamo = selectRandom _arrayMarkings;
+		// Global so every client (and JIP) sees the same tail number, not just the owner.
+		_this setObjectTextureGlobal [4, _heliCamo];
+	};
 
 	// Ensure Pilot Doors Are Closed
 	_this animateDoor ['door_CoPilot_Open', 0];
