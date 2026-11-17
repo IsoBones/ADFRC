@@ -451,14 +451,7 @@ class CfgVehicles
 		slingLoadMaxCargoMass=10000;
 		ace_fastroping_enabled = 1;
 		ace_fastroping_ropeOrigins[] = {"ropeoriginleft","ropeoriginright"};
-		class TransportItems
-		{
-			class _xx_ace_rope36
-			{
-				name = "ace_rope36";
-				count = 4;
-			};
-		};
+		class TransportItems {}; // ACE fastrope ropes are added by ADF_Ace
 		class MFD
 		{
 			class Kimi_HUD_1
