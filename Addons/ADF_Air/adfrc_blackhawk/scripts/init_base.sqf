@@ -50,7 +50,7 @@
 */
 if (local _this) then
 {
-	_arrayMarkings =
+	private _arrayMarkings =
 	[
 		"\adf_air\adfrc_blackhawk\data\labels\labels_101_ca.paa",
 		"\adf_air\adfrc_blackhawk\data\labels\labels_102_ca.paa",
@@ -81,8 +81,9 @@ if (local _this) then
 		"\adf_air\adfrc_blackhawk\data\labels\labels_215_ca.paa"
 	];
 
-	_heliCamo =  _arrayMarkings call BIS_fnc_selectRandom;
-	_this setObjectTexture [4, _heliCamo];
+	private _heliCamo = selectRandom _arrayMarkings;
+	// Global so every client (and JIP) sees the same tail number, not just the owner.
+	_this setObjectTextureGlobal [4, _heliCamo];
 
 	// Ensure Pilot Doors Are Closed
 	_this animateDoor ['door_CoPilot_Open', 0];

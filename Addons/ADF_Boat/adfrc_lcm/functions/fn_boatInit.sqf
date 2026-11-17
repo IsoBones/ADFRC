@@ -17,7 +17,7 @@ if (!hasInterface) exitWith {};
 _boat addAction [
     "<t color='#8cd0ff'>Board Landing Craft</t>",
     {
-        params ["_boat", "_caller", "_actionId", "_args"];
+        params ["_boat", "_caller"];
         [_boat, _caller] call adfrc_lcm_fnc_board;
     },
     nil,

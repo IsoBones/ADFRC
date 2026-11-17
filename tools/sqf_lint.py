@@ -1034,13 +1034,13 @@ def check_private_usage(tokens: list, file: str) -> list:
 # ----------------------------------------------------------------------------
 
 # Variables that SQF auto-injects - never warn on these.
-SQF_BUILTIN_LOCALS = {
-    "_this", "_x", "_y", "_forEachIndex", "_foreachindex",
-    "_thisFsm", "_thisscript", "_thisScript",
+SQF_BUILTIN_LOCALS = {v.lower() for v in (
+    "_this", "_x", "_y", "_forEachIndex",
+    "_thisFsm", "_thisScript",
     "_thisEvent", "_thisEventHandler",
     "_exception", "_thrown",
     "_thisArgs",
-}
+)}  # lower-cased: lookups use var.lower(), and SQF names are case-insensitive
 
 
 def _find_block_extent(tokens: list, open_idx: int) -> int:
@@ -1219,11 +1219,17 @@ def check_variable_usage(tokens: list, file: str, ignored: set) -> list:
         # so an explicit `private _x = ...` followed by a use of `_x` correctly
         # marks the private as referenced even though `_x` is normally a
         # builtin (in forEach/apply contexts).
+        # Pick the innermost (most specific) declaration that covers this ref, so a
+        # `params` inside a nested block (addAction code, spawn) isn't shadowed by an
+        # outer declaration of the same name.
         covering = None
+        best_key = None
         for s, e, didx in private_lookup.get(var, []):
             if s <= idx < e and didx <= idx:
-                covering = (var, didx)
-                break
+                key = (e - s, -didx)
+                if best_key is None or key < best_key:
+                    best_key = key
+                    covering = (var, didx)
 
         if covering is not None:
             referenced.add(covering)

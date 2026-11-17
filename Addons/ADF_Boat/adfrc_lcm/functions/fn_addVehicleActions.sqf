@@ -29,7 +29,7 @@ _veh setVariable ["adfrc_lcm_actionsAdded", true];
 _veh addAction [
     "<t color='#8cff9b'>Tie Down to Landing Craft</t>",
     {
-        params ["_veh", "_caller", "_actionId", "_args"];
+        params ["_veh"];
         private _boat = [_veh] call adfrc_lcm_fnc_nearestLCM;
         if (isNull _boat) exitWith { hint "No landing craft in range"; };
         [_boat, _veh] call adfrc_lcm_fnc_tieDown;
@@ -50,7 +50,7 @@ _veh addAction [
 _veh addAction [
     "<t color='#ff8c8c'>Release from Landing Craft</t>",
     {
-        params ["_veh", "_caller", "_actionId", "_args"];
+        params ["_veh"];
         [_veh] call adfrc_lcm_fnc_untie;
     },
     nil,
