@@ -48,5 +48,5 @@ class Mode_SemiAuto;
 class compatibleItems;
 class cfgweapons{
 #include "M4A5.hpp"
-#include "Presets.hpp"
+#include "presets.hpp"
 };

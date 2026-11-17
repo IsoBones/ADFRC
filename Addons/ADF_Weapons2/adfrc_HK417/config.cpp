@@ -47,5 +47,5 @@ class adfrc_PIC_grip_slot;
 class compatibleItems;
 class cfgweapons{
 #include "HK417.hpp"
-#include "Presets.hpp"
+#include "presets.hpp"
 };
