@@ -11,6 +11,7 @@ class CfgPatches
 			"ADF_Wheeled",
 			"ADF_Weapons",
 			"A3_Armor_F_EPB",
+			"A3_Ui_F_Enoch",
 			"cba_main",
 			"cba_xeh"
 		};
@@ -41,6 +42,7 @@ class CfgPatches
 };
 #include "c_ammo.hpp"
 #include "c_anims.hpp"
+#include "c_ui.hpp"
 class DefaultVehicleSystemsDisplayManagerLeft
 {
 	class components;
@@ -3259,6 +3261,25 @@ class CfgVehicles
 		tf_RadioType="TFAR_rt1523g";
 		tf_range=20000;
 		tf_subtype="airborne";
+		// Radio Operator (CargoTurret_02) gets the vehicle LR. Turret path [2], confirmed in game
+		// on the S with assignedVehicleRole.
+		TFAR_AdditionalLR_Turret[] = {{2}};
+		class AcreRacks
+		{
+			// replaces ACRE's Wheeled_APC_F default rack (same radio and seats) and adds the Radio Operator
+			class Rack_1
+			{
+				displayName = "Dashboard";
+				shortName = "Dash";
+				componentName = "ACRE_VRC103";
+				allowedPositions[] = {"driver", "commander", "gunner", {"turret", {2}}};
+				disabledPositions[] = {};
+				defaultComponents[] = {};
+				mountedRadio = "ACRE_PRC117F";
+				isRadioRemovable = 0;
+				intercom[] = {"intercom_1"};
+			};
+		};
 		class Turrets: Turrets
 		{
 			class M2Turret: M2Turret{};
@@ -3550,6 +3571,25 @@ class CfgVehicles
 		tf_RadioType="TFAR_rt1523g";
 		tf_range=20000;
 		tf_subtype="airborne";
+		// Radio Operator (CargoTurret_02) gets the vehicle LR. Turret path [2], confirmed in game
+		// on the S with assignedVehicleRole.
+		TFAR_AdditionalLR_Turret[] = {{2}};
+		class AcreRacks
+		{
+			// replaces ACRE's Wheeled_APC_F default rack (same radio and seats) and adds the Radio Operator
+			class Rack_1
+			{
+				displayName = "Dashboard";
+				shortName = "Dash";
+				componentName = "ACRE_VRC103";
+				allowedPositions[] = {"driver", "commander", "gunner", {"turret", {2}}};
+				disabledPositions[] = {};
+				defaultComponents[] = {};
+				mountedRadio = "ACRE_PRC117F";
+				isRadioRemovable = 0;
+				intercom[] = {"intercom_1"};
+			};
+		};
 		class RenderTargets
 		{
 			class cameradisplay0
@@ -3620,7 +3660,7 @@ class CfgVehicles
 				animationSourceElevation = "cameraelevation";
 				elevationAnimSourceSpeed = 0.35;
 				turretFollowFreeLook = 2;
-				turretInfoType = "RscOptics_UGV_02_Demining_gunner";
+				turretInfoType = "adfrc_RscOptics_ASLAV_S_camera";
 				weapons[]=
 				{
 					"Laserdesignator_vehicle",
@@ -3846,15 +3886,15 @@ class CfgVehicles
 				priority=1;
 				position="driverview";
 				onlyForPlayer=0;
-				condition="((this DoorPhase 'cameraelevation_deployed') == 0) AND Alive (this) and driver this == player";
-				statement="this animateDoor ['cameraelevation_deployed', 1];";
+				condition="((this DoorPhase 'cameraelevation_deployed') == 0) AND Alive (this) and driver this == player and abs (speed this) < 1";
+				statement="this animateDoor ['cameraelevation_deployed', 1]; [this, true] remoteExecCall ['adfrc_aslav_fnc_mastLock', 2];";
 			};
 			class Camera_lower: Camera_Raise
 			{
 				userActionID=53;
 				displayName="Retract Camera";
 				condition="((this DoorPhase 'cameraelevation_deployed') > 0) AND Alive (this) and driver this == player";
-				statement="this animateDoor [""cameraelevation_deployed"", 0];";
+				statement="this animateDoor [""cameraelevation_deployed"", 0]; [this, false] remoteExecCall ['adfrc_aslav_fnc_mastLock', 2];";
 			};
 		};
 		class Components
