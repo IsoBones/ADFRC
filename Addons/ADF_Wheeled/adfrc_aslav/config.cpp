@@ -23,6 +23,8 @@ class CfgPatches
 			"adfrc_aslav_25",
 			"adfrc_aslav_25_mag58",
 			"adfrc_aslav_pc",
+			"adfrc_aslav_a_unarmed",
+			"adfrc_aslav_a_unarmed_gwot",
 		};
 		weapons[]=
 		{
@@ -3247,6 +3249,30 @@ class CfgVehicles
 			};
 		};
 	};
+	// ASLAV-A without the commander's M2 (#233). Same vehicle; the M2 and its mount are hidden
+	// with the existing commanderturret_mount animation (as the RWS variant does) and the
+	// commander's seat keeps its hatch, optics and smoke dischargers but has no M2.
+	class adfrc_aslav_a_unarmed: adfrc_aslav_a
+	{
+		displayName="ASLAV-A (Unarmed)";
+		author="Quiggs";
+		class AnimationSources: AnimationSources
+		{
+			class commanderturret_mount: commanderturret_mount
+			{
+				initPhase=0;
+			};
+		};
+		class Turrets: Turrets
+		{
+			class M2Turret: M2Turret
+			{
+				// Keeps the smoke dischargers, drops the M2.
+				weapons[]={"SmokeLauncher"};
+				magazines[]={"SmokeLauncherMag","SmokeLauncherMag","SmokeLauncherMag","SmokeLauncherMag"};
+			};
+		};
+	};
 	class adfrc_aslav_c: adfrc_aslav_pc
 	{
 		displayName="ASLAV-C";
@@ -4084,6 +4110,11 @@ class CfgVehicles
 		author="Quiggs";
 	};
 	class adfrc_aslav_a_gwot: adfrc_aslav_a
+	{
+		faction="ADFRC_F_GWOT";
+		author="Quiggs";
+	};
+	class adfrc_aslav_a_unarmed_gwot: adfrc_aslav_a_unarmed
 	{
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
