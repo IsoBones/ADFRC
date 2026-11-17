@@ -20,40 +20,6 @@ class CfgMovesMaleSdr: CfgMovesBasic
 			leftHandIKCurve[] = {1};
 			rightHandIKCurve[] = {1};
 		};
-		class KIA_Heli_Attack_03_pilot: DefaultDie
-		{
-			actions = DeadActions;
-			file = "\ADF_Core\Anim\Heli_Attack_03_pilot_KIA.rtm";
-            speed = 0.5;
-			looped = false;
-			terminal = true;
-			soundEnabled = false;
-			connectTo[] = {Unconscious,0.1};
-		};
-		class Heli_Attack_03_pilot: Crew
-		{
-			file = "\ADF_Core\Anim\Heli_Attack_03_pilot.rtm";
-			interpolateTo[] = {KIA_Heli_Attack_03_pilot,true};
-			leftHandIKCurve[] = {1};
-			rightHandIKCurve[] = {1};
-		};
-		class KIA_Heli_Attack_03_gunner: DefaultDie
-		{
-			actions = DeadActions;
-			file = "\ADF_Core\Anim\Heli_Attack_03_gunner_KIA.rtm";
-            speed = 0.5;
-			looped = false;
-			terminal = true;
-			soundEnabled = false;
-			connectTo[] = {Unconscious,0.1};
-		};
-		class Heli_Attack_03_gunner: Crew
-		{
-			file = "\ADF_Core\Anim\Heli_Attack_03_gunner.rtm";
-			interpolateTo[] = {KIA_Heli_Attack_03_gunner,true};
-			leftHandIKCurve[] = {1};
-			rightHandIKCurve[] = {1};
-		};
 		class KIA_Passenger_Plane_Transport_01: DefaultDie
 		{
 			actions = DeadActions;

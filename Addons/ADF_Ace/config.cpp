@@ -84,10 +84,8 @@ class CfgVehicles {
 	};
 	class Helicopter_Base_H : Helicopter_Base_F {
 	};
-	class Heli_Attack_03_base_F : Helicopter_Base_F {
-
-	};
-	class adfrc_apache : Heli_Attack_03_base_F {
+	class adfrc_apache_base : Helicopter_Base_F {};
+	class adfrc_apache : adfrc_apache_base {
 		ace_cargo_hasCargo = 0;
 		ace_hellfire_addLaserDesignator = 1;
 	};
