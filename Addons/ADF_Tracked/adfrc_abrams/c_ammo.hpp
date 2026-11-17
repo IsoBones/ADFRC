@@ -393,6 +393,26 @@ class cfgMagazines
 		tracersEvery = 0;
 		initSpeed = 1410;
 	};
+	// Multi-round main gun magazines (#235). With 1Rnd magazines every shot is a magazine
+	// reload, so the "reload" animation source never runs and recoil/flash had to use
+	// reloadMagazine, which also fires on ammo switch. Same rounds and counts as the old
+	// 1Rnd loadout (20/10/7/5); the 1Rnd classes stay for missions that still use them.
+	class adfrc_abrams_20Rnd_M829A2_shell: adfrc_abrams_1Rnd_M829A2_shell
+	{
+		count = 20;
+	};
+	class adfrc_abrams_10Rnd_M830A1_shell: adfrc_abrams_1Rnd_M830A1_shell
+	{
+		count = 10;
+	};
+	class adfrc_abrams_7Rnd_M908_shell: adfrc_abrams_1Rnd_M908_shell
+	{
+		count = 7;
+	};
+	class adfrc_abrams_5Rnd_M1028_shell: adfrc_abrams_1Rnd_M1028_shell
+	{
+		count = 5;
+	};
 };
 class cfgWeapons
 {
@@ -456,10 +476,14 @@ class cfgWeapons
 		reloadTime = 6;
 		magazines[]=
 		{
+			"adfrc_abrams_20Rnd_M829A2_shell",
+			"adfrc_abrams_10Rnd_M830A1_shell",
+			"adfrc_abrams_7Rnd_M908_shell",
+			"adfrc_abrams_5Rnd_M1028_shell",
 			"adfrc_abrams_1Rnd_M829A2_shell",
 			"adfrc_abrams_1Rnd_M830A1_shell",
 			"adfrc_abrams_1Rnd_M908_shell",
-			"adfrc_abrams_1Rnd_M1028_shell",
+			"adfrc_abrams_1Rnd_M1028_shell"
 		};
 		class GunParticles 
 		{
