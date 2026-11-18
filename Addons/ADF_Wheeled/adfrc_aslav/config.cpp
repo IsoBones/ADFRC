@@ -165,6 +165,7 @@ class CfgVehicles
 	};
 	class adfrc_aslav_base: APC_Wheeled_03_base_F
 	{
+		picture="\ADF_Wheeled\adfrc_aslav\data\UI\aslav25.paa";
 		author = "Quiggs / Index";
 		model = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_25.p3d";
 		tf_hasLRradio=1;
@@ -1758,6 +1759,7 @@ class CfgVehicles
 	};
 	class adfrc_aslav_pc_base: adfrc_aslav_base
 	{
+		picture="\ADF_Wheeled\adfrc_aslav\data\UI\aslavpc.paa";
 		author="Quiggs";
 		model = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_pc.p3d";
 		//editorPreview = "\ADF_Wheeled\adfrc_aslav_crv.jpg";
@@ -2892,6 +2894,7 @@ class CfgVehicles
 	};
 	class adfrc_aslav_pc_rws: adfrc_aslav_pc
 	{
+		picture="\ADF_Wheeled\adfrc_aslav\data\UI\aslavpcrws.paa";
 		displayName="ASLAV-PC (M2HB-RWS)";
 		author="Quiggs";
 		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_pc_rws.jpg";

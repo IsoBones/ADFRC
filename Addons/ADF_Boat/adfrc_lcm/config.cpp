@@ -59,7 +59,7 @@ class CfgVehicles
 		model = "\ADF_Boat\adfrc_lcm\adfrc_lcm.p3d";
 		editorSubcategory = "EdSubcat_Boats";
 		extCameraPosition[] = {0,2,-25};
-		//picture = "\A3\boat_f\Boat_Armed_01\data\ui\Boat_Armed_01_base.paa";
+		picture = "\A3\boat_f\Boat_Armed_01\data\ui\Boat_Armed_01_base.paa";
 		Icon = "\A3\boat_f\Boat_Armed_01\data\ui\map_boat_armed_01.paa";
 		unitInfoType = "RscUnitInfoShip";
 		memoryPointTaskMarker = "TaskMarker_1_pos";
