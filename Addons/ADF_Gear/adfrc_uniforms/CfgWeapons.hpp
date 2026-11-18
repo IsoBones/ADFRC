@@ -360,7 +360,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_Multicam: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Multicam)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_multicam_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_Multicam";
@@ -370,7 +370,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_Multicam_Dirty: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Multicam Dirty)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_multicam_dirty_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_Multicam_Dirty";
@@ -380,7 +380,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_MulticamTrop: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Multicam Tropic)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_multicamtrop_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_MulticamTrop";
@@ -390,7 +390,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_AMP: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (AMP)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_amp_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_AMP";
@@ -400,7 +400,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_Green: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Green)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_green_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_Green";
@@ -510,7 +510,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_Multicam_Rolled: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Multicam, Rolled Sleeves)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam_Rolled.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_multicam_rolled_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_Multicam_Rolled";
@@ -520,7 +520,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_Multicam_Dirty_Rolled: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Multicam Dirty, Rolled Sleeves)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam_Rolled.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_multicam_dirty_rolled_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_Multicam_Dirty_Rolled";
@@ -530,7 +530,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_AMP_Rolled: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (AMP, Rolled Sleeves)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam_Rolled.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_amp_rolled_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_AMP_Rolled";
@@ -540,7 +540,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_Green_Rolled: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Green, Rolled Sleeves)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam_Rolled.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_green_rolled_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_Green_Rolled";
@@ -550,7 +550,7 @@ class CfgWeapons{
     class ADFRC_Uniform_G3_MulticamTrop_Rolled: ADFRC_Uniform_G3_AMCU {
 		author      = "$STR_ADFRC_AUTHOR";
 		displayName = "Crye G3 Combat Dress (Multicam Tropic, Rolled Sleeves)";
-		picture     = "\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_G3_Multicam_Rolled.paa";
+		picture     = "\ADF_Gear\adfrc_uniforms\ui\adfrc_uniform_g3_multicamtrop_rolled_ca.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformClass = "ADFRC_Uniform_G3_MulticamTrop_Rolled";

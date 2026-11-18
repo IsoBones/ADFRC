@@ -23,7 +23,7 @@ class CfgGlasses
 		scope = 2;
 		displayName = "Ballistic Glasses (Clear)";
 		model = "\ADF_Gear\adfrc_facewear\npp_kondor.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\logo_small_co.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_blk_clr_ca.paa";
 		hiddenSelections[] = {"kondor"};
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_blk_clr_CA.paa"};
 		author = "ADF Re-Cut";
@@ -37,36 +37,43 @@ class CfgGlasses
 	};
 	class adfrc_facewear_kondor_blk_blk: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_blk_blk_ca.paa";
 		displayName = "Ballistic Glasses (Black)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_blk_blk_CA.paa"};
 	};
 	class adfrc_facewear_kondor_blk_ylw: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_blk_ylw_ca.paa";
 		displayName = "Ballistic Glasses (Yellow)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_blk_ylw_CA.paa"};
 	};
 	class adfrc_facewear_kondor_blk_blu: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_blk_blu_ca.paa";
 		displayName = "Ballistic Glasses (Blue)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_blk_blu_CA.paa"};
 	};
 	class adfrc_facewear_kondor_grn_blk: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_grn_blk_ca.paa";
 		displayName = "Ballistic Glasses (Black, Green Frame)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_grn_blk_CA.paa"};
 	};
 	class adfrc_facewear_kondor_grn_clr: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_grn_clr_ca.paa";
 		displayName = "Ballistic Glasses (Clear, Green Frame)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_grn_clr_CA.paa"};
 	};
 	class adfrc_facewear_kondor_tan_blk: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_tan_blk_ca.paa";
 		displayName = "Ballistic Glasses (Black, Tan Frame)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_tan_blk_CA.paa"};
 	};
 	class adfrc_facewear_kondor_tan_clr: adfrc_facewear_kondor_blk_clr
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_kondor_tan_clr_ca.paa";
 		displayName = "Ballistic Glasses (Clear, Tan Frame)";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_facewear\data\kondor_tan_clr_CA.paa"};
 	};
@@ -136,6 +143,7 @@ class CfgGlasses
 	};
 	class adfrc_facewear_Balaclava_amc_2: None
 	{
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_balaclava_amc_2_ca.paa";
 		scope = 2;
 		author = "ADF Re-Cut";
 		displayname = "Half Balaclava (AMC)";
@@ -177,7 +185,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Shemagh (Ranger Green)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_rgr_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo2","camo3","camo4"};
@@ -189,7 +197,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Shemagh (Black)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_blk_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo3","camo4"};
@@ -201,7 +209,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Shemagh (Coyote Brown)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_cbr_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo3","camo4"};
@@ -215,7 +223,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS Crossbow";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -229,7 +237,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Shemagh (Ranger Green)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_rgr_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo3","camo4"};
@@ -241,7 +249,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Shemagh (Black)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_blk_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -253,7 +261,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Shemagh (Coyote Brown)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_cbr_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -267,7 +275,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Balaclava (AMCU)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_rgr_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -279,7 +287,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Balaclava (Black)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_blk_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -291,7 +299,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Balaclava (Tan)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_cbr_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -303,7 +311,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "ESS/Balaclava (Olive)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_olv_ess_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo3","camo4"};
@@ -317,7 +325,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz Magnum";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\gatorz_magnum_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
@@ -331,7 +339,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz Magnum/Shemagh (Ranger Green)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\gatorz_magnum_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_rgr_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo2","camo4"};
@@ -343,7 +351,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz Magnum/Shemagh (Black)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\gatorz_magnum_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_blk_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
@@ -355,7 +363,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz Magnum/Shemagh (Coyote Brown)";
 		model = "ADF_Gear\adfrc_facewear\facewear.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\gatorz_magnum_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_shemagh_cbr_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
@@ -369,7 +377,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz/Balaclava (AMCU)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_rgr_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
@@ -381,7 +389,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz/Balaclava (Black)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_blk_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
@@ -393,7 +401,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz/Balaclava (Tan)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_cbr_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
@@ -405,7 +413,7 @@ class CfgGlasses
 		author = "Exer | ADF Re-Cut";
 		displayname = "Gatorz/Balaclava (Olive)";
 		model = "ADF_Gear\adfrc_facewear\facewear2.p3d";
-		picture = "\ADF_Gear\adfrc_facewear\icons\ess_crossbow_CA.paa";
+		picture = "\ADF_Gear\adfrc_facewear\icons\adfrc_facewear_bala_olv_gatorz_1_ca.paa";
 		identityTypes[] = {};
 		mass = 1;
 		hiddenSelections[] = {"camo1","camo2","camo4"};
