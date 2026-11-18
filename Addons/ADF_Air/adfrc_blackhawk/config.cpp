@@ -5451,6 +5451,14 @@ class CfgVehicles
 				author="ADFRC";
 				forceAnimatePhase=0;
 			};
+			class cargoseats
+			{
+				source="user";
+				animPeriod=1;
+				initPhase=1;
+				author="ADFRC";
+				forceAnimatePhase=1;
+			};
 			class esss
 			{
 				source="user";
