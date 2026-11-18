@@ -8,7 +8,7 @@ class CfgPatches
 		author = "$STR_ADF_AUTHOR";
 		requiredAddons[] = {"A3_Data_F_AoW_Loadorder","A3_Data_F_Mod_Loadorder","ADF_Core"};
 		units[] = {};
-		weapons[] = {"ADFRC_carrierLite_dpcu","ADFRC_plateCarrier_dpcu","ADFRC_tacticalVest_dpcu","ADFRC_carrierlite_dpdu","ADFRC_tacticalvest_dpdu","ADFRC_TBAS_T2_Medic","ADFRC_TBAS_T2_TL","ADFRC_TBAS_T2_LMG","ADFRC_TBAS_T2_Rifleman_Pistol","ADFRC_TBAS_T2_DMR","ADFRC_TBAS_T2_Eng","ADFRC_TBAS_T2_Gren","ADFRC_TBAS_T2_Scout","ADFRC_TBAS_T2_Rifleman","ADFRC_TBAS_T2_Rifleman_Light","ADFRC_TBAS_T2_Officer","ADFRC_TBAS_T2_SECO","ADFRC_TBAS_T5_CFA","ADFRC_TBAS_T5_TL","ADFRC_TBAS_T5_LMG","ADFRC_TBAS_T5_DMR","ADFRC_TBAS_T5_Eng","ADFRC_TBAS_T5_Gren","ADFRC_TBAS_T5_Breacher","ADFRC_TBAS_T5_Operator","ADFRC_TBAS_T5_Commando_CQB","ADFRC_TBAS_T5_PatrolCom","ADFRC_TBAS_T5_TAG","ADFRC_TBAS_T5_TAG_TL","ADFRC_TBAS_T5_TAG_CFA","ADFRC_TBAS_T5_TAG_Breacher","ADFRC_JPC_CFA","ADFRC_JPC_TL","ADFRC_JPC_LMG","ADFRC_JPC_DMR","ADFRC_JPC_Eng","ADFRC_JPC_Gren","ADFRC_JPC_Breacher","ADFRC_JPC_Operator","ADFRC_JPC_Commando_CQB","ADFRC_JPC_PatrolCom","ADFRC_JPC_TAG","ADFRC_JPC_TAG_TL","ADFRC_JPC_TAG_CFA","ADFRC_JPC_TAG_Breacher","ADFRC_PilotVest","ADFRC_Peacekeeper_Mk5_MC","ADFRC_Peacekeeper_Mk5_Tan","ADFRC_Peacekeeper_Mk5_AMCU","ADFRC_Peacekeeper_Mk5_MC_NoFlaps"};
+		weapons[] = {"ADFRC_carrierLite_dpcu","ADFRC_plateCarrier_dpcu","ADFRC_tacticalVest_dpcu","ADFRC_carrierlite_dpdu","ADFRC_tacticalvest_dpdu","ADFRC_TBAS_T2_Medic","ADFRC_TBAS_T2_TL","ADFRC_TBAS_T2_LMG","ADFRC_TBAS_T2_Rifleman_Pistol","ADFRC_TBAS_T2_DMR","ADFRC_TBAS_T2_Eng","ADFRC_TBAS_T2_Gren","ADFRC_TBAS_T2_Scout","ADFRC_TBAS_T2_Rifleman","ADFRC_TBAS_T2_Rifleman_Light","ADFRC_TBAS_T2_Officer","ADFRC_TBAS_T2_SECO","ADFRC_TBAS_T5_CFA","ADFRC_TBAS_T5_TL","ADFRC_TBAS_T5_LMG","ADFRC_TBAS_T5_DMR","ADFRC_TBAS_T5_Eng","ADFRC_TBAS_T5_Gren","ADFRC_TBAS_T5_Breacher","ADFRC_TBAS_T5_Operator","ADFRC_TBAS_T5_Commando_CQB","ADFRC_TBAS_T5_PatrolCom","ADFRC_TBAS_T5_TAG","ADFRC_TBAS_T5_TAG_TL","ADFRC_TBAS_T5_TAG_CFA","ADFRC_TBAS_T5_TAG_Breacher","ADFRC_JPC_CFA","ADFRC_JPC_TL","ADFRC_JPC_LMG","ADFRC_JPC_DMR","ADFRC_JPC_Eng","ADFRC_JPC_Gren","ADFRC_JPC_Breacher","ADFRC_JPC_Operator","ADFRC_JPC_Commando_CQB","ADFRC_JPC_PatrolCom","ADFRC_JPC_TAG","ADFRC_JPC_TAG_TL","ADFRC_JPC_TAG_CFA","ADFRC_JPC_TAG_Breacher","ADFRC_PilotVest","ADFRC_Peacekeeper_Mk5_MC","ADFRC_Peacekeeper_Mk5_Tan","ADFRC_Peacekeeper_Mk5_AMCU","ADFRC_Peacekeeper_Mk5_MC_NoFlaps","ADFRC_Peacekeeper_Mk5_Tan_NoFlaps"};
 	};
 };
 class CfgVehicles
@@ -2023,6 +2023,18 @@ class cfgWeapons
 					passThrough = 1;
 				};
 			};
+		};
+	};
+	class ADFRC_Peacekeeper_Mk5_Tan_NoFlaps: ADFRC_Peacekeeper_Mk5_Tan
+	{
+		scope = 2;
+		displayName = "Platatac Peacekeeper Mk5 (Tan) - No Flaps";
+		// Same as the MC No Flaps: empty textures hide the flaps, ItemInfo list covers the worn vest.
+		hiddenSelections[] = {"magazine_flap_01", "magazine_flap_02", "magazine_flap_03"};
+		hiddenSelectionsTextures[] = {"", "", ""};
+		class ItemInfo: ItemInfo
+		{
+			hiddenSelections[] = {"magazine_flap_01", "magazine_flap_02", "magazine_flap_03"};
 		};
 	};
 	class ADFRC_Peacekeeper_Mk5_AMCU: ADFRC_Peacekeeper_Mk5_Tan
