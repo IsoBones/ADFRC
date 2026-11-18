@@ -1098,7 +1098,7 @@ class CfgVehicles
 			};
 			class _xx_ADFRC_HK417_Black
 			{
-				weapon = "ADFRC_HK417_Black"
+				weapon = "ADFRC_HK417_Black";
 				count = 10;
 			};
 		};
