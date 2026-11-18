@@ -10,7 +10,7 @@ class CfgPatches
 			"ADF_Core"
 		};
 		units[]={};
-		weapons[]={};
+		weapons[]={"adfrc_l3h_psq36","adfrc_l3h_psq36_recce"};
 	};
 };
 class CfgWeapons
