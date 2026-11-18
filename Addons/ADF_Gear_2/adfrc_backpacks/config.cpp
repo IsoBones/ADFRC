@@ -1015,7 +1015,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock.p3d";
       	displayname = "Patrol Pack Bullock AMCU";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_amcu_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_amcu_co.paa"};
       	maximumLoad = 360;
@@ -1027,7 +1027,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock.p3d";
       	displayname = "Patrol Pack Bullock MC";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_mc_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_mc_co.paa"};
       	maximumLoad = 360;
@@ -1039,7 +1039,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock.p3d";
       	displayname = "Patrol Pack Bullock DPDU";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_dpdu_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_dpdu_co.paa"};
       	maximumLoad = 360;
@@ -1051,7 +1051,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock.p3d";
       	displayname = "Patrol Pack Bullock DPCU";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_dpcu_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_dpcu_co.paa"};
       	maximumLoad = 360;
@@ -1063,7 +1063,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock.p3d";
       	displayname = "Patrol Pack Bullock Coyote";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_coyote_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_coyote_co.paa"};
       	maximumLoad = 360;
@@ -1076,7 +1076,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock_177.p3d";
       	displayname = "Patrol Pack Bullock AMCU 177";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_177_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_amcu_177_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_amcu_co.paa", "ADF_Gear_2\adfrc_backpacks\data\rdo_co.paa"};
       	maximumLoad = 360;
@@ -1093,7 +1093,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock_177.p3d";
       	displayname = "Patrol Pack Bullock MC 177";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_177_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_mc_177_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_mc_co.paa", "ADF_Gear_2\adfrc_backpacks\data\rdo_co.paa"};
       	maximumLoad = 360;
@@ -1110,7 +1110,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock_177.p3d";
       	displayname = "Patrol Pack Bullock DPCU 177";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_177_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_dpcu_177_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_dpcu_co.paa", "ADF_Gear_2\adfrc_backpacks\data\rdo_co.paa"};
       	maximumLoad = 360;
@@ -1127,7 +1127,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock_177.p3d";
       	displayname = "Patrol Pack Bullock DPDU 177";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_177_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_dpdu_177_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_dpdu_co.paa", "ADF_Gear_2\adfrc_backpacks\data\rdo_co.paa"};
       	maximumLoad = 360;
@@ -1144,7 +1144,7 @@ class CfgVehicles{
       	scope = 2;
       	model = "\ADF_Gear_2\adfrc_backpacks\bullock_177.p3d";
       	displayname = "Patrol Pack Bullock Coyote 177";
-      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\bullock_177_ui.paa";
+      	picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_patrol_bullock_coyote_177_ca.paa";
       	hiddenSelections[] = {"Camo", "Camo1"}; 							//"camo" = Base-Bag. camo1 = Radio
       	hiddenSelectionsTextures[] = {"ADF_Gear_2\adfrc_backpacks\data\bullock_coyote_co.paa", "ADF_Gear_2\adfrc_backpacks\data\rdo_co.paa"};
       	maximumLoad = 360;
@@ -1169,7 +1169,7 @@ class CfgVehicles{
 		mapSize = 2;
 		isbackpack = 1;
 		allowedSlots[] = {901};
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_molle_bag_117g_ca.paa";
 		model = "ADF_Gear_2\adfrc_backpacks\molle_117g.p3d";
 		maximumLoad = 100;
 		mass=05;
@@ -1187,7 +1187,7 @@ class CfgVehicles{
 		scopeArsenal = 2;
 		eden = 2;
 		displayName = "ADF Molle Backpack [117g Slingshot]";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_molle_bag_117g_slingshot_ca.paa";
 		model = "ADF_Gear_2\adfrc_backpacks\molle_117g_slingshot.p3d";
 		hiddenSelections[] = {""};
 		hiddenSelectionsTextures[] = {""};
@@ -1203,7 +1203,7 @@ class CfgVehicles{
 		scopeArsenal = 2;
 		eden = 2;
 		displayName = "ADF Molle Backpack [ASIP]";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_molle_bag_asip_ca.paa";
 		model = "ADF_Gear_2\adfrc_backpacks\molle_asip.p3d";
 		hiddenSelections[] = {""};
 		hiddenSelectionsTextures[] = {""};
@@ -1227,7 +1227,7 @@ class CfgVehicles{
 		allowedSlots[] = {901};
 		model = "ADF_Gear_2\adfrc_backpacks\bp_1.p3d";
 		displayName = "Combat Pack";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_bp_placeholder_amcu_1_ca.paa";
 		icon  = "";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -1247,7 +1247,7 @@ class CfgVehicles{
 		allowedSlots[] = {901};
 		model = "ADF_Gear_2\adfrc_backpacks\bp_2.p3d";
 		displayName = "Hydration Carrier";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_bp_hydration_amcu_1_ca.paa";
 		icon  = "";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -1267,7 +1267,7 @@ class CfgVehicles{
 		allowedSlots[] = {901};
 		model = "ADF_Gear_2\adfrc_backpacks\bp_3.p3d";
 		displayName = "Assault Pack";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_bp_assault_amcu_1_ca.paa";
 		icon  = "";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -1287,7 +1287,7 @@ class CfgVehicles{
 		allowedSlots[] = {901};
 		model = "ADF_Gear_2\adfrc_backpacks\bp_4.p3d";
 		displayName = "Tactical Backpack";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_bp_tacbag_amcu_1_ca.paa";
 		icon  = "";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -1303,7 +1303,7 @@ class CfgVehicles{
 		scopeArsenal = 2;
 		eden = 2;
 		displayName = "TBAS T5 Backpanel Base";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_t5_backpanel_ca.paa";
 		model = "ADF_Gear_2\adfrc_backpacks\TBAS_T5_Backpannel.p3d";
 		hiddenSelections[] = {""};
 		hiddenSelectionsTextures[] = {""};
@@ -1319,7 +1319,7 @@ class CfgVehicles{
 		scopeArsenal = 2;
 		eden = 2;
 		displayName = "JPC Backpanel Base";
-		picture = "";
+		picture = "\ADF_Gear_2\adfrc_backpacks\ui\adfrc_jpc_backpanel_ca.paa";
 		model = "ADF_Gear_2\adfrc_backpacks\JPC_Backpannel.p3d";
 		hiddenSelections[] = {""};
 		hiddenSelectionsTextures[] = {""};

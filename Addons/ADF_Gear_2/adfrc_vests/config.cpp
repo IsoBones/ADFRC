@@ -217,7 +217,7 @@ class cfgWeapons
 		weaponPoolAvailable = 1;
 		allowedSlots[] = {901};
 		displayName = "TBAS T2 - Rifleman (Pistol)";
-		picture = "\ADF_Gear_2\adfrc_vests\data\icons\icon_TBAS_T2_RFL_PST_ca.paa";
+		picture = "\ADF_Gear_2\adfrc_vests\data\icons\adfrc_tbas_t2_rifleman_pistol_ca.paa";
 		model = "\ADF_Gear_2\adfrc_vests\TBAS_T2\tbas_T2_Rifleman_Pistol.p3d";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -447,7 +447,7 @@ class cfgWeapons
 		weaponPoolAvailable = 1;
 		allowedSlots[] = {901};
 		displayName = "TBAS T2 - Rifleman";
-		picture = "\ADF_Gear_2\adfrc_vests\data\icons\icon_TBAS_T2_RFL_PST_ca.paa";
+		picture = "\ADF_Gear_2\adfrc_vests\data\icons\adfrc_tbas_t2_rifleman_ca.paa";
 		model = "\ADF_Gear_2\adfrc_vests\TBAS_T2\tbas_T2_Rifleman.p3d";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -1920,7 +1920,7 @@ class cfgWeapons
 		weaponPoolAvailable = 1;
 		allowedSlots[] = {901};
 		displayName = "Platatac Peacekeeper Mk5 (MC)";
-		picture = "\ADF_Gear_2\adfrc_vests\data\icons\icon_peacekeeper_mc_ca.paa";
+		picture = "\ADF_Gear_2\adfrc_vests\data\icons\adfrc_peacekeeper_mk5_mc_ca.paa";
 		model = "\ADF_Gear_2\adfrc_vests\Peacekeeper\Peacekeeper_SOCOM.p3d";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -1967,7 +1967,7 @@ class cfgWeapons
 		weaponPoolAvailable = 1;
 		allowedSlots[] = {901};
 		displayName = "Platatac Peacekeeper Mk5 (MC) - No Flaps";
-		picture = "\ADF_Gear_2\adfrc_vests\data\icons\icon_peacekeeper_mc_ca.paa";
+		picture = "\ADF_Gear_2\adfrc_vests\data\icons\adfrc_peacekeeper_mk5_mc_noflaps_ca.paa";
 		model = "\ADF_Gear_2\adfrc_vests\Peacekeeper\Peacekeeper_SOCOM.p3d";
 		// Selections listed with an empty texture are hidden. The worn vest reads ItemInfo's
 		// list, so it has to be set there too (the inherited MC ItemInfo list is empty).
@@ -1986,7 +1986,7 @@ class cfgWeapons
 		weaponPoolAvailable = 1;
 		allowedSlots[] = {901};
 		displayName = "Platatac Peacekeeper Mk5 (Tan)";
-		picture = "\ADF_Gear_2\adfrc_vests\data\icons\icon_peacekeeper_tan_ca.paa";
+		picture = "\ADF_Gear_2\adfrc_vests\data\icons\adfrc_peacekeeper_mk5_tan_ca.paa";
 		model = "\ADF_Gear_2\adfrc_vests\Peacekeeper\Peacekeeper_RAR.p3d";
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {};
@@ -2027,6 +2027,7 @@ class cfgWeapons
 	};
 	class ADFRC_Peacekeeper_Mk5_Tan_NoFlaps: ADFRC_Peacekeeper_Mk5_Tan
 	{
+		picture = "\ADF_Gear_2\adfrc_vests\data\icons\adfrc_peacekeeper_mk5_tan_noflaps_ca.paa";
 		scope = 2;
 		displayName = "Platatac Peacekeeper Mk5 (Tan) - No Flaps";
 		// Same as the MC No Flaps: empty textures hide the flaps, ItemInfo list covers the worn vest.
