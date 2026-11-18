@@ -11,7 +11,7 @@
 			class basesoundmodetype;
 			class standardsound: basesoundmodetype
 			{
-				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset","jsrs_2025_556mm_echo_soundset"};
+				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset"};
 			};
 			class silencedsound: basesoundmodetype
 			{
@@ -23,7 +23,7 @@
 			class basesoundmodetype;
 			class standardsound: basesoundmodetype
 			{
-				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset","jsrs_2025_556mm_echo_soundset"};
+				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset"};
 			};
 			class silencedsound: basesoundmodetype
 			{
@@ -43,7 +43,7 @@ class ADFRC_M4A5_556_GLBase: Rifle_Base_F
 			class basesoundmodetype;
 			class standardsound: basesoundmodetype
 			{
-				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset","jsrs_2025_556mm_echo_soundset"};
+				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset"};
 			};
 			class silencedsound: basesoundmodetype
 			{
@@ -55,7 +55,7 @@ class ADFRC_M4A5_556_GLBase: Rifle_Base_F
 			class basesoundmodetype;
 			class standardsound: basesoundmodetype
 			{
-				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset","jsrs_2025_556mm_echo_soundset"};
+				soundsetshot[] = {"jsrs_2025_spar_shot_soundset","jsrs_2025_556mm_tails_soundset"};
 			};
 			class silencedsound: basesoundmodetype
 			{
