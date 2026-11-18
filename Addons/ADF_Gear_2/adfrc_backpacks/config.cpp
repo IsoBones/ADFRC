@@ -6,7 +6,61 @@ class CfgPatches{
 			"A3_Data_F",
 			"ADF_Core"
 		};
-		units[]={};
+		units[]={
+			"ADFRC_AssaultPack_Tan",
+			"ADFRC_AssaultPack_AMP",
+			"ADFRC_AssaultPack_DPCU",
+			"ADFRC_AssaultPack_DPDU",
+			"ADFRC_AssaultPack_AMCU",
+			"ADFRC_AssaultPack_Black_MED",
+			"ADFRC_AssaultPack_Green_MED",
+			"ADFRC_AssaultPack_Tan_MED",
+			"ADFRC_AssaultPack_AMP_MED",
+			"ADFRC_AssaultPack_DPCU_MED",
+			"ADFRC_AssaultPack_DPDU_MED",
+			"ADFRC_Kitbag_Black",
+			"ADFRC_Kitbag_Green",
+			"ADFRC_Kitbag_Tan",
+			"ADFRC_Kitbag_AMP",
+			"ADFRC_Kitbag_AMCU",
+			"ADFRC_Kitbag_Black_MED",
+			"ADFRC_Kitbag_Green_MED",
+			"ADFRC_Kitbag_Tan_MED",
+			"ADFRC_Kitbag_AMP_MED",
+			"ADFRC_CarryAll_Black",
+			"ADFRC_CarryAll_Green",
+			"ADFRC_CarryAll_Tan",
+			"ADFRC_CarryAll_AMP",
+			"ADFRC_CarryAll_DPCU",
+			"ADFRC_CarryAll_AMCU",
+			"ADFRC_CarryAll_DPDU",
+			"ADFRC_CarryAll_Black_MED",
+			"ADFRC_CarryAll_Green_MED",
+			"ADFRC_CarryAll_Tan_MED",
+			"ADFRC_CarryAll_AMP_MED",
+			"ADFRC_CarryAll_DPDU_MED",
+			"ADFRC_CarryAll_DPCU_MED",
+			"ADFRC_CarryAll_AMCU_MED",
+			"adfrc_patrol_bullock_amcu",
+			"adfrc_patrol_bullock_mc",
+			"adfrc_patrol_bullock_dpdu",
+			"adfrc_patrol_bullock_dpcu",
+			"adfrc_patrol_bullock_coyote",
+			"adfrc_patrol_bullock_amcu_177",
+			"adfrc_patrol_bullock_mc_177",
+			"adfrc_patrol_bullock_dpcu_177",
+			"adfrc_patrol_bullock_dpdu_177",
+			"adfrc_patrol_bullock_coyote_177",
+			"adfrc_molle_bag_117g",
+			"adfrc_molle_bag_117g_slingshot",
+			"adfrc_molle_bag_ASIP",
+			"ADFRC_BP_Placeholder_AMCU_1",
+			"ADFRC_BP_Hydration_AMCU_1",
+			"ADFRC_BP_Assault_AMCU_1",
+			"ADFRC_BP_TacBag_AMCU_1",
+			"adfrc_T5_Backpanel",
+			"adfrc_JPC_Backpanel"
+		};
 		weapons[]={};
 	};
 };
@@ -950,7 +1004,7 @@ class CfgVehicles{
 		transportMaxMagazines = 20;
 		transportMaxWeapons = 1;
 		class DestructionEffects {};
-		hiddenSelections[] = {"Camo, Camo1"};
+		hiddenSelections[] = {"Camo"};
 		hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_small_co.paa"};
 		maximumLoad = 0;
 		side = 3;

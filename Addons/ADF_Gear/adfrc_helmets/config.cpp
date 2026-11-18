@@ -9,7 +9,8 @@ class CfgPatches
 			"A3_Characters_F_BLUFOR",
 			"A3_Data_F",
 			"A3_Weapons_F",
-			"A3_Characters_F"
+			"A3_Characters_F",
+			"ADF_Core"
 		};
 		units[]={};
 		weapons[]=
