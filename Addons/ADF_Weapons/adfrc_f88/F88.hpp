@@ -192,9 +192,39 @@ class ADFRC_F88: ADFRC_F88_Base
 		displayName = "F88 5.56";
 		discretedistance[] = { 100, 200, 300, 400 };
 		discretedistanceinitindex = 2;
-		opticszoominit = 0.75;
-		opticszoommax = 1.1;
-		opticszoommin = 0.375;
+		opticszoominit = 0.35;
+		opticszoommax = 0.75;
+		opticszoommin = 0.1667;
+		// Integrated 1.5x scope plus the backup irons on top of it. Ctrl+RMB (optics mode) switches.
+		class OpticsModes
+		{
+			class Scope
+			{
+				opticsID = 1;
+				useModelOptics = 0;
+				memoryPointCamera = "eye";
+				cameraDir = "";
+				opticsZoomInit = 0.35;
+				opticsZoomMin = 0.1667;
+				opticsZoomMax = 0.75;
+				discreteDistance[] = {100,200,300,400};
+				discreteDistanceInitIndex = 2;
+				distanceZoomMin = 300;
+				distanceZoomMax = 300;
+				opticsFlare = 0;
+				opticsDisablePeripherialVision = 0;
+				visionMode[] = {};
+				opticsPPEffects[] = {};
+			};
+			class Backup: Scope
+			{
+				opticsID = 2;
+				memoryPointCamera = "eye_backup";
+				opticsZoomInit = 0.75;
+				opticsZoomMin = 0.375;
+				opticsZoomMax = 1.1;
+			};
+		};
 		aiDispersionCoefY = 10;
 		aiDispersionCoefX = 8;
 		 
