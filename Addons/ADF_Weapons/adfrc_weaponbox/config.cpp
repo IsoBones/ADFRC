@@ -1164,7 +1164,7 @@ class CfgVehicles
 			};
 		};
 	};
-/*	class ADFRC_weaponbox_amp: ADFRC_weaponbox_large
+	class ADFRC_weaponbox_amp: ADFRC_weaponbox_large
 	{
 		scope = 2;
 		vehicleClass = "Ammo";
@@ -1180,7 +1180,7 @@ class CfgVehicles
 		class TransportMagazines{};
 		class TransportItems
 		{
-			class _xx_ADFRC_PlateCarrier_Black
+			/*class _xx_ADFRC_PlateCarrier_Black
 			{
 				name = "ADFRC_PlateCarrier_Black";
 				count = 20;
@@ -1679,7 +1679,7 @@ class CfgVehicles
 			{
 				name = "ADFRC_coveralls_tan";
 				count = 20;
-			};
+			};*/
 		};
 	};
 	class ADFRC_weaponbox_dpcu: ADFRC_weaponbox_large
@@ -1698,7 +1698,7 @@ class CfgVehicles
 		class TransportMagazines{};
 		class TransportItems
 		{
-			class _xx_ADFRC_carrierLite_dpcu
+			/*class _xx_ADFRC_carrierLite_dpcu
 			{
 				name = "ADFRC_carrierLite_dpcu";
 				count = 20;
@@ -1782,7 +1782,7 @@ class CfgVehicles
 			{
 				name = "ADFRC_coveralls_dpcu";
 				count = 20;
-			};
+			};*/
 		};
 	};
 	class ADFRC_weaponbox_dpdu: ADFRC_weaponbox_large
@@ -1801,7 +1801,7 @@ class CfgVehicles
 		class TransportMagazines{};
 		class TransportItems
 		{
-			class _xx_ADFRC_carrierlite_dpdu
+			/*class _xx_ADFRC_carrierlite_dpdu
 			{
 				name = "ADFRC_carrierlite_dpdu";
 				count = 20;
@@ -1860,7 +1860,7 @@ class CfgVehicles
 			{
 				name = "ADFRC_uniform_dpdu_pilot";
 				count = 20;
-			};
+			};*/
 		};
-	};*/
+	};
 };
