@@ -1,4 +1,3 @@
-	class Rifle_Base_F;
 	class ADFRC_HK416_556_Base: Rifle_Base_F
     {
 		nullbullet[] = {"z\jsrs2025\addons\data\null.wss",0,1,0};
