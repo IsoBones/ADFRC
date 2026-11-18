@@ -1,3 +1,6 @@
 *.pbo
 *.bisign
 *.log
+# shadow LOD tool backups / caches
+tools/**/temp/
+__pycache__/
