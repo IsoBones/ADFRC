@@ -840,7 +840,7 @@ class CfgVehicles
 							{
 							};
 						};
-						turretInfoType="RscOptics_APC_Wheeled_03_commander";
+						turretInfoType="ADFRC_RscOptics_APC_Wheeled_03_commander";
 						showCrewAim=1;
 						startEngine=0;
 						gunnerHasFlares=1;
@@ -970,7 +970,7 @@ class CfgVehicles
 					{
 					};
 				};
-				turretInfoType="RscOptics_APC_Tracked_03_gunner";
+				turretInfoType="ADFRC_RscOptics_APC_Tracked_03_gunner";
 				showCrewAim=2;
 				class HitPoints
 				{

@@ -787,7 +787,7 @@ class CfgVehicles
 						};
 						viewGunnerShadowAmb=1;
 						viewGunnerShadowDiff=1;
-						turretInfoType="RscOptics_APC_Wheeled_03_commander";
+						turretInfoType="ADFRC_RscOptics_APC_Wheeled_03_commander";
 						showCrewAim=1;
 						startEngine=0;
 						gunnerHasFlares=1;
@@ -895,7 +895,7 @@ class CfgVehicles
 				memoryPointGun="coax";
 				particlesdir = "konec hlavne";
 				particlespos = "usti hlavne";
-				turretInfoType="RscOptics_APC_Wheeled_01_gunner";
+				turretInfoType="ADFRC_RscOptics_APC_Wheeled_01_gunner";
 				minElev=-10;
 				maxElev=20;
 				initElev=0;
@@ -3300,7 +3300,7 @@ class CfgVehicles
 						gunnerOpticsEffect[]={"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
 						maxHorizontalRotSpeed = "((360/6)/45)";
 						maxVerticalRotSpeed = "((360/6)/45)";
-						turretInfoType = "RscOptics_APC_Wheeled_03_commander";
+						turretInfoType="ADFRC_RscOptics_APC_Wheeled_03_commander";
 						stabilizedInAxes=3;
 						class OpticsIn
 						{
