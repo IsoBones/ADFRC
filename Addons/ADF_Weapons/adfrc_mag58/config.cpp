@@ -17,6 +17,7 @@ class CfgPatches
 		requiredAddons[]=
 		{
 			"A3_Weapons_F",
+			"A3_Sounds_F",
 			"ADF_Core",
 		};
 		magazines[]=
@@ -42,6 +43,18 @@ class asdg_MuzzleSlot;
 class asdg_MuzzleSlot_762: asdg_MuzzleSlot {};
 class asdg_MuzzleSlot_556: asdg_MuzzleSlot {};
 class asdg_UnderSlot;
+// MAG58 shot sounds, shared by the infantry gun and every vehicle MAG58 (coax, pintle, RWS,
+// door guns). Built on the vanilla 7.62 Zafir sets for now: one place to swap in dedicated
+// samples later. JSRS 2025 re-voices the Zafir, so these follow it when JSRS is loaded.
+class CfgSoundSets
+{
+	class Zafir_Shot_SoundSet;
+	class Zafir_Tail_SoundSet;
+	class Zafir_InteriorTail_SoundSet;
+	class ADFRC_MAG58_Shot_SoundSet: Zafir_Shot_SoundSet {};
+	class ADFRC_MAG58_Tail_SoundSet: Zafir_Tail_SoundSet {};
+	class ADFRC_MAG58_InteriorTail_SoundSet: Zafir_InteriorTail_SoundSet {};
+};
 class CfgWeapons
 {
 	class SlotInfo;
@@ -133,66 +146,11 @@ class CfgWeapons
 			};
 			class StandardSound
 			{
-				weaponSoundEffect="DefaultRifle";
-				closure1[]=
+				soundSetShot[]=
 				{
-					"A3\sounds_f\weapons\closure\sfx7",
-					0.15000001,
-					1,
-					10
-				};
-				closure2[]=
-				{
-					"A3\sounds_f\weapons\closure\sfx8",
-					0.15000001,
-					1,
-					10
-				};
-				soundClosure[]=
-				{
-					"closure1",
-					0.5,
-					"closure2",
-					0.5
-				};
-				begin1[]=
-				{
-					"\a3\sounds_f_exp\arsenal\weapons\Machineguns\SyndikatLMG\SyndikatLMG_closeShot_01",
-					1.3,
-					1,
-					1400
-				};
-				begin2[]=
-				{
-					"\a3\sounds_f_exp\arsenal\weapons\Machineguns\SyndikatLMG\SyndikatLMG_closeShot_02",
-					1.3,
-					1,
-					1400
-				};
-				begin3[]=
-				{
-					"\a3\sounds_f_exp\arsenal\weapons\Machineguns\SyndikatLMG\SyndikatLMG_closeShot_03",
-					1.3,
-					1,
-					1400
-				};
-				begin4[]=
-				{
-					"\a3\sounds_f_exp\arsenal\weapons\Machineguns\SyndikatLMG\SyndikatLMG_closeShot_01",
-					1.3,
-					1,
-					1400
-				};
-				soundBegin[]=
-				{
-					"begin1",
-					0.25,
-					"begin2",
-					0.25,
-					"begin3",
-					0.25,
-					"begin4",
-					0.25
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
 				};
 			};
 			reloadTime=0.1;

@@ -151,9 +151,79 @@ class cfgWeapons
 {
 	class MGun;
 	class HMG_M2_Mounted;
-	class LMG_coax_ext;
+	class LMG_RCWS;
+	class LMG_coax: LMG_RCWS
+	{
+		class manual;
+		class close;
+		class short;
+		class medium;
+		class far;
+	};
+	class LMG_coax_ext: LMG_coax {};
 	class adfrc_aslav_mag58_coax: LMG_coax_ext
 	{
+		// MAG58 sound (CfgSoundSets in adfrc_mag58), every fire mode incl. AI ones
+		class manual: manual
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class close: close
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class short: short
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class medium: medium
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class far: far
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
 		displayName = "MG 7.62mm Mag58 Coax";
 		scope = 2;
 		ballisticsComputer = "2 + 16";
