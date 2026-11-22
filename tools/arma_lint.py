@@ -106,6 +106,7 @@ RULES: dict[str, tuple[str, str]] = {
     "E017": (LEVEL_INFO,    "Stray token outside any class body"),
     "E018": (LEVEL_ERROR,   "Unquoted localization string ($STR_... must be in quotes)"),
     "E019": (LEVEL_ERROR,   "Unquoted multi-word value (likely missing quotes around a string)"),
+    "E020": (LEVEL_ERROR,   "Duplicate property in the same class (rapify: 'duplicated token or class')"),
 
     "W001": (LEVEL_WARNING, "UTF-8 BOM at start of file (PboProject can be picky)"),
     "W002": (LEVEL_WARNING, "Mixed line endings (CRLF and LF in same file)"),
@@ -449,6 +450,8 @@ class Parser:
         self.scope_stack: list[dict[str, ClassNode]] = [{}]
         # Stack of declared-but-empty (forward) names per scope, for inheritance check
         self.declared_stack: list[set[str]] = [set()]
+        # Stack of dicts: property name -> line it was first assigned (for E020)
+        self.prop_stack: list[dict[str, int]] = [{}]
 
     def _peek(self, offset: int = 0) -> Token:
         i = self.pos + offset
@@ -581,6 +584,7 @@ class Parser:
 
         self.scope_stack.append({})
         self.declared_stack.append(set())
+        self.prop_stack.append({})
 
         empty_body = True
         while self._peek().kind not in ("}", "EOF"):
@@ -592,6 +596,7 @@ class Parser:
                        name_tok.line, name_tok.col)
             self.scope_stack.pop()
             self.declared_stack.pop()
+            self.prop_stack.pop()
             return node
 
         # Consume the '}'
@@ -616,6 +621,7 @@ class Parser:
         # Done with this scope
         self.scope_stack.pop()
         self.declared_stack.pop()
+        self.prop_stack.pop()
         return node
 
     def _register_class(self, node: ClassNode, forward: bool) -> None:
@@ -629,6 +635,11 @@ class Parser:
             if not forward and not existing.is_forward:
                 self._diag(LEVEL_ERROR, "E012",
                            f"Duplicate class definition '{node.name}' in same scope (first at line {existing.line})",
+                           node.line, node.col)
+            elif forward and existing.is_forward:
+                # Rapify rejects a repeated forward declaration too ("duplicated 'X'").
+                self._diag(LEVEL_ERROR, "E012",
+                           f"Duplicate forward declaration 'class {node.name};' in same scope (first at line {existing.line})",
                            node.line, node.col)
         scope[key] = node
         if forward:
@@ -710,6 +721,18 @@ class Parser:
         if self._peek().kind == ";":
             self._eat()
 
+    def _note_property(self, name_tok: Token) -> None:
+        # Arma property names are case-insensitive; rapify refuses a second
+        # plain assignment of the same name in one class.
+        key = name_tok.value.lower()
+        props = self.prop_stack[-1]
+        if key in props:
+            self._diag(LEVEL_ERROR, "E020",
+                       f"Duplicate property '{name_tok.value}' in the same class (first at line {props[key]})",
+                       name_tok.line, name_tok.col)
+        else:
+            props[key] = name_tok.line
+
     def _parse_assignment(self) -> None:
         name_tok = self._eat()  # IDENT
         next_tok = self._peek()
@@ -751,6 +774,7 @@ class Parser:
             op_tok = self._peek()
             if op_tok.kind == "=":
                 self._eat()
+                self._note_property(name_tok)
             elif op_tok.kind in ("+", "-") and self._peek(1).kind == "=":
                 self._eat()  # consume + or -
                 self._eat()  # consume =
@@ -771,6 +795,7 @@ class Parser:
                            f"'{name_tok.value} == ...' looks like an equality test — config syntax uses single '='",
                            next_tok.line, next_tok.col)
             self._eat()
+            self._note_property(name_tok)
             self._parse_array_or_value(array_required=False, ident_name=name_tok.value, ident_line=name_tok.line, ident_col=name_tok.col)
             return
 

@@ -34,12 +34,13 @@ Default exit codes:
 | E009      | Forward decl with parent (`class A : B;` is invalid) |
 | E010      | Missing `;` after assignment |
 | E011      | Reserved keyword as class name |
-| E012      | Duplicate class definition in same scope |
+| E012      | Duplicate class definition in same scope, or the same forward declaration twice |
 | E013      | `#include` target not found |
 | E014      | Empty assignment (`name = ;`) |
 | E015      | Class name missing or invalid |
 | E018      | Unquoted localization string (`$STR_FOO` without quotes) |
 | E019      | Unquoted multi-word value (`author = ADF Re-Cut;` should be `author = "ADF Re-Cut";`) |
+| E020      | Duplicate property in the same class (`forceHideDriver=0;` twice). Rapify fails with "duplicated token or class". `x[] += {...}` appends are fine |
 
 ### Warnings (likely problems)
 
