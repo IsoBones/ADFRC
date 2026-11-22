@@ -337,9 +337,79 @@ class Mode_FullAuto;
 
 class cfgWeapons
 {
-	class LMG_coax_ext;
+	class LMG_RCWS;
+	class LMG_coax: LMG_RCWS
+	{
+		class manual;
+		class close;
+		class short;
+		class medium;
+		class far;
+	};
+	class LMG_coax_ext: LMG_coax {};
 	class ADFRC_redback_coax: LMG_coax_ext 
 	{
+		// MAG58 sound (CfgSoundSets in adfrc_mag58), every fire mode incl. AI ones
+		class manual: manual
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class close: close
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class short: short
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class medium: medium
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class far: far
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
 		displayName = "MG 7.62mm Mag 58 Coax";
 		scope = 1;
 		magazines[]=
@@ -358,6 +428,67 @@ class cfgWeapons
 	};
 	class ADFRC_redback_mag58_RWS: LMG_coax_ext 
 	{
+		// MAG58 sound (CfgSoundSets in adfrc_mag58), every fire mode incl. AI ones
+		class manual: manual
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class close: close
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class short: short
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class medium: medium
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
+		class far: far
+		{
+			class StandardSound
+			{
+				soundSetShot[]=
+				{
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
+				};
+			};
+		};
 		displayName = "MG 7.62mm Mag 58 RWS";
 		scope = 1;
 		canlock = 2;

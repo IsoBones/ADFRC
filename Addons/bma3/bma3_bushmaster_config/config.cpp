@@ -2573,66 +2573,11 @@ class cfgWeapons
 			};
 			class StandardSound
 			{
-				weaponSoundEffect="DefaultRifle";
-				closure1[]=
+				soundSetShot[]=
 				{
-					"A3\sounds_f\weapons\closure\sfx7",
-					0.15000001,
-					1,
-					10
-				};
-				closure2[]=
-				{
-					"A3\sounds_f\weapons\closure\sfx8",
-					0.15000001,
-					1,
-					10
-				};
-				soundClosure[]=
-				{
-					"closure1",
-					0.5,
-					"closure2",
-					0.5
-				};
-				begin1[]=
-				{
-					"\bma3\bma3_bushmaster_sounds\mag-58.ogg",
-					1.3,
-					1,
-					1400
-				};
-				begin2[]=
-				{
-					"\bma3\bma3_bushmaster_sounds\mag-58.ogg",
-					1.3,
-					1,
-					1400
-				};
-				begin3[]=
-				{
-					"\bma3\bma3_bushmaster_sounds\mag-58.ogg",
-					1.3,
-					1,
-					1400
-				};
-				begin4[]=
-				{
-					"\bma3\bma3_bushmaster_sounds\mag-58.ogg",
-					1.3,
-					1,
-					1400
-				};
-				soundBegin[]=
-				{
-					"begin1",
-					0.25,
-					"begin2",
-					0.25,
-					"begin3",
-					0.25,
-					"begin4",
-					0.25
+					"ADFRC_MAG58_Shot_SoundSet",
+					"ADFRC_MAG58_Tail_SoundSet",
+					"ADFRC_MAG58_InteriorTail_SoundSet"
 				};
 			};
 			soundContinuous=0;
