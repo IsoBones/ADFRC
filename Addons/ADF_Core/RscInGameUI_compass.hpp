@@ -1,5 +1,6 @@
 // Generated: vanilla turret optic overlays (a3\ui_f) copied verbatim under ADFRC_ names,
-// plus a white horizontal compass tape + azimuth mark (as on RscOptics_MBT_01_gunner) at the top.
+// plus a horizontal compass tape + azimuth mark (as on RscOptics_MBT_01_gunner) at the top: white,
+// except on the Marshall-style (Abrams gunner) overlay, where it matches that overlay's red.
 // The top-level group uses RscControlsGroupNoScrollbars (vanilla: RscControlsGroup with zero-size
 // scrollbars) so nothing needs a vanilla nested class. Vanilla classes are not touched; turrets opt
 // in through turretInfoType.
@@ -349,7 +350,7 @@ class RscInGameUI
 					font = "EtelkaMonospacePro";
 					textSize = "0.02*SafezoneH";
 					style = 1;
-					color[] = {1,1,1,1};
+					color[] = {0.706,0.0745,0.0196,1};
 					x = "13.04 * 		(0.01875 * SafezoneH)";
 					y = "3.5 * 		(0.025 * SafezoneH)";
 					w = "27.18 * 		(0.01875 * SafezoneH)";
@@ -367,7 +368,7 @@ class RscInGameUI
 					y = "3.0 * 		(0.025 * SafezoneH)";
 					w = "0.5 * 		(0.01875 * SafezoneH)";
 					h = "0.5 * 		(0.025 * SafezoneH)";
-					colorText[] = {1,1,1,1};
+					colorText[] = {0.706,0.0745,0.0196,1};
 				};
 			};
 		};
