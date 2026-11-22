@@ -1,10 +1,11 @@
 // Generated: vanilla turret optic overlays (a3\ui_f) copied verbatim under ADFRC_ names,
 // plus a white horizontal compass tape + azimuth mark (as on RscOptics_MBT_01_gunner) at the top.
-// Vanilla classes are not touched; turrets opt in through turretInfoType.
+// The top-level group uses RscControlsGroupNoScrollbars (vanilla: RscControlsGroup with zero-size
+// scrollbars) so nothing needs a vanilla nested class. Vanilla classes are not touched; turrets opt
+// in through turretInfoType.
 
 class RscText;
 class RscPicture;
-class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
 
 class RscInGameUI
@@ -14,17 +15,9 @@ class RscInGameUI
 	{
 		idd = 300;
 		controls[] = {"CA_Zeroing","CA_IGUI_elements_group","CA_APC_WFOV_mode_group","CA_APC_NFOV_mode_group"};
-		class CA_IGUI_elements_group: RscControlsGroup
+		class CA_IGUI_elements_group: RscControlsGroupNoScrollbars
 		{
 			idc = 170;
-			class VScrollbar: VScrollbar
-			{
-				width = 0;
-			};
-			class HScrollbar: HScrollbar
-			{
-				height = 0;
-			};
 			x = "0 * 		(0.01875 * SafezoneH) + 		(SafezoneX + ((SafezoneW - SafezoneH) / 2))";
 			y = "0 * 		(0.025 * SafezoneH) + 		(SafezoneY)";
 			w = "53.5 * 		(0.01875 * SafezoneH)";
@@ -222,17 +215,9 @@ class RscInGameUI
 	{
 		idd = 300;
 		controls[] = {"CA_Zeroing","CA_IGUI_elements_group","CA_APC_WFOV_mode_group","CA_APC_NFOV_mode_group"};
-		class CA_IGUI_elements_group: RscControlsGroup
+		class CA_IGUI_elements_group: RscControlsGroupNoScrollbars
 		{
 			idc = 170;
-			class VScrollbar: VScrollbar
-			{
-				width = 0;
-			};
-			class HScrollbar: HScrollbar
-			{
-				height = 0;
-			};
 			x = "0 * 		(0.01875 * SafezoneH) + 		(SafezoneX + ((SafezoneW - SafezoneH) / 2))";
 			y = "0 * 		(0.025 * SafezoneH) + 		(SafezoneY)";
 			w = "53.5 * 		(0.01875 * SafezoneH)";
@@ -439,17 +424,9 @@ class RscInGameUI
 	{
 		idd = 300;
 		controls[] = {"CA_Zeroing","CA_IGUI_elements_group","CA_APC_WFOV_mode_group","CA_APC_NFOV_mode_group"};
-		class CA_IGUI_elements_group: RscControlsGroup
+		class CA_IGUI_elements_group: RscControlsGroupNoScrollbars
 		{
 			idc = 170;
-			class VScrollbar: VScrollbar
-			{
-				width = 0;
-			};
-			class HScrollbar: HScrollbar
-			{
-				height = 0;
-			};
 			x = "0 * 		(0.01875 * SafezoneH) + 		(SafezoneX + ((SafezoneW - SafezoneH) / 2))";
 			y = "0 * 		(0.025 * SafezoneH) + 		(SafezoneY)";
 			w = "53.5 * 		(0.01875 * SafezoneH)";
@@ -630,17 +607,9 @@ class RscInGameUI
 	{
 		idd = 300;
 		controls[] = {"CA_Zeroing","CA_IGUI_elements_group","CA_APC_WFOV_mode_group","CA_APC_NFOV_mode_group"};
-		class CA_IGUI_elements_group: RscControlsGroup
+		class CA_IGUI_elements_group: RscControlsGroupNoScrollbars
 		{
 			idc = 170;
-			class VScrollbar: VScrollbar
-			{
-				width = 0;
-			};
-			class HScrollbar: HScrollbar
-			{
-				height = 0;
-			};
 			x = "0 * 		(0.01875 * SafezoneH) + 		(SafezoneX + ((SafezoneW - SafezoneH) / 2))";
 			y = "0 * 		(0.025 * SafezoneH) + 		(SafezoneY)";
 			w = "53.5 * 		(0.01875 * SafezoneH)";
