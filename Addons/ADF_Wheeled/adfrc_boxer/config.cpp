@@ -712,7 +712,7 @@ class CfgVehicles
 							{
 							};
 						};
-						turretInfoType="RscOptics_APC_Wheeled_03_gunner";
+						turretInfoType="ADFRC_RscOptics_APC_Wheeled_03_gunner";
 						showCrewAim = 1;
 						startEngine = 0;
 						class HitPoints
@@ -786,7 +786,7 @@ class CfgVehicles
 				viewGunnerShadowDiff = 0.05;
 				gunnerGetInAction = "GetInAMV_cargo";
 				gunnerGetOutAction = "GetOutLow";
-				turretInfoType="RscOptics_APC_Wheeled_03_gunner";
+				turretInfoType="ADFRC_RscOptics_APC_Wheeled_03_gunner";
 				showCrewAim = 2;
 				viewGunnerInExternal = 1;
 				castGunnerShadow = 1;
@@ -2200,7 +2200,7 @@ class CfgVehicles
 							{
 							};
 						};
-						turretInfoType="RscOptics_APC_Wheeled_03_gunner";
+						turretInfoType="ADFRC_RscOptics_APC_Wheeled_03_gunner";
 						showCrewAim = 1;
 						startEngine = 0;
 						class HitPoints
