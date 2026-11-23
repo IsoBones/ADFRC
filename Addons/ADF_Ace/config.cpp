@@ -75,13 +75,13 @@ class CfgVehicles
 {
 	// Vanilla parents, forward-declared only.
 	class Helicopter_Base_H;
-	class Plane_Transport_01_infantry_base_F;
-	class Plane_Transport_01_vehicle_base_F;
 	class APC_Wheeled_03_base_F;
 	class Car_F;
 
 	// ADFRC parents that aren't patched themselves.
 	class adfrc_apache_base;
+	class adfrc_c130_inf_base;
+	class adfrc_c130_vic_base;
 	class ADFRC_blackhawk;
 
 	// AH-64E
@@ -117,23 +117,23 @@ class CfgVehicles
 		};
 	};
 
-	// C-130. Set on our classes, not the vanilla Blackfish bases they inherit from.
-	class adfrc_c130_inf: Plane_Transport_01_infantry_base_F
+	// C-130
+	class adfrc_c130_inf: adfrc_c130_inf_base
 	{
 		ace_cargo_space = 16;
 		ace_cargo_hasCargo = 1;
 	};
-	class adfrc_c130_inf_auscam: Plane_Transport_01_infantry_base_F
+	class adfrc_c130_inf_auscam: adfrc_c130_inf_base
 	{
 		ace_cargo_space = 16;
 		ace_cargo_hasCargo = 1;
 	};
-	class adfrc_c130_vic: Plane_Transport_01_vehicle_base_F
+	class adfrc_c130_vic: adfrc_c130_vic_base
 	{
 		ace_cargo_space = 20;
 		ace_cargo_hasCargo = 1;
 	};
-	class adfrc_c130_vic_auscam: Plane_Transport_01_vehicle_base_F
+	class adfrc_c130_vic_auscam: adfrc_c130_vic_base
 	{
 		ace_cargo_space = 20;
 		ace_cargo_hasCargo = 1;

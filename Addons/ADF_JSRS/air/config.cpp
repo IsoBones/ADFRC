@@ -540,7 +540,7 @@ class CfgVehicles
 			};
 		};
 	};
-	class Plane_Transport_01_base_F: Plane_Base_F
+	class adfrc_c130_base: Plane_Base_F
 	{
 		// JSRS sounds from RHS_C130J_Base (JSRS compat_rhs_usf)
 		class Sounds
