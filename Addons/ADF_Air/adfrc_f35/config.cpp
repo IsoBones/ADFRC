@@ -67,6 +67,7 @@ class SensorTemplateNV;
 class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
+#include "cfgSounds.hpp"
 class CfgVehicles
 {
 	/* Inheritance (same as BI's Plane_Fighter_01) */
@@ -104,7 +105,7 @@ class CfgVehicles
 		crew = ADFRC_MD_AMCU_Soldier_FighterPilot;
 		typicalCargo[] = {ADFRC_MD_AMCU_Soldier_FighterPilot};
 		crewVulnerable = true;
-		driverAction = Pilot_Plane_Fighter_01;
+		driverAction = Pilot_Plane_Fighter_05;
 		driverLeftHandAnimName = throttle_pilot;
 		driverRightHandAnimName = stick_pilot;
 		precisegetinout = true;
@@ -114,8 +115,8 @@ class CfgVehicles
 		ejectDeadCargo = false;
 		ejectDeadDriver = false;
 		disableInventory = true;
-		getInAction = Pilot_Plane_Fighter_01_Enter;
-		getOutAction = Pilot_Plane_Fighter_01_Exit;
+		getInAction = Pilot_Plane_Fighter_05_Enter;
+		getOutAction = Pilot_Plane_Fighter_05_Exit;
 		getInRadius = 5.5;
 		picture = "\ADF_Air\adfrc_f35\Data\UI\adfrc_f35_CA.paa";
 		icon = "\ADF_Air\adfrc_f35\Data\UI\Map_adfrc_f35_CA.paa";
@@ -305,25 +306,25 @@ class CfgVehicles
 			tex[] = {};
 			mat[] =
 			{
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext1.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext1_damage.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext1_destruct.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext1.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext1_damage.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext1_destruct.rvmat",
                 
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext2.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext2_damage.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext2_destruct.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext2.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext2_damage.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext2_destruct.rvmat",
 
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext3.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext3_damage.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext3_destruct.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext3.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext3_damage.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext3_destruct.rvmat",
 
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_pylon.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_pylon_damage.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_pylon_destruct.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_pylon.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_pylon_damage.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_pylon_destruct.rvmat",
 
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext_glass.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext_glass_damage.rvmat",
-				"\ADF_Air\adfrc_f35\Data\adfrc_f35_ext_glass_damage.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext_glass.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext_glass_damage.rvmat",
+				"ADF_Air\adfrc_f35\Data\adfrc_f35_ext_glass_damage.rvmat",
 
 				"A3\Air_F_Jets\Plane_Fighter_01\Data\Fighter_01_glass_in.rvmat",
 				"A3\Air_F_Jets\Plane_Fighter_01\Data\Fighter_01_glass_in_damage.rvmat",
@@ -1303,6 +1304,7 @@ class CfgVehicles
 			landing = "[_this,true] call bis_fnc_aircraftTailhookAi";
 			landingcanceled = "[_this,false] call bis_fnc_aircraftTailhookAi";
 		};
+		#include "sounds.hpp"
 	};
 	class adfrc_f35_wreck: PlaneWreck
 	{
