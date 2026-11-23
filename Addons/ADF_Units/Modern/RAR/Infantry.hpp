@@ -1704,6 +1704,78 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 			"ItemRadio"
 		};
 	};
+	class ADFRC_MD_AMCU_Soldier_FighterPilot: ADFRC_MD_AMCU_Soldier_Base{
+		displayName="Fighter Pilot";
+		author="$STR_ADF_AUTHOR";
+		scope=2;
+		scopeCurator=2;
+		// Vanilla fighter pilot gear as a stopgap (pilot_f model + NATO coveralls), replace with RAAF kit later
+		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_Pilot_F.jpg";
+		model = "\A3\characters_F\Common\pilot_f.p3d";
+		uniformClass = "U_B_PilotCoveralls";
+		hiddenSelections[] = {"Camo1","Camo2","insignia"};
+		hiddenSelectionsTextures[] = {"\A3\Characters_F\Common\Data\pilot_suit_nato_co.paa","\A3\Characters_F\Common\Data\pilot_helmet_nato_co.paa"};
+		class SpeechVariants{
+			class Default{
+				speechSingular[]={
+					"veh_infantry_pilot_s"
+				};
+				speechPlural[]={
+					"veh_infantry_pilot_p"
+				};
+			};
+		};
+		textSingular="$STR_A3_nameSound_veh_infantry_pilot_s";
+		textPlural="$STR_A3_nameSound_veh_infantry_pilot_p";
+		nameSound="veh_infantry_pilot_s";
+		role="Crewman";
+		camouflage=2;
+		cost=93000;
+		backpack="";
+		weapons[]={
+			"hgun_P07_F",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[]={
+			"hgun_P07_F",
+			"Throw",
+			"Put"
+		};
+		magazines[]={
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"SmokeShellOrange",
+			"Chemlight_green",
+			"Chemlight_green"
+		};
+		respawnMagazines[]={
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"16Rnd_9x21_Mag",
+			"SmokeShellOrange",
+			"Chemlight_green",
+			"Chemlight_green"
+		};
+		items[] = {"FirstAidKit", "FirstAidKit"};
+		linkedItems[]={
+			"H_PilotHelmetFighter_B",
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
+		};
+		respawnLinkedItems[]={
+			"H_PilotHelmetFighter_B",
+			"ItemMap",
+			"ItemCompass",
+			"ItemWatch",
+			"ItemRadio"
+		};
+	};
 	class ADFRC_MD_AMCU_Soldier_Crewman: ADFRC_MD_AMCU_Soldier_Base{
 		displayName="Crewman";
 		author="$STR_ADF_AUTHOR";

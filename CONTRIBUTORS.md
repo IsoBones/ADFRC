@@ -36,6 +36,8 @@ For sharing files and contributing to the mod.
 Models and assets contributed under APL-SA from other Arma 3 mods. See [MODEL_CREDITS.md](MODEL_CREDITS.md) for the full attribution table.
 
 - Arma 3 Aegis / Atlas team
+  - AveryTheKitty (F-35A model)
+  - OlliKoskelainen (F-35A model)
 - Bebra Productions
 
 ## Community
