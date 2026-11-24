@@ -16,6 +16,7 @@ class CfgVehicles
     };
 	class adfrc_OPFOR_Soldier_base_F: B_Soldier_base_F
 	{
+		editorPreview = "\ADF_Core\data\editorPreviews\adfrc_OPFOR_Soldier_base_F.jpg";
 		scope=2;
 		author="$STR_ADF_AUTHOR";
 		_generalMacro="ADFOPFOR_Soldier_base_F";

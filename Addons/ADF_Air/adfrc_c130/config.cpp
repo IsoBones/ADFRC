@@ -1271,7 +1271,7 @@ class CfgVehicles
 	class adfrc_c130_vic: adfrc_c130_vic_base
 	{
 		author = "$STR_ADF_AUTHOR";
-		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf.jpg";
+		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_vic.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "C-130 Hercules 37 Sqn (Vehicle)";
@@ -1316,7 +1316,7 @@ class CfgVehicles
 	class adfrc_c130_vic_auscam: adfrc_c130_vic_base
 	{
 		author = "$STR_ADF_AUTHOR";
-		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf_auscam.jpg";
+		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_vic_auscam.jpg";
 		scope = public;
 		scopeCurator = public;
 		displayName = "C-130 Hercules 36 Sqn (Vehicle)";
@@ -1337,18 +1337,22 @@ class CfgVehicles
 	//////////////////////////// OTHER FACTION VERSIONS ////////////////////////////
 	class adfrc_c130_inf_GWOT: adfrc_c130_inf
 	{
+		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class adfrc_c130_vic_GWOT: adfrc_c130_vic
 	{
+		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_vic_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class adfrc_c130_inf_auscam_GWOT: adfrc_c130_inf_auscam
 	{
+		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf_auscam_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class adfrc_c130_vic_auscam_GWOT: adfrc_c130_vic_auscam
 	{
+		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_vic_auscam_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	/////////////////////NOT TO BE USED EVER AGAIN ////////////////////

@@ -8,7 +8,7 @@
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_F.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat 
 		weapons[]={
@@ -79,7 +79,7 @@ class ADFRC_MD_AMCU_Soldier_Light: ADFRC_MD_AMCU_Soldier_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_Light.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat 
 		//backpack="ADFRC_AssaultPack_AMCU";
@@ -137,7 +137,7 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_Sidearm.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat 
 		backpack="ADFRC_BP_Placeholder_AMCU_1";
@@ -559,7 +559,7 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;	
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_Officer.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_Officer.jpg";
 		icon="iconManOfficer";
 		role="Rifleman";
 		cost=250000;
@@ -635,7 +635,7 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;	
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_Officer.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_Signaller.jpg";
 		icon="iconManOfficer";
 		role="Rifleman";
 		cost=250000;
@@ -1710,7 +1710,7 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 		scope=2;
 		scopeCurator=2;
 		// Vanilla fighter pilot gear as a stopgap (pilot_f model + NATO coveralls), replace with RAAF kit later
-		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_Pilot_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_FighterPilot.jpg";
 		model = "\A3\characters_F\Common\pilot_f.p3d";
 		uniformClass = "U_B_PilotCoveralls";
 		hiddenSelections[] = {"Camo1","Camo2","insignia"};
@@ -1848,7 +1848,7 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_CavalryScout.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_CavalryScout.jpg";
 		role="Rifleman";
 		threat[]={0.70000001,0.1,0.1};
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat 
@@ -1924,7 +1924,7 @@ class ADFRC_MD_AMCU_Soldier_Sidearm: ADFRC_MD_AMCU_Soldier_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_Soldier_CavalryScout.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_Soldier_TL_CavalryScout.jpg";
 		role="Rifleman";
 		threat[]={0.70000001,0.1,0.1};
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat 

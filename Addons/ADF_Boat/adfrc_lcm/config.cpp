@@ -534,6 +534,7 @@ class CfgVehicles
 	};
 	class adfrc_lcm: adfrc_lcm_base
 	{
+		editorPreview = "\ADF_Boat\adfrc_lcm\data\editorPreviews\adfrc_lcm.jpg";
 		author = "ADFRC - Quiggs";
 		//editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_Boat_Armed_01_minigun_F.jpg";
 		displayName = "LCM-1E";

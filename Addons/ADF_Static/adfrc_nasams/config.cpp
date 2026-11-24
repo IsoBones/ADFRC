@@ -26,7 +26,7 @@ class CfgVehicles
 	class ADFRC_mml: B_SAM_System_03_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\A3\EditorPreviews_F_Sams\Data\Cfgvehicles\B_SAM_system_03_F.jpg";
+		editorPreview = "\ADF_Static\adfrc_nasams\data\editorPreviews\ADFRC_mml.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "MIM-145 Defender";
@@ -37,7 +37,7 @@ class CfgVehicles
 	class ADFRC_fdc: B_Radar_System_01_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\A3\EditorPreviews_F_Sams\Data\Cfgvehicles\B_Radar_System_01_F.jpg";
+		editorPreview = "\ADF_Static\adfrc_nasams\data\editorPreviews\ADFRC_fdc.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "AN/MPQ-105 Radar";

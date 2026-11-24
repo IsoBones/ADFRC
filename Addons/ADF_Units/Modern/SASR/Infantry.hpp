@@ -10,7 +10,7 @@
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\MC_SASR_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_F.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		backpack="ADFRC_BP_hydration_AMCU_1";
@@ -92,7 +92,7 @@ class ADFRC_MD_MC_SASR_Light: ADFRC_MD_MC_SASR_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\MC_SASR_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_Light.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -159,7 +159,7 @@ class ADFRC_MD_MC_SASR_Light_Tee: ADFRC_MD_MC_SASR_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\MC_SASR_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_Light_Tee.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -226,7 +226,7 @@ class ADFRC_MD_MC_SASR_Scout: ADFRC_MD_MC_SASR_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\MC_SASR_F.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_Scout.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -309,7 +309,7 @@ class ADFRC_MD_MC_SASR_Scout: ADFRC_MD_MC_SASR_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\MC_SASR_CQB.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_CQB.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -390,7 +390,7 @@ class ADFRC_MD_MC_SASR_Scout: ADFRC_MD_MC_SASR_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\MC_SASR_CQB.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_CQB2.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -472,7 +472,7 @@ class ADFRC_MD_MC_SASR_Scout: ADFRC_MD_MC_SASR_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=1;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_Grenadier.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_MC_SASR_Grenadier.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		backpack="ADFRC_T5_backpanel";

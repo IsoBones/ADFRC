@@ -26,7 +26,7 @@ class CfgVehicles
 	class ADFRC_m252: B_Mortar_01_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_Mortar_01_F.jpg";
+		editorPreview = "\ADF_Static\adfrc_m252\data\editorPreviews\ADFRC_m252.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "MK6 Mortar";

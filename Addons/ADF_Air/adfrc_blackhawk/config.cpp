@@ -5956,7 +5956,7 @@ class CfgVehicles
 		scope=2;
 		model="ADF_Air\adfrc_blackhawk\S70A";
 		displayName="UH-60M Blackhawk";
-		editorPreview = "ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk.jpg";
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk.jpg";
 		author="$STR_ADFRC_AUTHOR";
 		mapSize=16.82;
 		crew="ADFRC_MD_AMCU_Soldier_HeliPilot";
@@ -6216,6 +6216,7 @@ class CfgVehicles
 	};
 	class ADFRC_blackhawk_mag58: ADFRC_blackhawk_BASE_MAG58
 	{
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_mag58.jpg";
 		scope=2;
 		model="ADF_Air\adfrc_blackhawk\S70A_MAG58";
 		displayName="UH-60M Blackhawk MAG-58";
@@ -6374,7 +6375,7 @@ class CfgVehicles
 		scope=2;
 		//model="ADF_Air\adfrc_blackhawk\S70A_CARGO";
 		displayName="UH-60M Blackhawk (Cargo)";
-		editorPreview = "ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_cargo.jpg";
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_cargo.jpg";
 		author="$STR_ADFRC_AUTHOR";
 		mapSize=16.82;
 		crew="ADFRC_MD_AMCU_Soldier_HeliPilot";
@@ -6484,6 +6485,7 @@ class CfgVehicles
 //////////////////////// GWOT VERSIONS ////////////////////////////
 	class ADFRC_blackhawk_GWOT: ADFRC_blackhawk
 	{
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_GWOT.jpg";
 		adfrc_randomTailNumber = 1;
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk";
@@ -6585,6 +6587,7 @@ class CfgVehicles
 	};
 	class ADFRC_blackhawk_cargo_GWOT: ADFRC_blackhawk_cargo
 	{
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_cargo_GWOT.jpg";
 		adfrc_randomTailNumber = 1;
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk (Cargo)";
@@ -6686,6 +6689,7 @@ class CfgVehicles
 	};
 	class ADFRC_blackhawk_mag58_GWOT: ADFRC_blackhawk_MAG58
 	{
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_mag58_GWOT.jpg";
 		adfrc_randomTailNumber = 1;
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk Mag58";
@@ -6779,6 +6783,7 @@ class CfgVehicles
 	};
 	class ADFRC_blackhawk_esss_GWOT: ADFRC_blackhawk_GWOT
 	{
+		editorPreview = "\ADF_Air\adfrc_blackhawk\preview\ADFRC_blackhawk_esss_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 		displayName="S70A9 Blackhawk (Fuel)";
 		fuelCapacity=5000;

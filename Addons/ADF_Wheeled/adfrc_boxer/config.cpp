@@ -1444,7 +1444,7 @@ class CfgVehicles
 		displayName="Boxer CRV Block I (Early)";
 		author="ADFRC - Quiggs";
 		model = "adf_wheeled\adfrc_boxer\adfrc_boxer_crv.p3d";
-		editorPreview = "adf_wheeled\adfrc_boxer\adfrc_boxer_crv.jpg";
+		editorPreview = "\adf_wheeled\adfrc_boxer\adfrc_boxer_crv_early.jpg";
 		picture="adf_wheeled\adfrc_boxer\data\ui\boxercrv.paa";
 		icon="adf_wheeled\adfrc_boxer\data\ui\mapboxercrv.paa";
 		driverOpticsEffect[] = {"TankGunnerOptics2","OpticsBlur1","OpticsCHAbera1"};
@@ -1710,7 +1710,7 @@ class CfgVehicles
 		displayName="Boxer CRV Block I (Late)";
 		author="ADFRC - Quiggs";
 		model = "adf_wheeled\adfrc_boxer\adfrc_boxer_crv.p3d";
-		editorPreview = "adf_wheeled\adfrc_boxer\adfrc_boxer_crv.jpg";
+		editorPreview = "\adf_wheeled\adfrc_boxer\adfrc_boxer_crv_late.jpg";
 		picture="adf_wheeled\adfrc_boxer\data\ui\boxercrv.paa";
 		icon="adf_wheeled\adfrc_boxer\data\ui\mapboxercrv.paa";
 		memoryPointDriverOptics="driverview_late";
@@ -2066,6 +2066,7 @@ class CfgVehicles
 	};
 	class adfrc_boxer_crv_b2: adfrc_boxer_crv_late
 	{
+		editorPreview = "\adf_wheeled\adfrc_boxer\adfrc_boxer_crv_b2.jpg";
 		displayName="Boxer CRV Block II";
 		author="ADFRC - Quiggs";
 		model = "ADF_Wheeled\adfrc_boxer\adfrc_boxer_crv_b2.p3d";
