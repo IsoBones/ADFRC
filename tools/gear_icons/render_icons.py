@@ -25,7 +25,15 @@ VIEWS = {
     'vest': (22, 14),
     'uniform': (18, 10),
     'backpack': (200, 16),
+    # weapons, attachments and magazines: angles are relative to the weapon's left side, muzzle to the
+    # left like the vanilla pictures (forward is worked out from the memory points when there are any)
+    'weapon': (0, 0),
+    'attachment': (20, 12),
+    'magazine': (25, 12),
 }
+SIDE_ON = ('weapon', 'attachment', 'magazine')
+ORTHO = ('weapon',)                       # straight side view without perspective
+WIDE = {'weapon': (1024, 512)}            # raw render size when not square
 
 _img_cache = {}
 
@@ -169,7 +177,7 @@ def build(look, stage):
         pass
     return ob, Pv
 
-def frame(cam, pts, az, el):
+def frame(cam, pts, az, el, ortho=False, aspect=1.0):
     lo, hi = pts.min(0), pts.max(0)
     c = Vector(((lo + hi) / 2).tolist())
     r = float(np.linalg.norm(pts - np.array(c), axis=1).max())
@@ -180,8 +188,15 @@ def frame(cam, pts, az, el):
     dist = r / math.sin(fov / 2) * 1.02
     cam.location = c + d * dist
     cam.rotation_euler = (-d).to_track_quat('-Z', 'Y').to_euler()
+    if ortho:
+        cam.data.type = 'ORTHO'
+        cam.data.ortho_scale = 2 * r * 1.04   # view width; the height is width / aspect
     cam.data.clip_start = max(0.001, dist - r * 1.5); cam.data.clip_end = dist + r * 2
     return c, d, dist, r
+
+def fwd_of(look):
+    z = np.load(os.path.join(STAGE, look['mesh']))
+    return z['FWD'] if 'FWD' in z.files else np.array([-1.0, 0.0, 0.0])
 
 def main():
     looks = json.load(open(os.path.join(STAGE, 'looks.json')))
@@ -193,8 +208,14 @@ def main():
         if look['category'] not in VIEWS:
             print('SKIP', lid, look['category'], '(no camera view for this category)', flush=True)
             continue
-        az, el = VIEWS[look['category']]
-        c, d, dist, r = frame(cam, pts, az, el)
+        cat = look['category']
+        az, el = VIEWS[cat]
+        if cat in SIDE_ON:
+            f = fwd_of(look)
+            az += math.degrees(math.atan2(f[1], -f[0]))   # put the camera on the weapon's left side
+        w, h = WIDE.get(cat, (RENDER, RENDER))
+        sc.render.resolution_x, sc.render.resolution_y = w, h
+        c, d, dist, r = frame(cam, pts, az, el, ortho=cat in ORTHO, aspect=w / h)
         right = d.cross(Vector((0, 0, 1))).normalized()
         up = right.cross(d).normalized() * -1
         key = c + (d * 1.0 - right * 0.9 + up * 0.9).normalized() * dist

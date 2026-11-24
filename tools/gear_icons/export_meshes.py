@@ -41,7 +41,7 @@ def read_first_res_lod(path):
     d = open(path, 'rb').read()
     assert d[:4] == b'MLOD', 'not MLOD'
     n = struct.unpack_from('<I', d, 8)[0]; p = 12
-    best = None
+    best, muzzle = None, None
     for _ in range(n):
         assert d[p:p + 4] == b'P3DM'
         npts, nnorm, nf = struct.unpack_from('<3I', d, p + 12); p += 28
@@ -69,7 +69,29 @@ def read_first_res_lod(path):
         res = struct.unpack_from('<f', d, p)[0]; p += 4
         if res < 1000 and faces and (best is None or res < best[0]):
             best = (res, pts, faces, sels)
-    return best
+        elif 0.9e15 < res < 1.1e15 and 'usti hlavne' in sels and 'konec hlavne' in sels:
+            # memory LOD: barrel end -> muzzle gives the weapon's forward direction
+            a, b = pts[sels['konec hlavne'][1] > 0], pts[sels['usti hlavne'][1] > 0]
+            if len(a) and len(b):
+                muzzle = (b.mean(0) - a.mean(0))
+    return best + (muzzle,) if best else None
+
+def proxy_frames(pts, faces, sels, key):
+    """Origin and axes (x, y, z) of each proxy triangle whose name contains key, in p3d space.
+    The proxy triangle's first point is the origin, the second sets +Y and the third +Z."""
+    out = []
+    for name, (fsel, _) in sels.items():
+        if not (name.startswith('proxy:') and key in name):
+            continue
+        for fi in np.nonzero(fsel)[0]:
+            vs = faces[fi][0]
+            if len(vs) < 3:
+                continue
+            o, a, b = (pts[vs[i][0]].astype(np.float64) for i in range(3))
+            y = (a - o) / (np.linalg.norm(a - o) or 1.0)
+            z = (b - o) / (np.linalg.norm(b - o) or 1.0)
+            out.append((o, np.cross(y, z), y, z))
+    return out
 
 def h(s):
     return hashlib.md5(s.encode('utf-8')).hexdigest()[:12]
@@ -105,15 +127,18 @@ def main(root, work):
         return name
     for r in rows:
         cls, cat, model, sels, texs = r[1], r[2], r[3], r[4], r[5]
+        mag = r[9].strip() if cat == 'weapon' and len(r) > 9 else ''
+        if mag.lower().lstrip('\\').startswith('a3\\'):
+            mag = ''   # vanilla magazine model, binarised: draw the weapon without it
         if model.lower().lstrip('\\').startswith('a3\\'):
             continue  # vanilla model, binarised: not exported
         sel_list = [s.lower() for s in sels.split(';')] if sels else []
         tex_list = texs.split(';') if texs else []
-        key = '|'.join([model.lower(), ';'.join(sel_list), ';'.join(t.lower() for t in tex_list)])
+        key = '|'.join([model.lower(), ';'.join(sel_list), ';'.join(t.lower() for t in tex_list), mag.lower()])
         lid = h(key)
         if lid in looks:
             looks[lid]['classes'].append(cls); continue
-        mk = h(model.lower())
+        mk = h(model.lower() + '|' + mag.lower())
         if mk not in done_mesh:
             f = resolve(model, '.p3d')
             if not f:
@@ -121,7 +146,24 @@ def main(root, work):
             lod = read_first_res_lod(f)
             if lod is None:
                 print('no res LOD', model); done_mesh[mk] = None; continue
-            res, pts, faces, selmap = lod
+            res, pts, faces, selmap, muzzle = lod
+            if mag:
+                mf = resolve(mag, '.p3d')
+                mlod = read_first_res_lod(mf) if mf else None
+                slots = proxy_frames(pts, faces, selmap, 'magazineslot')
+                if mlod and slots:
+                    o, x, y, z = slots[0]
+                    mp = mlod[1].astype(np.float64)
+                    mp = o + np.outer(mp[:, 0], x) + np.outer(mp[:, 1], y) + np.outer(mp[:, 2], z)
+                    base = len(pts)
+                    pts = np.concatenate([pts, mp.astype(np.float32)])
+                    faces = faces + [([(v[0] + base,) + tuple(v[1:]) for v in vs], t) for vs, t in mlod[2]]
+                    nf_add = len(mlod[2])
+                    selmap = {k: (np.concatenate([f, np.zeros(nf_add, bool)]), np.concatenate([w, np.zeros(len(mp), np.uint8)]))
+                              for k, (f, w) in selmap.items()}
+                    print('  + magazine', mag)
+                else:
+                    print('  magazine not drawn (%s)' % ('no magazine slot proxy' if mf and mlod else 'model missing'), mag)
             tris, uvs, ftex, fidx = [], [], [], []
             texnames = sorted({t for _, t in faces})
             for fi, (vs, t) in enumerate(faces):
@@ -138,8 +180,11 @@ def main(root, work):
             pw = np.stack([selmap[n][1] for n in names], 1) if (names and body) else np.zeros((len(pts), 0), np.uint8)
             # p3d (x right, y up, z fwd, left-handed) -> blender (x, z, y)
             P = pts[:, [0, 2, 1]].astype(np.float32)
+            # forward direction in blender axes; ADFRC weapons and attachments point along p3d -x
+            fwd = muzzle[[0, 2, 1]] if muzzle is not None else np.array([-1.0, 0.0, 0.0])
             np.savez_compressed(os.path.join(OUT, 'mesh_%s.npz' % mk), P=P, T=np.array(tris, np.int32),
-                                UV=np.array(uvs, np.float32), FT=np.array(ftex, np.int16), SB=selbits, PW=pw)
+                                UV=np.array(uvs, np.float32), FT=np.array(ftex, np.int16), SB=selbits, PW=pw,
+                                FWD=fwd.astype(np.float32))
             done_mesh[mk] = {'file': 'mesh_%s.npz' % mk, 'textures': texnames, 'sels': names, 'res': res}
             print('mesh', model, 'res', res, len(tris), 'tris')
         m = done_mesh[mk]

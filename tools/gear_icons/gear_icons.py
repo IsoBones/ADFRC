@@ -1,11 +1,11 @@
-"""ADFRC gear icon tool: renders arsenal/inventory pictures for gear from the MLOD p3ds.
+"""ADFRC gear icon tool: renders arsenal/inventory pictures for gear and weapons from the MLOD p3ds.
 
 Run from the build folder (the P: drive root), or pass --root. Steps:
 
   select   read the in-game dump (dump_gear.sqf), pick classes that need an icon -> need.json
   export   read their p3ds + textures from the build folder               -> stage/
   render   render each look in Blender (headless)                         -> raw/
-  fit      crop and fit to 256x256                                        -> icons/ + contact_sheet.png
+  fit      crop and fit to 256x256 (weapons 512x256)                      -> icons/ + contact_sheet.png
   apply    convert to PAA (ImageToPAA) and set picture= in the configs (dry run without --apply)
   all      select, export, render, fit (stops before apply so you can check the contact sheet)
 
@@ -16,8 +16,13 @@ import argparse, collections, glob, json, os, shutil, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
-GEAR = ('headgear', 'nvg', 'glasses', 'vest', 'uniform', 'backpack')
+GEAR = ('headgear', 'nvg', 'glasses', 'vest', 'uniform', 'backpack', 'weapon', 'attachment', 'magazine')
 SIZE, MARGIN = 256, 0.06
+# icon size (w, h) per category; weapons are 2:1 like the vanilla and existing ADFRC weapon pictures
+SIZES = {'weapon': (512, 256)}
+
+def icon_size(category):
+    return SIZES.get(category, (SIZE, SIZE))
 
 
 # ---------------------------------------------------------------- select
@@ -30,7 +35,7 @@ def read_dump(path):
             continue
         r = line[i:].rstrip('"').split('|')
         if len(r) >= 7:
-            rows.append((r + [''] * 9)[:9])
+            rows.append((r + [''] * 10)[:10])
     return rows
 
 def resolve(root, p):
@@ -137,7 +142,7 @@ def fit(png_in, png_out, category=''):
     if not alpha.any():
         return False
     rows, cols = alpha.sum(1), alpha.sum(0)
-    thin = 0.18 if category == 'backpack' else 0.06   # packs: ignore antennas and handset cables
+    thin = 0.18 if category == 'backpack' else 0.02 if category == 'weapon' else 0.06   # packs: ignore antennas and cables; weapons: keep thin barrels
     rk = rows >= max(2, rows.max() * thin)
     ck = cols >= max(2, cols.max() * thin)
     y0, y1 = np.nonzero(rk)[0][[0, -1]]
@@ -146,14 +151,15 @@ def fit(png_in, png_out, category=''):
         y1 = y0 + int((y1 - y0) * 0.62)
         xs = np.nonzero(alpha[y0:y1 + 1].any(0))[0]
         x0, x1 = xs[0], xs[-1]
+    W, H = icon_size(category)
     w, h = x1 - x0 + 1, y1 - y0 + 1
-    s = SIZE * (1 - 2 * MARGIN) / max(w, h)
+    s = min(W * (1 - 2 * MARGIN) / w, H * (1 - 2 * MARGIN) / h)
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     scaled = im.resize((max(1, round(im.size[0] * s)), max(1, round(im.size[1] * s))), Image.LANCZOS)
-    out = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0))
-    ox, oy = round(SIZE / 2 - cx * s), round(SIZE / 2 - cy * s)
+    out = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    ox, oy = round(W / 2 - cx * s), round(H / 2 - cy * s)
     if category == 'uniform':
-        oy = round(SIZE * MARGIN - y0 * s)
+        oy = round(H * MARGIN - y0 * s)
     out.paste(scaled, (ox, oy), scaled)   # negative offsets just clip
     out.save(png_out)
     return True
@@ -170,8 +176,10 @@ def contact_sheet(looks, icons, out, cols=10):
     d = ImageDraw.Draw(sheet)
     for i, (lid, lk) in enumerate(items):
         x, y = (i % cols) * cell, (i // cols) * (cell + lab)
-        ic = Image.open(os.path.join(icons, lid + '.png')).resize((cell - 8, cell - 8), Image.LANCZOS)
-        sheet.alpha_composite(ic, (x + 4, y + 4))
+        ic = Image.open(os.path.join(icons, lid + '.png'))
+        k = (cell - 8) / max(ic.size)
+        ic = ic.resize((max(1, round(ic.size[0] * k)), max(1, round(ic.size[1] * k))), Image.LANCZOS)
+        sheet.alpha_composite(ic, (x + 4 + (cell - 8 - ic.size[0]) // 2, y + 4 + (cell - 8 - ic.size[1]) // 2))
         name = lk['classes'][0] + (' +%d' % (len(lk['classes']) - 1) if len(lk['classes']) > 1 else '')
         d.text((x + 4, y + cell), name[:26], fill=(235, 235, 235, 255))
         d.text((x + 4, y + cell + 13), name[26:52], fill=(235, 235, 235, 255))
