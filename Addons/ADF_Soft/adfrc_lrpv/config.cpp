@@ -235,17 +235,119 @@ class CfgVehicles
 			maxTurnHundred = 0.7;
 		};
 
+		// Component damage (same setup as the Boxer/Abrams): each hitpoint is driven by its own
+		// Fire Geometry component (armorComponent) with A3 penetration materials, plus a point
+		// cloud of the same name in the HitPoints LOD for blast/indirect damage.
 		class HitPoints: HitPoints
 		{
-			class HitLFWheel: HitLFWheel {armor = 0.2; passThrough = 0;};
-			class HitLF2Wheel: HitLF2Wheel {armor = 0.2; passThrough = 0;};
-			class HitLMWheel: HitLMWheel {armor = 0.2; passThrough = 0;};
-			class HitRFWheel: HitRFWheel {armor = 0.2; passThrough = 0;};
-			class HitRF2Wheel: HitRF2Wheel {armor = 0.2; passThrough = 0;};
-			class HitRMWheel: HitRMWheel {armor = 0.2; passThrough = 0;};
-			class HitBody: HitBody {name = "karoserie"; visual = "camo1"; passThrough = 1;};
-			class HitEngine: HitEngine {armor = 0.5; name = "motor"; passThrough = 0.2;};
-			class HitFuel: HitFuel {armor = 0.5; name = "palivo"; passThrough = 0.2;};
+			class HitBody: HitBody
+			{
+				armor = 1;
+				material = -1;
+				armorComponent = "hit_hull";
+				name = "hit_hull_point";
+				visual = "-";
+				passThrough = 1;
+				minimalHit = 0.02;
+				explosionShielding = 1.5;
+				radius = 0.3;
+			};
+			class HitEngine: HitEngine
+			{
+				armor = 0.5;
+				material = -1;
+				armorComponent = "hit_engine";
+				name = "hit_engine_point";
+				visual = "-";
+				passThrough = 0.2;
+				minimalHit = 0.1;
+				explosionShielding = 0.5;
+				radius = 0.25;
+			};
+			class HitFuel: HitFuel
+			{
+				armor = 0.5;
+				material = -1;
+				armorComponent = "hit_fuel";
+				name = "hit_fuel_point";
+				visual = "-";
+				passThrough = 0.2;
+				minimalHit = 0.1;
+				explosionShielding = 0.5;
+				radius = 0.25;
+			};
+			class HitLFWheel: HitLFWheel
+			{
+				armor = 0.2;
+				material = -1;
+				armorComponent = "wheel_1_1_hide";
+				name = "wheel_1_1_steering";
+				visual = "wheel_1_1_hide";
+				passThrough = 0;
+				minimalHit = 0.02;
+				explosionShielding = 4;
+				radius = 0.33;
+			};
+			class HitLF2Wheel: HitLF2Wheel
+			{
+				armor = 0.2;
+				material = -1;
+				armorComponent = "wheel_1_2_hide";
+				name = "wheel_1_2_steering";
+				visual = "wheel_1_2_hide";
+				passThrough = 0;
+				minimalHit = 0.02;
+				explosionShielding = 4;
+				radius = 0.33;
+			};
+			class HitLMWheel: HitLMWheel
+			{
+				armor = 0.2;
+				material = -1;
+				armorComponent = "wheel_1_3_hide";
+				name = "wheel_1_3_steering";
+				visual = "wheel_1_3_hide";
+				passThrough = 0;
+				minimalHit = 0.02;
+				explosionShielding = 4;
+				radius = 0.33;
+			};
+			class HitRFWheel: HitRFWheel
+			{
+				armor = 0.2;
+				material = -1;
+				armorComponent = "wheel_2_1_hide";
+				name = "wheel_2_1_steering";
+				visual = "wheel_2_1_hide";
+				passThrough = 0;
+				minimalHit = 0.02;
+				explosionShielding = 4;
+				radius = 0.33;
+			};
+			class HitRF2Wheel: HitRF2Wheel
+			{
+				armor = 0.2;
+				material = -1;
+				armorComponent = "wheel_2_2_hide";
+				name = "wheel_2_2_steering";
+				visual = "wheel_2_2_hide";
+				passThrough = 0;
+				minimalHit = 0.02;
+				explosionShielding = 4;
+				radius = 0.33;
+			};
+			class HitRMWheel: HitRMWheel
+			{
+				armor = 0.2;
+				material = -1;
+				armorComponent = "wheel_2_3_hide";
+				name = "wheel_2_3_steering";
+				visual = "wheel_2_3_hide";
+				passThrough = 0;
+				minimalHit = 0.02;
+				explosionShielding = 4;
+				radius = 0.33;
+			};
 		};
 
 		class Exhausts
@@ -258,22 +360,25 @@ class CfgVehicles
 			};
 		};
 
+		// Headlights: memory points Light_L/_end/_flare and Light_R/_end/_flare (same naming as the
+		// A3 Offroad); hitpoints Light_L/Light_R in the HitPoints LOD. Taillights are LOD1 face
+		// selections "zadni svetlo" (tail) and "brzdove svetlo" (brake), inherited engine defaults.
 		class Reflectors
 		{
-			class LightCarHeadL01
+			class Left
 			{
 				color[] = {1900,1800,1700};
 				ambient[] = {5,5,5};
-				position = "L svetlo";
-				direction = "konec L svetla";
-				hitpoint = "L svetlo";
-				selection = "L svetlo";
+				position = "Light_L";
+				direction = "Light_L_end";
+				hitpoint = "Light_L";
+				selection = "Light_L";
 				size = 1;
 				innerAngle = 100;
 				outerAngle = 179;
 				coneFadeCoef = 10;
 				intensity = 1;
-				useFlare = 1;
+				useFlare = 0;
 				dayLight = 0;
 				flareSize = 1.0;
 				class Attenuation
@@ -286,7 +391,26 @@ class CfgVehicles
 					hardLimitEnd = 60;
 				};
 			};
+			class Right: Left
+			{
+				position = "Light_R";
+				direction = "Light_R_end";
+				hitpoint = "Light_R";
+				selection = "Light_R";
+			};
+			class Left2: Left
+			{
+				position = "light_L_flare";
+				useFlare = 1;
+			};
+			class Right2: Right
+			{
+				position = "light_R_flare";
+				useFlare = 1;
+			};
 		};
+		aggregateReflectors[] = {{"Left","Right","Left2","Right2"}};
+
 
 		class Damage
 		{
@@ -299,6 +423,35 @@ class CfgVehicles
 			// Rear pintle .50 (centre ring)
 			class MainTurret: MainTurret
 			{
+				class HitPoints
+				{
+					class HitTurret
+					{
+						armor = 0.5;
+						material = -1;
+						armorComponent = "hit_main_turret";
+						name = "hit_main_turret_point";
+						visual = "-";
+						passThrough = 0;
+						minimalHit = 0.05;
+						explosionShielding = 1;
+						radius = 0.15;
+						isTurret = 1;
+					};
+					class HitGun
+					{
+						armor = 0.4;
+						material = -1;
+						armorComponent = "hit_main_gun";
+						name = "hit_main_gun_point";
+						visual = "-";
+						passThrough = 0;
+						minimalHit = 0.05;
+						explosionShielding = 1;
+						radius = 0.15;
+						isGun = 1;
+					};
+				};
 				body = "MainTurret";
 				gun = "MainGun";
 				animationSourceBody = "mainTurret";
@@ -359,6 +512,35 @@ class CfgVehicles
 			// Front passenger pintle MAG58
 			class FrontTurret: MainTurret
 			{
+				class HitPoints
+				{
+					class HitTurret
+					{
+						armor = 0.5;
+						material = -1;
+						armorComponent = "hit_front_turret";
+						name = "hit_front_turret_point";
+						visual = "-";
+						passThrough = 0;
+						minimalHit = 0.05;
+						explosionShielding = 1;
+						radius = 0.15;
+						isTurret = 1;
+					};
+					class HitGun
+					{
+						armor = 0.4;
+						material = -1;
+						armorComponent = "hit_front_gun";
+						name = "hit_front_gun_point";
+						visual = "-";
+						passThrough = 0;
+						minimalHit = 0.05;
+						explosionShielding = 1;
+						radius = 0.15;
+						isGun = 1;
+					};
+				};
 				body = "FrontTurret";
 				gun = "FrontGun";
 				animationSourceBody = "frontTurret";
