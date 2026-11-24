@@ -412,10 +412,33 @@ class CfgVehicles
 		aggregateReflectors[] = {{"Left","Right","Left2","Right2"}};
 
 
+		// Damage stages: <material>, <material>_damage (vanilla A3 damaged-metal normal/macro maps),
+		// destroyed = vanilla A3 default_destruct.rvmat. Non-Super materials keep their look until destroyed.
 		class Damage
 		{
 			tex[] = {};
-			mat[] = {};
+			mat[] =
+			{
+				"ADF_Soft\adfrc_lrpv\data\datsun_trup.rvmat", "ADF_Soft\adfrc_lrpv\data\datsun_trup_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\jackal_base.rvmat", "ADF_Soft\adfrc_lrpv\data\jackal_base_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\jackal_mount.rvmat", "ADF_Soft\adfrc_lrpv\data\jackal_mount_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\lr_base.rvmat", "ADF_Soft\adfrc_lrpv\data\lr_base_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\lr_base_baf.rvmat", "ADF_Soft\adfrc_lrpv\data\lr_base_baf_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\lr_special.rvmat", "ADF_Soft\adfrc_lrpv\data\lr_special_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\lr_special_baf.rvmat", "ADF_Soft\adfrc_lrpv\data\lr_special_baf_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\m240.rvmat", "ADF_Soft\adfrc_lrpv\data\m240_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\m240_bullet.rvmat", "ADF_Soft\adfrc_lrpv\data\m240_bullet_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\srpv_desset01.rvmat", "ADF_Soft\adfrc_lrpv\data\srpv_desset01_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\srpv_desset02_co.rvmat", "ADF_Soft\adfrc_lrpv\data\srpv_desset02_co_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\uaz_mount.rvmat", "ADF_Soft\adfrc_lrpv\data\uaz_mount_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\uaz_other_metal.rvmat", "ADF_Soft\adfrc_lrpv\data\uaz_other_metal_damage.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\camo1a_mt.rvmat", "ADF_Soft\adfrc_lrpv\data\camo1a_mt.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\landrover_closed_01.rvmat", "ADF_Soft\adfrc_lrpv\data\landrover_closed_01.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\landrover_closed_02.rvmat", "ADF_Soft\adfrc_lrpv\data\landrover_closed_02.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\truck5t_02.rvmat", "ADF_Soft\adfrc_lrpv\data\truck5t_02.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\weaponmount_mk64_paint.rvmat", "ADF_Soft\adfrc_lrpv\data\weaponmount_mk64_paint.rvmat", "A3\data_f\default_destruct.rvmat",
+				"ADF_Soft\adfrc_lrpv\data\default.rvmat", "ADF_Soft\adfrc_lrpv\data\default.rvmat", "A3\data_f\default_destruct.rvmat"
+			};
 		};
 
 		class Turrets: Turrets
