@@ -3257,6 +3257,7 @@ class CfgVehicles
 	// commander's seat keeps its hatch, optics and smoke dischargers but has no M2.
 	class adfrc_aslav_a_unarmed: adfrc_aslav_a
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_a_unarmed.jpg";
 		displayName="ASLAV-A (Unarmed)";
 		author="Quiggs";
 		class AnimationSources: AnimationSources
@@ -4103,36 +4104,43 @@ class CfgVehicles
 	//------------------------------------------------------------- GWOT
 	class adfrc_aslav_25_gwot: adfrc_aslav_25
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_25_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};
 	class adfrc_aslav_25_mag58_gwot: adfrc_aslav_25_mag58
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_25_mag58_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};
 	class adfrc_aslav_pc_gwot: adfrc_aslav_pc
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_pc_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};
 	class adfrc_aslav_pc_rws_gwot: adfrc_aslav_pc_rws
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_pc_rws_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};
 	class adfrc_aslav_a_gwot: adfrc_aslav_a
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_a_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};
 	class adfrc_aslav_a_unarmed_gwot: adfrc_aslav_a_unarmed
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_a_unarmed_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};
 	class adfrc_aslav_s_gwot: adfrc_aslav_s
 	{
+		editorPreview = "\ADF_Wheeled\adfrc_aslav\adfrc_aslav_s_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		author="Quiggs";
 	};

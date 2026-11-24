@@ -26,7 +26,7 @@ class CfgVehicles
 	class ADFRC_rbs70: B_T_Static_AA_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\A3\EditorPreviews_F_Exp\Data\CfgVehicles\B_T_Static_AA_F.jpg";
+		editorPreview = "\ADF_Static\adfrc_rbs70\data\editorPreviews\ADFRC_rbs70.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Spike Launcher AA";

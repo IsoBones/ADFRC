@@ -25,7 +25,7 @@ class CfgVehicles
 	class ADFRC_lwagl: B_GMG_01_F
 	{
 		author="ADFRC Quiggs";
-		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_GMG_01_F.jpg";
+		editorPreview="\ADF_Static\adfrc_lwagl\data\editorPreviews\ADFRC_lwagl.jpg";
 		scope=2;
 		scopeCurator=2;
 		displayName="Mk47";

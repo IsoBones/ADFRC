@@ -4,6 +4,7 @@
 	////////////////////////RAN Boat Crew///////////////////////////////////////////////////////////
 	// Default crew for the LCM-1E (ADF_Boat\adfrc_lcm).
 	class ADFRC_MD_RAN_Coxswain: ADFRC_MD_AMCU_Soldier_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_Coxswain.jpg";
 		displayName="Coxswain";
 		author="$STR_ADF_AUTHOR";
 		scope=2;

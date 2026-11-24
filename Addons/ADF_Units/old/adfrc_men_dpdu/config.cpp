@@ -981,6 +981,7 @@ class cfgVehicles
 	};
 	class Z_officer_F: I_Soldier_base_F
 	{
+		editorPreview = "\ADF_Units\old\ADFRC_men_dpdu\preview\Z_officer_F.jpg";
 		model = "\A3\Characters_F_Beta\INDEP\ia_officer.p3d";
 		class Wounds
 		{

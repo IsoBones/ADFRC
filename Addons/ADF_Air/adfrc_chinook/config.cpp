@@ -4513,7 +4513,7 @@ class CfgVehicles
 		faction = "ADFRC_F_MD";
 		model="ADF_Air\adfrc_chinook\CH_47F";
 		displayname="CH-47F Chinook";
-		editorPreview="\ADF_Air\adfrc_chinook\preview\adfrc_chinook.jpg";
+		editorPreview="\ADF_Air\adfrc_chinook\preview\ADFRC_chinook.jpg";
 		accuracy=1000;
 		hiddenSelections[]=
 		{
@@ -5769,6 +5769,7 @@ class CfgVehicles
 	};
 	class ADFRC_chinook_GWOT: ADFRC_chinook
 	{
+		editorPreview = "\ADF_Air\adfrc_chinook\preview\ADFRC_chinook_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 		author="$STR_ADF_AUTHOR";
 		displayname="CH-47D Chinook";
@@ -5789,6 +5790,7 @@ class CfgVehicles
 	};
 	class ADFRC_chinook_VIV: ADFRC_chinook
 	{
+		editorPreview = "\ADF_Air\adfrc_chinook\preview\ADFRC_chinook_VIV.jpg";
 		scope=2;
 		side=1;
 		author="$STR_ADF_AUTHOR";
@@ -5849,6 +5851,7 @@ class CfgVehicles
 	};
 	class ADFRC_chinook_VIV_GWOT: ADFRC_chinook_VIV
 	{
+		editorPreview = "\ADF_Air\adfrc_chinook\preview\ADFRC_chinook_VIV_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 		displayname="CH-47D Chinook (Cargo)";
 		author="$STR_ADF_AUTHOR";

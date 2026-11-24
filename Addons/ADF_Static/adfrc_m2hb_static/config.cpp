@@ -26,7 +26,7 @@ class CfgVehicles
 	class ADFRC_m2qcb: B_G_HMG_02_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_G_HMG_02_F.jpg";
+		editorPreview = "\ADF_Static\adfrc_m2hb_static\data\editorPreviews\ADFRC_m2qcb.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "M2HB-QCB";
@@ -39,7 +39,7 @@ class CfgVehicles
 	class ADFRC_m2qcb_high: B_G_HMG_02_high_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\B_G_HMG_02_high_F.jpg";
+		editorPreview = "\ADF_Static\adfrc_m2hb_static\data\editorPreviews\ADFRC_m2qcb_high.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "M2HB-QCB High";

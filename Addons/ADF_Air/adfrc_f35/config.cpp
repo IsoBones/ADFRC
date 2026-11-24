@@ -1362,6 +1362,7 @@ class CfgVehicles
 	/* RAAF */
 	class adfrc_f35: adfrc_f35_base
 	{
+		editorPreview = "\ADF_Air\adfrc_f35\data\editorPreviews\adfrc_f35.jpg";
 		class SimpleObject
 		{
 			eden = true;
@@ -1388,6 +1389,7 @@ class CfgVehicles
 	};
 	class adfrc_f35_stealth: adfrc_f35_base
 	{
+		editorPreview = "\ADF_Air\adfrc_f35\data\editorPreviews\adfrc_f35_stealth.jpg";
 		author = "AveryTheKitty & OlliKoskelainen (Arma 3 Aegis)";
 		scope = public;
 		displayName = "F-35A Lightning II (Stealth)";

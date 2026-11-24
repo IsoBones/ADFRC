@@ -12,5 +12,6 @@ class CfgDigVehicles
     };
     class adfrc_m1a1aim_md:    adfrc_abrams {};
     class adfrc_m1a1aim_gwot:  adfrc_abrams {};
+    editorPreview = "\ADF_Tracked\adfrc_abrams\data\editorPreviews\adfrc_m1a1aim_gwot.jpg";
     class adfrc_m1a2sepv3_md:  adfrc_abrams {};
 };

@@ -95,7 +95,7 @@
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_CQB.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_CQB.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		backpack = "ADFRC_BP_Assault_AMCU_1";
@@ -188,7 +188,7 @@ class ADFRC_MD_AMCU_CDO_Light: ADFRC_MD_AMCU_CDO_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_CQB.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_Light.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -254,7 +254,7 @@ class ADFRC_MD_AMCU_CDO_Light_Tee: ADFRC_MD_AMCU_CDO_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_CQB.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_Light_Tee.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		weapons[]={
@@ -321,7 +321,7 @@ class ADFRC_MD_AMCU_CDO_Light_Tee: ADFRC_MD_AMCU_CDO_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=1;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_Grenadier.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_Grenadier.jpg";
 		role="Rifleman";
 		//threat[]={0.80000001,0.1,0.1}; <---For us to tweak the threat it poses to other units https://community.bistudio.com/wiki/CfgVehicles_Config_Reference#threat
 		backpack="ADFRC_T5_backpanel";
@@ -420,7 +420,7 @@ class ADFRC_MD_AMCU_CDO_Light_Tee: ADFRC_MD_AMCU_CDO_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_MMG.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_MMG.jpg";
 		icon="iconManMG";
 		role="MachineGunner";
 		cost=220000;
@@ -502,7 +502,7 @@ class ADFRC_MD_AMCU_CDO_Light_Tee: ADFRC_MD_AMCU_CDO_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_MMG.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_LMG.jpg";
 		icon="iconManMG";
 		role="MachineGunner";
 		cost=220000;
@@ -583,7 +583,7 @@ class ADFRC_MD_AMCU_CDO_Light_Tee: ADFRC_MD_AMCU_CDO_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_PatrolCom.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_PatrolCom.jpg";
 		icon="iconManLeader";
 		role="Rifleman";
 		cost=250000;
@@ -776,7 +776,7 @@ class ADFRC_MD_AMCU_CDO_Light_Tee: ADFRC_MD_AMCU_CDO_Tee_Base{
 		author="$STR_ADF_AUTHOR";
 		scope=2;
 		scopeCurator=2;
-		editorPreview = "\ADF_Units\data\editorPreviews\MD\AMCU_CDO_PatrolCom.jpg";
+		editorPreview = "\ADF_Units\data\editorPreviews\MD\ADFRC_MD_AMCU_CDO_Scout.jpg";
 		icon="iconManLeader";
 		role="Rifleman";
 		cost=250000;

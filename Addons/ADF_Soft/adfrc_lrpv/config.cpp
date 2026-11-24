@@ -640,12 +640,14 @@ class CfgVehicles
 
 	class adfrc_lrpv_m2: adfrc_lrpv_base
 	{
+		editorPreview = "\ADF_Soft\adfrc_lrpv\data\editorPreviews\adfrc_lrpv_m2.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "LRPV 6x6 (M2/MAG58) [WIP]";
 	};
 	class adfrc_lrpv_m2_GWOT: adfrc_lrpv_m2
 	{
+		editorPreview = "\ADF_Soft\adfrc_lrpv\data\editorPreviews\adfrc_lrpv_m2_GWOT.jpg";
 		faction="ADFRC_F_GWOT";
 	};
 };

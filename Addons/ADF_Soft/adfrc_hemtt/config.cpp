@@ -122,7 +122,7 @@ class CfgVehicles
 	class ADFRC_hemtt_box: B_Truck_01_box_F
 	{
 		author = "ADFRC Quiggs";
-		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_flatbed.jpg";
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_box.jpg";
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "HEMTT Box";
@@ -139,30 +139,37 @@ class CfgVehicles
 ////////////////////// ADF GWOT VERSIONS //////////////////////
 	class ADFRC_hemtt_cargo_GWOT: ADFRC_hemtt_cargo
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_cargo_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class ADFRC_hemtt_ammo_GWOT: ADFRC_hemtt_ammo
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_ammo_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class ADFRC_hemtt_fuel_GWOT: ADFRC_hemtt_fuel
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_fuel_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class ADFRC_hemtt_transport_GWOT: ADFRC_hemtt_transport
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_transport_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class ADFRC_hemtt_mover_GWOT: ADFRC_hemtt_mover
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_mover_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class ADFRC_hemtt_flatbed_GWOT: ADFRC_hemtt_flatbed
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_flatbed_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	class ADFRC_hemtt_box_GWOT: ADFRC_hemtt_box
 	{
+		editorPreview = "\ADF_Soft\adfrc_hemtt\preview\ADFRC_hemtt_box_GWOT.jpg";
 		faction = "ADFRC_F_GWOT";
 	};
 	
