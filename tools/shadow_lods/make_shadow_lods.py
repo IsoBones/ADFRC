@@ -393,7 +393,9 @@ def build_shadow(src, res_value, shrink=0.0, bad_parts='hull', hull_max=0.25):
     for name, pw, fw in keep_sels:
         p_bytes = bytes(pw[rep[j]] for j in range(newn))
         if not any(p_bytes): continue
-        f_bytes = bytes((fw[s] if s >= 0 else 0) for s in tri_src)
+        # hole caps have no source face: they belong to a selection when all three corners do,
+        # otherwise a part hidden through hiddenSelections leaves its caps casting a shadow
+        f_bytes = bytes((fw[s] if s >= 0 else (1 if all(p_bytes[i] for i in t) else 0)) for s, t in zip(tri_src, tris))
         S.tags.append([1, name, p_bytes + f_bytes])
     # every edge sharp
     edges = sorted(und2.keys())
