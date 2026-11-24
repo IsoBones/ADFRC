@@ -1,4 +1,5 @@
-/* Header */
+// C-130 Hercules, converted from the Arma 3 Aegis Plane_Transport_01.
+// Model and original config: AveryTheKitty (Arma 3 Aegis), APL-SA.
 class CfgPatches
 {
 	class adfrc_c130
@@ -9,6 +10,7 @@ class CfgPatches
 			"ADF_Core"
 		};
 		requiredVersion = 0.1;
+		author = "ADFRC - AveryTheKitty (Arma 3 Aegis)";
 		units[] =
         {
             adfrc_c130_inf,
@@ -29,10 +31,13 @@ class EventHandlers;
 class CfgVehicles
 {
     /* Inheritance Tree */
-    class Air;
+	class AllVehicles;
+	class Air: AllVehicles
+	{
+		class NewTurret;
+	};
 	class Plane: Air
 	{
-		class Turrets;
 		class HitPoints;
 	};
 	class Plane_Base_F: Plane
@@ -42,8 +47,7 @@ class CfgVehicles
 		{
 			class HitHull;
 		};
-		class NewTurret;
-		class Turrets: Turrets
+		class Turrets
 		{
 			class CopilotTurret;
 		};
@@ -53,12 +57,13 @@ class CfgVehicles
 	class PlaneWreck;
 
     /* Bases */
-	class Plane_Transport_01_base_F: Plane_Base_F
+	class adfrc_c130_base: Plane_Base_F
 	{
-		scope = 2;
+		scope = 0;
+		scopeCurator = 0;
 		vehicleClass = Air;
 		displayName = "C-130 Hercules";
-		author = "$STR_ADF_AUTHOR";
+		author = "AveryTheKitty (Arma 3 Aegis)";
 		simulation = airplaneX;
 		crewVulnerable = true;
 		driverAction = "Pilot_Plane_Transport_01";
@@ -82,7 +87,7 @@ class CfgVehicles
 		picture = "\ADF_Air\adfrc_c130\data\UI\Plane_Transport_01_CA.paa";
 		icon = "\ADF_Air\adfrc_c130\data\UI\Map_Plane_Transport_01_CA.paa";
 		mapSize = 25;
-		model = "\ADF_Air\adfrc_c130\Plane_Transport_01_F.p3d";
+		model = "\ADF_Air\adfrc_c130\adfrc_c130.p3d";
 		animated = true;
 		hiddenSelections[] =
 		{
@@ -448,6 +453,7 @@ class CfgVehicles
 			item_xx(Toolkit,1);
 			item_xx(Medikit,1);
 		};
+		class NewTurret;
 		class Turrets: Turrets
 		{
 			class CopilotTurret: CopilotTurret
@@ -962,7 +968,7 @@ class CfgVehicles
 		/* SOUNDS */
 		#include "sounds.hpp"
 	};
-	class Plane_Transport_01_infantry_base_F: Plane_Transport_01_base_F
+	class adfrc_c130_inf_base: adfrc_c130_base
 	{
 		author = "$STR_ADF_AUTHOR";
 		scope = 1;
@@ -1146,7 +1152,7 @@ class CfgVehicles
 			bag_xx(B_Parachute,57);
 		};
 	};
-	class Plane_Transport_01_vehicle_base_F: Plane_Transport_01_base_F
+	class adfrc_c130_vic_base: adfrc_c130_base
 	{
 		author = "$STR_ADF_AUTHOR";
 		scope = 1;
@@ -1210,7 +1216,7 @@ class CfgVehicles
 			bag_xx(B_Parachute,3);
 		};
 	};
-	class Plane_Transport_01_Wreck_F: PlaneWreck
+	class adfrc_c130_wreck: PlaneWreck
 	{
 		class SimpleObject
 		{
@@ -1221,14 +1227,14 @@ class CfgVehicles
 			verticalOffsetWorld = 0;
 			init = "''";
 		};
-		author = "$STR_ADF_AUTHOR";
+		author = "AveryTheKitty (Arma 3 Aegis)";
 		scope = 2;
 		displayName = "C-130 Hercules wreck";
 		class Armory
 		{
 			disabled = true;
 		};
-		model = "\ADF_Air\adfrc_c130\Plane_Transport_01_Wreck_F.p3d";
+		model = "\ADF_Air\adfrc_c130\adfrc_c130_wreck.p3d";
 		typicalCargo[] = {};
 		transportAmmo = 0;
 		transportRepair = 0;
@@ -1238,7 +1244,7 @@ class CfgVehicles
 
     /* Factions */
 	/* ADF */
-	class adfrc_c130_inf: Plane_Transport_01_infantry_base_F
+	class adfrc_c130_inf: adfrc_c130_inf_base
 	{
 		author = "$STR_ADF_AUTHOR";
 		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf.jpg";
@@ -1262,7 +1268,7 @@ class CfgVehicles
 			"\ADF_Air\adfrc_c130\data\Plane_Transport_01_interior_CO.paa"
 		};
 	};
-	class adfrc_c130_vic: Plane_Transport_01_vehicle_base_F
+	class adfrc_c130_vic: adfrc_c130_vic_base
 	{
 		author = "$STR_ADF_AUTHOR";
 		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf.jpg";
@@ -1287,7 +1293,7 @@ class CfgVehicles
 		};
 	};
 	/* DPCU */
-	class adfrc_c130_inf_auscam: Plane_Transport_01_infantry_base_F
+	class adfrc_c130_inf_auscam: adfrc_c130_inf_base
 	{
 		author = "$STR_ADF_AUTHOR";
 		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf_auscam.jpg";
@@ -1307,7 +1313,7 @@ class CfgVehicles
 			"\ADF_Air\adfrc_c130\data\Plane_Transport_01_interior_CO.paa"
 		};
 	};
-	class adfrc_c130_vic_auscam: Plane_Transport_01_vehicle_base_F
+	class adfrc_c130_vic_auscam: adfrc_c130_vic_base
 	{
 		author = "$STR_ADF_AUTHOR";
 		editorPreview = "\ADF_Air\adfrc_c130\preview\adfrc_c130_inf_auscam.jpg";
@@ -1370,18 +1376,10 @@ class CfgVehicles
 class CfgNonAIVehicles
 {
 
-	class ProxyRetex
+	class ProxyRetex;
+	class Proxyadfrc_c130_wreck: ProxyRetex
 	{
-		autocenter = 0;
-		scope = 0;
-		animated = 0;
-		model = "";
-		simulation = "Proxyretex";
-		hiddenSelections[] = {};
-	};
-	class proxyPlane_Transport_01_Wreck_F: ProxyRetex
-	{
-		model = "\ADF_Air\adfrc_c130\Plane_Transport_01_Wreck_F.p3d";
+		model = "\ADF_Air\adfrc_c130\adfrc_c130_wreck.p3d";
 		hiddenSelections[] =
 		{
 			camo1,
