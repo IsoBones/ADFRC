@@ -246,7 +246,7 @@ class CfgVehicles
 				material = -1;
 				armorComponent = "hit_hull";
 				name = "hit_hull_point";
-				visual = "-";
+				visual = "zbytek";
 				passThrough = 1;
 				minimalHit = 0.02;
 				explosionShielding = 1.5;
