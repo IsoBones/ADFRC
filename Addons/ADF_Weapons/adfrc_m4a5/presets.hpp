@@ -2068,3 +2068,17 @@ class ADFRC_WP_M4A5_203_BLK_Aimpoint_PEQ: ADFRC_M4A5_KAC_M203_556
 		};
 	};
 };
+
+////M4A1-AU Classic (RAN boarding party)
+class ADFRC_WP_M4A5_Classic_552: ADFRC_M4A5_Classic_556
+{
+	author = "ADFRC";
+	class LinkedItems
+	{
+		class LinkedItemsOptic
+		{
+			slot = CowsSlot;
+			item = "ADFRC_eotech552";
+		};
+	};
+};
