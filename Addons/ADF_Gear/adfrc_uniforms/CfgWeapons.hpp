@@ -326,6 +326,14 @@ class CfgWeapons{
 		};
 	};
 
+	class ADFRC_Uniform_Field_MMP : ADFRC_Uniform_Field_AMCU {
+		displayName="Field Dress (MMP)";
+		picture="\ADF_Gear\adfrc_uniforms\ui\ADFRC_Uniform_Field_MMP.paa";
+		class ItemInfo: ItemInfo{
+			uniformClass="ADFRC_Uniform_Field_MMP";
+		};
+	};
+
     //?
     //? Crye G3s
     //?

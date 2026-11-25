@@ -585,15 +585,27 @@ class CfgVehicles{
 		nakedUniform="U_BasicBody";
 		model                      = "\adf_gear\adfrc_uniforms\adfrc_field_dress.p3d";
 		uniformClass               = "ADFRC_Uniform_Field_AMCU";
+		// camo = shirt and trousers, camoB = boots, insignia = right shoulder pocket flap
+		hiddenSelections[]         = { "camo", "camoB", "insignia" };
+		hiddenSelectionsTextures[] = {
+			"\ADF_Gear\adfrc_uniforms\data\adfrc_field_dress_co.paa",
+			"\ADF_Gear\adfrc_uniforms\data\adfrc_field_dress_boot_co.paa"
+		};
 	};
 
 	class ADFRC_Uniform_Field_AMCU : ADFRC_MD_AMCU_Officer_Base {
 		author                     = "$STR_ADFRC_AUTHOR";
 		model                      = "\adf_gear\adfrc_uniforms\adfrc_field_dress.p3d";
 		uniformClass               = "ADFRC_Uniform_Field_AMCU";
+	};
 
-		hiddenSelections[]         = {  };
-		hiddenSelectionsTextures[] = {  };
+	class ADFRC_Uniform_Field_MMP : ADFRC_Uniform_Field_AMCU {
+		author                     = "$STR_ADFRC_AUTHOR";
+		uniformClass               = "ADFRC_Uniform_Field_MMP";
+		hiddenSelectionsTextures[] = {
+			"\ADF_Gear\adfrc_uniforms\data\adfrc_field_dress_mmp_co.paa",
+			"\ADF_Gear\adfrc_uniforms\data\adfrc_field_dress_boot_black_co.paa"
+		};
 	};
 
 	class ADFRC_Uniform_G3_Jacket_AMCU : ADFRC_Soldier_Base_F {
