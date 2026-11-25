@@ -13,6 +13,7 @@ class CfgPatches {
 			"ADFRC_Uniform_Ghillie_AMCU_Tropical",
 			"ADFRC_Uniform_Ghillie_AMCU_Arid",
 			"ADFRC_Uniform_Field_AMCU",
+			"ADFRC_Uniform_Field_MMP",
 			"ADFRC_Uniform_G3_AMCU",
 			"ADFRC_Uniform_G3_Multicam",
 			"ADFRC_Uniform_G3_Multicam_Dirty",
@@ -54,4 +55,4 @@ class CfgPatches {
 };
 
 #include "CfgVehicles.hpp"
-#include "CfgWeapons.hpp"
+#include "CfgWeapons.hpp"
