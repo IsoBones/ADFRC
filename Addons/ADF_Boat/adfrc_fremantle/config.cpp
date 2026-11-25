@@ -602,6 +602,7 @@ class CfgVehicles
 				proxyIndex = 2;
 				primaryGunner = 0;
 				commanding = 0;
+				gunnerType = "ADFRC_MD_RAN_Coxswain";
 				gunnerName = "Port Gunner";
 				gunnerAction = "adfrc_lrpv_gunner_m2";
 				gunnerInAction = "adfrc_lrpv_gunner_m2";
@@ -832,7 +833,7 @@ class CfgVehicles
 				proxyIndex = 20;
 			};
 		};
-		// Collision lights (360 deg). Point positions come from fremantle_lights.blend (Memory object).
+		// Collision lights (360 deg).
 		class MarkerLights
 		{
 			class collision_red_01
@@ -934,12 +935,19 @@ class CfgVehicles
 				color[] = {0.0,0.8,0.0};
 				ambient[] = {0.0,0.08,0.0};
 			};
-			// starboard sidelight in front of the bridge (mirror of collision_red_14)
 			class collision_green_05: collision_red_01
 			{
 				name = "collision_green_05";
 				color[] = {0.0,0.8,0.0};
 				ambient[] = {0.0,0.08,0.0};
+			};
+			class light_mast: collision_red_01
+			{
+				name = "light_mast";
+				color[] = {1.0,1.0,0.95};
+				ambient[] = {0.1,0.1,0.1};
+				drawLightSize = 0.25;
+				drawLightCenterSize = 0.06;
 			};
 			// Bulkhead downlights: switched with the collision lights, and actually light the deck
 			// (activeLight = 1, as BI's buoy / tower marker lights). Omni lights; start values, tune in game.
@@ -1075,7 +1083,6 @@ class CfgVehicles
 				selection = "light_flood_08";
 			};
 		};
-		// no aggregateReflectors: aggregating merges each group into one light at the group's average position
 		class AnimationSources
 		{
 			class driver_conning
@@ -1181,9 +1188,9 @@ class CfgVehicles
 		displayName = "Fremantle-class Patrol Boat";
 		scope = 2;
 		scopeCurator = 2;
-		crew = "ADFRC_MD_RAN_Coxswain";
+		crew = "ADFRC_MD_RAN_OOW";
 		faction = "ADFRC_F_MD";
 		side = 1;
-		typicalCargo[] = {"ADFRC_MD_RAN_Coxswain"};
+		typicalCargo[] = {"ADFRC_MD_RAN_OOW"};
 	};
 };
