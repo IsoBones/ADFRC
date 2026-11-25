@@ -22,6 +22,12 @@ class CfgFunctions
 			class boatInit {};
 			class ladder {};
 		};
+		class Sink
+		{
+			file = "ADF_Boat\adfrc_fremantle\functions";
+			class sinkInit {};
+			class sinkFx {};
+		};
 	};
 };
 
@@ -34,6 +40,16 @@ class Extended_Init_EventHandlers
 		{
 			init = "(_this select 0) call adfrc_fremantle_fnc_boatInit";
 		};
+		// RAN ensign on the flag proxy (\A3\data_f\proxies\flags\flag_alone). Runs on every machine, so JIP is covered.
+		class adfrc_fremantle_flag
+		{
+			init = "(_this select 0) forceFlagTexture '\ADF_Core\data\adf_ran_flag_co.paa'";
+		};
+		// Death sequence: hull blasts, fires, fires out as she goes under (shared with the Arafura)
+		class adfrc_fremantle_sinkFx
+		{
+			init = "(_this select 0) call adfrc_fremantle_fnc_sinkInit";
+		};
 	};
 };
 
@@ -45,6 +61,24 @@ class CfgAmmo
 	{
 		airLock = 1;
 		canLock = 2;
+	};
+	// Ship death sequence hull blasts (adfrc_fremantle_fnc_sinkFx). HelicopterExploBig detonates
+	// on creation (explosionTime 0.001). Damage cut back so a dying ship doesn't flatten everything
+	// around it; the big one swaps in the GBU-12 fireball and sound.
+	class HelicopterExploBig;
+	class adfrc_ship_explosion_big: HelicopterExploBig
+	{
+		hit = 200;
+		indirectHit = 60;
+		indirectHitRange = 10;
+		explosionEffects = "BombExplosion";
+		SoundSetExplosion[] = {"BombsHeavy_Exp_SoundSet","BombsHeavy_Tail_SoundSet","Explosion_Debris_SoundSet"};
+	};
+	class adfrc_ship_explosion_medium: HelicopterExploBig
+	{
+		hit = 100;
+		indirectHit = 40;
+		indirectHitRange = 7;
 	};
 };
 
@@ -1173,6 +1207,34 @@ class CfgVehicles
 				statement = "[this, 'recover'] call adfrc_fremantle_fnc_assaultBoat";
 			};
 		};
+		// Death sequence (adfrc_fremantle_fnc_sinkFx). Existing memory points; offsets are
+		// model space [x,y,z], z up, from the point. Delays in seconds after death.
+		class adfrc_sinkFx
+		{
+			// {memPoint, {offset}, ammo, delay}
+			explosions[] = {
+				{"engineeffectr", {0,0,2.5}, "adfrc_ship_explosion_big", 0.3},
+				{"pos cargo", {0,0,-1.2}, "adfrc_ship_explosion_medium", 1.4},
+				{"lfastwatereffects", {0,0,0.8}, "adfrc_ship_explosion_medium", 2.6}
+			};
+			// {memPoint, {offset}, "big"|"medium"|"small", delay}
+			fires[] = {
+				{"pos deck_2", {0,0,0}, "medium", 1.0},
+				{"exhaust_01", {0,0,0}, "medium", 1.6},
+				{"exhaust_02", {0,0,0}, "medium", 1.9},
+				{"light_down_03", {0,0,-1.5}, "small", 2.0},
+				{"light_down_06", {0,0,-1.5}, "medium", 2.3},
+				{"pos deck_5", {0,0,0}, "small", 3.0},
+				{"driverview", {0,0,0}, "big", 6.0}
+			};
+			extinguishHeight = 0.3;
+			burnTime = 600;
+			sinkAssist = 0;
+			sinkMassMult = 3;
+			sinkTime = 90;
+			sinkTowards = "engineeffectl";
+			sinkBias = 0.3;
+		};
 		class VehicleTransport
 		{
 			class Cargo
@@ -1192,5 +1254,9 @@ class CfgVehicles
 		faction = "ADFRC_F_MD";
 		side = 1;
 		typicalCargo[] = {"ADFRC_MD_RAN_OOW"};
+	};
+	class adfrc_fremantle_gwot: adfrc_fremantle
+	{
+		faction = "ADFRC_F_GWOT";
 	};
 };
