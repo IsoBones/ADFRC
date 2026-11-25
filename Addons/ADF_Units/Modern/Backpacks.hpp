@@ -249,3 +249,31 @@
 			};
 		};
 	};
+	// RAN boarding party medic
+	class ADFRC_AssaultPack_Black_MED;
+	class ADFRC_AssaultPack_Black_MED_RAN: ADFRC_AssaultPack_Black_MED{
+		author="$STR_ADF_AUTHOR";
+		scope=1;
+		class TransportItems{
+			class _xx_Medikit{
+				name="Medikit";
+				count=1;
+			};
+			class _xx_FirstAidKit{
+				name="FirstAidKit";
+				count=8;
+			};
+		};
+	};
+	// RAN boarding party gunner: spare Minimi belts
+	class ADFRC_AssaultPack_Black;
+	class ADFRC_AssaultPack_Black_RAN_MG: ADFRC_AssaultPack_Black{
+		author="$STR_ADF_AUTHOR";
+		scope=1;
+		class TransportMagazines{
+			class _xx_ADFRC_200Rnd_556_Minimi_TR5{
+				magazine="ADFRC_200Rnd_556_Minimi_TR5";
+				count=2;
+			};
+		};
+	};
