@@ -15,6 +15,7 @@ For the licensing categories these models fall into, see [ASSETS_LICENSE.md](ASS
 | NPP Kondor Ballistic Glasses | _[Bebra Productions - NPP KlASS Kondor](https://steamcommunity.com/sharedfiles/filedetails/?id=2976880521)_ | _Bebra Productions_ | _used per their description_ |
 |AH-64E Apache & C-130 Hercules | _[Arma 3 Aegis/Atlas](https://github.com/senicluxus/A3_Aegis_Public_Releases)_ | Aegis Team | _used per APL-SA_ |
 | F-35A Lightning II (`adfrc_f35`, converted from the Aegis F-38 / Plane_Fighter_05) | _[Arma 3 Aegis/Atlas](https://github.com/senicluxus/A3_Aegis_Public_Releases)_ | AveryTheKitty, OlliKoskelainen | _used per APL-SA_ |
+| RHIB (`adfrc_rhib`, unarmed) | _Arma 2 (Bohemia Interactive)_ | Bohemia Interactive | _Arma 2 RHIB port, gun and gunner position removed; used per APL-SA_ |
 
 ---
 
