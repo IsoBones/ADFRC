@@ -1564,10 +1564,12 @@ class CfgVehicles
 				weapons[] = 
 				{
 					"ADFRC_boxer_mk30",
-					"ADFRC_boxer_coax"
+					"ADFRC_boxer_coax",
+					"ADFRC_laser_gunner"
 				};
 				magazines[] = 
 				{
+					"Laserbatteries",
 					"ADFRC_boxer_125Rnd_30mm_HE",
 					"ADFRC_boxer_125Rnd_30mm_AP",
 					"ADFRC_boxer_600Rnd_762x51_Tracer",
@@ -2256,10 +2258,12 @@ class CfgVehicles
 				{
 					"ADFRC_boxer_mk30",
 					"ADFRC_spike_launcher",
-					"ADFRC_boxer_coax"
+					"ADFRC_boxer_coax",
+					"ADFRC_laser_gunner"
 				};
 				magazines[] = 
 				{
+					"Laserbatteries",
 					"ADFRC_boxer_125Rnd_30mm_HE",
 					"ADFRC_boxer_125Rnd_30mm_AP",
 					"2Rnd_GAT_missiles",

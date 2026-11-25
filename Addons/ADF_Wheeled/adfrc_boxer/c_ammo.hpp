@@ -187,8 +187,8 @@ class cfgWeapons
 	{
 		muzzleEnd = "lasergun_dir";
 		muzzlePos = "lasergun_pos";
-		irLaserEnd = "lasercom_dir";
-		irLaserPos = "lasercom_pos";
+		irLaserEnd = "lasergun_dir";
+		irLaserPos = "lasergun_pos";
 	};
 	class LMG_coax_ext;
 	class ADFRC_boxer_coax: LMG_coax_ext
