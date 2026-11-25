@@ -6,7 +6,7 @@ class CfgPatches
 		requiredAddons[] = {"A3_Boat_F","A3_Weapons_F","A3_Data_F_Mod_Loadorder","cba_main","cba_xeh","ADF_Core","ADF_Units","adfrc_abrams","adfrc_lrpv","adfrc_lcm"};
 		requiredVersion = 0.1;
 		units[] = {"adfrc_fremantle"};
-		weapons[] = {"adfrc_bofors_l60","adfrc_fremantle_horn"};
+		weapons[] = {"adfrc_bofors_l60","adfrc_fremantle_horn","adfrc_ship_M2HB"};
 	};
 };
 
@@ -56,6 +56,13 @@ class CfgMagazines
 		displayName = "40mm HE-T (Bofors)";
 		ammo = "adfrc_bofors_40mm_HE";
 	};
+	// Ship M2 belts: every round a tracer (the vanilla tracer belts only show every 4th)
+	class 100Rnd_127x99_mag_Tracer_Red;
+	class adfrc_ship_100Rnd_127x99_tracer_red: 100Rnd_127x99_mag_Tracer_Red
+	{
+		displayName = "12.7mm 100Rnd All-Tracer (Red)";
+		tracersEvery = 1;
+	};
 };
 
 class CfgWeapons
@@ -68,6 +75,12 @@ class CfgWeapons
 		displayName = "Ship Horn";
 		drySound[] = {"ADF_Boat\adfrc_fremantle\sounds\fremantle_horn.ogg",3.1622777,1,2000};
 		reloadTime = 2.4;
+	};
+	// Ship M2 (Fremantle, Arafura): the ADFRC Abrams M2 with the all-tracer belt added
+	class adfrc_abrams_M2HBQCB;
+	class adfrc_ship_M2HB: adfrc_abrams_M2HBQCB
+	{
+		magazines[] = {"adfrc_ship_100Rnd_127x99_tracer_red","100Rnd_127x99_mag","100Rnd_127x99_mag_Tracer_Red","100Rnd_127x99_mag_Tracer_Green","100Rnd_127x99_mag_Tracer_Yellow"};
 	};
 	class autocannon_Base_F;
 	class autocannon_40mm_CTWS: autocannon_Base_F
@@ -604,8 +617,8 @@ class CfgVehicles
 				gunEnd = "konec hlavne_2";
 				selectionFireAnim = "zasleh_2";
 				gunnerOpticsModel = "\A3\weapons_f\reticle\optics_empty";
-				weapons[] = {"ADFRC_abrams_M2HBQCB"};
-				magazines[] = {"100rnd_127x99_mag_Tracer_Red","100rnd_127x99_mag_Tracer_Red","100rnd_127x99_mag_Tracer_Red","100rnd_127x99_mag_Tracer_Red","100rnd_127x99_mag_Tracer_Red","100rnd_127x99_mag_Tracer_Red"};
+				weapons[] = {"adfrc_ship_M2HB"};
+				magazines[] = {"adfrc_ship_100Rnd_127x99_tracer_red","adfrc_ship_100Rnd_127x99_tracer_red","adfrc_ship_100Rnd_127x99_tracer_red","adfrc_ship_100Rnd_127x99_tracer_red","adfrc_ship_100Rnd_127x99_tracer_red","adfrc_ship_100Rnd_127x99_tracer_red"};
 				minElev = -15;
 				maxElev = 45;
 				// 12 o'clock round to 8 o'clock on the port side (positive = to port)
