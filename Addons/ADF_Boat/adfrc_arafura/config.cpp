@@ -723,6 +723,7 @@ class CfgVehicles
 				proxyIndex = 2;
 				primaryGunner = 0;
 				commanding = 0;
+				gunnerType = "ADFRC_MD_RAN_Coxswain";
 				gunnerName = "Port Gunner";
 				gunnerAction = "adfrc_lrpv_gunner_m2";
 				gunnerInAction = "adfrc_lrpv_gunner_m2";
@@ -1134,9 +1135,9 @@ class CfgVehicles
 		displayName = "Arafura-class OPV";
 		scope = 2;
 		scopeCurator = 2;
-		crew = "ADFRC_MD_RAN_Coxswain";
+		crew = "ADFRC_MD_RAN_OOW";
 		faction = "ADFRC_F_MD";
 		side = 1;
-		typicalCargo[] = {"ADFRC_MD_RAN_Coxswain"};
+		typicalCargo[] = {"ADFRC_MD_RAN_OOW"};
 	};
 };

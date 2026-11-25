@@ -7,7 +7,7 @@ class CfgPatches{
 			"ADF_Core",
 			"ADF_Gear"
 		};
-		units[]={"ADFRC_MD_RAN_Coxswain"};
+		units[]={"ADFRC_MD_RAN_Coxswain","ADFRC_MD_RAN_BoardingOfficer","ADFRC_MD_RAN_BoardingRifleman","ADFRC_MD_RAN_BoardingMedic","ADFRC_MD_RAN_BoardingMG","ADFRC_MD_RAN_DeckGunner","ADFRC_MD_RAN_OOW"};
 		weapons[]={};
 		//fileName = "ADF_Units.pbo";
 	};
