@@ -35,6 +35,16 @@ class Extended_Init_EventHandlers
 		{
 			init = "(_this select 0) call adfrc_arafura_fnc_boatInit";
 		};
+		// RAN ensign on the flag proxy (\A3\data_f\proxies\flags\flag_alone). Runs on every machine, so JIP is covered.
+		class adfrc_arafura_flag
+		{
+			init = "(_this select 0) forceFlagTexture '\ADF_Core\data\adf_ran_flag_co.paa'";
+		};
+		// Death sequence (function lives in adfrc_fremantle)
+		class adfrc_arafura_sinkFx
+		{
+			init = "(_this select 0) call adfrc_fremantle_fnc_sinkInit";
+		};
 	};
 };
 
@@ -1120,6 +1130,37 @@ class CfgVehicles
 				condition = "(driver this == player || {(this turretUnit [3]) == player}) && {this animationSourcePhase 'rhib_s_deployed' > 0.5}";
 				statement = "[this, 's', 'recover'] call adfrc_arafura_fnc_rhib";
 			};
+		};
+		// Death sequence (adfrc_fremantle_fnc_sinkFx). Existing memory points; offsets are
+		// model space [x,y,z], z up, from the point. Delays in seconds after death.
+		class adfrc_sinkFx
+		{
+			// {memPoint, {offset}, ammo, delay}
+			explosions[] = {
+				{"engineeffectl", {0,0,4.5}, "adfrc_ship_explosion_big", 0.3},
+				{"pos commander", {0,0,-3.5}, "adfrc_ship_explosion_big", 1.2},
+				{"pos driver", {0,0,-3.5}, "adfrc_ship_explosion_medium", 2.0},
+				{"watereffectr", {0,0,1.5}, "adfrc_ship_explosion_big", 3.2}
+			};
+			// {memPoint, {offset}, "big"|"medium"|"small", delay}
+			fires[] = {
+				{"adfrc_board_pos", {0,0,0}, "big", 1.0},
+				{"pos commander", {0,0,0}, "medium", 1.8},
+				{"pass_p_fore", {0,0,0}, "medium", 2.5},
+				{"pass_p_aft", {0,0,0}, "small", 3.0},
+				{"exhaust_02", {0,0,-3}, "medium", 4.0},
+				{"exhaust_01", {0,0,0}, "medium", 3.4},
+				{"exhaust_03", {0,0,0}, "medium", 3.7},
+				{"ladder_1_bottom", {0,0,0}, "small", 4.5},
+				{"driverview", {0,0,0}, "big", 8.0}
+			};
+			extinguishHeight = 0.3;
+			burnTime = 600;
+			sinkAssist = 0;
+			sinkMassMult = 3;
+			sinkTime = 120;
+			sinkTowards = "engineeffectl";
+			sinkBias = 0.3;
 		};
 		class VehicleTransport
 		{
