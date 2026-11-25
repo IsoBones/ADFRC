@@ -97,42 +97,42 @@
 			"\ADF_Gear\adfrc_uniforms\data\Crye_G3_Shirt_MMP_co.paa"
 		};
 		weapons[]={
-			"ADFRC_Preset_EF88C_Black_AFG_EXPS3_Squad",
+			"ADFRC_WP_M4A5_Classic_552",
 			"ADFRC_G19_G5_SLICK",
 			"Binocular",
 			"Throw",
 			"Put"
 		};
 		respawnWeapons[]={
-			"ADFRC_Preset_EF88C_Black_AFG_EXPS3_Squad",
+			"ADFRC_WP_M4A5_Classic_552",
 			"ADFRC_G19_G5_SLICK",
 			"Binocular",
 			"Throw",
 			"Put"
 		};
 		magazines[]={
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_TR_ef88",
-			"ADFRC_30Rnd_aug_TR_ef88",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG_TR",
+			"ADFRC_30Rnd_STANAG_TR",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"SmokeShellGreen"
 		};
 		respawnMagazines[]={
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_TR_ef88",
-			"ADFRC_30Rnd_aug_TR_ef88",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG_TR",
+			"ADFRC_30Rnd_STANAG_TR",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
@@ -190,40 +190,40 @@
 			"\ADF_Gear\adfrc_uniforms\data\Crye_G3_Shirt_MMP_co.paa"
 		};
 		weapons[]={
-			"ADFRC_Preset_EF88C_Black_VFG_EXPS3_Squad",
+			"ADFRC_WP_M4A5_Classic_552",
 			"ADFRC_G19_G5_SLICK",
 			"Throw",
 			"Put"
 		};
 		respawnWeapons[]={
-			"ADFRC_Preset_EF88C_Black_VFG_EXPS3_Squad",
+			"ADFRC_WP_M4A5_Classic_552",
 			"ADFRC_G19_G5_SLICK",
 			"Throw",
 			"Put"
 		};
 		magazines[]={
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"SmokeShell"
 		};
 		respawnMagazines[]={
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
@@ -282,35 +282,35 @@
 		};
 		backpack="ADFRC_AssaultPack_Black_MED_RAN";
 		weapons[]={
-			"ADFRC_Preset_EF88C_Black_EXPS3",
+			"ADFRC_M4A5_Classic_556",
 			"ADFRC_G19_G5_SLICK",
 			"Throw",
 			"Put"
 		};
 		respawnWeapons[]={
-			"ADFRC_Preset_EF88C_Black_EXPS3",
+			"ADFRC_M4A5_Classic_556",
 			"ADFRC_G19_G5_SLICK",
 			"Throw",
 			"Put"
 		};
 		magazines[]={
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"SmokeShellBlue"
 		};
 		respawnMagazines[]={
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
-			"ADFRC_30Rnd_aug_ef88",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
+			"ADFRC_30Rnd_STANAG",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"ADFRC_15rnd_9MM_BALL_G19",
 			"SmokeShellBlue"
