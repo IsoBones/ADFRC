@@ -1,5 +1,6 @@
 class CfgVehicles
-{	class B_Soldier_base_F;
+{	
+	class B_Soldier_base_F;
     class ADFRC_Soldier_base_F: B_Soldier_base_F
     {
 		scope=1;
@@ -23,17 +24,8 @@ class CfgVehicles
 		side=0;
 		faction="ADF_OPFOR";
 	};
-	class FLAG_NATO_F;
-	class FLAG_UNCUT_F: FLAG_NATO_F
-	{
-		scope=1;
-		displayName="Flag (Uncut)";
-		class eventHandlers
-		{
-			init="(_this select 0) setFlagTexture '\ADF_Core\data\adfuncut_flag_co.paa'";
-		};
-	};
-	class FLAG_adfrc_F: FLAG_NATO_F
+	class FLAG_RedCrystal_F;
+	class FLAG_adfrc_F: FLAG_RedCrystal_F
 	{
 		scope=2;
 		displayName="Flag (Australia)";
@@ -42,11 +34,20 @@ class CfgVehicles
 			init="(_this select 0) setFlagTexture '\ADF_Core\data\adf_flag_co.paa'";
 		};
 	};
+	class FLAG_adfrc_ran_F: FLAG_RedCrystal_F
+	{
+		scope=2;
+		displayName="Flag (RAN)";
+		class eventHandlers
+		{
+			init="(_this select 0) setFlagTexture '\ADF_Core\data\adf_ran_flag_co.paa'";
+		};
+	};
 	class FLAG_CSAT_F;
 	class FLAG_ADFOPFOR_F: FLAG_CSAT_F
 	{
 		scope=2;
-		displayName="Flag (Australia OPFOR)";
+		displayName="Flag (Australian Colonial)";
 		class eventHandlers
 		{
 			init="(_this select 0) setFlagTexture '\ADF_Core\data\adfopfor_flag_co.paa'";
