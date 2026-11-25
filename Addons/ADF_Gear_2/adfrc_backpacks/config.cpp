@@ -7,6 +7,8 @@ class CfgPatches{
 			"ADF_Core"
 		};
 		units[]={
+			"ADFRC_AssaultPack_Black",
+			"ADFRC_AssaultPack_Green",
 			"ADFRC_AssaultPack_Tan",
 			"ADFRC_AssaultPack_AMP",
 			"ADFRC_AssaultPack_DPCU",
@@ -68,10 +70,10 @@ class CfgVehicles{
 	class ReammoBox;
 // ASSAULTPACK BASE
 	class B_assaultpack_Base;
-	class ADFRC_AssaultPack_Black: B_assaultpack_Base{ // Rather pointless addition - B_AssaultPack_blk <- Does the same thing
+	class ADFRC_AssaultPack_Black: B_assaultpack_Base{
 		displayName = "Assault Pack (Black)";
 		author="$STR_ADF_AUTHOR";
-		scope=1;
+		scope=2;
 		picture="\A3\Weapons_F\Ammoboxes\Bags\data\UI\icon_B_AssaultPack_khk_ca.paa";
 		hiddenSelections[]={
 			"Camo"
@@ -80,10 +82,10 @@ class CfgVehicles{
 			"\ADF_Gear_2\adfrc_backpacks\data\AssaultPack_Black_co.paa"
 		};
 	};
-	class ADFRC_AssaultPack_Green: B_assaultpack_Base{ // Rather pointless addition - B_AssaultPack_sgg <- Does the same thing
+	class ADFRC_AssaultPack_Green: B_assaultpack_Base{
 		displayName = "Assault Pack (Green)";
 		author="$STR_ADF_AUTHOR";
-		scope=1;
+		scope=2;
 		picture="\A3\Weapons_F\Ammoboxes\Bags\data\UI\icon_B_AssaultPack_khk_ca.paa";
 		hiddenSelections[]={
 			"Camo"
@@ -1326,4 +1328,4 @@ class CfgVehicles{
 		maximumLoad = 100;
 		mass=05;
 	};
-};
+};
