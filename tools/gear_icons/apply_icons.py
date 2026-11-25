@@ -73,7 +73,7 @@ def top_level_picture(text, a, b):
             return a + m.start(1), a + m.end(1)
     return None
 
-def main(root, work, addons, apply=False, imagetopaa=None):
+def main(root, work, addons, apply=False, imagetopaa=None, only=None):
     global ROOT, ICONS, SEARCH
     ROOT, ICONS, SEARCH = os.path.abspath(root), work, addons
     APPLY = apply
@@ -84,12 +84,13 @@ def main(root, work, addons, apply=False, imagetopaa=None):
         png = os.path.join(rendered, lid + '.png')
         if os.path.exists(png):
             for c in lk['classes']:
-                want[c.lower()] = (c, png)
+                if not only or c.lower() in only:
+                    want[c.lower()] = (c, png)
     texts = {f: open(f, encoding='latin1', newline='').read() for f in config_files()}   # keep CRLF as is
     # existing icon folders per config file (most used picture dir)
     found, icondir = {}, {}
     for f, t in texts.items():
-        dirs = collections.Counter(ntpath.dirname(m.group(1)).lstrip('\\') for m in re.finditer(r'(?i)\bpicture\s*=\s*"(\\?(?!a3\\)[^"]+\.paa)"', t))
+        dirs = collections.Counter(ntpath.dirname(m.group(1)).lstrip('\\') for m in re.finditer(r'(?i)\bpicture\s*=\s*"(\\?(?!\\?a3\\)[^"]+\.paa)"', t))
         rel_addon = os.path.relpath(os.path.dirname(f), ROOT).replace(os.sep, '\\')
         icondir[f] = dirs.most_common(1)[0][0] if dirs else rel_addon + '\\icons'
         for m in re.finditer(r'(?i)\bclass\s+(\w+)\s*(?::\s*\w+\s*)?\{', t):

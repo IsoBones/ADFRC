@@ -79,6 +79,8 @@ def cmd_select(a):
         else:
             continue
         need.append(r); why[reason.split(' with ')[0]] += 1
+        if a.machine:
+            print('NEED|%s|%s|%s|%s|%s' % (cls, cat, reason, pic, r[8]))
     os.makedirs(a.work, exist_ok=True)
     json.dump(need, open(os.path.join(a.work, 'need.json'), 'w'), indent=0)
     print('%d of %d dumped classes need an icon:' % (len(need), len(rows)))
@@ -208,7 +210,25 @@ def cmd_apply(a):
     import apply_icons
     addons = a.addons or sorted(d for d in os.listdir(a.root)
                                 if d.lower().startswith('adf') and os.path.isdir(os.path.join(a.root, d)))
-    apply_icons.main(a.root, a.work, addons, apply=a.apply, imagetopaa=a.imagetopaa)
+    apply_icons.main(a.root, a.work, addons, apply=a.apply, imagetopaa=a.imagetopaa,
+                     only={c.lower() for c in a.only} or None)
+
+
+def cmd_tools(a):
+    """For the GUI: what this machine has. TOOL|name|path (path empty when not found)."""
+    import apply_icons
+    print('TOOL|blender|%s' % (find_blender(a.blender) or ''))
+    try:
+        import bpy  # noqa: F401
+        print('TOOL|bpy|yes')
+    except ImportError:
+        print('TOOL|bpy|')
+    print('TOOL|imagetopaa|%s' % (apply_icons.find_imagetopaa(a.imagetopaa) or ''))
+    for mod in ('numpy', 'PIL'):
+        try:
+            __import__(mod); print('TOOL|%s|yes' % mod)
+        except ImportError:
+            print('TOOL|%s|' % mod)
 
 
 def cmd_all(a):
@@ -220,7 +240,7 @@ def cmd_all(a):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('step', choices=['select', 'export', 'render', 'fit', 'apply', 'all'])
+    ap.add_argument('step', choices=['select', 'export', 'render', 'fit', 'apply', 'all', 'tools'])
     ap.add_argument('--root', default=os.getcwd(), help='build folder / P: drive root (default: current folder)')
     ap.add_argument('--work', help='working folder (default: <root>/temp/gear_icons)')
     ap.add_argument('--dump', help='dump file from dump_gear.sqf (default: <work>/gear_dump.txt)')
@@ -232,12 +252,16 @@ def main():
     ap.add_argument('--addons', nargs='+', help='apply: top-level addon folders to search for configs (default: ADF*)')
     ap.add_argument('--imagetopaa', help='apply: path to ImageToPAA.exe (default: find Arma 3 Tools via Steam)')
     ap.add_argument('--apply', action='store_true', help='apply: really write PAAs and edit configs')
+    ap.add_argument('--only-file', help='text file with one classname per line (adds to --only)')
+    ap.add_argument('--machine', action='store_true', help='select: also print NEED| lines (used by the GUI)')
     a = ap.parse_args()
+    if a.only_file:
+        a.only += [l.strip() for l in open(a.only_file, encoding='utf-8-sig') if l.strip()]
     a.root = os.path.abspath(a.root)
     a.work = os.path.abspath(a.work or os.path.join(a.root, 'temp', 'gear_icons'))
     a.dump = a.dump or os.path.join(a.work, 'gear_dump.txt')
     {'select': cmd_select, 'export': cmd_export, 'render': cmd_render, 'fit': cmd_fit,
-     'apply': cmd_apply, 'all': cmd_all}[a.step](a)
+     'apply': cmd_apply, 'all': cmd_all, 'tools': cmd_tools}[a.step](a)
 
 if __name__ == '__main__':
     main()
