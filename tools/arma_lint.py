@@ -1054,7 +1054,7 @@ def check_cfg_patches(parsed: FileParseResult, *, addon_root: Path | None, disab
     cfg_patches = next((c for c in parsed.classes if c.name == "CfgPatches" and not c.is_forward), None)
 
     # If this looks like the addon's root config.cpp (lives directly inside an
-    # Addons/<addon>/ folder) and CfgPatches is missing entirely → W014
+    # addons/<addon>/ folder) and CfgPatches is missing entirely → W014
     if "W014" not in disabled and addon_root is not None:
         p = Path(parsed.path)
         if p.name.lower() == "config.cpp" and p.parent == addon_root and cfg_patches is None:
@@ -1343,7 +1343,7 @@ def find_config_files(paths: Iterable[str]) -> Iterator[Path]:
 
 
 def find_addon_root(file_path: Path) -> Path | None:
-    """Walk up looking for an Addons/<name>/ ancestor; return the <name> dir."""
+    """Walk up looking for an addons/<name>/ ancestor; return the <name> dir."""
     p = file_path.resolve()
     parts = p.parts
     for i in range(len(parts) - 2, -1, -1):

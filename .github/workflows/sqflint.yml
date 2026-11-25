@@ -4,12 +4,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'Addons/**/*.sqf'
+      - 'addons/**/*.sqf'
       - '.github/workflows/sqflint.yml'
       - 'tools/sqf_lint.py'
   pull_request:
     paths:
-      - 'Addons/**/*.sqf'
+      - 'addons/**/*.sqf'
       - 'tools/sqf_lint.py'
 
 jobs:
@@ -34,4 +34,4 @@ jobs:
       # them visible in CI). Once existing warnings are cleaned up, swap
       # --no-warnings for -W to also block on warnings.
       - name: Run sqf_lint
-        run: python3 tools/sqf_lint.py Addons --no-warnings
+        run: python3 tools/sqf_lint.py addons --no-warnings

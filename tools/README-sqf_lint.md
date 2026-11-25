@@ -11,7 +11,7 @@ Single Python file, stdlib only, Python 3.8+. No pip install, no node, no docker
 Drop `sqf_lint.py` into `tools/` (alongside `arma_lint.py` if you have it) and run it:
 
 ```bash
-python3 tools/sqf_lint.py Addons
+python3 tools/sqf_lint.py addons
 ```
 
 Default exit codes:
@@ -127,37 +127,37 @@ GVAR(playerData) = _data;
 
 Lint everything:
 ```bash
-python3 tools/sqf_lint.py Addons
+python3 tools/sqf_lint.py addons
 ```
 
 Lint a single file:
 ```bash
-python3 tools/sqf_lint.py Addons/ADF_Air/adfrc_blackhawk/scripts/init_base.sqf
+python3 tools/sqf_lint.py addons/adf_air/adfrc_blackhawk/scripts/init_base.sqf
 ```
 
 Strict mode for CI (any warning fails the build):
 ```bash
-python3 tools/sqf_lint.py Addons -W
+python3 tools/sqf_lint.py addons -W
 ```
 
 JSON for piping into your editor:
 ```bash
-python3 tools/sqf_lint.py Addons --json | jq '.diagnostics[] | select(.level == "error")'
+python3 tools/sqf_lint.py addons --json | jq '.diagnostics[] | select(.level == "error")'
 ```
 
 Disable a noisy rule for one run:
 ```bash
-python3 tools/sqf_lint.py Addons --disable W005
+python3 tools/sqf_lint.py addons --disable W005
 ```
 
 Ignore project-wide globals so they don't trigger W007:
 ```bash
-python3 tools/sqf_lint.py Addons --ignore-name ADFRC_globalState --ignore-name ADFRC_init
+python3 tools/sqf_lint.py addons --ignore-name ADFRC_globalState --ignore-name ADFRC_init
 ```
 
 ## CI integration
 
-A ready-made GitHub Actions workflow lives at `.github/workflows/sqflint.yml`. It runs on PRs that touch any `.sqf` under `Addons/`. Mirrors the structure of the existing `configlint.yml`.
+A ready-made GitHub Actions workflow lives at `.github/workflows/sqflint.yml`. It runs on PRs that touch any `.sqf` under `addons/`. Mirrors the structure of the existing `configlint.yml`.
 
 Workflow uses `--no-warnings` by default to avoid drowning the CI log in pre-existing warnings. Once those are cleaned up, swap for `-W` to start blocking PRs that introduce regressions.
 
