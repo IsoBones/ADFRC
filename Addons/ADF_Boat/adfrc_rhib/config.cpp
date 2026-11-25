@@ -67,6 +67,7 @@ class CfgVehicles
 	// Rigid hull inflatable boat, unarmed: driver plus 10 on the jockey seats.
 	class adfrc_rhib: Boat_F
 	{
+		editorPreview = "\ADF_Boat\adfrc_rhib\data\editorPreviews\adfrc_rhib.jpg";
 		author = "ADFRC";
 		displayName = "RHIB";
 		model = "\ADF_Boat\adfrc_rhib\adfrc_rhib.p3d";

@@ -1131,6 +1131,7 @@ class CfgVehicles
 	};
 	class adfrc_arafura: adfrc_arafura_base
 	{
+		editorPreview = "\ADF_Boat\adfrc_arafura\data\editorPreviews\adfrc_arafura.jpg";
 		author = "ADFRC";
 		displayName = "Arafura-class OPV";
 		scope = 2;

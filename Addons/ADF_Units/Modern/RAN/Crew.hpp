@@ -78,6 +78,7 @@
 
 	////////////////////////RAN Boarding Party (MMP)//////////////////////////////////////////////
 	class ADFRC_MD_RAN_BoardingOfficer: ADFRC_MD_AMCU_Soldier_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_BoardingOfficer.jpg";
 		displayName="Boarding Officer";
 		author="$STR_ADF_AUTHOR";
 		scope=2;
@@ -170,6 +171,7 @@
 	};
 
 	class ADFRC_MD_RAN_BoardingRifleman: ADFRC_MD_AMCU_Soldier_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_BoardingRifleman.jpg";
 		displayName="Boarding Party Member";
 		author="$STR_ADF_AUTHOR";
 		scope=2;
@@ -258,6 +260,7 @@
 	};
 
 	class ADFRC_MD_RAN_BoardingMedic: ADFRC_MD_AMCU_Soldier_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_BoardingMedic.jpg";
 		displayName="Boarding Party Medic";
 		author="$STR_ADF_AUTHOR";
 		scope=2;
@@ -343,6 +346,7 @@
 	};
 
 	class ADFRC_MD_RAN_BoardingMG: ADFRC_MD_AMCU_Soldier_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_BoardingMG.jpg";
 		displayName="Boarding Party Gunner";
 		author="$STR_ADF_AUTHOR";
 		scope=2;
@@ -418,6 +422,7 @@
 	};
 
 	class ADFRC_MD_RAN_DeckGunner: ADFRC_MD_AMCU_Soldier_Rolled_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_DeckGunner.jpg";
 		displayName="Upper Deck Gunner";
 		author="$STR_ADF_AUTHOR";
 		scope=2;
@@ -485,6 +490,7 @@
 	};
 	// Officer of the Watch: Field Dress (MMP). Default bridge crew for the Arafura and Fremantle.
 	class ADFRC_MD_RAN_OOW: ADFRC_MD_AMCU_Officer_Base{
+		editorPreview = "\ADF_Units\Modern\RAN\data\editorPreviews\ADFRC_MD_RAN_OOW.jpg";
 		displayName="Officer of the Watch";
 		author="$STR_ADF_AUTHOR";
 		scope=2;

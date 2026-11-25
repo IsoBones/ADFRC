@@ -3219,6 +3219,7 @@ class CfgVehicles
 	};
 	class adfrc_m1a1aim_gwot: adfrc_m1a1aim_md
 	{
+		editorPreview = "\ADF_Tracked\adfrc_abrams\data\editorPreviews\adfrc_m1a1aim_gwot.jpg";
 		faction="ADFRC_F_GWOT";
 		crew="ADFRC_crewman_dpcu";
 	};

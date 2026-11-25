@@ -22,7 +22,7 @@ class CfgWeapons
 		author = "$STR_ADF_AUTHOR";
 		weaponPoolAvailable = 1;
 		displayName = "Trucker Cap";
-		picture = "\A3\characters_f\Data\UI\icon_H_Cap_red_CA.paa"; // placeholder until picgen icons exist
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_wdl_ca.paa";
 		model = "\ADF_Gear\adfrc_truckercap\adfrc_truckercap.p3d";
 		hiddenSelections[] = {"camo"};
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_wdl_co.paa"};
@@ -37,36 +37,42 @@ class CfgWeapons
 	};
 	class adfrc_truckercap_wdl: adfrc_truckercap_base
 	{
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_wdl_ca.paa";
 		scope = 2;
 		displayName = "Trucker Cap [Woodland]";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_wdl_co.paa"};
 	};
 	class adfrc_truckercap_amcu: adfrc_truckercap_base
 	{
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_amcu_ca.paa";
 		scope = 2;
 		displayName = "Trucker Cap [AMCU]";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_amcu_co.paa"};
 	};
 	class adfrc_truckercap_mmp: adfrc_truckercap_base
 	{
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_mmp_ca.paa";
 		scope = 2;
 		displayName = "Trucker Cap [MMP]";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_mmp_co.paa"};
 	};
 	class adfrc_truckercap_tan: adfrc_truckercap_base
 	{
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_tan_ca.paa";
 		scope = 2;
 		displayName = "Trucker Cap [Tan]";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_tan_co.paa"};
 	};
 	class adfrc_truckercap_blk: adfrc_truckercap_base
 	{
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_blk_ca.paa";
 		scope = 2;
 		displayName = "Trucker Cap [Black]";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_blk_co.paa"};
 	};
 	class adfrc_truckercap_grn: adfrc_truckercap_base
 	{
+		picture = "\ADF_Gear\adfrc_truckercap\icons\adfrc_truckercap_grn_ca.paa";
 		scope = 2;
 		displayName = "Trucker Cap [Green]";
 		hiddenSelectionsTextures[] = {"\ADF_Gear\adfrc_truckercap\data\adfrc_truckercap_grn_co.paa"};

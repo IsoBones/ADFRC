@@ -1176,6 +1176,7 @@ class CfgVehicles
 	};
 	class adfrc_fremantle: adfrc_fremantle_base
 	{
+		editorPreview = "\ADF_Boat\adfrc_fremantle\data\editorPreviews\adfrc_fremantle.jpg";
 		author = "ADFRC";
 		displayName = "Fremantle-class Patrol Boat";
 		scope = 2;
