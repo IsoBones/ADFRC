@@ -40,7 +40,7 @@ if (!_serverSide) exitWith {
 if (_mode == "deploy") exitWith {
     if (_ship animationSourcePhase "assaultboat_deployed" > 0.5) exitWith {};
     private _launch = _ship modelToWorldWorld (_ship selectionPosition ["boat_launch", "Memory"]);
-    private _boat = createVehicle ["adfrc_rhib", [0, 0, 0], [], 0, "CAN_COLLIDE"];
+    private _boat = createVehicle ["B_Boat_Transport_01_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
     _boat setDir (getDir _ship);
     _boat setPosASL [_launch select 0, _launch select 1, 0.4];
     _boat setVelocity (velocity _ship);
