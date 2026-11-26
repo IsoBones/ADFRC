@@ -14,14 +14,14 @@ class CfgPatches{
 };
 
 class CfgVehicles{
-	#include "modern\rar\Infantry.hpp"
-	#include "modern\rar\Recce.hpp"
-	#include "modern\cdo\Infantry.hpp"
-	//#include "modern\cdo\TAG.hpp"   ## BASE CLASSES DONT EVEN EXIST FOR THESE YET!
-	#include "modern\sasr\Infantry.hpp"
-	//#include "modern\sasr\TAG.hpp"  ## BASE CLASSES DONT EVEN EXIST FOR THESE YET!
-	#include "modern\Backpacks.hpp"
-	#include "modern\ran\Crew.hpp"
+	#include "Modern\RAR\Infantry.hpp"
+	#include "Modern\RAR\Recce.hpp"
+	#include "Modern\CDO\Infantry.hpp"
+	//#include "Modern\CDO\TAG.hpp"   ## BASE CLASSES DONT EVEN EXIST FOR THESE YET!
+	#include "Modern\SASR\Infantry.hpp"
+	//#include "Modern\SASR\TAG.hpp"  ## BASE CLASSES DONT EVEN EXIST FOR THESE YET!
+	#include "Modern\Backpacks.hpp"
+	#include "Modern\RAN\Crew.hpp"
 };
 
 class cfgGroups
@@ -29,8 +29,8 @@ class cfgGroups
   class WEST
   {
     name="BLUFOR";
-	#include "modern\rar\Groups.hpp"
-	#include "modern\cdo\Groups.hpp"
-	#include "modern\sasr\Groups.hpp"
+	#include "Modern\RAR\Groups.hpp"
+	#include "Modern\CDO\Groups.hpp"
+	#include "Modern\SASR\Groups.hpp"
 };
 };

@@ -43,14 +43,14 @@ class cfgWeapons
 	class InventoryMuzzleItem_Base_F;
 	class muzzle_snds_M;
 	
-	#include "t2\T2.hpp"
-	#include "exps3\EXPS3.hpp"
-	#include "dpp\DPP.hpp"
-	#include "pro\Aimpoint_PRO.hpp"
-	#include "romeo2\Romeo2.hpp"
-	#include "spectr\Spectr.hpp"
-	#include "ta31\TA31.hpp"
-	#include "ta648\TA648.hpp"
+	#include "T2\T2.hpp"
+	#include "EXPS3\EXPS3.hpp"
+	#include "DPP\DPP.hpp"
+	#include "PRO\Aimpoint_PRO.hpp"
+	#include "Romeo2\Romeo2.hpp"
+	#include "Spectr\Spectr.hpp"
+	#include "TA31\TA31.hpp"
+	#include "TA648\TA648.hpp"
 	class ADFRC_swarovski_optic: ItemCore
 	{
 		scope=2;

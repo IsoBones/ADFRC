@@ -44,24 +44,24 @@ class CfgWeapons
 	
 	////MUZZLE DEVICES
 	class muzzle_snds_M;
-	#include "surefire_rc\SOCOM_RC.hpp"
-	#include "nt4\NT4.hpp"
-	#include "ryder9\Ryder9.hpp"
-	#include "zev\Zev.hpp"
-	#include "f88_silencer\F88_Silencer.hpp"
+	#include "SUREFIRE_RC\SOCOM_RC.hpp"
+	#include "NT4\NT4.hpp"
+	#include "Ryder9\Ryder9.hpp"
+	#include "Zev\Zev.hpp"
+	#include "F88_SILENCER\F88_Silencer.hpp"
 	
 	////WEAPON LIGHTS
 	#include "F88LightLasers.hpp"
-	#include "x400\X400.hpp"
-	#include "wmlx\WMLx.hpp"
-	#include "peq15\Peq15.hpp"
-	#include "l3squad\L3Squad.hpp"
-	#include "p320\Foxtrot2.hpp"
+	#include "X400\X400.hpp"
+	#include "WMLx\WMLx.hpp"
+	#include "PEQ15\Peq15.hpp"
+	#include "L3Squad\L3Squad.hpp"
+	#include "P320\Foxtrot2.hpp"
 	
 	////Bipods/Grips
-	#include "grip_pod\grippod.hpp"
-	#include "atlas\atlas.hpp"
-	#include "harris\Harris.hpp"
+	#include "Grip_Pod\grippod.hpp"
+	#include "ATLAS\atlas.hpp"
+	#include "Harris\Harris.hpp"
 	
 	
 };
