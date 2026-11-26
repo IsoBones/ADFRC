@@ -12,7 +12,7 @@ class CfgPatches
 	};
 };
 
-#include "\ADF_Core\basicDefines_A3.hpp"
+#include "\adf_core\basicDefines_A3.hpp"
 
 class CfgAmmo
 {

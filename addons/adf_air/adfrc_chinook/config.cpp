@@ -32,7 +32,7 @@ class CfgPatches
 	};
 };
 /* Definitions & Inheritance */
-#include "\ADF_Core\basicDefines_A3.hpp"
+#include "\adf_core\basicDefines_A3.hpp"
 class VehicleTransport;
 class DefaultEventhandlers;
 class CfgMovesBasic

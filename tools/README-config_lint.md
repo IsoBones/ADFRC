@@ -11,7 +11,7 @@ Single Python file, stdlib only, Python 3.8+. No pip install, no node, no docker
 Drop `arma_lint.py` somewhere in your repo (a `tools/` folder works) and run it:
 
 ```bash
-python3 tools/arma_lint.py Addons
+python3 tools/arma_lint.py addons
 ```
 
 Default exit codes:
@@ -86,32 +86,32 @@ Default exit codes:
 
 Lint everything:
 ```bash
-python3 tools/arma_lint.py Addons
+python3 tools/arma_lint.py addons
 ```
 
 Lint a single file:
 ```bash
-python3 tools/arma_lint.py Addons/ADF_Air/adfrc_apache/cfgVehicles.hpp
+python3 tools/arma_lint.py addons/adf_air/adfrc_apache/cfgVehicles.hpp
 ```
 
 Strict mode for CI (any warning fails the build):
 ```bash
-python3 tools/arma_lint.py Addons -W
+python3 tools/arma_lint.py addons -W
 ```
 
 JSON for piping into your editor:
 ```bash
-python3 tools/arma_lint.py Addons --json | jq '.diagnostics[] | select(.level == "error")'
+python3 tools/arma_lint.py addons --json | jq '.diagnostics[] | select(.level == "error")'
 ```
 
 Disable a noisy rule for one run:
 ```bash
-python3 tools/arma_lint.py Addons --disable E016
+python3 tools/arma_lint.py addons --disable E016
 ```
 
 ## CI integration
 
-A ready-made GitHub Actions workflow lives at `.github/workflows/configlint.yml`. It runs on PRs that touch any `.cpp` / `.hpp` / `.cfg` under `Addons/`. Mirrors the structure of the existing `sqflint.yml`.
+A ready-made GitHub Actions workflow lives at `.github/workflows/configlint.yml`. It runs on PRs that touch any `.cpp` / `.hpp` / `.cfg` under `addons/`. Mirrors the structure of the existing `sqflint.yml`.
 
 ## Pre-commit hook
 
