@@ -8,7 +8,7 @@ PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
 {
-	texture="ADF_Weapons\ADFRC_F1Grenade\Textures\ADF_F1Grenade_NOHQ.paa";
+	texture="adf_weapons\adfrc_f1grenade\textures\adfrc_f1_nohq.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -44,7 +44,7 @@ class Stage3
 };
 class Stage4
 {
-	texture="ADF_Weapons\ADFRC_F1Grenade\Textures\ADF_F1Grenade_AS.paa";
+	texture="adf_weapons\adfrc_f1grenade\textures\adfrc_f1_as.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -56,7 +56,7 @@ class Stage4
 };
 class Stage5
 {
-	texture="ADF_Weapons\ADFRC_F1Grenade\Textures\ADF_F1Grenade_SMDI.paa";
+	texture="adf_weapons\adfrc_f1grenade\textures\adfrc_f1_smdi.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -68,7 +68,7 @@ class Stage5
 };
 class Stage6
 {
-	texture="#(ai,64,64,1)fresnelGlass()";
+	texture="#(ai,64,64,1)fresnel(1.5,1.22)";
 	uvSource="none";
 };
 class Stage7
